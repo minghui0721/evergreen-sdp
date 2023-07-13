@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #edf5e1;
+    color: #05386b;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+
+
+
+hr{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+/* In the CSS, we set the left and right padding of the "container-fluid" class to 0, removing the default padding. This allows the "row1" div to occupy the full width of the screen, inheriting the width of its parent container. */
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    height: 120px;
+}
+
+
+.row1{
+    text-align: center;
+    align-items: center;
+    background-color: #05386b;
+}
+
+
+
+/* the icon */
+svg{
+    width: 50px;
+    height: 30px;
+    fill: #05386b;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+.menu ul{
+    padding: 10px 200px 10px 200px;
+}
+
+
+.menu button{
+    border: none;
+    background-color: transparent;    
+    color: #edf5e1;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+.menu ul li{
+    position: relative;
+}
+
+/* use "after" to apply some design after the element  */
+.menu ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    right:0;
+    background: #5cdb95;
+    bottom: -3px;
+    position: absolute;
+    transition: 0.5s;
+}
+
+
+/* hover effect for the menu */
+.menu ul li:hover::after{
+    width: 80%;
+    left: 10%;
+}
+
+.menu button:hover{
+    color: #5cdb95;
+}
+
+
+.email, .logo, .social-icons{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email{
+    font-size: 20px;
+}
+
+
+
+
+
+.logo img{
+    width: 220px;
+    margin-right: -10px;
+}
+
+.evergreen_university{
+    margin-left: -40px ;
+}
+
+
+.evergreen{
+    font-size: 30px;
+    font-weight: bold;
+    padding-right: 50px;
+}
+
+.university{
+    font-size: 24px;
+    margin-left: -12px ;
+}
+
+
+@media (max-width: 767px) {
+    .email,
+    .social-icons {
+        display: none;
+    }
+}
