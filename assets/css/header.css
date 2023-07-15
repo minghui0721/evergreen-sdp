@@ -1,29 +1,20 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #edf5e1;
-    color: #05386b;
+    color: #002349;
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 
 
 
-hr{
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-
-
 /* In the CSS, we set the left and right padding of the "container-fluid" class to 0, removing the default padding. This allows the "row1" div to occupy the full width of the screen, inheriting the width of its parent container. */
-.container-fluid {
+.container_header{
     padding-left: 0;
     padding-right: 0;
 }
 
-.row{
+.row_header{
     text-align: center;
     align-items: center;
     display: flex;
@@ -31,10 +22,10 @@ hr{
 }
 
 
-.row1{
+.row_navigation{
     text-align: center;
     align-items: center;
-    background-color: #05386b;
+    background-color: #002349;
 }
 
 
@@ -43,7 +34,7 @@ hr{
 svg{
     width: 50px;
     height: 30px;
-    fill: #05386b;
+    fill: #002349;
 }
 
 a{
@@ -60,9 +51,10 @@ a{
 .menu button{
     border: none;
     background-color: transparent;    
-    color: #edf5e1;
+    color: white;
     font-size: 17px;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 
@@ -76,7 +68,7 @@ a{
     height: 3px;
     width: 0;
     right:0;
-    background: #5cdb95;
+    background: #939597;
     bottom: -3px;
     position: absolute;
     transition: 0.5s;
@@ -90,7 +82,7 @@ a{
 }
 
 .menu button:hover{
-    color: #5cdb95;
+    color: #ff595a;
 }
 
 
@@ -110,25 +102,9 @@ a{
 
 
 .logo img{
-    width: 220px;
-    margin-right: -10px;
+    width: 130px;
 }
 
-.evergreen_university{
-    margin-left: -40px ;
-}
-
-
-.evergreen{
-    font-size: 30px;
-    font-weight: bold;
-    padding-right: 50px;
-}
-
-.university{
-    font-size: 24px;
-    margin-left: -12px ;
-}
 
 
 @media (max-width: 767px) {

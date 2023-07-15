@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/config.js"></script> 
-    <link rel="stylesheet" href="assets/css/header.css?v=<?php echo time(); ?>">
-    
-
+    <link rel="stylesheet" href="assets/css/header.css?v=<?php echo time(); ?>">    
     <script>
         // document.getElementById() is used to retrieve an element by its unique 'id' attribute
         // innerText is used to represent the text content of an element.
@@ -19,19 +20,16 @@
     </script>
 </head>
 <body>
+    <?php include 'assets/css/font.html'; ?>
      <!-- Header -->
-     <div class="container-fluid">
-        <div class="row">
+     <div class="container_header">
+        <div class="row_header">
             <div class="col email">
                 <p>123-456-7890 | evergreen@gmail.com</p>
             </div>
         
             <div class="col  logo d-flex align-items-center justify-content-center ">
-                <img src="assets/images/evergreen.png" alt="logo">
-                <h2 class="evergreen_university">
-                    <span class="evergreen">Evergreen</span><br>
-                    <span class="university">Height University</span>
-                </h2>
+                <img src="assets/images/evergreen-logo.png" alt="logo">
             </div>
         
             <div class="col social-icons">
@@ -53,31 +51,27 @@
             </div>
         </div>
     </div>
-    
-        <!-- Header -->
 
-
-        <hr>
 
     <!-- MENU -->
-    <div class="container-fluid">
-            <div class="row1">
+    <div class="container_header">
+            <div class="row_navigation">
                 <div class="menu">
                         <ul class="list-unstyled d-flex justify-content-between flex-wrap">
                             <li class="col-lg-2 col-md-4 col-12 ">
                                 <button id="home">Home</button>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12"> 
-                                <button id="service">Our Services</button>
+                                <button id="service">About Evergreen</button>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12">
-                                <button id="aboutus">About Us</button>
+                                <button id="aboutus">Programs</button>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <button id="donation">Donation</button>
+                                <button id="donation">Faculty</button>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <button id="career">Career</button>
+                                <button id="career">Admissions</button>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
                                 <button id="contactus">Contact Us</button>
