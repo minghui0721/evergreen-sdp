@@ -20,7 +20,7 @@
     </script>
 </head>
 <body>
-    <?php include 'assets/css/font.html'; ?>
+    <?php include 'assets/fonts/font.html'; ?>
      <!-- Header -->
      <div class="container_header">
         <div class="row_header">
@@ -80,6 +80,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
 </body>

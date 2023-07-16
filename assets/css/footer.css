@@ -97,14 +97,14 @@ img{
 
 
 @media (max-width: 990px) {
-    .container-fluid{
+    .container_footer{
         flex-direction: column;
     }
-
-    body{
+    
+    .footer_logo, .navigation, .social, .address{
         background-color: #002349;
     }
-    
+
 }
 
 .table_nav{

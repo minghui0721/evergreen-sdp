@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <?php include 'assets/css/font.html'; ?>
+    <?php include 'assets/fonts/font.html'; ?>
 
     <!-- Footer -->
     <div class="container_footer">
