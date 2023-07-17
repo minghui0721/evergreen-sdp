@@ -69,11 +69,20 @@
         </div>
 
         <!-- latest news -->
-        <div class="new">
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae fugit voluptates odio voluptate, fugiat iusto exercitationem magnam quam id odit dicta repellendus ea laudantium, nam dolor aliquam voluptatum cupiditate rerum.
+        <div class="container-fluid new">
+            <div class="latest_header">
+                <h2>LATEST NEWS</h2>
+            </div>
+
+            <div class="news">
+                <div class="grid new1">new1</div>
+                <div class="grid new2">new2</div>
+                <div class="grid new3">new3</div>
+            </div>
         </div>
 
         <!-- others -->
+        <div>a</div>
 
     </div>
 

@@ -69,7 +69,7 @@
 .uni_life{
     width: 95%;
     margin: 0 auto;
-    height: 110vh;
+    height: 1050px;
     color: white;
 }
 
@@ -94,7 +94,9 @@
     cursor: pointer;
     border-radius: 1px;
 }
-
+.life_header h2, .life_header button, .life_header p{
+    margin-top: 15px;
+}
 
 
 .life_header button:hover{
@@ -111,8 +113,7 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.grid{
-    background-color: blue;
+.grid1, .grid2, .grid3, .grid4{
     height: 350px;
 }
 
@@ -145,7 +146,7 @@
     flex-direction: column;
     align-items: center;
     height: 200px;
-    width: 900px;
+    width: 100%;
 }
 
 .grid_content h2{
@@ -181,6 +182,83 @@
 
 /* news */
 .new{
+    height: 70vh;
+}
+
+@media (max-width: 1500px) {
+    .four_grid{
+        grid-template-columns: auto;
+    }
+    
+    .uni_life{
+        height: fit-content;
+    }
+
+    .grid1, .grid4{
+        display: none;
+    }
+
+}
+
+@media (max-width: 775px){
+    .grid_content{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+
+    .grid_content p{
+       text-align: left;
+    }
+}
+
+
+/* news */
+.latest_header{
+    text-align: center;
+}
+
+.latest_header h2{
+    font-size: 50px;
+}
+
+.news{
+    font-size: 30px;
+    color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    grid-template-columns: auto auto auto;
+    column-gap: 50px;
+}
+
+.new1, .new2, .new3{
+    margin-top: 80px;
+    background-color: green;
+    width: 300px;
+    height: 250px;
+    text-align: center;
+    padding: 20px;
+}
+
+.new1{
     background-color: red;
-    height: 100vh;
+    background-image: url(../images/class.avif);
+    background-position: center;
+    background-size: cover;
+}
+
+.new2{
+    background-color: blue;
+    background-image: url(../images/building.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.new3{
+    background-color: purple;
+    background-image: url(../images/student.avif);
+    background-position: center;
+    background-size: cover;
 }
