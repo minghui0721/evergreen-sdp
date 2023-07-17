@@ -31,16 +31,49 @@
                     <p>Welcome to all of our students</p>
                 </div>
                 <div class="about_button">
-                    <button>Discover the school</button>
+                    <a href="aboutuspage"><button>Discover the school</button></a>
+                    
                 </div>
                 
             </div>
         </div>
 
-        <!-- others -->
+        <!-- uni life -->
         <div class="uni_life">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, dolore dicta? Mollitia magni at cum assumenda porro corporis, ea sequi, facere fugit unde ducimus animi rem! Accusamus mollitia excepturi quas!</p>
+
+            <div class="life_header">
+                <h2>SAFETY MEASURES IN PLACE</h2>
+                <p>We do everything to ensure the health, safety and well-being of our students and employees. Additional information can be found here</p>
+                <a href="#"><button>Safety Measures</button></a>
+            </div>
+
+
+            <div class="four_grid">
+                <div class="grid grid1"></div>
+                <div class="grid grid2">
+                    <div class="grid_content">
+                        <h2>Student Life</h2>
+                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. </p>
+                        <a href="studentinfo"><button>Student Information</button></a>
+                    </div>
+                </div>
+                <div class="grid grid3">
+                    <div class="grid_content">
+                        <h2>Open Enrollment</h2>
+                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. </p>
+                        <a href="enrollment"><button>Apply Today</button></a>
+                    </div>
+                </div>
+                <div class="grid grid4"></div>
+            </div>
         </div>
+
+        <!-- latest news -->
+        <div class="new">
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae fugit voluptates odio voluptate, fugiat iusto exercitationem magnam quam id odit dicta repellendus ea laudantium, nam dolor aliquam voluptatum cupiditate rerum.
+        </div>
+
+        <!-- others -->
 
     </div>
 

@@ -4,7 +4,7 @@
 }
 
 .aboutus{
-    background-image: linear-gradient(#00234992, #a6a6c100), url("../images/sport.jpg");
+    background-image: linear-gradient(#00234992, #a6a6c100), url("../images/building.jpg");
     height: 80vh;
     background-size: cover;
     margin-top: -20px;
@@ -45,7 +45,6 @@
 }
 
 
-
 .about_button button{
     background-color: #002349;
     color: white;
@@ -59,7 +58,129 @@
 .about_button button:hover{
     transition-duration: 0.4s;
     background-color: transparent;
-    color: #002349;
+    color: white;
     outline: 2px solid white;
     padding: 5px 20px;
+}
+
+
+
+/* uni life */
+.uni_life{
+    width: 95%;
+    margin: 0 auto;
+    height: 110vh;
+    color: white;
+}
+
+
+.life_header{
+    color: #002349;
+    text-align: center;
+    padding: 50px;
+}
+
+.life_header h2{
+    font-size: 50px;
+}
+
+
+.life_header button{
+    background-color: #5c5adb;
+    color: white;
+    border: none;
+    padding: 5px  25px;
+    transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
+    cursor: pointer;
+    border-radius: 1px;
+}
+
+
+
+.life_header button:hover{
+        transition-duration: 0.4s;
+    background-color: transparent;
+    color: #002349;
+    outline: 2px solid #002349;
+    padding: 5px 40px;
+}
+
+
+.four_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid{
+    background-color: blue;
+    height: 350px;
+}
+
+.grid1{
+    background-image: url(../images/student.avif);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.grid2, .grid3{
+    background-color: #1d1d36;
+}
+
+.grid2, .grid3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.grid4{
+    background-image:  url(../images/class.avif);
+    background-size: cover;
+    background-position: center;
+}
+
+.grid_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 900px;
+}
+
+.grid_content h2{
+    font-size: 40px;
+    color: #5c5adb;
+}
+
+.grid_content p{
+    font-size: 18px;
+    padding: 20px 50px;
+    width: 600px;
+    text-align: center;
+}
+
+.grid_content button{
+    background-color: #5c5adb;
+    color: white;
+    border: none;
+    padding: 5px  25px;
+    transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
+    cursor: pointer;
+    border-radius: 1px;
+}
+
+.grid_content button:hover{
+    transition-duration: 0.4s;
+    background-color: transparent;
+    color: white;
+    outline: 2px solid white;
+    padding: 5px 40px;
+}
+
+
+/* news */
+.new{
+    background-color: red;
+    height: 100vh;
 }
