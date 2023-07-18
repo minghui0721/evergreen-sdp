@@ -49,7 +49,7 @@
     background-color: #002349;
     color: white;
     border: none;
-    padding: 5px  10px;
+    padding: 5px  20px;
     transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
     cursor: pointer;
     border-radius: 1px;
@@ -60,7 +60,7 @@
     background-color: transparent;
     color: white;
     outline: 2px solid white;
-    padding: 5px 20px;
+    padding: 5px 30px;
 }
 
 
@@ -182,7 +182,8 @@
 
 /* news */
 .new{
-    height: 70vh;
+    height: fit-content;
+    position: relative;
 }
 
 @media (max-width: 1500px) {
@@ -228,37 +229,142 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    height: 200px;
     grid-template-columns: auto auto auto;
     column-gap: 50px;
+    position: relative;
 }
 
 .new1, .new2, .new3{
-    margin-top: 80px;
-    background-color: green;
-    width: 300px;
-    height: 250px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 320px;
+    height: 300px;
     text-align: center;
     padding: 20px;
+    position: relative;
 }
 
+
 .new1{
-    background-color: red;
     background-image: url(../images/class.avif);
     background-position: center;
     background-size: cover;
 }
 
 .new2{
-    background-color: blue;
     background-image: url(../images/building.jpg);
     background-position: center;
     background-size: cover;
 }
 
 .new3{
-    background-color: purple;
     background-image: url(../images/student.avif);
     background-position: center;
     background-size: cover;
+}
+
+
+.new1 h3, .new2 h3, .new3 h3{
+    text-align: left;
+    font-size: 20px;
+    color: black;
+}
+
+.new1 h2, .new2 h2, .new3 h2{
+    text-align: left;
+    margin-top: auto;
+}
+
+/* create a black 'paper' to make the image darker */
+.new1::before,
+.new2::before,
+.new3::before{
+    position: absolute;
+    content: "";
+    background-color: black;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.news a{
+    text-decoration: none;
+    color: white;
+    transition-duration: 0.3s;
+    opacity: 1;
+}
+
+.news a:hover{
+    opacity: 0.8;
+    transform: scale(1.1);  /*zoom in 10%*/
+}
+
+.news_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding-top: 0 100px;
+}
+.news_button button{
+    background-color: #1d1d36;
+    color: white;
+    border: none;
+    padding: 10px  50px;
+    transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
+    cursor: pointer;
+    border-radius: 1px;
+    font-size: 18px;
+}
+
+.news_button button:hover{
+        transition-duration: 0.4s;
+    background-color: transparent;
+    color: white;
+    outline: 2px solid white;
+    padding: 10px 70px;
+}
+
+
+  
+.background_div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    background-color: #5c5adb;
+    margin-top: 250px;
+    z-index: -1;
+ }
+  
+
+/* life & culture */
+.life_culture{
+    height: 70vh;
+}
+
+.culture_header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.culture_header h2{
+    color: white;
+    font-size: 70px;
+}
+
+.life_culture .culture_header h3 {
+    font-size: 40px;
+    color: white;
+  }
+  
+
+.culture_header span{
+    color: black;
 }

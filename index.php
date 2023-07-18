@@ -74,15 +74,73 @@
                 <h2>LATEST NEWS</h2>
             </div>
 
+            <div class="background_div"></div>
+
             <div class="news">
-                <div class="grid new1">new1</div>
-                <div class="grid new2">new2</div>
-                <div class="grid new3">new3</div>
+                <a href="#">
+                    <div class="grid new1">
+                        <h3>Mar 22</h3>
+                        <h2>Learning at Home Effectively</h2>
+                    </div>
+                </a>
+                
+                <a href="#">
+                    <div class="grid new2">
+                        <h3>Mar 22</h3>
+                        <h2>Get to Know Your Teachers</h2>
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div class="grid new3">
+                        <h3>Mar 22</h3>
+                        <h2>The News Safety Regulations</h2>
+                    </div>
+                </a>
+                
+            </div>
+
+            <div class="news_button">
+                <button>Read All News</button>
             </div>
         </div>
 
-        <!-- others -->
-        <div>a</div>
+
+        <div class="life_culture">
+            <div class="culture_header">
+                <h2>LIFE & CULTURE</h2>
+                <h3>Follow <span>#evergreenuniversity</span> on Instagram</h3>
+            </div>
+
+            <!-- album -->
+            <div></div>
+
+        </div>
+
+        <!-- get in touch -->
+        <!-- a form -->
+        <!-- first name -->
+        <!-- last name -->
+        <!-- email -->
+        <!-- phone -->
+        <div>
+            <form action="your-form-handler.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+         </form>
+        </div>
+        
 
     </div>
 
