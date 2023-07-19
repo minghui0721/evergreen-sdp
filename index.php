@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/config.js"></script> 
+    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/index.css?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
+    
 </head>
 <body>
     <!-- font -->
@@ -113,7 +115,18 @@
             </div>
 
             <!-- album -->
-            <div></div>
+            <div class="gallery">
+                <div class="photo photo1"></div>
+                <div class="photo photo2"></div>
+                <div class="photo photo3"></div>
+                <div class="photo photo4"></div>
+                <div class="photo photo5"></div>
+                <div class="photo photo6"></div>
+                <div class="photo photo7"></div>
+                <div class="photo photo8"></div>
+                <div class="photo photo9"></div>
+                    
+            </div>
 
         </div>
 
@@ -123,24 +136,19 @@
         <!-- last name -->
         <!-- email -->
         <!-- phone -->
-        <div>
-            <form action="your-form-handler.php" method="POST">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
+        <div class="get_intouch">
+            <h2>GET IN TOUCH WITH US!</h2>
+            <p>We will send you the latest news</p>
+            <form action="get_intouch.php" method="POST">
+                <div class="label">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" required></textarea>
+                <div class="input_button">
+                    <input type="email" id="email" name="email" require>
+                    <button type="submit">Submit</button>
                 </div>
-                <button type="submit">Submit</button>
-         </form>
+            </form>
         </div>
-        
 
     </div>
 

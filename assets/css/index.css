@@ -46,7 +46,7 @@
 
 
 .about_button button{
-    background-color: #002349;
+    background-color: #1d1d36;
     color: white;
     border: none;
     padding: 5px  20px;
@@ -335,7 +335,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 1000px;
+    height: 1200px;
     background-color: #5c5adb;
     margin-top: 250px;
     z-index: -1;
@@ -344,7 +344,7 @@
 
 /* life & culture */
 .life_culture{
-    height: 70vh;
+    height: fit-content;
 }
 
 .culture_header{
@@ -367,4 +367,144 @@
 
 .culture_header span{
     color: black;
+}
+
+
+/* album */
+.gallery{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    column-gap: 30px;
+    row-gap: 50px;
+    margin-top: 80px;
+}
+
+.photo{
+    background-color: pink;
+    height: 400px;
+    width: 400px;
+    opacity: 1;
+    transition-duration: 0.3s;
+}
+
+.photo1{
+    background-image: url(../images/canteen.avif);
+    background-size: cover;
+    background-position: center;
+}
+.photo2{
+    background-image: url(../images/ball.avif);
+    background-size: cover;
+}
+.photo3{
+    background-image: url(../images/culture.avif);
+    background-size: cover;
+    background-position: center right;
+}
+.photo4{
+    background-image: url(../images/event.avif);
+    background-size: cover;
+    background-position: center;
+}
+.photo5{
+    background-image: url(../images/graduation.avif);
+    background-size: cover;
+    background-position: center;
+}
+.photo6{
+    background-image: url(../images/library.avif);
+    background-size: cover;
+    background-position: center;
+}
+.photo7{
+    background-image: url(../images/park.avif);
+    background-size: cover;
+    background-position: center;
+}
+.photo8{
+    background-image: url(../images/people.avif);
+    background-size: cover;
+    background-position: center;
+}
+.photo9{
+    background-image: url(../images/picnic.avif);
+    background-size: cover;
+    background-position: center;
+}
+
+.photo:hover{
+    opacity: 0.8;
+    transform: scale(1.1);  /*zoom in 10%*/
+}
+
+
+/* get in touch */
+.get_intouch{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.get_intouch h2{
+    color: #1d1d36;
+    font-size: 80px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.get_intouch p{
+    text-align: center;
+    font-size: 35px;
+}
+
+.label{
+    width: 800px;
+    color: white;
+    font-size: 25px;
+}
+
+.input_button{
+    display: flex;
+    height: 50px;
+    background-color: #5c5adb;
+}
+
+.input_button input{
+    background-color: #5c5adb;
+    border: 1px black;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+}
+
+input:invalid {
+    border: 3px solid #ff4040;
+    background-color: #ffb5b5;
+  }
+
+.input_button button{
+    padding-right: 0;
+}
+
+.input_button input {
+    flex: 1; /*to take up the remaining space in the container.*/
+}
+  
+.input_button button {
+    background-color: #1d1d36;
+    color: white;
+    border: none;
+    padding: 5px  60px;
+    transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
+    cursor: pointer;
+    border-radius: 1px;
+}
+
+
+.input_button button:hover{
+    background-color: transparent;
+    color: white;
+    outline: 2px solid white;
 }
