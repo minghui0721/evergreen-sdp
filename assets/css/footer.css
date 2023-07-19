@@ -4,7 +4,7 @@
 .container_footer{
     display: flex;
     color: white;
-    background-color: #002349;
+    background-color: #1d1d36;
     font-size: 16px;
     flex-direction: column;
     width: 100%;
@@ -15,7 +15,7 @@
 
 /* Row 1*/
 .row_footer{
-    background-color: #002349;
+    background-color: #1d1d36;
     height: 100%;
     width: 100%;
     display: flex;
@@ -90,9 +90,6 @@ img{
     line-height: 40px;
 }
 
-.opening{
-    background-color: purple;
-}
 
 
 
@@ -132,7 +129,7 @@ th, td {
 
 .rules{
     text-align: center;
-    background-color: #002349;
+    background-color: #1d1d36;
     color: white;
     padding-bottom: 20px;
 }
