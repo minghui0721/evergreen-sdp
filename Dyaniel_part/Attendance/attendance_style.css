@@ -1,5 +1,6 @@
 body{
-    background-color:#5CDB95;
+    background-color:#1d1d36;
+    font-family: 'Belanosima', sans-serif;
 }
 
 .wrapper{
@@ -7,8 +8,8 @@ body{
 }
 
 .back_button{
-    background-color: #379683;
-    color: #8EE4AF;
+    background-color: #004288;
+    color: white;
     font-size: 25px;
     margin: 20px 20px;
     padding: 5px 10px;
@@ -20,11 +21,12 @@ body{
 
 
 .back_button:hover{
-    background-color: #05386B;
+    background-color: #002c5c;
+    text-decoration: underline;
 }
 
 .ClassDetails{
-    color:#EDF5E1 ;
+    color:white;
     margin: 30px 50px;
 }
 
@@ -82,7 +84,7 @@ body{
 }
 
 .StudentList .present_button{
-    background-color: #6edb63;
+    background-color: #7c7add;
     color: white;
     font-size: 17px;
     margin-right: 10px;
@@ -94,7 +96,7 @@ body{
 }
 
 .StudentList .present_button:hover{
-    background-color: #56ad4c;
+    background-color: #59589c;
 }
 
 .StudentList .absent_button{
@@ -114,7 +116,7 @@ body{
 }
 
 .StudentList .present{
-    background-color:#74c76b ;
+    background-color:#5c5adb  ;
 }
 
 .StudentList .absent{
