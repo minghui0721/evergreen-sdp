@@ -26,20 +26,35 @@
 
     <div class="SideHeader">
         <hr>
-        <ul class="menu">
-            <li>
-                <label for="btn" class="SchoolManagement">School Management
-                    <i class="fa-solid fa-caret-down"></i>
-                </label>
-                <input type="checkbox" id="btn">
-                <ul>
-                    <li><a href="#">Manage user</a></li>
-                    <li><a href="#">Manage class</a></li>
-                    <li><a href="#">Manage subject</a></li>
-                    <li><a href="#">Manage timetable</a></li>
-                </ul>
-            </li>
-        </ul>
+
+        <div class="small">
+            <ul class="menu">
+                <li>
+                    <label for="btn" class="MenuTitle">School Management
+                        <i class="fa-solid fa-caret-down"></i>
+                    </label>
+                    <input type="checkbox" id="btn">
+                    <ul class="SchoolManagement">
+                        <li><a href="#">Manage user</a></li>
+                        <li><a href="#">Manage class</a></li>
+                        <li><a href="#">Manage subject</a></li>
+                        <li><a href="#">Manage timetable</a></li>
+                    </ul>
+
+                    <label for="btn-2" class="MenuTitle">School Management
+                        <i class="fa-solid fa-caret-down"></i>
+                    </label>
+                    <input type="checkbox" id="btn-2">
+                    <ul class="SchoolManagement2">
+                        <li><a href="#">Manage user</a></li>
+                        <li><a href="#">Manage class</a></li>
+                        <li><a href="#">Manage subject</a></li>
+                        <li><a href="#">Manage timetable</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
     </div>
 </body>
 </html>
