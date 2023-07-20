@@ -102,13 +102,6 @@ body{
     cursor: pointer;
 }
 
-/* .SideHeader .menu::before{
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-} */
-
 .SideHeader ul li label:hover,
 .SideHeader ul li a:hover{
     color: #5c5adb;
