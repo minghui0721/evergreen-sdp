@@ -17,7 +17,10 @@ include "../Admin_header/AdminHeader.php";
     <div class="wrapper">
         <div class="TitleBar">
             <h1>Classroom List</h1>
+            <a href="CreateClass.php">
             <button><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></i> &nbsp;Add New</button>
+            </a>
+            <!-- path -->
         </div>
         
         <div class="ClassroomList">

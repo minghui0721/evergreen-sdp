@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/03e0369c68.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+<?php
+include "../Admin_header/AdminHeader.php";
+?>
     <link rel="stylesheet" type="text/css" href="CreateClass_style.css?v=<?php echo time(); ?>">
     <!-- path -->
     <title>Create Class</title>
+
+    <style>
+    .SchoolManagement{
+        display: block;
+    }
+
+    .SchoolManagement .ManageClass{
+        color: #5c5adb;
+    }
+</style>
+
 </head>
 <body>
     <div class="wrapper">
@@ -53,10 +58,11 @@
             </form>
 
             <!-- back button -->
-            <a href="#">
+            <a href="ClassList.php">
                 <button class="back_button">
                     Back
                 </button>
+                <!-- path -->
             </a>
         </div>
     </div>
