@@ -123,3 +123,7 @@ body{
 .ClassroomList .delete_button:hover{
     background-color: #cf524e;
 }
+
+a{
+    text-decoration: none;
+}

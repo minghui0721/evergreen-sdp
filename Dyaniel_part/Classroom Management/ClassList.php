@@ -1,5 +1,6 @@
 <?php
 include "../Admin_header/AdminHeader.php";
+include "../dbConn.php"
 ?>
     <link rel="stylesheet" type="text/css" href="ClassList_style.css?v=<?php echo time(); ?>">
     <!-- path -->
@@ -23,6 +24,7 @@ include "../Admin_header/AdminHeader.php";
             <!-- path -->
         </div>
         
+
         <div class="ClassroomList">
             <table
             border="0"
@@ -36,109 +38,37 @@ include "../Admin_header/AdminHeader.php";
                     <th>Action</th>
                 </tr>
 
+                <!-- Retrieve class list from database -->
+                <?php
+                $ClassList_query="SELECT a.class_ID, a.class_name, a.room_type, b.start_time, b.end_time
+                FROM class a
+                INNER JOIN class_availability b
+                ON a.class_ID = b.class_ID";
+                $ClassList_result=mysqli_query($connection,$ClassList_query);
+                while($ClassList_row=mysqli_fetch_assoc($ClassList_result)){
+                ?>
+
                 <tr>
-                    <td>001</td>
-                    <td>A-02-04</td>
-                    <td>Classroom</td>
-                    <td>8.00 p.m.</td>
-                    <td>6.00 p.m.</td>
+                    <td><?php echo $ClassList_row["class_ID"];?></td>
+                    <td><?php echo $ClassList_row["class_name"];?></td>
+                    <td><?php echo $ClassList_row["room_type"];?></td>
+                    <td><?php echo date('H:i a', strtotime($ClassList_row['start_time'])); ?></td>
+                    <td><?php echo date('H:i a', strtotime($ClassList_row['end_time'])); ?></td>
                     <td>
+                        <!-- Edit Button -->
+                        <a href="EditClass.php?classID=<?php echo $ClassList_row["class_ID"];?>">
                         <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
+                        </a>
+                        <!-- Delete Button -->
+                        <a href="#">
                         <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
+                        </a>
                     </td>
                 </tr>
 
-                <tr>
-                    <td>002</td>
-                    <td>Tech Lab 6-11</td>
-                    <td>Lab</td>
-                    <td>8.30 p.m.</td>
-                    <td>6.00 p.m.</td>
-                    <td>
-                        <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                        <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>003</td>
-                    <td>B-05-02</td>
-                    <td>Classroom</td>
-                    <td>8.00 p.m.</td>
-                    <td>5.00 p.m.</td>
-                    <td>
-                        <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                        <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>004</td>
-                    <td>Level 3 Auditorium 2</td>
-                    <td>Auditorium</td>
-                    <td>10.00 p.m.</td>
-                    <td>6.00 p.m.</td>
-                    <td>
-                        <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                        <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                    </td>
-
-                    <tr>
-                        <td>003</td>
-                        <td>B-05-02</td>
-                        <td>Classroom</td>
-                        <td>8.00 p.m.</td>
-                        <td>5.00 p.m.</td>
-                        <td>
-                            <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                            <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>B-05-02</td>
-                        <td>Classroom</td>
-                        <td>8.00 p.m.</td>
-                        <td>5.00 p.m.</td>
-                        <td>
-                            <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                            <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>B-05-02</td>
-                        <td>Classroom</td>
-                        <td>8.00 p.m.</td>
-                        <td>5.00 p.m.</td>
-                        <td>
-                            <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                            <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>B-05-02</td>
-                        <td>Classroom</td>
-                        <td>8.00 p.m.</td>
-                        <td>5.00 p.m.</td>
-                        <td>
-                            <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                            <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>003</td>
-                        <td>B-05-02</td>
-                        <td>Classroom</td>
-                        <td>8.00 p.m.</td>
-                        <td>5.00 p.m.</td>
-                        <td>
-                            <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
-                            <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
-                        </td>
-                    </tr>
-                </tr>
+                <?php
+                    }
+                ?>
             </table>
         </div>
     </div>
