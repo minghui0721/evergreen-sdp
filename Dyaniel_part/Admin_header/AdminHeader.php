@@ -87,6 +87,7 @@ body{
     background-color: white;
     margin: 0;
     padding: 0;
+    float: left;
 }
 
 .menu{
@@ -172,35 +173,33 @@ body{
         </div>
     </div>
 
-    <div style="display: inline-flex;">
-        <div class="SideHeader">
-            <hr>
+    <div class="SideHeader">
+        <hr>
+        <div class="small">
+            <ul class="menu">
+                <li>
+                    <label for="btn" class="MenuTitle">School Management
+                        <i class="fa-solid fa-caret-down"></i>
+                    </label>
+                    <input type="checkbox" id="btn">
+                    <ul class="SchoolManagement">
+                        <li><a href="#" class="ManageUser">Manage user</a></li>
+                        <li><a href="#" class="ManageClass">Manage class</a></li>
+                        <li><a href="#" class="ManageSubject">Manage subject</a></li>
+                        <li><a href="#" class="ManageTimetable">Manage timetable</a></li>
+                    </ul>
 
-            <div class="small">
-                <ul class="menu">
-                    <li>
-                        <label for="btn" class="MenuTitle">School Management
-                            <i class="fa-solid fa-caret-down"></i>
-                        </label>
-                        <input type="checkbox" id="btn">
-                        <ul class="SchoolManagement">
-                            <li><a href="#">Manage user</a></li>
-                            <li><a href="#">Manage class</a></li>
-                            <li><a href="#">Manage subject</a></li>
-                            <li><a href="#">Manage timetable</a></li>
-                        </ul>
-
-                        <label for="btn-2" class="MenuTitle">School Management
-                            <i class="fa-solid fa-caret-down"></i>
-                        </label>
-                        <input type="checkbox" id="btn-2">
-                        <ul class="SchoolManagement2">
-                            <li><a href="#">Manage user</a></li>
-                            <li><a href="#">Manage class</a></li>
-                            <li><a href="#">Manage subject</a></li>
-                            <li><a href="#">Manage timetable</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                    <label for="btn-2" class="MenuTitle">School Management
+                        <i class="fa-solid fa-caret-down"></i>
+                    </label>
+                    <input type="checkbox" id="btn-2">
+                    <ul class="SchoolManagement2">
+                        <li><a href="#">Manage user</a></li>
+                        <li><a href="#">Manage class</a></li>
+                        <li><a href="#">Manage subject</a></li>
+                        <li><a href="#">Manage timetable</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
+    </div>
