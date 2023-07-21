@@ -5,6 +5,13 @@ body{
     padding: 0;
 }
 
+.wrapper{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
 .TitleBar{
     background-color: #004085;
     width: 80%;

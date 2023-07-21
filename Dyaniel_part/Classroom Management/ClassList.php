@@ -6,14 +6,6 @@ include "../Admin_header/AdminHeader.php";
     <title>Classroom List</title>
 
 <style>
-    .wrapper{
-        /* background-color:yellow; */
-        width: 80%;
-        margin: 0;
-        padding: 0;
-        float: right;
-    }
-
     .SchoolManagement{
         display: block;
     }
