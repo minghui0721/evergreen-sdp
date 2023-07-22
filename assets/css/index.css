@@ -441,7 +441,7 @@
 
 /* get in touch */
 .get_intouch{
-    height: 70vh;
+    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -451,7 +451,7 @@
     color: #1d1d36;
     font-size: 80px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .get_intouch p{
