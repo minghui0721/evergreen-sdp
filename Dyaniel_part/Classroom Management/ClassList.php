@@ -42,7 +42,7 @@ include "../dbConn.php"
                 <?php
                 $ClassList_query="SELECT a.class_ID, a.class_name, a.room_type, b.start_time, b.end_time
                 FROM class a
-                INNER JOIN class_availability b
+                RIGHT JOIN class_availability b
                 ON a.class_ID = b.class_ID";
                 $ClassList_result=mysqli_query($connection,$ClassList_query);
                 while($ClassList_row=mysqli_fetch_assoc($ClassList_result)){
