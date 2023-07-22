@@ -70,17 +70,29 @@ body{
 }
 
 .SideHeader{
-    width: 20%;
+    width: 25%;
     height: 850px;
     background-color: white;
     margin: 0;
     padding: 0;
 }
 
+.menu{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 0 12px;
+}
+
 .SideHeader hr{
     color: #002349;
     border: 2px solid;
     margin: 0;
+}
+
+.MenuTitle{
+    margin: 0 0 0 8px;
+    padding: 0;
 }
 
 .SideHeader label{
@@ -90,11 +102,14 @@ body{
     cursor: pointer;
 }
 
-.SideHeader .menu::before{
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
+.SideHeader ul li label:hover,
+.SideHeader ul li a:hover{
+    color: #5c5adb;
+}
+
+.SchoolManagement,
+.SchoolManagement2{
+    display: none;
 }
 
 [id^=btn]:checked + ul{
@@ -121,16 +136,11 @@ body{
 }
 
 
-.SideHeader ul li i{
-    float: right;
-    margin: 0 10px;
-}
-
 .SideHeader li{
     font-size: 25px;
     margin-top: 5px;
 }
 
-input{
+.small input{
     display: none;
 }
