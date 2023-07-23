@@ -25,6 +25,7 @@ ON a.class_ID = b.class_ID
 WHERE a.class_ID=$ClassID";
 $ClassList_result=mysqli_query($connection,$ClassList_query);
 $ClassList_row=mysqli_fetch_assoc($ClassList_result);
+$ClassID=$ClassList_row["class_ID"];
 ?>
 
 </head>
@@ -39,7 +40,7 @@ $ClassList_row=mysqli_fetch_assoc($ClassList_result);
             <div class="ClassID">
                 <h3>ClassID: <?php echo $ClassList_row["class_ID"];?></h3>
             </div>
-            <form action="" method="post">
+            <form action="#" method="post">
                 <div class="ClassName-and-RoomType">
                     <!-- Class Name -->
                     <div class="ClassName">
@@ -93,3 +94,27 @@ $ClassList_row=mysqli_fetch_assoc($ClassList_result);
     </div>
 </body>
 </html>
+
+<?php
+if (isset($_POST['Edit'])){
+    $ClassName=$_POST['class-name'];
+    $RoomType=$_POST['room-type'];
+    $OpenTime=$_POST['open-time'];
+    $CloseTime=$_POST['close-time'];
+    
+    $class_query="UPDATE `class` SET `class_name`='$ClassName',`room_type`='$RoomType' 
+    WHERE class_ID=$ClassID";
+    mysqli_query($connection,$class_query);
+
+    $ClassAvailability_query="UPDATE `class_availability` SET `start_time`='$OpenTime',`end_time`='$CloseTime' 
+    WHERE class_ID=$ClassID";
+    mysqli_query($connection,$ClassAvailability_query);
+?>
+<script>
+    alert("!Update Succesfully!")
+    window.location.replace("ClassList.php");
+</script>
+
+<?php
+}
+?>

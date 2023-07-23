@@ -12,7 +12,6 @@
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
-    
 </head>
 <body>
     <!-- font -->
@@ -34,7 +33,6 @@
                 </div>
                 <div class="about_button">
                     <a href="aboutuspage"><button>Discover the school</button></a>
-                    
                 </div>
                 
             </div>
@@ -155,6 +153,7 @@
 
     <!-- footer -->
     <div id="footer"></div>
+    
 
 
 
