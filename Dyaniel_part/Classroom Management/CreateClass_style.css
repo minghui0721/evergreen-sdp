@@ -66,7 +66,7 @@ body{
 }
 
 .ClassName input,
-.RoomType input,
+.RoomType select,
 .OpenTime input,
 .CloseTime input{
     display: block;

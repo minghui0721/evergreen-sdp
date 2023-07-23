@@ -79,7 +79,7 @@ $ClassID=$ClassList_row["class_ID"];
 
                 <!-- submit button -->
                 <div class="submit-button">
-                    <input type="submit" value="Edit" name="Submit">
+                    <input type="submit" value="Edit" name="Edit">
                 </div>
             </form>
 
@@ -96,7 +96,7 @@ $ClassID=$ClassList_row["class_ID"];
 </html>
 
 <?php
-if (isset($_POST['Submit'])){
+if (isset($_POST['Edit'])){
     $ClassName=$_POST['class-name'];
     $RoomType=$_POST['room-type'];
     $OpenTime=$_POST['open-time'];
