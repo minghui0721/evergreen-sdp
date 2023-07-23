@@ -62,7 +62,9 @@
                                 <button id="home">Home</button>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12"> 
-                                <button id="service">About Evergreen</button>
+                                <a href="about.php">
+                                    <button id="service">About Evergreen</button>
+                                </a>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12">
                                 <button id="aboutus">Programs</button>
