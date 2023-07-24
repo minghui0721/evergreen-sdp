@@ -18,7 +18,7 @@ include "../dbConn.php"
     <div class="wrapper">
         <div class="TitleBar">
             <h1>Timetable List</h1>
-            <a href="#">
+            <a href="CreateTimetable.php">
             <button><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></i> &nbsp;Add New</button>
             </a>
             <!-- path -->
@@ -35,6 +35,7 @@ include "../dbConn.php"
                     <th>Course Name</th>
                     <th>Subject Name</th>
                     <th>Lecture Name</th>
+                    <th>Date</th>
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Action</th>
@@ -42,7 +43,7 @@ include "../dbConn.php"
 
                 <!-- Retrieve class list from database -->
                 <?php
-                $TimetableList_query="SELECT a.timetable_ID, b.class_name, c.course_name, d.subject_name, e.lecturer_name, a.start_time, a.end_time
+                $TimetableList_query="SELECT a.timetable_ID, b.class_name, c.course_name, d.subject_name, e.lecturer_name, a.date, a.start_time, a.end_time
                 FROM timetable_details a
                 INNER JOIN class b
                 ON a.class_ID = b.class_ID
@@ -62,15 +63,17 @@ include "../dbConn.php"
                     <td><?php echo $TimetableList_row["course_name"];?></td>
                     <td><?php echo $TimetableList_row["subject_name"];?></td>
                     <td><?php echo $TimetableList_row["lecturer_name"];?></td>
+                    <td><?php echo date('d.m.Y', strtotime($TimetableList_row['date'])); ?></td>
                     <td><?php echo date('H:i a', strtotime($TimetableList_row['start_time'])); ?></td>
                     <td><?php echo date('H:i a', strtotime($TimetableList_row['end_time'])); ?></td>
                     <td>
                         <!-- Edit Button --> <!-- path -->
-                        <a href="#">
+                        <a href="EditTimetable.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>">
                         <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
                         </a>
                         <!-- Delete Button -->
-                        <a href="#">
+                        <a href="DeleteTimetable.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>"
+                        onclick="return confirm('Are you sure want to delete this timetable?')">
                         <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
                         </a>
                     </td>
@@ -86,4 +89,3 @@ include "../dbConn.php"
 </body>
 </html>
 
-<!-- EditClass.php?classID=<?php //echo $ClassList_row["class_ID"];?> -->

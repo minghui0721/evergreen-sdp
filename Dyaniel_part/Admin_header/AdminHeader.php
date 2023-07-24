@@ -188,6 +188,7 @@ body{
                         <li><a href="#" class="ManageSubject">Manage subject</a></li>
                         <li><a href="../Timetable_Management/TimetableList.php" class="ManageTimetable">Manage timetable</a></li>
                     </ul>
+                    <!-- path -->
 
                     <label for="btn-2" class="MenuTitle">School Management
                         <i class="fa-solid fa-caret-down"></i>

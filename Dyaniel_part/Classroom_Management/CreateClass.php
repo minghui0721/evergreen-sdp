@@ -99,6 +99,7 @@ if (isset($_POST['submit'])){
     alert("!Create Succesfully!")
     window.location.replace("ClassList.php");
 </script>
+<!-- path -->
 
 <?php
 }
