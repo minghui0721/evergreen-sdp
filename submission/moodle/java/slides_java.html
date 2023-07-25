@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Programming (052023-KGT)</title>
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../sdp/sdp.css">
+</head>
+<header>
+    <div class="header-content">
+        <a href="java.html"><button class="backbtn">Back</button></a>
+        <a href="../home.html"></a>
+            <img src="../img/logo.png" height="80" weight="420" alt="Error" class="logo">
+        </a>
+        <h2 class="course_title">Course Material</h2>
+        <!-- This is for searchbutton-->
+        <div class="searchdown" >
+            <button onclick="myFunction(event)" class="searchbtn" style="color:rgb(106, 117, 125);">Search...</button>
+            <div id="mysearchdown" class="searchdown-content">
+                <input type="text" placeholder="Search..." id="searchInput" onkeyup="filterFunction()">
+                <a href="#">Software Development</a> 
+                <a href="#">Digital Security and Forensic</a> 
+                <a href="#">Introduction to Artificial Intelligence</a> 
+                <a href="#">Java Programming</a> 
+            
+            </div>
+        </div>
+    </div>
+
+<hr id="header_line">
+</header>
+<script>
+function myFunction(event) {
+document.getElementById("mysearchdown").classList.toggle("show");
+}
+
+function filterFunction() {
+var input, filter, ul, li, a, i;
+input = document.getElementById("searchInput");
+filter = input.value.toUpperCase();
+div = document.getElementById("mysearchdown");
+a = div.getElementsByTagName("a");
+for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    a[i].style.display = "";
+    } else {
+    a[i].style.display = "none";
+    }
+}
+}
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<body>
+   <div class="section_1">
+        <h2 class="title"> Java Programming (052023-KGT) </h2>
+        <a href="../home.html"> 
+            <span>My Courses</span> 
+        </a>
+   </div>
+
+   <div class="slides_java">
+        <h2 class="title_2">Lecture Slides</h2>
+            <ul>
+                <li>
+                    <a href="./java_ppt/Lecture 01.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 01 </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 02-Datatype,operators,expression.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 02-Datatype,operators,expression</a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 03-if-else,switch-case.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 03-if-else,switch-case</a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 04-while,for,do-while,break.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 04-while,for,do-while,break </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 05-Arrays.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 05-Arrays </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 06-Class.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 06-Class </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 07-Class-Excercise.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 07-Class-Excercise </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 08-Inheritance,Constructors.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 08-Inheritance,Constructors </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 09-GUI.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 09-GUI </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 10-IO.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 10-IO </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 11-Exceptions.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 11-Exceptions </a>
+                </li>
+                <li>
+                    <a href="./java_ppt/Lecture 12-API.ppt">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; Lecture 12-API </a>
+                </li>
+            </ul>
+        <br><br>
+        
+</body>
+<style>
+    .slides_java {
+        border: 1px solid;
+        padding: 20px;
+        width: 98%;
+        height: 520px;
+        line-height: 1.5;
+        background-color: white;
+        margin-top: 20px;
+        border-color: rgb(168, 168, 168);
+        margin-left: 15px;
+    }
+
+    .slides_java a{
+        text-decoration: none;
+        color: black;
+        margin-left: 20px;
+        position: relative;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    .slides_java li{
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+</style>
+
+
+

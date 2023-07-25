@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin-left: 40%;
+    margin-top: 10px;
+}
+
+.course_title{
+    text-decoration: none;
+    font-size: 25px;
+    width: 100;
+    font-weight: normal;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.backbtn{
+    width: 100px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgb(53, 51, 51);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left:-450px ;
+    color:rgb(61, 60, 60);
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.backbtn:hover{
+    background: #093e78;
+    color: beige;
+}
+
+/*This is search part*/
+/*https://www.w3schools.com/howto/howto_js_filter_dropdown.asp*/
+
+.searchbtn {
+    background-color: white;
+    width: 200px;
+    color: rgb(106, 117, 125);
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 380px;
+    text-align: center;
+    border-radius: 7px;
+
+    }
+
+.searchdown a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgb(123, 250, 123);
+    border-radius: 5px;
+    transform-origin:left ;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.searchdown a:hover::after{
+    transform: scaleX(1);
+}
+
+.searchdown input{
+box-sizing: border-box;
+background-position: 14px 12px;
+background-repeat: no-repeat;
+width: 200px;
+font-size: 16px;
+padding: 14px 20px 12px 45px;
+border: none;
+border-bottom: 1px solid white;
+background-color: white;
+}
+
+.searchdown input:focus {outline: 10px solid white;}
+
+.searchdown {
+position: absolute;
+display: inline-block;
+
+}
+
+.searchdown-content {
+display: none;
+position: absolute;
+background-color: white;
+min-width: 200px;
+overflow: auto;
+border: 1px solid grey;
+z-index: 1;
+margin-left: 385px;
+margin-top: 1%;
+}
+
+.searchdown-content a {
+color: rgb(71, 68, 68);
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+.searchbtn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+.show {display: block;}
+
+#header_line{
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    border-color: whitesmoke;
+}
+
+/* This is the side bar*/
+#mySidenav a {
+    position: absolute;
+    left: -450px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 34%;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+  }
+  
+#mySidenav a:hover {
+left: 0;
+}
+
+#SDP {
+    top: 120px;
+    background-color: #002349;
+}
+
+#DSF {
+    top: 180px;
+    background-color: #5c5adb;
+}
+
+#JP {
+    top: 240px;
+    background-color: #1d1d36;
+}
+
+#AI {
+    top: 300px;
+    background-color: #555;
+}
+
+/* This is the box-img*/
+.image-container {
+    display: flex;
+}
+
+.image-container_2{
+    display: flex;
+}
+
+.image-link{
+    text-decoration: none;
+}
+
+.image-box {
+    flex: 1;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-left: 250px;
+    border-radius: 20px;
+    
+}
+
+.image-box:hover{
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-box_1{
+    flex: 1;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-left: 150px;
+    width: 465px;
+    border-radius: 20px;
+}
+
+.image-box_1:hover{
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-box_2{
+    flex: 1;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 250px;
+    width: 465px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.image-box_2:hover{
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-box_3{
+    flex: 1;
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 150px;
+    width: 465px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.image-box_3:hover{
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-caption {
+    margin-top: 10px;
+    color:  #5c5adb;
+}
+
+.img_java{
+    margin-left: -10px;
+}
+
+.section1 {
+    background-color: #5c5adb; 
+}
+
+.img_sdp{
+    border-radius: 20px;
+}
