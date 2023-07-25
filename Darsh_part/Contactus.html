@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Evergreen University - Contact Us</title>
+  <link rel="stylesheet" type="text/css" href="Contactus.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+  </header>
+  
+  <div class="container">
+    <div class="intro">
+      <h2>Welcome to Evergreen University</h2>
+      <p>Welcome to Evergreen University's Contact Us page! We are delighted to hear from you and value your interest in connecting with us. Whether you are a guest, a dedicated lecturer, a diligent administrator, a curious student, or a concerned parent, this page serves as a gateway for all to reach out to us. At Evergreen, we prioritize open communication and are eager to assist you with any inquiries or feedback you may have. Our team is dedicated to providing a seamless experience, ensuring that your interactions with us are met with utmost attention and care. Feel free to use the provided contact information to get in touch with us. You can give us a call, drop us an email, or simply visit us at our esteemed address. Additionally, the Google Maps section allows you to locate our campus easily.</p>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-item">
+        <img src="Phone icon.png" alt="Phone">
+        <p>Phone: +123 456 789</p>
+      </div>
+      <div class="info-item">
+        <img src="email icon.png" alt="Email"> 
+        <p>Email: info@evergreen.edu</p>
+      </div>
+      <div class="info-item-2">
+        <img src="location icon.png" alt="Location">
+        <p>Address: Jalan Teknologi 5, Taman Teknologi Malaysia, 57000 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+      </div>
+      <div class="info-item-2">
+        <img src="clock icon.jpg" alt="Opening Hours">
+        <p>Opening Hours: Mon - Fri: 7:00 AM - 7:00 PM</p>
+      </div>
+    </div>
+
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7946454366745!2d101.7225148142771!3d3.099106997747456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49927af85935%3A0x8012e13b1318b073!2sEvergreen%20University!5e0!3m2!1sen!2s!4v1634752696583!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <div class="pictures">
+      <img src="image1.jpg" alt="Image 1">
+      <img src="image2.jpg" alt="Image 2">
+      <img src="image3.jpg" alt="Image 3">
+    </div>
+
+    <div class="contact-form">
+      <h2>Contact Form</h2>
+      <form action="submit_contact.php" method="POST">
+        <div class="input-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <input type="submit" value="Send Message">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
