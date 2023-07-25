@@ -17,6 +17,7 @@ include "../dbConn.php"
 </style>
 
 <?php
+// Retrieve data from database
 $ClassID=$_GET['classID'];
 $ClassList_query="SELECT a.class_ID, a.class_name, a.room_type, b.start_time, b.end_time
 FROM class a
@@ -25,7 +26,6 @@ ON a.class_ID = b.class_ID
 WHERE a.class_ID=$ClassID";
 $ClassList_result=mysqli_query($connection,$ClassList_query);
 $ClassList_row=mysqli_fetch_assoc($ClassList_result);
-$ClassID=$ClassList_row["class_ID"];
 ?>
 
 </head>
@@ -79,7 +79,7 @@ $ClassID=$ClassList_row["class_ID"];
 
                 <!-- submit button -->
                 <div class="submit-button">
-                    <input type="submit" value="Edit" name="Submit">
+                    <input type="submit" value="Edit" name="Edit">
                 </div>
             </form>
 
@@ -96,7 +96,7 @@ $ClassID=$ClassList_row["class_ID"];
 </html>
 
 <?php
-if (isset($_POST['Submit'])){
+if (isset($_POST['Edit'])){
     $ClassName=$_POST['class-name'];
     $RoomType=$_POST['room-type'];
     $OpenTime=$_POST['open-time'];
@@ -114,6 +114,7 @@ if (isset($_POST['Submit'])){
     alert("!Update Succesfully!")
     window.location.replace("ClassList.php");
 </script>
+<!-- path -->
 
 <?php
 }

@@ -55,7 +55,7 @@ include "../dbConn.php"
                     <td><?php echo date('H:i a', strtotime($ClassList_row['start_time'])); ?></td>
                     <td><?php echo date('H:i a', strtotime($ClassList_row['end_time'])); ?></td>
                     <td>
-                        <!-- Edit Button -->
+                        <!-- Edit Button -->  <!-- path -->
                         <a href="EditClass.php?classID=<?php echo $ClassList_row["class_ID"];?>">
                         <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
                         </a>
