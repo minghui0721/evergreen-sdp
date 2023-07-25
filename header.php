@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +56,9 @@
                 <div class="menu">
                         <ul class="list-unstyled d-flex justify-content-between flex-wrap">
                             <li class="col-lg-2 col-md-4 col-12 ">
-                                <button id="home">Home</button>
+                                <a href="index.php">
+                                    <button id="home">Home</button>
+                                </a>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12"> 
                                 <a href="about.php">
@@ -67,16 +66,21 @@
                                 </a>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12">
-                                <button id="aboutus">Programs</button>
+                                <a href="academic.php">
+                                    <button id="aboutus">Academics</button>
+                                </a>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <button id="donation">Faculty</button>
+                                <a href="event.php">
+                                    <button id="donation">Events</button>
+                                </a>
+                                
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <button id="career">Admissions</button>
+                                <a href="admission.php"><button id="career">Admissions</button></a>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <button id="contactus">Contact Us</button>
+                                <a href="contact_us.php"><button id="contactus">Contact Us</button></a>
                             </li>
                         </ul>
                     </div>

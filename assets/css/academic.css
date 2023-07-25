@@ -1,0 +1,120 @@
+.academic_intro{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.academic_intro h2{
+    font-size: 70px;
+    padding-top: 50px;
+}
+
+.academic_intro p{
+    width: 700px;
+    line-height: 30px;
+}
+
+/* academic grid */
+.background_color{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% + 200px);
+    height: 700px;
+    background-color: #5c5adb;
+    margin-left: -100px;
+    z-index: -1;
+}
+
+
+.academic{
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    height: fit-content;
+    padding-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+.academic_grid{
+    display: flex;
+    flex-direction: column;
+    padding:50px;
+    line-height: 25px;
+}
+
+
+
+#first_button{
+    background-color: #5c5adb;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
+    cursor: pointer;
+    border-radius: 1px;
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    margin-top: 350px;
+}
+
+#first_button:hover{
+    background-color: transparent;
+    color: white;
+    outline: 2px solid white;
+}
+
+#second_button{
+    background-color: #5c5adb;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
+    cursor: pointer;
+    border-radius: 1px;
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    margin-top: 350px;
+}
+
+#second_button:hover{
+    background-color: transparent;
+    color: #1d1d36;
+    outline: 2px solid #1d1d36;
+}
+
+
+.image_first{
+    height: 500px;
+    background-color: #1d1d36;
+    color: white;
+    position: relative;
+}
+
+.image_first p{
+    padding-top: 20px;
+}
+
+
+.details_first{
+    height: 500px;
+    background-color: white;
+    position: relative;
+}
+
+.details_first p{
+    padding-top: 20px;
+}
+
+.academic_img{
+    background-size: cover;
+    background-position: center;
+}
+
+

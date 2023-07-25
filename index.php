@@ -32,7 +32,7 @@
                     <p>Welcome to all of our students</p>
                 </div>
                 <div class="about_button">
-                    <a href="aboutuspage"><button>Discover the school</button></a>
+                    <a href="about.php"><button>Discover the school</button></a>
                 </div>
                 
             </div>
@@ -74,7 +74,7 @@
                 <h2>LATEST NEWS</h2>
             </div>
 
-            <div class="background_div"></div>
+            <div class="background_div">a</div>
 
             <div class="news">
                 <a href="#">

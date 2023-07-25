@@ -1,0 +1,112 @@
+.event h2{
+    text-align: center;
+    font-size: 60px;
+    padding-top: 50px;
+}
+
+.event_background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% + 200px);
+    height: 700px;
+    background-color: #1d1d36;
+    margin-left: -100px;
+    z-index: -1;
+    margin-top: -100px;
+}
+
+.event_grid{
+    position: relative;
+    background-color: white;
+    width: 90%;
+    margin: 0 auto;
+    height: fit-content;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 150px;
+}
+
+.event_card{
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.event-card:hover{
+    width: 80%;
+}
+
+
+.event_card:hover .event_name,
+.event_card:hover .event_date {
+  display: none; /* Hide details when hovering */
+}
+
+.event_card .event_location,
+.event_card .event_description{
+    display: none;
+}
+
+.event_card:hover .event_location{
+  display: block;
+  font-size: 20px;
+  padding: 30px;
+}
+
+.event_card:hover .event_description{
+    display: block;
+    font-size: 20px;
+    width: 900px;
+    padding: 30px;
+}
+
+
+
+
+
+.event_date, .event_name, .event_button{
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.event_date{
+    font-size: 30px;
+    color: #5c5adb;
+    display: flex;
+    align-items: center;
+}
+
+.event_name{
+    font-size: 40px;
+    color: #5c5adb;
+    width: 700px;
+    margin-left: 80px;
+}
+
+
+
+
+.event_button button{
+    background-color: #5c5adb;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;  /*to determine the speed of the "hover" effect:*/
+    cursor: pointer;
+    border-radius: 1px;
+    width: 150px;
+    height: 40px;
+}
+
+.event_button button:hover{
+    background-color: transparent;
+    color: #1d1d36;
+    outline: 2px solid #1d1d36;
+
+}
