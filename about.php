@@ -27,7 +27,7 @@
     <!-- Our School -->
     <div class="our_title">
         <h2>OUR UNIVERSITY</h2>
-        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. </p>
+        <p>Welcome to the "About Us" page of Evergreen Heights University. This page provides a message from our principal, giving you insight into our vission, values, and the video about our university.</p>
     </div>
 
     <!-- four box -->
@@ -36,19 +36,19 @@
         <div class="grid about2">
             <div class="about_content">
                 <h2>Principal's Message</h2>
-                <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. </p>
-                <p>This is a great space to write a long text about your company and your services. You can use this space to go into a little more detail about your own company.</p>
+                <p>I am honored to serve as the Principal of this esteemed institution, where we are committed to providing a transformative and holistic educational experience to our students. Our university is dedicated to nurturing bright minds and shaping future leaders who will positively impact society.</p>
+                <p>I extend my warmest welcome to all aspiring students, parents, and faculty members to be a part of our vibrant academic community. Together, let us embark on a journey of knowledge, discovery, and growth.</p>
             </div>
         </div>
         <div class="grid about3">
             <div class="about_content">
                 <h2>Vision & Values</h2>
+                <p>At Evergreen Heights University, our vision is to be a global leader in providing world-class education, fostering innovation, and empowering students to become compassionate and responsible leaders who positively influence society.</p>
                 <ul>
-                    <li>Be Kind</li>
-                    <li>Be Respectful</li>
-                    <li>Be Responsible</li>
-                    <li>Work Hard</li>
-                    <li>Have Fun</li>
+                    <li>Academic Excellence</li>
+                    <li>Diversity and Inclusivity</li>
+                    <li>Innovation and Research</li>
+                    <li>Social Responsibility</li>
                 </ul>
             </div>
         </div>

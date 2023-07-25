@@ -1,0 +1,122 @@
+.register{
+    height: 70vh;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+
+.register_header{
+    text-align: center;
+}
+
+.register_header h2{
+    font-size: 60px;
+    padding-top: 60px;
+}
+
+.register_form{
+    display: flex;
+    justify-content: center;
+    flex: 0 0 70%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form_container{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.form_input{
+    flex-basis: calc(50% ); /*which makes two elements fit in each row.*/
+    margin-bottom: 30px;
+}
+
+.form_email{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form_email label{
+    width: 100%;
+}
+
+.form_email input{
+    width: 95%;
+    font-size: 25x;
+    color: #1d1d36;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #1d1d36;
+    height: 40px;
+}
+
+.form_input label{
+    color: #1d1d36;
+    padding-bottom: 5px;
+    width: 200px;
+}
+
+
+.form_input input{
+    background-color: white; /* Set the background color to white for input fields and textarea */
+    border: 2px solid #1d1d36;
+    height: 40px;
+    width: 90%;
+    color: #1d1d36;
+    font-size: 25x;
+    padding: 10px;
+}
+
+
+.form_button{
+    margin-top: 30px;
+    width: 95%;
+    margin-left: -30px;
+}
+
+
+.submit{
+    background-color: #5c5adb;
+    width: 100%;
+    height: 45px;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 1px;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+.submit:hover{
+    opacity: 0.5;
+}
+
+
+.event_container{
+    width: 300px;
+    height: fit-content;
+    flex: 0 0 30%;
+    margin-left: -200px;
+    margin-top: 120px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+hr{
+    width: 90%;
+}
+
+.event_name{
+    font-size: 30px;
+}
+
+ul li{
+    font-size: 30px;
+}

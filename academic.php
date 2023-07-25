@@ -32,6 +32,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         'image' => $image
     );
 }
+
+$conn->close();
 ?>
 
 

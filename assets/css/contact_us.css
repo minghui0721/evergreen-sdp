@@ -1,0 +1,182 @@
+.contact_header{
+    text-align: center;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact_header h2{
+    font-size: 50px;
+    padding-bottom: 20px;
+}
+
+.contact_header p{
+    width: 55%;
+    font-size: 18px;
+    line-height: 30px;
+    padding-bottom: 50px;
+}
+
+.contact_container{
+    height: fit-content;
+    margin-bottom: 80px;
+}
+
+.container_block{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contact_details{
+    text-align: center;
+    padding: 0 130px;
+    background-color: #1d1d36;
+}
+
+
+.school_info{
+    margin-bottom: 50px;
+}
+
+
+.contact_details h2{
+    font-size: 50px;
+    color: #5c5adb;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.contact_details h3{
+    color: white;
+    font-size: 28px;
+}
+
+.contact_details p{
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px ;
+}
+
+.office h3{
+    padding-bottom: 20px;
+}
+
+.contact_details h4{
+    color: #5c5adb;
+    padding-bottom: 20px;
+}
+
+.contact_background{
+    background-image: url(../images/contact_us.avif);
+    background-size: cover;
+    background-position: bottom;
+}
+
+iframe {
+    width: 100%;
+    height: 700px;
+    padding: 100px;
+}
+
+.contact_form{
+    background-color: #1d1d36;
+    color: #5c5adb;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.contact_form h2{
+    font-size: 50px;
+    padding-top: 80px;
+}
+
+
+.contact_form {
+    padding: 20px;
+    background-color: #1d1d36;
+}
+
+.form_container{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 60px;
+}
+
+.form_input{
+    flex-basis: calc(50% ); /*which makes two elements fit in each row.*/
+    text-align: left;
+    margin-bottom: 30px;
+    text-align: left;    
+}
+
+.form_input label{
+    color: white;
+    padding-bottom: 5px;
+    width: 200px;
+}
+
+
+.form_input input{
+    background-color: white; /* Set the background color to white for input fields and textarea */
+    border: 2px solid white;
+    height: 40px;
+    width: 90%;
+    color: #1d1d36;
+    font-size: 25x;
+    padding: 10px;
+}
+
+
+.form_textarea{
+    width: 570px;
+}
+
+.form_textarea label{
+    width: 100%;
+    text-align: left;
+    color: white;
+    padding-bottom: 5px;
+}
+
+.form_textarea textarea{
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 25x;
+    padding: 10px;
+}
+
+.form_button{
+    margin-top: 30px;
+    width: 570px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
+
+.submit{
+    background-color: #5c5adb;
+    width: 100%;
+    height: 45px;
+    color: white;
+    border: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 1px;
+    margin-bottom: 30px;
+}
+
+.submit:hover{
+    background-color: transparent;
+    color: white;
+    outline: 2px solid white;
+}
+

@@ -74,7 +74,7 @@
                 <h2>LATEST NEWS</h2>
             </div>
 
-            <div class="background_div">a</div>
+            <div class="background_div"></div>
 
             <div class="news">
                 <a href="#">
@@ -147,7 +147,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 
 

@@ -1,12 +1,3 @@
-<?php
-$host = 'localhost';
-$user = 'root';
-$password ='';
-$database='sdp_database';
-
-$connection=mysqli_connect($host,$user,$password,$database);
-
-if ($connection === false){
-    die('Connection failed'. mysqli_connect_error());
-}
+<?php 
+$connection= new mysqli('localhost','root','','evergreen_heights_university')or die("Could not connect to mysql".mysqli_error($connection));
 ?>

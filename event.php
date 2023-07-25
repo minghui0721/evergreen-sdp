@@ -1,4 +1,6 @@
 <?php
+
+
 include 'database/db_connection.php';
 $sql = "SELECT * FROM event";
 
@@ -29,6 +31,8 @@ while ($row = mysqli_fetch_assoc($result)){
         'event_location' => $location
     );
 }
+
+$conn->close();
 ?>
 
 
@@ -78,13 +82,19 @@ while ($row = mysqli_fetch_assoc($result)){
                     <div class="event_location"><?php echo $e['event_location']; ?></div>
                     <div class="event_description"><?php echo $e['event_description']; ?></div>
 
-            
-                    <div class="event_button"><button>More Info</button></div>
+
+                    <div class="event_button">
+                    <form action="register_event.php" method="post">
+                            <input type="hidden" name="event_id" value="<?php echo $e['event_id']; ?>">
+                            <button type="submit">RSVP</button>
+                        </form>
+                    </div>
                 </div>
                 <hr>
             <?php } ?>
     </div>
 </div>
+
 
 
 <!-- footer -->

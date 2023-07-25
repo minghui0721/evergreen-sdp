@@ -9,11 +9,13 @@
 .academic_intro h2{
     font-size: 70px;
     padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 .academic_intro p{
     width: 700px;
     line-height: 30px;
+    font-size: 18px;
 }
 
 /* academic grid */

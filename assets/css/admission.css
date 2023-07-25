@@ -1,0 +1,98 @@
+.admission_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admission_title h2{
+    font-size: 60px;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.admission_title p{
+    text-align: center;
+    width: 55%;
+    font-size: 18px;
+    line-height: 30px;
+    padding-bottom: 50px;
+}
+
+.admission_block{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.open_house, .application{
+    padding: 50px;
+}
+
+.open_content h2, .application_content h2{
+    font-size: 40px;
+}
+
+.open_description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-top: 30px;
+}
+
+.application{
+    background-color: #1d1d36;
+    color: white;
+}
+
+.application_content h2{
+    color: #5c5adb;
+}
+
+.application_content ol{
+    font-size: 18px;
+    padding-top: 30px;
+}
+
+.application_content ol li{
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.application_content ol li:nth-child(3) {
+    font-style: italic; /* Italicize the text for acknowledgment email */
+}
+
+span{
+    color: pink;
+}
+
+.custom{
+    text-decoration: underline;
+    color: pink;
+}
+
+.custom:hover {
+    background-color: #5c5adb;
+  }
+
+.open_content,.application_content{
+    width: 600px;
+}
+
+.admission_picture{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.background{
+    background-image: url(../images/admission.webp);
+    background-size: cover;
+    background-position: bottom;
+    width: 1400px;
+    height: 500px;
+}

@@ -17,6 +17,7 @@
 .our_title p{
     width: 500px;
     margin-top: 20px;
+    font-size: 18px;
 }
 
 
@@ -77,10 +78,11 @@
     color: white;
     width: 600px;
     padding-top: 20px;
+    line-height: 25px;
 }
 
 .about_content ul{
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 
 .about_content li{
