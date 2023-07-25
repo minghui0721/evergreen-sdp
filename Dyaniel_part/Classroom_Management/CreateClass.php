@@ -81,19 +81,14 @@ if (isset($_POST['submit'])){
     $OpenTime=$_POST['open-time'];
     $CloseTime=$_POST['close-time'];
     
-    $class_query="INSERT INTO `class`(`class_name`, `room_type`) VALUES ('$ClassName','$RoomType')";
+    $class_query="INSERT INTO `class`( `class_name`, `room_type`, `start_time`, `end_time`) 
+    VALUES ('$ClassName','$RoomType','$OpenTime','$CloseTime')";
     if(mysqli_query($connection,$class_query)){
         $query="SELECT `class_ID` FROM `class` WHERE `class_name`='$ClassName'AND`room_type`='$RoomType'";
         $result=mysqli_query($connection,$query);
         $row=mysqli_fetch_assoc($result);
         $ClassID=$row['class_ID'];
     }
-
-
-
-    $ClassAvailability_query="UPDATE `class_availability` SET `start_time`='$OpenTime',`end_time`='$CloseTime' 
-    WHERE class_ID=$ClassID";
-    mysqli_query($connection,$ClassAvailability_query);
 ?>
 <script>
     alert("!Create Succesfully!")

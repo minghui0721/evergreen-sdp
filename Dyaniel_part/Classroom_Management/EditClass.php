@@ -19,11 +19,9 @@ include "../dbConn.php"
 <?php
 // Retrieve data from database
 $ClassID=$_GET['classID'];
-$ClassList_query="SELECT a.class_ID, a.class_name, a.room_type, b.start_time, b.end_time
+$ClassList_query="SELECT class_ID, class_name, room_type, start_time, end_time
 FROM class a
-INNER JOIN class_availability b
-ON a.class_ID = b.class_ID
-WHERE a.class_ID=$ClassID";
+WHERE class_ID=$ClassID";
 $ClassList_result=mysqli_query($connection,$ClassList_query);
 $ClassList_row=mysqli_fetch_assoc($ClassList_result);
 ?>
@@ -102,13 +100,9 @@ if (isset($_POST['Edit'])){
     $OpenTime=$_POST['open-time'];
     $CloseTime=$_POST['close-time'];
     
-    $class_query="UPDATE `class` SET `class_name`='$ClassName',`room_type`='$RoomType' 
+    $class_query="UPDATE `class` SET `class_name`='$ClassName',`room_type`='$RoomType' ,`start_time`='$OpenTime',`end_time`='$CloseTime'
     WHERE class_ID=$ClassID";
     mysqli_query($connection,$class_query);
-
-    $ClassAvailability_query="UPDATE `class_availability` SET `start_time`='$OpenTime',`end_time`='$CloseTime' 
-    WHERE class_ID=$ClassID";
-    mysqli_query($connection,$ClassAvailability_query);
 ?>
 <script>
     alert("!Update Succesfully!")

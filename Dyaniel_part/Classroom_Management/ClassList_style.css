@@ -14,8 +14,8 @@ body{
 
 .TitleBar{
     background-color: #004085;
-    width: 80%;
-    margin: 50px 100px 0;
+    width: 90%;
+    margin: 50px 50px 0;
     padding: 0;
     height: 90px;
     border-radius: 15px;
@@ -51,9 +51,9 @@ body{
 
 .ClassroomList{
     color: white;
-    width: 80%;
+    width: 90%;
     height: 600px;
-    margin: 20px 100px;
+    margin: 20px 50px;
     padding: 0;
     overflow: auto;
 }
