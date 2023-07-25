@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Artificial Intelligence (052023-VTK)</title>
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../sdp/sdp.css">
+</head>
+<header>
+    <div class="header-content">
+        <a href="ai.html"><button class="backbtn">Back</button></a>
+        <a href="../home.html"></a>
+            <img src="../img/logo.png" height="80" weight="420" alt="Error" class="logo">
+        </a>
+        <h2 class="course_title">Course Material</h2>
+        <!-- This is for searchbutton-->
+        <div class="searchdown" >
+            <button onclick="myFunction(event)" class="searchbtn" style="color:rgb(106, 117, 125);">Search...</button>
+            <div id="mysearchdown" class="searchdown-content">
+                <input type="text" placeholder="Search..." id="searchInput" onkeyup="filterFunction()">
+                <a href="#">Software Development</a> 
+                <a href="#">Digital Security and Forensic</a> 
+                <a href="#">Introduction to Artificial Intelligence</a> 
+                <a href="#">Java Programming</a> 
+            
+            </div>
+        </div>
+    </div>
+
+<hr id="header_line">
+</header>
+<script>
+function myFunction(event) {
+document.getElementById("mysearchdown").classList.toggle("show");
+}
+
+function filterFunction() {
+var input, filter, ul, li, a, i;
+input = document.getElementById("searchInput");
+filter = input.value.toUpperCase();
+div = document.getElementById("mysearchdown");
+a = div.getElementsByTagName("a");
+for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    a[i].style.display = "";
+    } else {
+    a[i].style.display = "none";
+    }
+}
+}
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<body>
+   <div class="section_1">
+        <h2 class="title"> Introduction to Artificial Intelligence (052023-VTK) </h2>
+        <a href="../home.html"> 
+            <span>My Courses</span> 
+        </a>
+   </div>
+
+   <div class="slides_ai">
+        <h2 class="title_2">Lecture Slides</h2>
+            <ul>
+                <li>
+                    <a href="./ai_slides/001 Introduction.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 001 Introduction</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/002 Basic Concepts of AI.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 002 Basic Concepts of AI</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/002.5Chinese room concept.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 002.5 Chinese room concept</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/003 Intro to AI Winter.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 003 Intro to AI Winter</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/003 Introduction to Expert System.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 003 Introduction to Expert System</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/004 Expert System.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 004 Expert System</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/006 Knowledge Reprensation 2_Semantic.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 006 Knowledge Reprensation 2_Semantic</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/008 Intro to Neural Network.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 008 Intro to Neural Network</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/009 Intro to Computer vision.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 009 Intro to Computer vision</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/010 Intro Natural Language Processing.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 010 Intro Natural Language Processing</a>
+                </li>
+                <li>
+                    <a href="./ai_slides/012 Uninformed Search.pptx">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    &nbsp; 012 Uninformed Search</a>
+                </li>
+            </ul>
+        <br><br>
+        
+</body>
+
+<style>
+.slides_ai{
+    border: 1px solid;
+        padding: 20px;
+        width: 98%;
+        height: 500px;
+        line-height: 1.5;
+        background-color: white;
+        margin-top: 20px;
+        border-color: rgb(168, 168, 168);
+        margin-left: 15px;
+}
+
+.slides_ai a{
+    text-decoration: none;
+        color: black;
+        margin-left: 20px;
+        position: relative;
+        margin-top: 10px;
+        font-size: 20px;
+}
+
+.slides_ai li{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+</style>
+
+

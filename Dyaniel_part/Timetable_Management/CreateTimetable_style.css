@@ -31,7 +31,7 @@ body{
 .ClassDetails_container{
     background-color: #004085;
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     width: 80%;
     height: 500px;
     margin: 30px 100px;
@@ -59,7 +59,7 @@ body{
 .LecturerName,
 .EndTime{
     width: 200px;
-    margin: 0 250px;
+    margin: 0 180px;
     float: right;
 }
 
@@ -124,7 +124,7 @@ body{
     border-radius: 25px;
     margin: 0 0 0 100px;
     left: 150px;
-    bottom: 47px;
+    bottom: 43px;
     transition: background-color 0.2s;
 }
 

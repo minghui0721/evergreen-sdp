@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.title{
+    font-weight: normal;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.section_1 a {
+    text-decoration: none;
+    color: black;
+    margin-left: 40px;
+    position: relative;
+}
+
+.section_1 a span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #5c5adb;
+    border-radius: 5px;
+    transform-origin: left;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.section_1 a:hover span::after {
+    transform: scaleX(1);
+}
+
+.section_1{
+    border: 1px solid;
+    padding: 20px;
+    width: 98%;
+    height: 150px;
+    line-height: 1.5;
+    background-color: white;
+    margin-top: 20px;
+    border-color: rgb(168, 168, 168);
+    margin-left: 15px;
+}
+
+.title_2{
+    font-weight: 100;
+    font-size: 29px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color:#3c3cbf;
+}
+
+.section_2{
+    border: 1px solid;
+    padding: 20px;
+    width: 98%;
+    height: 530px;
+    line-height: 1.5;
+    background-color: white;
+    margin-top: 20px;
+    border-color: rgb(168, 168, 168);
+    margin-left: 15px;
+}
+
+.section_2 a {
+    text-decoration: none;
+    color: black;
+    margin-left: 45px;
+    position: relative;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.section_2 a span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #5c5adb;
+    border-radius: 5px;
+    transform-origin: left;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.section_2 a:hover span::after {
+    transform: scaleX(1);
+}
+
+.section_2,.slides ion-icon {
+    font-size: 27px; 
+    vertical-align: middle;
+    margin-bottom: 6px;
+    color: #282879;
+}
+
+.tutorial{
+    margin-top: 10px;
+}
+
+.slides{
+    border: 1px solid;
+    padding: 20px;
+    width: 98%;
+    height: 330px;
+    line-height: 1.5;
+    background-color: white;
+    margin-top: 20px;
+    border-color: rgb(168, 168, 168);
+    margin-left: 15px;
+}
+
+.slides a{
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+    position: relative;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.slides li{
+    margin-left: 20px;
+}

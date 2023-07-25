@@ -1,0 +1,124 @@
+body{
+    background-color:#1d1d36;
+    font-family: 'Belanosima', sans-serif;
+}
+
+.wrapper{
+    margin: 50px 100px;
+}
+
+.back_button{
+    background-color: #004288;
+    color: white;
+    font-size: 25px;
+    margin: 20px 20px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+.back_button:hover{
+    background-color: #002c5c;
+    text-decoration: underline;
+}
+
+.ClassDetails{
+    color:white;
+    margin: 30px 50px;
+}
+
+.ClassDetails h2{
+    font-size: 35px;
+    margin: 5px 0px;
+}
+
+.ClassDetails h3{
+    font-size: 25px;
+    margin: 5px 0px;
+}
+
+.StudentList{
+    width: 95%;
+    margin: 50px 50px;
+    border-radius: 5px 5px 0 0;
+}
+
+.StudentList table,th,td{
+    border-collapse: collapse;
+    padding: auto;
+}
+
+.StudentList table{
+    width: 100%;
+}
+
+.StudentList th,td{
+    font-size: 20px;
+}
+
+.StudentList th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #05386B;
+    color: white;
+}
+
+.StudentList td{
+    text-align: center;
+    color: white;
+}
+
+.StudentList input{
+    font-size: 15px;
+    margin: 0 15px;
+    padding: 3px 3px;
+    width: 90%;
+    text-align: center;
+    border: none;
+    background-color:#e6e6e6 ;
+    border-radius: 5px;
+}
+
+.StudentList .present_button{
+    background-color: #7c7add;
+    color: white;
+    font-size: 17px;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.StudentList .present_button:hover{
+    background-color: #59589c;
+}
+
+.StudentList .absent_button{
+    background-color: #e65353;
+    color: white;
+    font-size: 17px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.StudentList .absent_button:hover{
+    background-color:#c94949 ;
+}
+
+.StudentList .present{
+    background-color:#5c5adb  ;
+}
+
+.StudentList .absent{
+    background-color: #ff5e5e;
+}

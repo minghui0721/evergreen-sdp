@@ -7,8 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="AdminHeader_style.css?v=<?php echo time(); ?>">
-    <!-- path -->
 <style>
 body{
     background-color: #1d1d36;
@@ -110,7 +108,7 @@ body{
 
 .SideHeader label{
     color: #002349;
-    font-size: 30px;
+    font-size: 28px;
     display: block;
     cursor: pointer;
 }
@@ -150,7 +148,7 @@ body{
 
 
 .SideHeader li{
-    font-size: 25px;
+    font-size: 23px;
     margin-top: 5px;
 }
 

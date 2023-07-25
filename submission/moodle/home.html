@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Page</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<header>
+        <div class="header-content">
+            <a href="#"><button class="backbtn">Back</button></a>
+            <a href="home.html"></a>
+                <img src="./img/logo.png" height="80" weight="420" alt="Error" class="logo">
+            </a>
+            <h2 class="course_title">Course Material</h2>
+            <!-- This is for searchbutton-->
+            <div class="searchdown" >
+                <button onclick="myFunction(event)" class="searchbtn" style="color:rgb(106, 117, 125);">Search...</button>
+                <div id="mysearchdown" class="searchdown-content">
+                    <input type="text" placeholder="Search..." id="searchInput" onkeyup="filterFunction()">
+                    <a href="#">Software Development</a> 
+                    <a href="#">Digital Security and Forensic</a> 
+                    <a href="#">Introduction to Artificial Intelligence</a> 
+                    <a href="#">Java Programming</a> 
+                
+                </div>
+            </div>
+        </div>
+    
+    <hr id="header_line">
+</header>
+
+
+<script>
+    function myFunction(event) {
+    document.getElementById("mysearchdown").classList.toggle("show");
+    }
+
+    function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("mysearchdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+        } else {
+        a[i].style.display = "none";
+        }
+    }
+  }
+</script>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="SDP">Software Development Project (052023-DWO)</a>
+        <a href="#" id="DSF">Digital Security and Forensic (052023-RHW)</a>
+        <a href="#" id="JP">Java Programming (052023-KGT)</a>
+        <a href="#" id="AI">Introduction to Artificial Intelligence (052023-VTK)</a>
+      </div>
+      
+</body>
+
+<body>
+    <br><br><br><br>
+        <div class="image-container">
+            <a href="sdp/sdp.html" class="image-link">
+            <div class="image-box">
+                <img src="./img/sdp.png" height="250" weight="380" alt="SDP" class="img_sdp">
+                <p class="image-caption"> Software Development Project</p>
+            </div></a>
+            <a href="ai/ai.html" class="image-link">
+            <div class="image-box_1">
+                <img src="./img/ai.png" height="250" weight="380" class="img_ai" alt="AI">
+                <p class="image-caption">Artificial Intelligence</p>
+            </div></a>
+        </div><br><br><br>
+    <div class="section1">
+        <div class = "image-container_2">
+            <a href="java/java.html" class="image-link">
+            <div class="image-box_2">
+                <img src="./img/java.png" height="250" weight="180" class = "img_java" alt="Java">
+                <p class="image-caption">Java Programming</p>
+            </div></a>
+            <a href="dsf/dsf.html" class="image-link">
+            <div class="image-box_3" >
+                <img src="./img/dsf.png" height="250" weight="380" alt="DSF">
+                <p class="image-caption">Digital Security Forensic</p>
+            </div></a>
+        </div>
+        <br><br><br><br>
+    </div>
+</body>
+</html>

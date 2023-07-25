@@ -40,10 +40,8 @@ include "../dbConn.php"
 
                 <!-- Retrieve class list from database -->
                 <?php
-                $ClassList_query="SELECT a.class_ID, a.class_name, a.room_type, b.start_time, b.end_time
-                FROM class a
-                RIGHT JOIN class_availability b
-                ON a.class_ID = b.class_ID";
+                $ClassList_query="SELECT class_ID, class_name, room_type, start_time, end_time
+                FROM class";
                 $ClassList_result=mysqli_query($connection,$ClassList_query);
                 while($ClassList_row=mysqli_fetch_assoc($ClassList_result)){
                 ?>
@@ -60,7 +58,8 @@ include "../dbConn.php"
                         <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
                         </a>
                         <!-- Delete Button -->
-                        <a href="#">
+                        <a href="DeleteClass.php?classID=<?php echo $ClassList_row['class_ID']?>"
+                        onclick ="return confirm('Are you sure want to delete this class?')">
                         <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
                         </a>
                     </td>
