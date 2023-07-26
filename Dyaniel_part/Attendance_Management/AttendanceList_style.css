@@ -6,16 +6,18 @@ body{
 }
 
 .wrapper{
-    width: 80%;
+    width: 100%;
     margin: 0;
     padding: 0;
-    float: right;
+    text-align: center;
 }
 
 .TitleBar{
     background-color: #004085;
     width: 90%;
-    margin: 50px 50px 0;
+    margin: 50px 0 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
     height: 90px;
     border-radius: 15px;
@@ -30,103 +32,89 @@ body{
     display: inline;
 }
 
-.TitleBar button{
-    background-color: #58db5c;
-    color: white;
-    font-size: 23px;
-    margin: 30px 50px;
-    padding: 8px 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    float: right;
-    display: inline;
-}
-
-.TitleBar button:hover{
-    background-color: #44c748;
-    text-decoration: underline;
-}
-
-.ClassroomList{
+.TimetableList{
     color: white;
     width: 90%;
     height: 600px;
-    margin: 20px 50px;
+    margin: 20px 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
     overflow: auto;
 }
 
-.ClassroomList::-webkit-scrollbar{
+.TimetableList::-webkit-scrollbar{
     width: 6px;
     height: 10px;
 }
 
-.ClassroomList::-webkit-scrollbar-thumb{
+.TimetableList::-webkit-scrollbar-thumb{
     border: 2px;
     background-color: white;
     border-radius: 10px;
 }
 
-.ClassroomList table,th,td{
+.TimetableList table,th,td{
     border-collapse: collapse;
     padding: auto;
 }
 
-.ClassroomList table{
+.TimetableList table{
     width: 100%;
     padding: 0;
     margin: 0;
     table-layout: fixed;
 }
 
-.ClassroomList th{
+.TimetableList th{
     font-size: 25px;
 }
 
-.ClassroomList td{
-    font-size: 18px;
+.TimetableList td{
+    font-size: 22px;
 }
 
-.ClassroomList th{
+.TimetableList th{
     position: sticky;
     background-color: #004085;
 }
 
-.ClassroomList td{
+.TimetableList td{
     text-align: center;
     background-color: #5c5adb;
 }
 
-.ClassroomList .edit_button{
+.TimetableList .otp_button{
+    color: white;
     font-size: 15x;
-    padding: 10px 10px;
+    font-weight: bold;
+    padding: 10px 30px;
     background-color: #4090db;
-    margin-right: 5px;
     border: none;
-    border-radius: 50%;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.ClassroomList .delete_button{
+.TimetableList .delete_button{
+    color: white;
     font-size: 15px;
+    font-weight: bold;
     padding: 10px 10px;
-    background-color: #e85854;
-    margin-left: 5px;
+    background-color: #5ee043;
+    margin: 10px 0;
     border: none;
-    border-radius: 50%;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.ClassroomList .edit_button:hover{
+.TimetableList .otp_button:hover{
     background-color: #3576b3;
 }
 
-.ClassroomList .delete_button:hover{
-    background-color: #cf524e;
+.TimetableList .delete_button:hover{
+    background-color: #43a330;
 }
 
 a{

@@ -50,8 +50,8 @@ include "../dbConn.php"
                     <td><?php echo $ClassList_row["class_ID"];?></td>
                     <td><?php echo $ClassList_row["class_name"];?></td>
                     <td><?php echo $ClassList_row["room_type"];?></td>
-                    <td><?php echo date('H:i a', strtotime($ClassList_row['start_time'])); ?></td>
-                    <td><?php echo date('H:i a', strtotime($ClassList_row['end_time'])); ?></td>
+                    <td><?php echo date('h:i a', strtotime($ClassList_row['start_time'])); ?></td>
+                    <td><?php echo date('h:i a', strtotime($ClassList_row['end_time'])); ?></td>
                     <td>
                         <!-- Edit Button -->  <!-- path -->
                         <a href="EditClass.php?classID=<?php echo $ClassList_row["class_ID"];?>">

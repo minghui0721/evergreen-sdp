@@ -25,6 +25,20 @@ $courseName = $row['course_name'];
 $courseDescription = $row['description'];
 $image = $row['img'];
 
+$details_sql = "SELECT * FROM course_details WHERE course_ID = $courseID";
+
+$details_result = mysqli_query($conn, $details_sql);
+
+if(!$details_result){
+    die("Error executing the query: " . mysqli_error($conn));
+}
+
+$details_row = mysqli_fetch_assoc($details_result);
+
+$purpose = $details_row['purpose'];
+$prerequisite = $details_row['prerequisite'];
+$credit_houts = $details_row['credit_hours'];
+
 
 $conn->close();
 ?>
@@ -64,7 +78,13 @@ $conn->close();
             <?php
                 echo '<img src="' . $image . '" alt="Image Description">';
             ?>
-        </div>
+    </div>
+
+    <div class="content">
+        <?php
+            echo '<p>' . $purpose . '</p>';
+        ?>
+    </div>
 
 </div>
 
