@@ -31,12 +31,12 @@ body{
 }
 
 .ClassDetails h2{
-    font-size: 40px;
+    font-size: 35px;
     margin: 5px 0px;
 }
 
 .ClassDetails h3{
-    font-size: 30px;
+    font-size: 25px;
     margin: 5px 0px;
 }
 
@@ -72,7 +72,7 @@ body{
     color: white;
 }
 
-.StudentList input{
+.StudentList .remark{
     font-size: 15px;
     margin: 0 15px;
     padding: 3px 3px;
@@ -84,10 +84,12 @@ body{
 }
 
 .StudentList .present_button{
+    display: flex;
     background-color: #7c7add;
     color: white;
-    font-size: 17px;
-    margin-right: 10px;
+    font-size: 15px;
+    bottom: 10px;
+    margin: 0 0 10px 50px;
     padding: 5px 10px;
     border: none;
     border-radius: 10px;
@@ -102,9 +104,9 @@ body{
 .StudentList .absent_button{
     background-color: #e65353;
     color: white;
-    font-size: 17px;
-    margin-left: 10px;
-    padding: 5px 10px;
+    font-size: 15px;
+    margin: 0 10px 0 0;
+    padding: 5px 13px;
     border: none;
     border-radius: 10px;
     cursor: pointer;

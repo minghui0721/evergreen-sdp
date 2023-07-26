@@ -35,7 +35,7 @@ body{
 .TimetableList{
     color: white;
     width: 90%;
-    height: 600px;
+    height: 505px;
     margin: 20px 0;
     margin-left: auto;
     margin-right: auto;
@@ -68,15 +68,13 @@ body{
 
 .TimetableList th{
     font-size: 25px;
+    position: sticky;
+    background-color: #004085;
+    top: 0;
 }
 
 .TimetableList td{
     font-size: 22px;
-}
-
-.TimetableList th{
-    position: sticky;
-    background-color: #004085;
 }
 
 .TimetableList td{

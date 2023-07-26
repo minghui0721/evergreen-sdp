@@ -53,7 +53,8 @@ include "../dbConn.php"
                 INNER JOIN subject d
                 ON a.subject_ID = d.subject_ID
                 INNER JOIN lecturer e
-                ON a.lecturer_ID = e.lecturer_ID";
+                ON a.lecturer_ID = e.lecturer_ID
+                ORDER BY a.date ASC";
                 $TimetableList_result=mysqli_query($connection,$TimetableList_query);
                 while($TimetableList_row=mysqli_fetch_assoc($TimetableList_result)){
                      // Get the ProgramID

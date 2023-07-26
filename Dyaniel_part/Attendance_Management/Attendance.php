@@ -3,12 +3,13 @@ include "../dbConn.php";
 
 // Determine either the attendance is exist or not, if not create attendance
 $TimetableID=$_GET['TimetableID'];
-try{
-    $TimetableCount_query="SELECT `attendance_ID`FROM `attendance` WHERE `timetable_ID`='$TimetableID'";
-    $TimetableCount_result=mysqli_query($connection,$TimetableCount_query); 
-    $TimetableCount=mysqli_num_rows($TimetableCount_result);
-}
-catch(ArgumentCountError $a){
+
+$TimetableCount_query="SELECT `attendance_ID`FROM `attendance` WHERE `timetable_ID`='$TimetableID'";
+$TimetableCount_result=mysqli_query($connection,$TimetableCount_query); 
+$TimetableCount=mysqli_num_rows($TimetableCount_result);
+echo $TimetableCount;
+
+if($TimetableCount<1){
     include "CreateAttendance.php";
 }
 
@@ -84,7 +85,6 @@ $ClassName=$Timetable_row['class_name'];
             <table
             border="0"
             cellpadding="20px">
-                <form action="" method="post" class="get_remark">
                 <tr>
                     <th>Studednt ID</th>
                     <th>Name</th>
@@ -105,26 +105,28 @@ $ClassName=$Timetable_row['class_name'];
                     $StudentName=$StudentDetails_row['student_name'];
                 
                     // Retrieve Students' attendance status and remark
-                    $Attendance_query="SELECT `status`, `remarks` FROM `attendance` WHERE `student_ID`='$StudentID'";
+                    $Attendance_query="SELECT `attendance_ID`,`status`, `remarks` FROM `attendance` WHERE `student_ID`='$StudentID' AND `timetable_ID`='$TimetableID'";
                     $Attendance_result=mysqli_query($connection,$Attendance_query);
                     $Attendance_row=mysqli_fetch_assoc($Attendance_result);
-                
                     $AttendanceStatus=$Attendance_row['status'];
                     $Remark=$Attendance_row['remarks'];
                 
                 ?>
 
+                <form action="UpdateAttendance.php" method="post" class="get_remark">
                 <tr class="<?php echo $AttendanceStatus?>">
                     <td><?php echo $StudentID?></td>
                     <td><?php echo $StudentName?></td>
                     <td><?php echo $AttendanceStatus?></td>
                     <td>
-                        <input type="text" placeholder="Absent with reason" name="remark" id="remark"
+                        <input type="text" placeholder="Absent with reason" name="remark" id="remark" class="remark"
                     value="<?php echo $Remark?>">
+                        <input type="hidden" name="attendanceID" id="attendanceID" value="<?php echo $Attendance_row['attendance_ID'] ?>">
+                        <input type="hidden" name="TimetableID" id="TimetableID" value="<?php echo $TimetableID ?>">
                     </td>
                     <td>
-                        <button class="present_button">Present</button>
-                        <button class="absent_button">Absent</button>
+                        <input type="submit" value="Present" name="Present" class="present_button">
+                        <input type="submit" value="Absent" name="Absent" class="absent_button">
                     </td>
                 </tr>
 
