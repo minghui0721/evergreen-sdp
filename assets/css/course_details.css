@@ -1,0 +1,29 @@
+.courseDetails_container{
+    height: 200vh;
+    text-align: center;
+}
+
+.details_header{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.details_header h2{
+    font-size: 100px;
+    text-transform: uppercase;
+}
+
+.color{
+    height: 80vh;
+    background-color: #5c5adb;
+}
+
+
+.bg_image{
+    margin-top: -550px;
+}
+
+.bg_image img{
+    width: 1200px;
+    height: 600px;
+}
