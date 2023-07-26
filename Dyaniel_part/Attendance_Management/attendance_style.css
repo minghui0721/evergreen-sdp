@@ -31,12 +31,12 @@ body{
 }
 
 .ClassDetails h2{
-    font-size: 35px;
+    font-size: 40px;
     margin: 5px 0px;
 }
 
 .ClassDetails h3{
-    font-size: 25px;
+    font-size: 30px;
     margin: 5px 0px;
 }
 
@@ -115,10 +115,10 @@ body{
     background-color:#c94949 ;
 }
 
-.StudentList .present{
+.StudentList .Present{
     background-color:#5c5adb  ;
 }
 
-.StudentList .absent{
+.StudentList .Absent{
     background-color: #ff5e5e;
 }

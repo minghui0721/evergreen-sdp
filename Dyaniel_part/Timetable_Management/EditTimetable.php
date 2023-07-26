@@ -1,6 +1,6 @@
 <?php
 include "../Admin_header/AdminHeader.php";
-include "../dbConn.php"
+include "../dbConn.php";
 ?>
     <link rel="stylesheet" type="text/css" href="EditTimetable_style.css?v=<?php echo time(); ?>">
     <!-- path -->

@@ -33,6 +33,7 @@ include "../dbConn.php"
                     <th>Timetable ID</th>
                     <th>Class Name</th>
                     <th>Course Name</th>
+                    <th>Course Name</th>
                     <th>Subject Name</th>
                     <th>Lecture Name</th>
                     <th>Date</th>
@@ -55,23 +56,38 @@ include "../dbConn.php"
                 ON a.lecturer_ID = e.lecturer_ID";
                 $TimetableList_result=mysqli_query($connection,$TimetableList_query);
                 while($TimetableList_row=mysqli_fetch_assoc($TimetableList_result)){
+                     // Get the ProgramID
+                     $CourseName=$TimetableList_row["course_name"];
+                     $ProgramID_query="SELECT `program_ID` FROM `course` WHERE `course_name`='$CourseName'";
+                     $ProgramID_result=mysqli_query($connection,$ProgramID_query);
+                     $ProgramID_row=mysqli_fetch_assoc($ProgramID_result);
+ 
+                     $ProgramID=$ProgramID_row['program_ID'];  
+ 
+                     // Retreive the Program Name based on ProgramID
+                     $ProgramName_query="SELECT `program_name`FROM `program` WHERE `program_ID`='$ProgramID'";
+                     $ProgramName_result=mysqli_query($connection,$ProgramName_query);
+                     $ProgramName_row=mysqli_fetch_assoc($ProgramName_result);
+ 
+                     $ProgramName=$ProgramName_row['program_name'];
                 ?>
 
                 <tr>
                     <td><?php echo $TimetableList_row["timetable_ID"];?></td>
                     <td><?php echo $TimetableList_row["class_name"];?></td>
+                    <td><?php echo $ProgramName;?></td>
                     <td><?php echo $TimetableList_row["course_name"];?></td>
                     <td><?php echo $TimetableList_row["subject_name"];?></td>
                     <td><?php echo $TimetableList_row["lecturer_name"];?></td>
                     <td><?php echo date('d.m.Y', strtotime($TimetableList_row['date'])); ?></td>
-                    <td><?php echo date('H:i a', strtotime($TimetableList_row['start_time'])); ?></td>
-                    <td><?php echo date('H:i a', strtotime($TimetableList_row['end_time'])); ?></td>
+                    <td><?php echo date('h:i a', strtotime($TimetableList_row['start_time'])); ?></td>
+                    <td><?php echo date('h:i a', strtotime($TimetableList_row['end_time'])); ?></td>
                     <td>
                         <!-- Edit Button --> <!-- path -->
                         <a href="EditTimetable.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>">
                         <button class="edit_button"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></button>
                         </a>
-                        <!-- Delete Button -->
+                        <!-- Delete Button --> <!-- path -->
                         <a href="DeleteTimetable.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>"
                         onclick="return confirm('Are you sure want to delete this timetable?')">
                         <button class="delete_button"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
