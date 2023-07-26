@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1d1d36;
+    
+  }
+  
+  header {
+    background-color: #84a4c7;
+    color: #fff;
+    text-align: center;
+    padding: -20px 0;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+  }
+  .welcome-note {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+   
+  }
+  .welcome-note img {
+    width: auto;
+    height: 400px;
+    border-radius: 5%;
+    margin-left: -150px;
+  }
+  
+  .welcome-text {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .welcome-text p {
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 1.8;
+    color: white;
+  }
+
+  
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .announcements h2,
+  .safety-security h2,
+  .important-reminders h2 {
+    border-bottom: 2px solid  #f8f9f9;
+    padding-bottom: 5px;
+    color: white;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  .announcement-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .announcement-info {
+    font-size: 14px;
+    color: #666;
+  }
+  
