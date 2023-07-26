@@ -168,6 +168,8 @@ left: 0;
 /* This is the box-img*/
 .image-container {
     display: flex;
+    width: calc(50% - 10px); /* Adjust the width as needed */
+    margin-bottom: 20px;
 }
 
 .image-container_2{
@@ -183,9 +185,27 @@ left: 0;
     text-align: center;
     border: 1px solid gray;
     padding: 10px;
-    margin-left: 250px;
+    width: 465px;
+    margin-left: 200px;
     border-radius: 20px;
+    margin-top:80px ;
     
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+.image-box img{
+    width: 400px;
 }
 
 .image-box:hover{
@@ -254,3 +274,4 @@ left: 0;
 .img_sdp{
     border-radius: 20px;
 }
+

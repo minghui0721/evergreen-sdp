@@ -49,9 +49,15 @@
     flex-direction: column;
     padding:50px;
     line-height: 25px;
+    position: relative;
 }
 
 
+.academic_grid a.course_button {
+    /* Add the following properties */
+    position: absolute;
+    bottom: 70px;
+}
 
 #first_button{
     background-color: #5c5adb;
@@ -62,8 +68,6 @@
     border-radius: 1px;
     width: 150px;
     height: 40px;
-    position: absolute;
-    margin-top: 350px;
 }
 
 #first_button:hover{
@@ -81,8 +85,6 @@
     border-radius: 1px;
     width: 150px;
     height: 40px;
-    position: absolute;
-    margin-top: 350px;
 }
 
 #second_button:hover{
@@ -96,7 +98,6 @@
     height: 500px;
     background-color: #1d1d36;
     color: white;
-    position: relative;
 }
 
 .image_first p{
@@ -107,7 +108,6 @@
 .details_first{
     height: 500px;
     background-color: white;
-    position: relative;
 }
 
 .details_first p{

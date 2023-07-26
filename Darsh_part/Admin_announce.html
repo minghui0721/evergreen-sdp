@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page - Announcement Creator</title>
+  <link rel="stylesheet" href="Admin_announce.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cooper+Black&display=swap">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Announcement Creator</h1>
+    <form id="announcementForm">
+      <label for="Topic">Topic:</label>
+      <input type="text" id="Topic" name="Topic" required>
+
+      <label for="content">Content:</label>
+      <input type="text" id="Content" name="Content" required>
+      
+      <label for="Additional Information">Additional Information:</label>
+      <textarea id="content" name="Additional Information" rows="4" required></textarea>
+
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" required>
+
+      <label for="dateTime">Date and Time:</label>
+      <input type="datetime-local" id="dateTime" name="dateTime" required>
+
+      <button type="submit">Create Announcement</button>
+    </form>
+  </div>
+
+  <script src="Admin_announce.js"></script>
+</body>
+
+</html>

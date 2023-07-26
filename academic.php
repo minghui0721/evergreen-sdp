@@ -17,18 +17,16 @@ $courses = array(); // Initialize an empty array to store course details
 // Fetch multiple rows of data using a loop
 while ($row = mysqli_fetch_assoc($result)) {
     // Access the data for each row using associative array keys
+    $courseID = $row['course_ID'];
     $courseName = $row['course_name'];
     $courseDescription = $row['description'];
-    $coursePrerequisites = $row['prerequisites'];
-    $creditHours = $row['credit_hours'];
     $image = $row['img'];
 
     // Store the course details in the $courses array
     $courses[] = array(
+        'course_ID' => $courseID,
         'course_name' => $courseName,
         'description' => $courseDescription,
-        'prerequisites' => $coursePrerequisites,
-        'credit_hours' => $creditHours,
         'image' => $image
     );
 }
@@ -89,7 +87,7 @@ $conn->close();
             echo '<div class="academic_grid image_first">';
             echo '<h2>' . $course['course_name'] . '</h2>';
             echo '<p>' . $course['description'] . '</p>';
-            echo '<button id="first_button">Learn More</button>';
+            echo '<a href="course_details.php?course_id=' . $course['course_ID'] . '" class="course_button"><button id="first_button">Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
             // echo $course['credit_hours'] . '</p>';
             echo '</div>';
@@ -98,7 +96,7 @@ $conn->close();
             echo '<div class="academic_grid details_first">';
             echo '<h2>' . $course['course_name'] . '</h2>';
             echo '<p>' . $course['description'] . '</p>';
-            echo '<button id="second_button">Learn More</button>';
+            echo '<a href="course_details.php?course_id=' . $course['course_ID'] . '" class="course_button"><button id="second_button" >Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
             // echo $course['credit_hours'] . '</p>';
             echo '</div>';
@@ -110,12 +108,6 @@ $conn->close();
     }
     ?>
 </div>
-
-
-
-
-
-   
 
 </div>
 
@@ -147,6 +139,6 @@ $conn->close();
         footerXhttp.open('GET', 'footer.php', true);
         footerXhttp.send();
 </script>
-    
+
 </body>
 </html>
