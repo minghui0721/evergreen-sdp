@@ -99,40 +99,42 @@ while ($row = mysqli_fetch_assoc($result)) {
       
 </body>
 
-    <?php
-    $counter = 0; // Start with 0 to show details first
-    $total_subjects = count($subjects);
+<?php
+$counter = 0; // Start with 0 to show details first
+$total_subjects = count($subjects);
 
-    // Determine the pairs to display image first and then details
-    $image_first_pairs = [];
-    for ($i = 1; $i < $total_subjects; $i += 2) {
-        $image_first_pairs[] = $i;
+// Determine the pairs to display image first and then details
+$image_first_pairs = [];
+for ($i = 1; $i < $total_subjects; $i += 2) {
+    $image_first_pairs[] = $i;
+}
+
+$counter = 0; // Initialize the counter
+foreach ($subjects as $key => $subject) {
+    // Increment the counter for each subject
+    $counter++;
+
+    // Start a new row for every even subject
+    if ($counter % 2 !== 0) {
+        // Choose the class for the row based on the counter
+        $row_class = $counter % 4 === 1 ? 'row-color-1' : 'row-color-2';
+        echo '<div class="row ' . $row_class . '">';
     }
-    
-    $counter = 0; // Initialize the counter
-    foreach ($subjects as $key => $subject) {
-        // Increment the counter for each subject
-        $counter++;
-    
-        // Start a new row for every even subject
-        if ($counter % 2 !== 0) {
-            echo '<div class="row">';
-        }
-    
-        echo '<div class="image-container">';
-        echo '<a href="./sdp/sdp.html" class="image-link">';
-        echo '<div class="image-box">';
-        echo '<img src="' . $subject['img'] . '" height="250" weight="380" alt="' . $subject['subject_name'] . '" class="img_sdp">';
-        echo '<p class="image-caption">' . $subject['subject_name'] . '</p>';
-        echo '</div></a>';
+
+    echo '<div class="image-container">';
+    echo '<a href="./sdp/sdp.html" class="image-link">';
+    echo '<div class="image-box">';
+    echo '<img src="' . $subject['img'] . '" height="250" width="380" alt="' . $subject['subject_name'] . '" class="img_sdp">';
+    echo '<p class="image-caption">' . $subject['subject_name'] . '</p>';
+    echo '</div></a>';
+    echo '</div>';
+
+    // Close the row after every even subject
+    if ($counter % 2 === 0 || $counter === $total_subjects) {
         echo '</div>';
-    
-        // Close the row after every even subject
-        if ($counter % 2 === 0 || $counter === $total_subjects) {
-            echo '</div>';
-        }
     }
-    ?>
+}
+?>
     </body>
 
     </html>

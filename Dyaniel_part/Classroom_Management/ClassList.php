@@ -41,7 +41,8 @@ include "../dbConn.php"
                 <!-- Retrieve class list from database -->
                 <?php
                 $ClassList_query="SELECT class_ID, class_name, room_type, start_time, end_time
-                FROM class";
+                FROM class
+                ORDER BY room_type DESC";
                 $ClassList_result=mysqli_query($connection,$ClassList_query);
                 while($ClassList_row=mysqli_fetch_assoc($ClassList_result)){
                 ?>
@@ -50,8 +51,8 @@ include "../dbConn.php"
                     <td><?php echo $ClassList_row["class_ID"];?></td>
                     <td><?php echo $ClassList_row["class_name"];?></td>
                     <td><?php echo $ClassList_row["room_type"];?></td>
-                    <td><?php echo date('H:i a', strtotime($ClassList_row['start_time'])); ?></td>
-                    <td><?php echo date('H:i a', strtotime($ClassList_row['end_time'])); ?></td>
+                    <td><?php echo date('h:i a', strtotime($ClassList_row['start_time'])); ?></td>
+                    <td><?php echo date('h:i a', strtotime($ClassList_row['end_time'])); ?></td>
                     <td>
                         <!-- Edit Button -->  <!-- path -->
                         <a href="EditClass.php?classID=<?php echo $ClassList_row["class_ID"];?>">
