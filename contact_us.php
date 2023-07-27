@@ -67,7 +67,7 @@
                             <label for="message">Message</label><br>
                             <textarea id="message" name="message" rows="4" required></textarea>
                         </div>
-                        <div class="form_button">                    <button class = "submit" type="submit">Submit</button>
+                        <div class="form_button"><button class = "submit" type="submit">Submit</button>
                     </div>
                     </div>
  

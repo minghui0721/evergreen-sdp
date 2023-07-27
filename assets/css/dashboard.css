@@ -1,0 +1,7 @@
+.dashboard_list{
+    color: #5c5adb;
+}
+
+.dashboard_list:hover{
+    opacity: 1;
+}
