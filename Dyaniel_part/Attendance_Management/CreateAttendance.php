@@ -19,7 +19,7 @@ while($StudentDetails_row=mysqli_fetch_assoc($StudentDetails_result)){
 
     // Create attendance
     $Attendance_query="INSERT INTO `attendance`(`lecturer_ID`, `student_ID`, `timetable_ID`, `status`, `remarks`) 
-    VALUES ('$LecturerID','$StudedntID','$TimetableID','Absent',NULL)";
+    VALUES ('$LecturerID','$StudedntID','$TimetableID','Absent','')";
     $Attendance_result=mysqli_query($connection,$Attendance_query);
 ?>
 

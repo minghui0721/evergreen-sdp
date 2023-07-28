@@ -1,17 +1,57 @@
+<?php
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$database = 'evergreen_heights_university';
+
+// Step 1 - Database connection
+$connection = mysqli_connect($host, $user, $password, $database);
+
+// Check database connection
+if ($connection === false) {
+    die('Connection failed: ' . mysqli_connect_error());
+
+}
+
+
+if(isset($_GET['subject_id'])){
+    $ID = $_GET['subject_id'];
+}
+
+$sql = "SELECT * FROM subject where subject_ID = $ID"; // You may use an appropriate WHERE clause here
+$result = mysqli_query($connection, $sql);
+
+if ($result->num_rows > 0) {
+    // Output data of the first row
+    $row = $result->fetch_assoc();
+    $subjectName = $row["subject_name"];
+} else {
+    $subjectName = "Default Course Name"; // Set a default course name if no record is found
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Development Project (052023-DWO)</title>
-    <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="sdp.css">
+    <title><?php echo $subjectName; ?></title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="course.css">
 </head>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
 <header>
     <div class="header-content">
-        <a href="../home.php"><button class="backbtn">Back</button></a>
-        <a href="../home.html"></a>
-            <img src="../img/logo.png" height="80" weight="420" alt="Error" class="logo">
+        <a href="#" onclick="goBack()"><button class="backbtn">Back</button></a>
+        <a href="home.html"></a>
+            <img src="./img/logo.png" height="80" weight="420" alt="Error" class="logo">
         </a>
         <h2 class="course_title">Course Material</h2>
         <!-- This is for searchbutton-->
@@ -56,8 +96,8 @@ for (i = 0; i < a.length; i++) {
 
 <body>
    <div class="section_1">
-        <h2 class="title"> Software Development Project (052023-DWO) </h2>
-        <a href="home.html"> 
+        <h2 class="title"> <?php echo $subjectName; ?></h2>
+        <a href="home.css"> 
             <span>My Courses</span> 
         </a>
    </div>
@@ -71,11 +111,11 @@ for (i = 0; i < a.length; i++) {
         <br><br><hr>
         <br>
         <h2 class="title_2"> Teaching and Learning Materials</h2>
-        <a href="slides_sdp.html">
+        <a href="slides.php?subject_id=<?php echo $ID;?>">
             <ion-icon name="folder-outline"></ion-icon>
             <span> &nbsp; Lecturer Slides</span><br>
         </a>
-        <a href="#">
+        <a href="tutorial.php?subject_id=<?php echo $ID;?>">
             <ion-icon name="folder-outline" class="tutorial"></ion-icon>
             <span> &nbsp; Tutorial Exercises</span>
         </a>

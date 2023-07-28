@@ -14,7 +14,7 @@ if ($connection === false) {
 }
 
 // Fetch courses from the database
-$sql = "SELECT * FROM subject where course_ID = '1'"; // Replace 'your_table_name' with the actual table name
+$sql = "SELECT * FROM subject where courseProgram_ID = '1'"; // Replace 'your_table_name' with the actual table name
 $result = mysqli_query($connection, $sql);
 
 $subjects = array(); // Initialize an empty array to store course details
@@ -22,12 +22,14 @@ $subjects = array(); // Initialize an empty array to store course details
 // Fetch multiple rows of data using a loop
 while ($row = mysqli_fetch_assoc($result)) {
     // Access the data for each row using associative array keys
+    $subject_ID = $row['subject_ID'];
     $subject_name = $row['subject_name'];
     $description = $row['description'];
     $image = $row['img'];
 
     // Store the course details in the $subjects array
     $subjects[] = array(
+        'subject_ID' => $subject_ID,
         'subject_name' => $subject_name,
         'description' => $description,
         'img' => $image
@@ -122,7 +124,7 @@ foreach ($subjects as $key => $subject) {
     }
 
     echo '<div class="image-container">';
-    echo '<a href="./sdp/sdp.html" class="image-link">';
+    echo '<a href="course.php?subject_id=' .$subject['subject_ID']. '"class="image-link">';
     echo '<div class="image-box">';
     echo '<img src="' . $subject['img'] . '" height="250" width="380" alt="' . $subject['subject_name'] . '" class="img_sdp">';
     echo '<p class="image-caption">' . $subject['subject_name'] . '</p>';
