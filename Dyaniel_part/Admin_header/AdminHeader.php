@@ -81,7 +81,7 @@ body{
 
 .SideHeader{
     width: 19%;
-    height: 770px;
+    height: 685px;
     background-color: white;
     margin: 0;
     padding: 0;
@@ -104,6 +104,7 @@ body{
 .MenuTitle{
     margin: 0 0 0 8px;
     padding: 0;
+    float: right;
 }
 
 .SideHeader label{
@@ -148,7 +149,7 @@ body{
 
 
 .SideHeader li{
-    font-size: 23px;
+    font-size: 20px;
     margin-top: 5px;
 }
 
@@ -193,7 +194,7 @@ body{
                     </label>
                     <input type="checkbox" id="btn-2">
                     <ul class="SchoolManagement2">
-                        <li><a href="#">Manage user</a></li>
+                        <li><a href="#">View Student's Attendance</a></li>
                         <li><a href="#">Manage class</a></li>
                         <li><a href="#">Manage subject</a></li>
                         <li><a href="#">Manage timetable</a></li>

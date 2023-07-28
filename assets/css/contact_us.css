@@ -90,13 +90,16 @@ iframe {
 
 .contact_form h2{
     font-size: 50px;
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 
 .contact_form {
     padding: 20px;
     background-color: #1d1d36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .form_container{
@@ -146,7 +149,6 @@ iframe {
 
 .form_textarea textarea{
     width: 100%;
-    background-color: transparent;
     border: 2px solid white;
     color: white;
     font-size: 25x;
