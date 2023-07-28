@@ -1,11 +1,9 @@
 header{
     background-color: #1d1d36;
+    padding: 10px 0;
 }
 
-.logo{
-    padding: 10px 0;
-    margin-left: -50px;
-}
+
 
 
 .logo img{
@@ -19,7 +17,7 @@ header{
 }
 
 nav{
-    margin-right: -80px;
+    margin-right: -50px;
 }
 
 nav ul li{

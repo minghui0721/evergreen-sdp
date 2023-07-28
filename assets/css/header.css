@@ -7,7 +7,6 @@ body{
 
 
 
-
 /* In the CSS, we set the left and right padding of the "container-fluid" class to 0, removing the default padding. This allows the "row1" div to occupy the full width of the screen, inheriting the width of its parent container. */
 .container_header{
     padding-left: 0;
@@ -19,6 +18,9 @@ body{
     align-items: center;
     display: flex;
 }
+
+
+
 
 
 .row_navigation{
@@ -44,7 +46,7 @@ a{
 
 
 .menu ul{
-    padding: 10px 200px 10px 200px;
+    padding: 15px 200px;
 }
 
 
@@ -97,7 +99,10 @@ a{
     font-size: 20px;
 }
 
-
+.email a{
+    text-decoration: none;
+    color: #1d1d36;
+}
 
 
 

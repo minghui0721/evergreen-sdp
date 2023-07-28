@@ -2,7 +2,7 @@
 <?php
 // Prepare the SQL query
 include 'database/db_connection.php';
-$sql = "SELECT * FROM course";
+$sql = "SELECT courseProgram_ID, course_name, course_description, img FROM course_program GROUP BY course_name";
 
 // Execute the query and store the result in a variable
 $result = mysqli_query($conn, $sql);
@@ -17,14 +17,14 @@ $courses = array(); // Initialize an empty array to store course details
 // Fetch multiple rows of data using a loop
 while ($row = mysqli_fetch_assoc($result)) {
     // Access the data for each row using associative array keys
-    $courseID = $row['course_ID'];
+    $courseProgramID = $row['courseProgram_ID'];
     $courseName = $row['course_name'];
-    $courseDescription = $row['description'];
+    $courseDescription = $row['course_description'];
     $image = $row['img'];
 
     // Store the course details in the $courses array
     $courses[] = array(
-        'course_ID' => $courseID,
+        'courseProgram_ID' => $courseProgramID,
         'course_name' => $courseName,
         'description' => $courseDescription,
         'image' => $image
@@ -87,7 +87,7 @@ $conn->close();
             echo '<div class="academic_grid image_first">';
             echo '<h2>' . $course['course_name'] . '</h2>';
             echo '<p>' . $course['description'] . '</p>';
-            echo '<a href="course_details.php?course_id=' . $course['course_ID'] . '" class="course_button"><button id="first_button">Learn More</button></a>';
+            echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button"><button id="first_button">Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
             // echo $course['credit_hours'] . '</p>';
             echo '</div>';
@@ -96,7 +96,7 @@ $conn->close();
             echo '<div class="academic_grid details_first">';
             echo '<h2>' . $course['course_name'] . '</h2>';
             echo '<p>' . $course['description'] . '</p>';
-            echo '<a href="course_details.php?course_id=' . $course['course_ID'] . '" class="course_button"><button id="second_button" >Learn More</button></a>';
+            echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button"><button id="second_button" >Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
             // echo $course['credit_hours'] . '</p>';
             echo '</div>';

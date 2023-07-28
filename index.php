@@ -180,6 +180,7 @@
         };
         footerXhttp.open('GET', 'footer.php', true);
         footerXhttp.send();
+
     </script>
 </body>
 </html>
