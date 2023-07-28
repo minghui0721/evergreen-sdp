@@ -42,7 +42,7 @@ include "../dbConn.php"
                 <?php
                 $ClassList_query="SELECT class_ID, class_name, room_type, start_time, end_time
                 FROM class
-                ORDER BY room_type DESC";
+                ORDER BY class_name ASC";
                 $ClassList_result=mysqli_query($connection,$ClassList_query);
                 while($ClassList_row=mysqli_fetch_assoc($ClassList_result)){
                 ?>

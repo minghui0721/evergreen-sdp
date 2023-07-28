@@ -14,33 +14,26 @@ if($TimetableCount<1){
 }
 
 // Retrieve Timetable Details
-$Timetable_query="SELECT a.course_ID, b.class_name, c.course_name, d.subject_name, a.date, a.start_time, a.end_time
+$Timetable_query="SELECT a.timetable_ID, b.class_name,c.intake_ID, c.courseProgram_ID, c.intake, d.subject_name, a.date, a.start_time, a.end_time
 FROM timetable_details a
 INNER JOIN class b
 ON a.class_ID = b.class_ID
-INNER JOIN course c
-ON a.course_ID = c.course_ID
+INNER JOIN intake c
+ON a.intake_ID = c.intake_ID
 INNER JOIN subject d
 ON a.subject_ID = d.subject_ID
 WHERE a.timetable_ID=$TimetableID";
 $Timetable_result=mysqli_query($connection,$Timetable_query);
 $Timetable_row=mysqli_fetch_assoc($Timetable_result);
 
-// Get the ProgramID
-$CourseName=$Timetable_row["course_name"];
-$ProgramID_query="SELECT `program_ID` FROM `course` WHERE `course_name`='$CourseName'";
-$ProgramID_result=mysqli_query($connection,$ProgramID_query);
-$ProgramID_row=mysqli_fetch_assoc($ProgramID_result);
-
-$ProgramID=$ProgramID_row['program_ID'];  
-
-// Retreive the Program Name based on ProgramID
-$ProgramName_query="SELECT `program_name`FROM `program` WHERE `program_ID`='$ProgramID'";
-$ProgramName_result=mysqli_query($connection,$ProgramName_query);
-$ProgramName_row=mysqli_fetch_assoc($ProgramName_result);
+//retrieve the Course Name and Program Name based on courseProgram_ID
+$CoProID=$Timetable_row['courseProgram_ID'];
+$CoProName_query="SELECT `course_name`, `program_name`FROM `course_program` WHERE `courseProgram_ID`='$CoProID'";
+$CoProName_result=mysqli_query($connection,$CoProName_query);
+$CoProName_row=mysqli_fetch_assoc($CoProName_result);
 
 // Save all Timetable Details into variable
-$ProgSubjName=$ProgramName_row['program_name']." ".$Timetable_row['course_name'];
+$Intake=$Timetable_row['intake']." ".$CoProName_row['program_name'].' '.$CoProName_row['course_name'];
 $SubjectName=$Timetable_row['subject_name'];
 $Date=date('d M Y', strtotime($Timetable_row['date']));
 $Time=date('h: i a', strtotime($Timetable_row['start_time']))." - ".date('h: i a', strtotime($Timetable_row['end_time']));
@@ -73,7 +66,7 @@ $ClassName=$Timetable_row['class_name'];
 
         <!-- Class Details -->
         <div class="ClassDetails">
-            <h2><?php echo $ProgSubjName?></h2>
+            <h2><?php echo $Intake?></h2>
             <h2><?php echo $SubjectName?></h2>
             <h1></h1>
             <h3><i class="fa-solid fa-calendar-days"></i> &nbsp;<?php echo $Date?></h3>
@@ -95,9 +88,9 @@ $ClassName=$Timetable_row['class_name'];
 
                 <?php
                 // Retreive Student Details
-                $CourseID=$Timetable_row['course_ID'];
+                $IntakeID=$Timetable_row['intake_ID'];
 
-                $StudentDetails_query="SELECT `student_ID`, `student_name` FROM `student` WHERE `course_ID`='$CourseID'";
+                $StudentDetails_query="SELECT `student_ID`, `student_name` FROM `student` WHERE `intake_ID`='$IntakeID'";
                 $StudentDetails_result=mysqli_query($connection,$StudentDetails_query);
                 while($StudentDetails_row=mysqli_fetch_assoc($StudentDetails_result)){;
                 

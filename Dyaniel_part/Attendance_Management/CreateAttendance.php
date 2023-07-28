@@ -2,15 +2,15 @@
 include "../dbConn.php";
 
 // Retreive ID
-$RetrieveID_query="SELECT `course_ID`, `lecturer_ID` FROM `timetable_details` WHERE `timetable_ID`='$TimetableID'";
+$RetrieveID_query="SELECT `intake_ID`, `lecturer_ID` FROM `timetable_details` WHERE `timetable_ID`='$TimetableID'";
 $RetrieveID_result=mysqli_query($connection,$RetrieveID_query);
 $RetrieveID_row=mysqli_fetch_assoc($RetrieveID_result);
 
-$CourseID=$RetrieveID_row['course_ID'];
+$IntakeID=$RetrieveID_row['intake_ID'];
 $LecturerID=$RetrieveID_row['lecturer_ID'];
 
 // Retreive Student Details + create attendance
-$StudentDetails_query="SELECT `student_ID`,`student_name` FROM `student` WHERE `course_ID`='$CourseID'";
+$StudentDetails_query="SELECT `student_ID`,`student_name` FROM `student` WHERE `intake_ID`='$IntakeID'";
 $StudentDetails_result=mysqli_query($connection,$StudentDetails_query);
 while($StudentDetails_row=mysqli_fetch_assoc($StudentDetails_result)){
 
