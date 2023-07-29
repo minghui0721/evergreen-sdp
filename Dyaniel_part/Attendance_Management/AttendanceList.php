@@ -49,7 +49,7 @@ include "../dbConn.php"
                 INNER JOIN subject d
                 ON a.subject_ID = d.subject_ID
                 WHERE a.lecturer_ID=$LecturerID
-                ORDER BY a.date ASC";
+                ORDER BY a.date ASC, a.start_time ASC";
                 $TimetableList_result=mysqli_query($connection,$TimetableList_query);
                 while($TimetableList_row=mysqli_fetch_assoc($TimetableList_result)){
 
