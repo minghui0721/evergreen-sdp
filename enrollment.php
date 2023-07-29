@@ -2,7 +2,7 @@
 <?php
 // Prepare the SQL query
 include 'database/db_connection.php';
-$sql = "SELECT * FROM course_program GROUP BY course_name";
+$sql = "SELECT * FROM course_program";
 
 // Execute the query and store the result in a variable
 $result = mysqli_query($conn, $sql);
