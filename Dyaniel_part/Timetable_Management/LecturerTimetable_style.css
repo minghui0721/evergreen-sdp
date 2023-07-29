@@ -91,16 +91,16 @@ body{
 }
 
 .TimeSchedule .Class{
-    margin: 10px 0 0 150px;
+    margin: 10px 0 0 80px;
 }
 
 .TimeSchedule .Right{
     float: right;
 }
 
-.TimeSchedule .Lecturer{
+.TimeSchedule .Intake{
     font-size: 21px;
-    margin: 40px 180px 0 0;
+    margin: 40px 80px 0 0;
 }
 
 .NotificationContainer{

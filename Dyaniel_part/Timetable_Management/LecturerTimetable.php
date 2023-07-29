@@ -2,15 +2,7 @@
 include "../dbConn.php";
 include "../WeekDateRange.php";
 
-$StudentID=1;
-
-// Retrieve student's intakeID
-$GetIntake_query="SELECT `intake_ID` FROM `student` WHERE `student_ID`='$StudentID'";
-$GetIntake_result=mysqli_query($connection,$GetIntake_query);
-$GetIntake_row=mysqli_fetch_assoc($GetIntake_result);
-
-$IntakeID=$GetIntake_row['intake_ID'];
-
+$LecturerID=1;
 
 // Calculate the Strt Date & End Date of 4 week
 list($CurrentStart,$CurrentEnd)=CurrentStartEnd();
@@ -28,7 +20,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="StudentTimtable_style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="LecturerTimetable_style.css?v=<?php echo time(); ?>">
     <title>Timetable</title>
     <!-- path -->
 </head>
@@ -96,7 +88,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
         $DateCount=0;
         while($x<7){
             // Compare database date with the date retrieve
-            $CompareDate_query="SELECT * FROM `timetable_details` WHERE `date`='$CompareDate[$x]' AND `intake_ID`='$IntakeID'";
+            $CompareDate_query="SELECT * FROM `timetable_details` WHERE `date`='$CompareDate[$x]' AND `lecturer_ID`='$LecturerID'";
             $CompareDate_result=mysqli_query($connection,$CompareDate_query);
             $CompareDate_count=mysqli_num_rows($CompareDate_result);
 
@@ -127,23 +119,28 @@ list($Week4Start,$Week4End)=Week4StartEnd();
     <div class="Timetable_container">
         <h2><?php echo $CurrentDate; ?></h2>
         <?php
-            $Timetable_query="SELECT b.class_name, c.subject_name, d.lecturer_name, a.start_time, a.end_time
+            $Timetable_query="SELECT b.class_name, c.subject_name, d.courseProgram_ID, d.intake, a.start_time, a.end_time
             FROM timetable_details a
             INNER JOIN class b
             ON a.class_ID = b.class_ID
             INNER JOIN subject c
             ON a.subject_ID = c.subject_ID
-            INNER JOIN lecturer d
-            ON a.lecturer_ID = d.lecturer_ID
-            WHERE a.intake_ID='$IntakeID' AND a.date='$DateForRetrieve'";
+            INNER JOIN intake d
+            ON a.intake_ID = d.intake_ID
+            WHERE a.lecturer_ID='$LecturerID' AND a.date='$DateForRetrieve'";
             $Timetable_result=mysqli_query($connection,$Timetable_query);
             while($Timetable_row=mysqli_fetch_assoc($Timetable_result)){
+                //retrieve the Course Name and Program Name based on courseProgram_ID
+                $CoProID=$Timetable_row['courseProgram_ID'];
+                $CoProName_query="SELECT `course_name`, `program_name`FROM `course_program` WHERE `courseProgram_ID`='$CoProID'";
+                $CoProName_result=mysqli_query($connection,$CoProName_query);
+                $CoProName_row=mysqli_fetch_assoc($CoProName_result);
 
                 // save retrieved data into variable
                 $Subject=$Timetable_row['subject_name'];
                 $Time=date('h:i a', strtotime($Timetable_row['start_time']))." - ".date('h:i a', strtotime($Timetable_row['end_time']));
                 $Class=$Timetable_row['class_name'];
-                $Lecturer=$Timetable_row['lecturer_name'];
+                $Intake=$Timetable_row['intake']." ".$CoProName_row['program_name'].' '.$CoProName_row['course_name'];
         ?>
         <div class="TimeSchedule">
             <div class="Details">
@@ -153,7 +150,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
                     <p class="Class">Class: <?php echo $Class;?></p>
                 </div>
                 <div class="Right">
-                    <p class="Lecturer">Lecturer: <?php echo $Lecturer;?></p>
+                    <p class="Intake">Intake: <?php echo $Intake;?></p>
                 </div>
             </div>
         </div>

@@ -1,4 +1,88 @@
 <?php
+function CurrentStartEnd(){
+    //Prepare Date
+    $CurrentDate = date('Y-m-d');
+    $givenDateTime = new DateTime($CurrentDate);
+    $dayOfWeek = (int)$givenDateTime->format('w');
+
+    // Calculate the date range
+    $startingDateTime = clone $givenDateTime;
+    $startingDateTime->sub(new DateInterval('P' . $dayOfWeek . 'D'));
+
+    $endingDateTime = clone $startingDateTime;
+    $endingDateTime->add(new DateInterval('P6D'));
+    
+    // Return
+    return array($startingDateTime->format('Y-m-d'), 
+    $endingDateTime->format('Y-m-d'));
+}
+
+function Week2StartEnd(){
+    //Prepare Date
+    $CurrentDate = date('Y-m-d');
+    $givenDateTime = new DateTime($CurrentDate);
+    $dayOfWeek = (int)$givenDateTime->format('w');
+    $StartWeek = clone $givenDateTime;
+    $StartWeek->sub(new DateInterval('P' . $dayOfWeek . 'D'));
+    $EndWeek = clone $StartWeek;
+    $EndWeek->add(new DateInterval('P6D'));
+
+    // Calculate the date range
+    $startingDateTime = clone $EndWeek;
+    $startingDateTime->add(new DateInterval('P1D'));
+
+    $endingDateTime = clone $startingDateTime;
+    $endingDateTime->add(new DateInterval('P6D'));
+    
+    // Return
+    return array($startingDateTime->format('Y-m-d'), 
+    $endingDateTime->format('Y-m-d'));
+}
+
+function Week3StartEnd(){
+    //Prepare Date
+    $CurrentDate = date('Y-m-d');
+    $givenDateTime = new DateTime($CurrentDate);
+    $dayOfWeek = (int)$givenDateTime->format('w');
+    $StartWeek = clone $givenDateTime;
+    $StartWeek->sub(new DateInterval('P' . $dayOfWeek . 'D'));
+    $EndWeek = clone $StartWeek;
+    $EndWeek->add(new DateInterval('P6D'));
+
+    // Calculate the date range
+    $startingDateTime = clone $EndWeek;
+    $startingDateTime->add(new DateInterval('P8D'));
+
+    $endingDateTime = clone $startingDateTime;
+    $endingDateTime->add(new DateInterval('P6D'));
+    
+    // Return
+    return array($startingDateTime->format('Y-m-d'), 
+    $endingDateTime->format('Y-m-d'));
+}
+
+function Week4StartEnd(){
+    //Prepare Date
+    $CurrentDate = date('Y-m-d');
+    $givenDateTime = new DateTime($CurrentDate);
+    $dayOfWeek = (int)$givenDateTime->format('w');
+    $StartWeek = clone $givenDateTime;
+    $StartWeek->sub(new DateInterval('P' . $dayOfWeek . 'D'));
+    $EndWeek = clone $StartWeek;
+    $EndWeek->add(new DateInterval('P6D'));
+
+    // Calculate the date range
+    $startingDateTime = clone $EndWeek;
+    $startingDateTime->add(new DateInterval('P15D'));
+
+    $endingDateTime = clone $startingDateTime;
+    $endingDateTime->add(new DateInterval('P6D'));
+    
+    // Return
+    return array($startingDateTime->format('Y-m-d'), 
+    $endingDateTime->format('Y-m-d'));
+}
+
 function CurrentWeekDateRange() {
     //Prepare Date
     $CurrentDate = date('Y-m-d');
