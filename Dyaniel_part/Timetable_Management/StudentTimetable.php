@@ -135,7 +135,8 @@ list($Week4Start,$Week4End)=Week4StartEnd();
             ON a.subject_ID = c.subject_ID
             INNER JOIN lecturer d
             ON a.lecturer_ID = d.lecturer_ID
-            WHERE a.intake_ID='$IntakeID' AND a.date='$DateForRetrieve'";
+            WHERE a.intake_ID='$IntakeID' AND a.date='$DateForRetrieve'
+            ORDER BY a.start_time ASC";
             $Timetable_result=mysqli_query($connection,$Timetable_query);
             while($Timetable_row=mysqli_fetch_assoc($Timetable_result)){
 

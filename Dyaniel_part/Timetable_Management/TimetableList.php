@@ -31,11 +31,11 @@ include "../dbConn.php"
             cellpadding="10px">
                 <tr>
                     <th>Timetable ID</th>
+                    <th>Date</th>
                     <th>Class Name</th>
                     <th>Intake</th>
                     <th>Subject Name</th>
                     <th>Lecture Name</th>
-                    <th>Date</th>
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Action</th>
@@ -53,7 +53,7 @@ include "../dbConn.php"
                 ON a.subject_ID = d.subject_ID
                 INNER JOIN lecturer e
                 ON a.lecturer_ID = e.lecturer_ID
-                ORDER BY a.date ASC";
+                ORDER BY a.date ASC, a.start_time ASC";
                 $TimetableList_result=mysqli_query($connection,$TimetableList_query);
                 while($TimetableList_row=mysqli_fetch_assoc($TimetableList_result)){
                     //retrieve the Course Name and Program Name based on courseProgram_ID
@@ -68,11 +68,11 @@ include "../dbConn.php"
 
                 <tr>
                     <td><?php echo $TimetableList_row["timetable_ID"];?></td>
+                    <td><?php echo date('d.m.Y', strtotime($TimetableList_row['date'])); ?></td>
                     <td><?php echo $TimetableList_row["class_name"];?></td>
                     <td><?php echo $Intake;?></td>
                     <td><?php echo $TimetableList_row["subject_name"];?></td>
                     <td><?php echo $TimetableList_row["lecturer_name"];?></td>
-                    <td><?php echo date('d.m.Y', strtotime($TimetableList_row['date'])); ?></td>
                     <td><?php echo date('h:i a', strtotime($TimetableList_row['start_time'])); ?></td>
                     <td><?php echo date('h:i a', strtotime($TimetableList_row['end_time'])); ?></td>
                     <td>

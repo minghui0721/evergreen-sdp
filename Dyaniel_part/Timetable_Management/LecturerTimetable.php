@@ -127,7 +127,8 @@ list($Week4Start,$Week4End)=Week4StartEnd();
             ON a.subject_ID = c.subject_ID
             INNER JOIN intake d
             ON a.intake_ID = d.intake_ID
-            WHERE a.lecturer_ID='$LecturerID' AND a.date='$DateForRetrieve'";
+            WHERE a.lecturer_ID='$LecturerID' AND a.date='$DateForRetrieve'
+            ORDER BY a.start_time ASC";
             $Timetable_result=mysqli_query($connection,$Timetable_query);
             while($Timetable_row=mysqli_fetch_assoc($Timetable_result)){
                 //retrieve the Course Name and Program Name based on courseProgram_ID
