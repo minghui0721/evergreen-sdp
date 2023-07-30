@@ -7,7 +7,6 @@ $TimetableID=$_GET['TimetableID'];
 $TimetableCount_query="SELECT `attendance_ID`FROM `attendance` WHERE `timetable_ID`='$TimetableID'";
 $TimetableCount_result=mysqli_query($connection,$TimetableCount_query); 
 $TimetableCount=mysqli_num_rows($TimetableCount_result);
-echo $TimetableCount;
 
 if($TimetableCount<1){
     include "CreateAttendance.php";

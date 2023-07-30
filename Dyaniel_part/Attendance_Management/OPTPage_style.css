@@ -1,0 +1,114 @@
+body{
+    background-color: #1d1d36 ;
+    font-family: 'Belanosima', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.Wrapper{
+    /* background-color: aqua; */
+    width: 85%;
+    margin: 50px 150px;
+}
+
+.Title{
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.OPTContainer{
+    display: block;
+    background-color:#1d68b8;
+    width: 25%;
+    height: 130px;
+    margin: 50px 0 0 470px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.OPTContainer h2{
+    font-size: 50px;
+    margin: 0;
+}
+
+.OPTContainer h3{
+    font-size: 30px;
+    margin: 0;
+}
+
+.ClassDetails{
+    font-size: 22px;
+    background-color: #5c5adb;
+    width: 60%;
+    height: 400px;
+    margin: 50px 0 0 250px;
+    padding: 25px 0;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.ClassDetails h3{
+    margin: 40px 0 0 0;
+}
+
+.ClassDetails p{
+    margin: 5px 0 0 0;
+}
+
+.ClassDetails .Date-and-Time,
+.ClassDetails .Intake-and-ClassName,
+.ClassDetails .CloseOTP_Button{
+    clear: both;
+}
+
+.ClassDetails .Date,
+.ClassDetails .Intake{
+    float: left;
+}
+
+.ClassDetails .Time,
+.ClassDetails .ClassName{
+    float: right;
+}
+
+.ClassDetails .Date{
+    background-color: aqua;
+    width: 200px;
+    position: relative;
+    left: 100px;
+}
+
+.ClassDetails .Time{
+    position: relative;
+    right: 110px;
+}
+
+.ClassDetails .Intake{
+    position: relative;
+    left: 110px;
+}
+
+.ClassDetails .ClassName{
+    position: relative;
+    right: 160px;
+}
+
+.ClassDetails    .CloseOTP_Button input{
+    background-color: #013874;
+    font-size: 20px;
+    font-weight:600 ;
+    color: white;
+    margin: 35px 0 0 0;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+
+.ClassDetails    .CloseOTP_Button input:hover{
+    background-color: #002349;
+}
