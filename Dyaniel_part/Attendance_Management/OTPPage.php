@@ -2,6 +2,18 @@
 <?php
 include "../dbConn.php";
 include "Generate_OTP.php";
+
+// Determine either the attendance is exist or not, if not create attendance
+$TimetableID=$_GET['TimetableID'];
+
+$TimetableCount_query="SELECT `attendance_ID`FROM `attendance` WHERE `timetable_ID`='$TimetableID'";
+$TimetableCount_result=mysqli_query($connection,$TimetableCount_query); 
+$TimetableCount=mysqli_num_rows($TimetableCount_result);
+
+if($TimetableCount<1){
+    include "CreateAttendance.php";
+}
+
 $TimetableID=$_GET['TimetableID'];
 
 // Generate OTP and save into database
@@ -83,7 +95,9 @@ $Timetable_row=mysqli_fetch_assoc($Timetable_result);
             </div>
 
             <div class="CloseOTP_Button">
-            <form action="#" method="post">
+            <form action="Delete_OTP.php" method="post">
+                <input type="hidden" name="OTP" id="OTP" value="<?php echo $OTP?>">
+                <input type="hidden" name="timetableID" id="timetableID" value="<?php echo $TimetableID?>">
                 <input type="submit" name="CloseOTP" id="CloseOTP" value="CloseOTP">
             </form>
         </div>
