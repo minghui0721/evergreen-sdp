@@ -1,5 +1,6 @@
 <?php
 include "../dbConn.php";
+// <!-- path -->
 
 if (isset($_POST['CloseOTP'])){
     $OTP=$_POST['OTP'];

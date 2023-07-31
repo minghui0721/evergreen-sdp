@@ -54,7 +54,8 @@ $Timetable_row=mysqli_fetch_assoc($Timetable_result);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="OPTPage_style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="LecturerOTPPage_style.css?v=<?php echo time(); ?>">
+    <!-- path -->
     <title>Attendance OTP</title>
 </head>
 <body>
@@ -65,7 +66,7 @@ $Timetable_row=mysqli_fetch_assoc($Timetable_result);
 
         <div class="OPTContainer">
             <h2><?php echo $OTP?></h2>
-            <h3>_ _ _</h3>
+            <h3>_&nbsp;_&nbsp;_</h3>
         </div>
 
         <div class="ClassDetails">
@@ -96,6 +97,7 @@ $Timetable_row=mysqli_fetch_assoc($Timetable_result);
 
             <div class="CloseOTP_Button">
             <form action="Delete_OTP.php" method="post">
+                <!-- path -->
                 <input type="hidden" name="OTP" id="OTP" value="<?php echo $OTP?>">
                 <input type="hidden" name="timetableID" id="timetableID" value="<?php echo $TimetableID?>">
                 <input type="submit" name="CloseOTP" id="CloseOTP" value="CloseOTP">

@@ -1,6 +1,7 @@
 <?php
 $LecturerID="1";
 include "../dbConn.php"
+// <!-- path -->
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +74,7 @@ include "../dbConn.php"
                     <td><?php echo date('h:i a', strtotime($TimetableList_row['end_time'])); ?></td>
                     <td>
                         <!-- OTP Attendance --> <!-- path -->
-                        <a href="OTPPage.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>">
+                        <a href="LecturerOTPPage.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>">
                         <button class="otp_button"><i class="fa-solid fa-asterisk" style="color: #ffffff;"></i>&nbsp;OTP</button>
                         </a>
                         <!-- Manually Attendance --> <!-- path -->

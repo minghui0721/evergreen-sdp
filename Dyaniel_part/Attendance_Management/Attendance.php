@@ -1,5 +1,6 @@
 <?php
 include "../dbConn.php";
+// <!-- path -->
 
 // Determine either the attendance is exist or not, if not create attendance
 $TimetableID=$_GET['TimetableID'];
@@ -50,6 +51,7 @@ $ClassName=$Timetable_row['class_name'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="attendance_style.css?v=<?php echo time(); ?>">
+    <!-- path -->
     <title>Mark Attendance</title>
 </head>
 
@@ -106,6 +108,7 @@ $ClassName=$Timetable_row['class_name'];
                 ?>
 
                 <form action="UpdateAttendance.php" method="post" class="get_remark">
+                <!-- path -->
                 <tr class="<?php echo $AttendanceStatus?>">
                     <td><?php echo $StudentID?></td>
                     <td><?php echo $StudentName?></td>

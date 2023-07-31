@@ -2,6 +2,7 @@
 
 function GenerateOTP($TimetableID){
     include "../dbConn.php";
+    // <!-- path -->
 
     // Generate OTP
     $OTP=random_int(100,999);
@@ -29,6 +30,7 @@ function GenerateOTP($TimetableID){
         <script>
         alert("OTP Generated Fail")
         window.location.replace("OTPPage.php")
+        // <!-- path -->
         </script>
     <?php
     }
