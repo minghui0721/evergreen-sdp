@@ -104,7 +104,7 @@ for (i = 0; i < a.length; i++) {
 
    <div class="section_2">
         <h2 class="title_2"> Assesment Summative Assesment (eventually marked & moderated)</h2>
-        <a href="#">
+        <a href="assignment_home.php?subject_id=<?php echo $ID;?>">
             <ion-icon name="folder-outline"></ion-icon>
             <span> &nbsp; Assignment</span>
         </a>
