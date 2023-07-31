@@ -27,19 +27,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Get the announcement ID from the URL parameter
-$announcementID = $_GET["id"];
+// Check if the 'id' key exists in the $_GET array
+if (isset($_GET["id"])) {
+    // Get the announcement ID from the URL parameter
+    $announcementID = $_GET["id"];
 
-// Retrieve the announcement data from the database
-$sql = "SELECT * FROM announcement WHERE announcement_ID=$announcementID";
-$result = mysqli_query($connection, $sql);
+    // Retrieve the announcement data from the database
+    $sql = "SELECT * FROM announcement WHERE announcement_ID=$announcementID";
+    $result = mysqli_query($connection, $sql);
 
-if (!$result) {
-    echo "Error retrieving announcement: " . mysqli_error($connection);
+    if (!$result) {
+        echo "Error retrieving announcement: " . mysqli_error($connection);
+        exit();
+    }
+
+    $announcement = mysqli_fetch_assoc($result);
+} else {
+    echo "Announcement ID not provided.";
     exit();
 }
-
-$announcement = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +54,8 @@ $announcement = mysqli_fetch_assoc($result);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Announcement</title>
-  <link rel="stylesheet" href="edit_announcement.css">
+  <link rel="stylesheet" href="edit_delete.css"> <!-- Add this line to link the common.css file -->
+  <link rel="stylesheet" href="edit_announcement.css"> <!-- If any specific styles are needed for edit_announcement.php -->
 </head>
 <body>
   <div class="box">

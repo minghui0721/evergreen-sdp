@@ -1,0 +1,70 @@
+/* edit_announcement_form.css */
+
+/* Style for the form container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #5c5adb;
+  border: 1px solid #090909;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+/* Style for the form heading */
+h1 {
+  text-align: center;
+  font-family: "Cooper Black", Arial, sans-serif;
+  color: #ffffff;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+/* Style for form rows */
+.form-row {
+  margin-bottom: 20px;
+}
+
+/* Style for form labels */
+label {
+  display: block;
+  font-weight: bold;
+  color: #1d1d36;
+  margin-bottom: 8px;
+}
+
+/* Style for form inputs */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #131212;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Style for the Publish Date input */
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Style for the Submit button */
+button[type="submit"] {
+  padding: 12px 24px;
+  background-color: #1d1d36;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #545972;
+}
