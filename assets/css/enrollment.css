@@ -1,0 +1,95 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  padding-bottom: 5px;
+  font-size: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #1d1d36;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+/* Style the required indicator */
+input:required:invalid,
+select:required:invalid,
+textarea:required:invalid {
+  border-color: #008dc0; /* Use the correct color for the border (e.g., red) */
+}
+
+/* Style the file input */
+input[type="file"]:required:invalid {
+  /* You can style the file input differently if needed */
+  border-color: #008dc0; /* Use the correct color for the border (e.g., red) */
+}
+
+/* Style the payment option select */
+#payment_option:required:invalid {
+  /* You can style the select input differently if needed */
+  border-color: #008dc0; /* Use the correct color for the border (e.g., red) */
+}
+
+
+textarea {
+  resize: vertical;
+}
+
+
+
+.application_button {
+  display: block;
+  margin: 40px auto 0;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  background-color: #1d1d36;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.application_button:hover {
+  transition-duration: 0.3s;
+  opacity: 0.6;
+}
+
+/* Style the file input */
+input[type="file"] {
+  padding: 5px;
+}
+
+
+input:required::after,
+select:required::after,
+textarea:required::after {
+  content: '*';
+  color: red;
+  margin-left: 5px;
+}
+
+
+select option:disabled{
+  color: red;
+}

@@ -1,6 +1,7 @@
 <?php
 $LecturerID="1";
 include "../dbConn.php"
+// <!-- path -->
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +31,7 @@ include "../dbConn.php"
                 <tr>
                     <th>Timetable ID</th>
                     <th>Class Name</th>
-                    <th>Program Name</th>
-                    <th>Course Name</th>
+                    <th>Intake</th>
                     <th>Subject Name</th>
                     <th>Date</th>
                     <th>Start Time</th>
@@ -41,48 +41,40 @@ include "../dbConn.php"
 
                 <!-- Retrieve class list from database -->
                 <?php
-                $TimetableList_query="SELECT a.timetable_ID, b.class_name, c.course_name, d.subject_name, a.date, a.start_time, a.end_time
+                $TimetableList_query="SELECT a.timetable_ID, b.class_name, c.courseProgram_ID, c.intake, d.subject_name, a.date, a.start_time, a.end_time
                 FROM timetable_details a
                 INNER JOIN class b
                 ON a.class_ID = b.class_ID
-                INNER JOIN course c
-                ON a.course_ID = c.course_ID
+                INNER JOIN intake c
+                ON a.intake_ID = c.intake_ID
                 INNER JOIN subject d
                 ON a.subject_ID = d.subject_ID
                 WHERE a.lecturer_ID=$LecturerID
-                ORDER BY a.date ASC";
+                ORDER BY a.date ASC, a.start_time ASC";
                 $TimetableList_result=mysqli_query($connection,$TimetableList_query);
                 while($TimetableList_row=mysqli_fetch_assoc($TimetableList_result)){
 
-                    // Get the ProgramID
-                    $CourseName=$TimetableList_row["course_name"];
-                    $ProgramID_query="SELECT `program_ID` FROM `course` WHERE `course_name`='$CourseName'";
-                    $ProgramID_result=mysqli_query($connection,$ProgramID_query);
-                    $ProgramID_row=mysqli_fetch_assoc($ProgramID_result);
+                    //retrieve the Course Name and Program Name based on courseProgram_ID
+                    $CoProID=$TimetableList_row['courseProgram_ID'];
+                    $CoProName_query="SELECT `course_name`, `program_name`FROM `course_program` WHERE `courseProgram_ID`='$CoProID'";
+                    $CoProName_result=mysqli_query($connection,$CoProName_query);
+                    $CoProName_row=mysqli_fetch_assoc($CoProName_result);
 
-                    $ProgramID=$ProgramID_row['program_ID'];  
-
-                    // Retreive the Program Name based on ProgramID
-                    $ProgramName_query="SELECT `program_name`FROM `program` WHERE `program_ID`='$ProgramID'";
-                    $ProgramName_result=mysqli_query($connection,$ProgramName_query);
-                    $ProgramName_row=mysqli_fetch_assoc($ProgramName_result);
-
-                    $ProgramName=$ProgramName_row['program_name'];
+                    //combine a intake name
+                    $Intake=$TimetableList_row['intake']." ".$CoProName_row['program_name'].' '.$CoProName_row['course_name'];
                 ?>
 
                 <tr>
                     <td><?php echo $TimetableList_row["timetable_ID"];?></td>
                     <td><?php echo $TimetableList_row["class_name"];?></td>
-                    <td><?php echo $ProgramName;?></td>
-                    <td><?php echo $TimetableList_row["course_name"];?></td>
+                    <td><?php echo $Intake;?></td>
                     <td><?php echo $TimetableList_row["subject_name"];?></td>
                     <td><?php echo date('d.m.Y', strtotime($TimetableList_row['date'])); ?></td>
                     <td><?php echo date('h:i a', strtotime($TimetableList_row['start_time'])); ?></td>
                     <td><?php echo date('h:i a', strtotime($TimetableList_row['end_time'])); ?></td>
                     <td>
                         <!-- OTP Attendance --> <!-- path -->
-                        <a href="EditTimetable.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>"
-                        onclick="return confirm('Are you sure want to delete this timetable?')">
+                        <a href="LecturerOTPPage.php?TimetableID=<?php echo $TimetableList_row["timetable_ID"];?>">
                         <button class="otp_button"><i class="fa-solid fa-asterisk" style="color: #ffffff;"></i>&nbsp;OTP</button>
                         </a>
                         <!-- Manually Attendance --> <!-- path -->

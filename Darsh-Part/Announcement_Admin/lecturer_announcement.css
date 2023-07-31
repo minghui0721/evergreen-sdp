@@ -1,0 +1,124 @@
+/* lecturer_announcement.css */
+
+body {
+    font-family: "Dream Outloud Pro", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #aaacb1;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 40px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .header-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    max-height: 250px; 
+  }
+  
+  .header-image img {
+    width: 100%;
+    height: auto;
+    opacity: 0.9; 
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .header-image img:hover {
+    opacity: 1;
+  }
+  
+  h1 {
+    font-family: "Cooper Black", Arial, sans-serif;
+    color: #1d1d36;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #1d1d36;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #1d1d36;
+    margin-bottom: 10px;
+  }
+  
+  .search-bar {
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    flex: 1;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    background-color: #1d1d36;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .search-bar button:hover {
+    background-color: #545972;
+  }
+  
+  .announcements {
+    margin-top: 30px;
+  }
+  
+  .announcement {
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .announcement h3 {
+    color: #1d1d36;
+  }
+  
+  .announcement p {
+    color: #1d1d36;
+  }
+  
+  .announcement .publish-date {
+    color: #545972;
+    font-style: italic;
+  }
+  
+  .no-announcements {
+    text-align: center;
+    color: #545972;
+    font-style: italic;
+  }
+  
+  
+  

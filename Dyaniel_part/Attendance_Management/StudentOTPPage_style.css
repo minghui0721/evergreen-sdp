@@ -1,0 +1,77 @@
+body{
+    background-color: #1d1d36 ;
+    font-family: 'Belanosima', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.wrapper{
+    width: 85%;
+    margin: 50px 150px;
+}
+
+.title{
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.OTPContainer{
+    background-color: #5c5adb;
+    width: 50%;
+    height: 300px;
+    margin: 100px 0 0 280px;
+    border-radius: 20px;
+}
+
+.OTPContainer .notice{
+    position:relative;
+    font-size: 25px;
+    text-align: center;
+    top: 25px;
+}
+
+.OTPContainer .OTPForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.OTPContainer input[type=number]{
+    color: #002349;
+    font-size: 50px;
+    text-align: center;
+    margin: 25px 0 0 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+.OTPContainer input[type=number]::placeholder{
+    font-size: 55px;
+    text-align: center;
+    color: #002349;
+}
+
+.OTPContainer input[type=number]::-webkit-inner-spin-button,
+.OTPContainer input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.OTPContainer input[type=submit]{
+    display: flex;
+    font-size: 25px;
+    font-weight:600 ;
+    background-color: #00458f;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    margin: 40px 0 0 60px;
+    padding: 10px 25px;
+    transition: background-color 0.2s;
+}
+
+.OTPContainer input[type=submit]:hover{
+    background-color:#002349 ;
+}

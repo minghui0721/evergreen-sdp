@@ -1,55 +1,34 @@
-<!DOCTYPE html>
-<!-- Created By CodingNepal -->
-<html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>Animated Drop-down Menu CSS3</title>
-      <link rel="stylesheet" href="testing.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-   </head>
-   <body>
-      <nav>
-         <label for="btn" class="button">Drop down
-         <span class="fas fa-caret-down"></span>
-         </label>
-         <input type="checkbox" id="btn">
-         <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li>
-               <label for="btn-2" class="first">Features
-               <span class="fas fa-caret-down"></span>
-               </label>
-               <input type="checkbox" id="btn-2">
-               <ul>
-                  <li><a href="#">Pages</a></li>
-               </ul>
-            </li>
-            <li>
-               <label for="btn-3" class="second">Services
-               <span class="fas fa-caret-down"></span>
-               </label>
-               <input type="checkbox" id="btn-3">
-               <ul>
-                  <li><a href="#">Web Design</a></li>
-                  <li><a href="#">App Design</a></li>
-               </ul>
-            </li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Feedback</a></li>
-         </ul>
-      </nav>
-      <!-- This code used to rotate drop icon(-180deg).. -->
-      <script>
-         $('nav .button').click(function(){
-           $('nav .button span').toggleClass("rotate");
-         });
-           $('nav ul li .first').click(function(){
-             $('nav ul li .first span').toggleClass("rotate");
-           });
-           $('nav ul li .second').click(function(){
-             $('nav ul li .second span').toggleClass("rotate");
-           });
-      </script>
-   </body>
-</html>
+<?php
+include "../dbConn.php";
+$student_ID = 1; // The student ID for which you want to check the submission status
+
+// Assuming 'submission_file' is the field containing the file path or identifier
+$sqlSubmissionStatus = "SELECT submission_file FROM assignment_submission WHERE student_ID = $student_ID";
+$resultSubmissionStatus = mysqli_query($connection, $sqlSubmissionStatus);
+
+if ($resultSubmissionStatus) {
+    if (mysqli_num_rows($resultSubmissionStatus) > 0) {
+        // Fetch the submission file data
+        $submissionData = mysqli_fetch_assoc($resultSubmissionStatus);
+        $submissionStatus = "Submitted for Grading";
+
+        // Check if the file exists
+        if (file_exists($submissionData['submission_file'])) {
+            $submissionStatus = "Submitted for Grading";
+        } else {
+            $submissionStatus = "Not Submitted";
+        }
+    } else {
+        // No record found for the student ID
+        $submissionStatus = "Not Submitted";
+    }
+
+    // Output the submission status
+    echo "Submission Status: " . $submissionStatus;
+
+    // Don't forget to free the result after use
+    mysqli_free_result($resultSubmissionStatus);
+} else {
+    // Handle the case when the query fails
+    echo 'Error: ' . mysqli_error($connection);
+}

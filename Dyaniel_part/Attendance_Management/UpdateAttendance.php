@@ -1,5 +1,6 @@
 <?php
 include "../dbConn.php";
+// <!-- path -->
 
 if(isset($_POST['Present'])){
     // retrieve the data
@@ -15,6 +16,7 @@ if(isset($_POST['Present'])){
 
     // Back to Attendance page
     header("Location:Attendance.php?TimetableID=$TimetableID");
+    // <!-- path -->
 }
 
 if(isset($_POST['Absent'])){
@@ -31,5 +33,6 @@ if(isset($_POST['Absent'])){
 
     // Back to Attendance page
     header("Location:Attendance.php?TimetableID=$TimetableID");
+    // <!-- path -->
 }
 ?>

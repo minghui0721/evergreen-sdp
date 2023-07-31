@@ -46,6 +46,17 @@ body{
     border-radius: 5px 5px 0 0;
 }
 
+.StudentList::-webkit-scrollbar{
+    width: 6px;
+    height: 10px;
+}
+
+.StudentList::-webkit-scrollbar-thumb{
+    border: 2px;
+    background-color: white;
+    border-radius: 10px;
+}
+
 .StudentList table,th,td{
     border-collapse: collapse;
     padding: auto;

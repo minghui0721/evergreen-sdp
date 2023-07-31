@@ -4,11 +4,11 @@
 include 'database/db_connection.php';
 
 
-if(isset($_GET['course_id'])){
-    $courseID = $_GET['course_id'];
+if(isset($_GET['courseProgram_id'])){
+    $courseProgramID = $_GET['courseProgram_id'];
 }
 
-$sql = "SELECT * FROM course WHERE course_ID = $courseID";
+$sql = "SELECT * FROM course_program WHERE courseProgram_ID = $courseProgramID";
 
 // Execute the query and store the result in a variable
 $result = mysqli_query($conn, $sql);
@@ -22,10 +22,10 @@ if (!$result) {
 $row = mysqli_fetch_assoc($result) ;
 
 $courseName = $row['course_name'];
-$courseDescription = $row['description'];
+$courseDescription = $row['course_description'];
 $image = $row['img'];
 
-$details_sql = "SELECT * FROM course_details WHERE course_ID = $courseID";
+$details_sql = "SELECT * FROM course_details WHERE course_ID = $courseProgramID";
 
 $details_result = mysqli_query($conn, $details_sql);
 

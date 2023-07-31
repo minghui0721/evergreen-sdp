@@ -22,11 +22,11 @@
      <div class="container_header">
         <div class="row_header">
             <div class="col email">
-                <p>123-456-7890 | evergreen@gmail.com</p>
+                <p>123-456-7890 | <a href="mailto:ganminghui0000@gmail.com">evergreen@gmail.com</a></p>
             </div>
         
             <div class="col  logo d-flex align-items-center justify-content-center ">
-                <img src="assets/images/evergreen-logo.png" alt="logo">
+                <a href="index.php"><img src="assets/images/evergreen-logo.png" alt="logo"></a>
             </div>
         
             <div class="col social-icons">
