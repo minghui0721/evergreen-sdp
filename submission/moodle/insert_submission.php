@@ -12,8 +12,8 @@ if ($connection === false) {
     die('Connection failed: ' . mysqli_connect_error());
 }
 
-// Retrieve assignment_id and student_id from URL
-if (isset($_GET['subject_id']) && isset($_GET['assignment_id'])) {
+// Retrieve assignment_id from URL and student_id from SESSION function
+if(isset($_GET['assignment_id'])) {
     $assignmentID = $_GET['assignment_id'];
     $studentID = 1; // You can set this to the appropriate student ID
 } else {

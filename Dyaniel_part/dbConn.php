@@ -2,7 +2,7 @@
 $host = 'localhost';//127.0.0.1
 $user = 'root';
 $password ='';
-$database='sdp_database';
+$database='evergreen_heights_university';
 //step1 - database connection
 $connection=mysqli_connect($host,$user,$password,$database);
 
