@@ -39,7 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES ('$assignmentID', '$studentID', '$file_name', NOW())";
 
         if (mysqli_query($connection, $sql)) {
-            echo "File uploaded and data inserted successfully.";
+            echo 'File uploaded and data inserted successfully.';
+            header("Location: submission_home.php");
+            exit;
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($connection);
         }
@@ -51,3 +53,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Close the database connection
 mysqli_close($connection);
 ?>
+

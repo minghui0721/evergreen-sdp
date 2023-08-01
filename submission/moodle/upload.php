@@ -27,11 +27,10 @@ if ($connection === false) {
       <input class="file-input" type="file" name="file" hidden>
       <i class="fas fa-cloud-upload-alt"></i>
       <p>Browse File to Upload</p>
-      <button type="submit" id="submitBtn" hidden>Submit</button>
     </form>
     <section class="progress-area"></section>
     <section class="uploaded-area"></section>
-
+    <button type="submit" id="submitBtn" hidden>Submit</button>
   </div>
 
   <script>
@@ -55,7 +54,19 @@ if ($connection === false) {
         }
         uploadFile(file, fileName);
       }
-    }
+    };
+
+    const externalSubmitBtn = document.getElementById("externalSubmitBtn");
+
+// Add a click event listener to the external submit button
+externalSubmitBtn.addEventListener("click", () => {
+  // Trigger the form submission when the external submit button is clicked
+  form.submit();
+  // Redirect to another page after the PHP code has executed
+  setTimeout(() => {
+    window.location.href = "home.php";
+  }, 2000); // Redirect after 2 seconds (adjust the delay as needed)
+});
 
     function uploadFile(file, name){
       let xhr = new XMLHttpRequest();
@@ -236,6 +247,7 @@ section .details span{
   font-weight: 600;
   transition: 0.5s;
   margin-top: 20px;
+
 }
 
 #submitBtn:hover {
