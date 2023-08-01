@@ -1,3 +1,4 @@
+
 <?php
 $host = 'localhost';
 $user = 'root';
@@ -40,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (mysqli_query($connection, $sql)) {
             echo 'File uploaded and data inserted successfully.';
-            header("Location: submission_home.php");
+            header("Location: home.php");
             exit;
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($connection);
