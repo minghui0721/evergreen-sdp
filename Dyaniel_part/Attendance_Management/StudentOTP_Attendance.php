@@ -39,7 +39,7 @@ if (isset($_POST['submit'])){
         ?>
         <script>
             alert('!Attendance update successfully!')
-            window.location.replace("StudentOTPPage.php")
+            window.location.replace("StudentAttendancePage.php")
             //<!-- path -->
         </script>
         <?php
