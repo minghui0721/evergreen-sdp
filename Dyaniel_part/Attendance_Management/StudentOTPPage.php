@@ -21,13 +21,20 @@ $StudentID=1;
             <h1>Sign Attendance</h1>
         </div>
 
+        <a href="StudentAttendancePage.php">
+            <button class="back_button">
+                <i class="fa-solid fa-caret-left"></i> Back
+            </button>
+        </a>
+        <!-- path -->
+
         <div class="OTPContainer">
             <div class="notice">
                 <h2>Enter the OTP:</h2>
             </div>
 
             <div class="OTPForm">
-                <form action="StudentOTP_Attendance.php" method="post">
+                <form action="StudentOTP_Attendance.php" method="post"><!-- path -->
                     <input type="number" name="OTP" id="OTP" placeholder="X X X" min="100" max="999">
                     <input type="hidden" name="studentID" id="studentID" value="<?php echo $StudentID?>">
 
