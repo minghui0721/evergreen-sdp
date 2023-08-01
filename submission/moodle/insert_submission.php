@@ -1,4 +1,3 @@
-
 <?php
 $host = 'localhost';
 $user = 'root';
@@ -13,12 +12,13 @@ if ($connection === false) {
     die('Connection failed: ' . mysqli_connect_error());
 }
 
-// Retrieve assignment_id from URL and student_id from SESSION function
-if(isset($_GET['assignment_id'])) {
+// Retrieve assignment_id and subject_id from URL
+if (isset($_GET['assignment_id']) && isset($_GET['subject_id'])) {
     $assignmentID = $_GET['assignment_id'];
+    $subjectID = $_GET['subject_id'];
     $studentID = 1; // You can set this to the appropriate student ID
 } else {
-    echo "Error: Assignment ID or Student ID not provided in the URL.";
+    echo "Error: Assignment ID or Subject ID not provided in the URL.";
     exit;
 }
 
@@ -36,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($file_tmp, $file_path);
 
         // Step 3 - Insert data into the database
-        $sql = "INSERT INTO assignment_submission (assignment_ID, student_ID, submission_file, submission_date) 
-                VALUES ('$assignmentID', '$studentID', '$file_name', NOW())";
+        $sql = "INSERT INTO assignment_submission (assignment_ID, student_ID, subject_ID, submission_file, submission_date) 
+                VALUES ('$assignmentID', '$studentID', '$subjectID', '$file_name', NOW())";
 
         if (mysqli_query($connection, $sql)) {
             echo 'File uploaded and data inserted successfully.';
@@ -54,4 +54,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Close the database connection
 mysqli_close($connection);
 ?>
-

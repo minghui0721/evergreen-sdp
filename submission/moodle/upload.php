@@ -71,7 +71,7 @@ if ($connection === false) {
 
     function uploadFile(file, name) {
       let xhr = new XMLHttpRequest();
-      xhr.open("POST", "insert_submission.php?assignment_id=<?php echo $_GET['assignment_id'];?>");
+      xhr.open("POST", "insert_submission.php?assignment_id=<?php echo $_GET['assignment_id'];?>&subject_id=<?php echo $_GET['subject_id'];?>");
 
       xhr.upload.addEventListener("progress", ({ loaded, total }) => {
         let fileLoaded = Math.floor((loaded / total) * 100);
