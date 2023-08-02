@@ -9,7 +9,15 @@ $IntakeName=$_GET['intakeName'];
     <link rel="stylesheet" type="text/css" href="AdminStudAttendanceList_style.css?v=<?php echo time(); ?>">
     <!-- path -->
     <title>Student Attendance List</title>
+<style>
+    .SchoolManagement2{
+        display: block;
+    }
 
+    .SchoolManagement2 .ViewStudAtten{
+        color: #5c5adb;
+    }
+</style>
 <style>
 
 </style>
@@ -56,7 +64,8 @@ $IntakeName=$_GET['intakeName'];
                     $OverallPresent_result=mysqli_query($connection,$OverallPresent_query);
                     $OverallPresent=mysqli_num_rows($OverallPresent_result);
 
-                    $OverallPercentage=(($OverallPresent/$OverallAll)*100)."%";
+                    $OverallPercentage=(($OverallPresent/$OverallAll)*100);
+                    $OverallPercentage=round($OverallPercentage,2)."%";
                 ?>
 
                 <tr>

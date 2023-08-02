@@ -16,6 +16,7 @@ $OverallPresent_result=mysqli_query($connection,$OverallPresent_query);
 $OverallPresent=mysqli_num_rows($OverallPresent_result);
 
 $OverallPercentage=($OverallPresent/$OverallAll)*100;
+$OverallPercentage=round($OverallPercentage,2);
 
 
 ?>
@@ -122,7 +123,8 @@ $OverallPercentage=($OverallPresent/$OverallAll)*100;
                         }
                     }
                     // Calculate the subject attendance percentage
-                    $SubjectPercentage=(($SubjectPresent_Count/$SubjectAll_Count)*100)."%";
+                    $SubjectPercentage=(($SubjectPresent_Count/$SubjectAll_Count)*100);
+                    $SubjectPercentage=round($SubjectPercentage,2)."%";
                 }
                 
             ?>
