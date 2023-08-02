@@ -19,6 +19,7 @@ $IntakeName=$_GET['intakeName'];
                 <i class="fa-solid fa-caret-left"></i> Back
             </button>
         </a>
+        <!-- path -->
 
         <div class="TitleBar">
             <h1>Intake: </h1>

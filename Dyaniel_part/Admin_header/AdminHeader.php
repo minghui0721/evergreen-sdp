@@ -190,9 +190,9 @@ body{
                         <input type="checkbox" id="btn">
                         <ul class="SchoolManagement">
                             <li><a href="#" class="ManageUser">Manage user</a></li>
-                            <li><a href="../Classroom_Management/ClassList.php" class="ManageClass">Manage class</a></li>
+                            <li><a href="../Classroom_Management/ClassList.php" class="ManageClass">Manage classroom</a></li>
                             <li><a href="#" class="ManageSubject">Manage subject</a></li>
-                            <li><a href="../Timetable_Management/TimetableList.php" class="ManageTimetable">Manage timetable</a></li>
+                            <li><a href="../Timetable_Management/TimetableChooseIntake.php" class="ManageTimetable">Manage timetable</a></li>
                         </ul>
                     </div>
                     <!-- path -->
