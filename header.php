@@ -21,8 +21,8 @@
      <!-- Header -->
      <div class="container_header">
         <div class="row_header">
-            <div class="col email">
-                <p>123-456-7890 | <a href="mailto:ganminghui0000@gmail.com">evergreen@gmail.com</a></p>
+            <div class="col btn_search">
+                <input type="text" id="searchInput" class="input_search" placeholder="Search...">
             </div>
         
             <div class="col  logo d-flex align-items-center justify-content-center ">
@@ -30,6 +30,10 @@
             </div>
         
             <div class="col social-icons">
+                <a href="#" class="login_svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
+                    </svg> Log In
+                </a>
                 <a href="https://www.facebook.com/Ming Hui/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
                 </a>            
@@ -86,7 +90,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
 </body>

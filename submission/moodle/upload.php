@@ -33,89 +33,89 @@ if ($connection === false) {
     <button type="submit" id="submitBtn" hidden>Submit</button>
   </div>
 
+  <button type="button" id="externalSubmitBtn">Submit Assignment</button>
+
   <script>
-    const form = document.getElementById("submissionForm"),
-          fileInput = document.querySelector(".file-input"),
-          submitBtn = document.getElementById("submitBtn"),
-          progressArea = document.querySelector(".progress-area"),
-          uploadedArea = document.querySelector(".uploaded-area");
+    // Move all JavaScript code inside the "DOMContentLoaded" event listener
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("submissionForm"),
+        fileInput = document.querySelector(".file-input"),
+        progressArea = document.querySelector(".progress-area"),
+        uploadedArea = document.querySelector(".uploaded-area"),
+        externalSubmitBtn = document.getElementById("externalSubmitBtn");
 
-    form.addEventListener("click", () =>{
-      fileInput.click();
-    });
-
-    fileInput.onchange = ({target})=>{
-      let file = target.files[0];
-      if (file) {
-        let fileName = file.name;
-        if (fileName.length >= 12) {
-          let splitName = fileName.split('.');
-          fileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
-        }
-        uploadFile(file, fileName);
+      // Check if the "form" element exists before adding the event listener
+      if (form) {
+        form.addEventListener("click", () => {
+          fileInput.click();
+        });
       }
-    };
 
-    const externalSubmitBtn = document.getElementById("externalSubmitBtn");
+      // Add a click event listener to the external submit button
+      if (externalSubmitBtn) {
+        externalSubmitBtn.addEventListener("click", () => {
+          // Trigger file upload when the external submit button is clicked
+          let file = fileInput.files[0];
+          if (file) {
+            let fileName = file.name;
+            if (fileName.length >= 12) {
+              let splitName = fileName.split('.');
+              fileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
+            }
+            uploadFile(file, fileName);
+          }
+        });
+      }
 
-// Add a click event listener to the external submit button
-externalSubmitBtn.addEventListener("click", () => {
-  // Trigger the form submission when the external submit button is clicked
-  form.submit();
-  // Redirect to another page after the PHP code has executed
-  setTimeout(() => {
-    window.location.href = "home.php";
-  }, 2000); // Redirect after 2 seconds (adjust the delay as needed)
-});
-
-    function uploadFile(file, name){
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "insert_submission.php?assignment_id=<?php echo $_GET['assignment_id'];?>");
-      xhr.upload.addEventListener("progress", ({loaded, total}) =>{
-        let fileLoaded = Math.floor((loaded / total) * 100);
-        let fileTotal = Math.floor(total / 1000);
-        let fileSize;
-        (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024*1024)).toFixed(2) + " MB";
-        let progressHTML = `<li class="row">
-                              <i class="fas fa-file-alt"></i>
-                              <div class="content">
-                                <div class="details">
-                                  <span class="name">${name} • Uploading</span>
-                                  <span class="percent">${fileLoaded}%</span>
-                                </div>
-                                <div class="progress-bar">
-                                  <div class="progress" style="width: ${fileLoaded}%"></div>
-                                </div>
-                              </div>
-                            </li>`;
-        uploadedArea.classList.add("onprogress");
-        progressArea.innerHTML = progressHTML;
-        if (loaded == total) {
-          progressArea.innerHTML = "";
-          let uploadedHTML = `<li class="row">
-                                <div class="content upload">
-                                  <i class="fas fa-file-alt"></i>
+      function uploadFile(file, name){
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "insert_submission.php?assignment_id=<?php echo $_GET['assignment_id'];?>");
+        xhr.upload.addEventListener("progress", ({loaded, total}) =>{
+          let fileLoaded = Math.floor((loaded / total) * 100);
+          let fileTotal = Math.floor(total / 1000);
+          let fileSize;
+          (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024*1024)).toFixed(2) + " MB";
+          let progressHTML = `<li class="row">
+                                <i class="fas fa-file-alt"></i>
+                                <div class="content">
                                   <div class="details">
-                                    <span class="name">${name} • Uploaded</span>
-                                    <span class="size">${fileSize}</span>
+                                    <span class="name">${name} • Uploading</span>
+                                    <span class="percent">${fileLoaded}%</span>
+                                  </div>
+                                  <div class="progress-bar">
+                                    <div class="progress" style="width: ${fileLoaded}%"></div>
                                   </div>
                                 </div>
-                                <i class="fas fa-check"></i>
                               </li>`;
-          uploadedArea.classList.remove("onprogress");
-          uploadedArea.insertAdjacentHTML("afterbegin", uploadedHTML);
-          submitBtn.hidden = false; // Show the submit button after file upload
-        }
-      });
+          uploadedArea.classList.add("onprogress");
+          progressArea.innerHTML = progressHTML;
+          if (loaded == total) {
+            progressArea.innerHTML = "";
+            let uploadedHTML = `<li class="row">
+                                  <div class="content upload">
+                                    <i class="fas fa-file-alt"></i>
+                                    <div class="details">
+                                      <span class="name">${name} • Uploaded</span>
+                                      <span class="size">${fileSize}</span>
+                                    </div>
+                                  </div>
+                                  <i class="fas fa-check"></i>
+                                </li>`;
+            uploadedArea.classList.remove("onprogress");
+            uploadedArea.insertAdjacentHTML("afterbegin", uploadedHTML);
+            window.location.href = "home.php";
+          }
+        });
 
-      let data = new FormData(form);
-      xhr.send(data);
-    }
-  </script>
+        let data = new FormData();
+        data.append('file', file);
+        xhr.send(data);
+      }
+    });
+  </script> 
 </body>
 </html>
 
-</script>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
