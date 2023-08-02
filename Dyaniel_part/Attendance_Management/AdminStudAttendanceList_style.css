@@ -30,9 +30,8 @@ body{
 }
 
 .TitleBar{
-    background-color: #004085;
     width: 90%;
-    margin: 20px 50px 0;
+    margin: 30px 50px 0;
     padding: 0;
     height: 90px;
     border-radius: 15px;
@@ -40,36 +39,20 @@ body{
 
 .TitleBar h1{
     color: white;
-    font-size: 50px;
-    text-decoration: underline;
-    margin: 15px 50px;
-    float: left;
-    display: inline;
+    font-size: 40px;
+    margin: 15px 0 0 20px;
 }
 
-.TitleBar button{
-    background-color: #58db5c;
+.TitleBar h2{
     color: white;
-    font-size: 23px;
-    margin: 30px 50px;
-    padding: 8px 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    float: right;
-    display: inline;
-}
-
-.TitleBar button:hover{
-    background-color: #44c748;
-    text-decoration: underline;
+    font-size: 35px;
+    margin: 0px 20px;
 }
 
 .ClassroomList{
     color: white;
     width: 90%;
-    height: 480px;
+    height: 505px;
     margin: 20px 50px;
     padding: 0;
     overflow: auto;
@@ -106,44 +89,15 @@ body{
 }
 
 .ClassroomList td{
-    font-size: 18px;
+    height: 35px;
+    font-size: 23px;
 }
 
 .ClassroomList td{
     text-align: center;
+    background-color: rgb(68, 65, 189);
+}
+
+.ClassroomList table tr:nth-of-type(even) td {
     background-color: #5c5adb;
-}
-
-.ClassroomList .edit_button{
-    font-size: 15x;
-    padding: 10px 10px;
-    background-color: #4090db;
-    margin-right: 5px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.ClassroomList .delete_button{
-    font-size: 15px;
-    padding: 10px 10px;
-    background-color: #e85854;
-    margin-left: 5px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.ClassroomList .edit_button:hover{
-    background-color: #3576b3;
-}
-
-.ClassroomList .delete_button:hover{
-    background-color: #cf524e;
-}
-
-a{
-    text-decoration: none;
 }

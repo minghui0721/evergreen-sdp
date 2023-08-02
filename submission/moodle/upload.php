@@ -19,7 +19,7 @@ if ($connection === false) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submission Page</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-</head>
+  </head>
 <body>
   <div class="wrapper">
     <header>Assignment Uploader</header>
@@ -28,90 +28,98 @@ if ($connection === false) {
       <i class="fas fa-cloud-upload-alt"></i>
       <p>Browse File to Upload</p>
     </form>
-    <section class="progress-area"></section>
+    <section class="progress-area">
+      <div id="progressMessage" style="display: none;"></div>
+    </section>
     <section class="uploaded-area"></section>
-    <button type="submit" id="submitBtn" hidden>Submit</button>
+    <button type="button" id="externalSubmitBtn">Submit Assignment</button>
   </div>
 
   <script>
+      document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("submissionForm"),
-          fileInput = document.querySelector(".file-input"),
-          submitBtn = document.getElementById("submitBtn"),
-          progressArea = document.querySelector(".progress-area"),
-          uploadedArea = document.querySelector(".uploaded-area");
+      fileInput = document.querySelector(".file-input"),
+      progressArea = document.querySelector(".progress-area"),
+      uploadedArea = document.querySelector(".uploaded-area"),
+      externalSubmitBtn = document.getElementById("externalSubmitBtn");
 
-    form.addEventListener("click", () =>{
+    let selectedFile;
+    let selectedFileName;
+
+    form.addEventListener("click", () => {
       fileInput.click();
     });
 
-    fileInput.onchange = ({target})=>{
-      let file = target.files[0];
-      if (file) {
-        let fileName = file.name;
-        if (fileName.length >= 12) {
-          let splitName = fileName.split('.');
-          fileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
+    fileInput.onchange = ({ target }) => {
+      selectedFile = target.files[0];
+      if (selectedFile) {
+        selectedFileName = selectedFile.name;
+        if (selectedFileName.length >= 12) {
+          let splitName = selectedFileName.split('.');
+          selectedFileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
         }
-        uploadFile(file, fileName);
       }
     };
 
-    const externalSubmitBtn = document.getElementById("externalSubmitBtn");
+    externalSubmitBtn.addEventListener("click", () => {
+      if (selectedFile) {
+        uploadFile(selectedFile, selectedFileName);
+      } else {
+        console.error("Please select a file before submitting.");
+      }
+    });
 
-// Add a click event listener to the external submit button
-externalSubmitBtn.addEventListener("click", () => {
-  // Trigger the form submission when the external submit button is clicked
-  form.submit();
-  // Redirect to another page after the PHP code has executed
-  setTimeout(() => {
-    window.location.href = "home.php";
-  }, 2000); // Redirect after 2 seconds (adjust the delay as needed)
-});
-
-    function uploadFile(file, name){
+    function uploadFile(file, name) {
       let xhr = new XMLHttpRequest();
-      xhr.open("POST", "insert_submission.php?assignment_id=<?php echo $_GET['assignment_id'];?>");
-      xhr.upload.addEventListener("progress", ({loaded, total}) =>{
+      xhr.open("POST", "insert_submission.php?assignment_id=<?php echo $_GET['assignment_id'];?>&subject_id=<?php echo $_GET['subject_id'];?>");
+
+      xhr.upload.addEventListener("progress", ({ loaded, total }) => {
         let fileLoaded = Math.floor((loaded / total) * 100);
-        let fileTotal = Math.floor(total / 1000);
-        let fileSize;
-        (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024*1024)).toFixed(2) + " MB";
-        let progressHTML = `<li class="row">
-                              <i class="fas fa-file-alt"></i>
-                              <div class="content">
-                                <div class="details">
-                                  <span class="name">${name} • Uploading</span>
-                                  <span class="percent">${fileLoaded}%</span>
-                                </div>
-                                <div class="progress-bar">
-                                  <div class="progress" style="width: ${fileLoaded}%"></div>
-                                </div>
-                              </div>
-                            </li>`;
-        uploadedArea.classList.add("onprogress");
-        progressArea.innerHTML = progressHTML;
-        if (loaded == total) {
-          progressArea.innerHTML = "";
-          let uploadedHTML = `<li class="row">
-                                <div class="content upload">
-                                  <i class="fas fa-file-alt"></i>
-                                  <div class="details">
-                                    <span class="name">${name} • Uploaded</span>
-                                    <span class="size">${fileSize}</span>
-                                  </div>
-                                </div>
-                                <i class="fas fa-check"></i>
-                              </li>`;
-          uploadedArea.classList.remove("onprogress");
-          uploadedArea.insertAdjacentHTML("afterbegin", uploadedHTML);
-          submitBtn.hidden = false; // Show the submit button after file upload
-        }
+        let progressMessage = document.getElementById("progressMessage");
+        progressMessage.style.display = "block";
+        progressMessage.innerText = `Uploading file... ${fileLoaded}%`;
       });
 
-      let data = new FormData(form);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            let fileLoaded = 100;
+            let progressMessage = document.getElementById("progressMessage");
+            progressMessage.innerText = `Uploading file... ${fileLoaded}%`;
+
+            setTimeout(() => {
+              progressMessage.style.display = "none";
+              let fileSize;
+              let fileTotal = Math.floor(file.size / 1000);
+              (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (file.size / (1024 * 1024)).toFixed(2) + " MB";
+              let uploadedHTML = `<li class="row">
+                                    <div class="content upload">
+                                      <i class="fas fa-file-alt"></i>
+                                      <div class="details">
+                                        <span class="name">${name} • Uploaded</span>
+                                        <span class="size">${fileSize}</span>
+                                      </div>
+                                    </div>
+                                    <i class="fas fa-check"></i>
+                                  </li>`;
+              uploadedArea.insertAdjacentHTML("afterbegin", uploadedHTML);
+
+              setTimeout(() => {
+                window.history.back();
+              }, 2000);
+            }, 1000);
+          } else {
+            console.error("File upload failed.");
+          }
+        }
+      };
+
+      let data = new FormData();
+      data.append('file', file);
       xhr.send(data);
     }
-  </script>
+  });
+  </script> 
 </body>
 </html>
 
@@ -239,7 +247,7 @@ section .details span{
   font-size: 16px;
 }
 
-#submitBtn{
+#externalSubmitBtn{
   border-radius: 5px;
   padding: 5px 10px;
   outline: none;
@@ -250,7 +258,7 @@ section .details span{
 
 }
 
-#submitBtn:hover {
+#externalSubmitBtn:hover {
     background: #093e78;
     color: beige;
 }

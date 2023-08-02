@@ -80,6 +80,7 @@ body{
 }
 
 .SideHeader{
+    position: relative;
     width: 19%;
     height: 685px;
     background-color: white;
@@ -89,8 +90,8 @@ body{
 }
 
 .menu{
-    display: flex;
-    justify-content: center;
+    display: flex; 
+    flex-direction: column; 
     padding: 0;
     margin: 0 0 0 12px;
 }
@@ -119,12 +120,17 @@ body{
     color: #5c5adb;
 }
 
+.menu-container {
+    display: inline-block; /* Display the menu containers inline */
+}
+
 .SchoolManagement,
 .SchoolManagement2{
     display: none;
 }
 
-[id^=btn]:checked + ul{
+[id^=btn]:checked + ul,
+[id^=btn-2]:checked + ul{
     display: block;
 }
 
@@ -177,28 +183,33 @@ body{
         <div class="small">
             <ul class="menu">
                 <li>
-                    <label for="btn" class="MenuTitle">School Management
-                        <i class="fa-solid fa-caret-down"></i>
-                    </label>
-                    <input type="checkbox" id="btn">
-                    <ul class="SchoolManagement">
-                        <li><a href="#" class="ManageUser">Manage user</a></li>
-                        <li><a href="../Classroom_Management/ClassList.php" class="ManageClass">Manage class</a></li>
-                        <li><a href="#" class="ManageSubject">Manage subject</a></li>
-                        <li><a href="../Timetable_Management/TimetableList.php" class="ManageTimetable">Manage timetable</a></li>
-                    </ul>
+                    <div class="menu-container">
+                        <label for="btn" class="MenuTitle">School Management
+                            <i class="fa-solid fa-caret-down"></i>
+                        </label>
+                        <input type="checkbox" id="btn">
+                        <ul class="SchoolManagement">
+                            <li><a href="#" class="ManageUser">Manage user</a></li>
+                            <li><a href="../Classroom_Management/ClassList.php" class="ManageClass">Manage classroom</a></li>
+                            <li><a href="#" class="ManageSubject">Manage subject</a></li>
+                            <li><a href="../Timetable_Management/TimetableChooseIntake.php" class="ManageTimetable">Manage timetable</a></li>
+                        </ul>
+                    </div>
                     <!-- path -->
-
-                    <label for="btn-2" class="MenuTitle">School Management
-                        <i class="fa-solid fa-caret-down"></i>
-                    </label>
-                    <input type="checkbox" id="btn-2">
-                    <ul class="SchoolManagement2">
-                        <li><a href="#">View Student's Attendance</a></li>
-                        <li><a href="#">Manage class</a></li>
-                        <li><a href="#">Manage subject</a></li>
-                        <li><a href="#">Manage timetable</a></li>
-                    </ul>
+                </li>
+                <li>
+                    <div class="menu-container">
+                        <label for="btn-2" class="MenuTitle">School Management
+                            <i class="fa-solid fa-caret-down"></i>
+                        </label>
+                        <input type="checkbox" id="btn-2">
+                        <ul class="SchoolManagement2">
+                            <li><a href="../Attendance_Management/AdminAttendanceIntake.php" class="ViewStudAtten">View Student's Attendance</a></li>
+                            <li><a href="#">Manage class</a></li>
+                            <li><a href="#">Manage subject</a></li>
+                            <li><a href="#">Manage timetable</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
