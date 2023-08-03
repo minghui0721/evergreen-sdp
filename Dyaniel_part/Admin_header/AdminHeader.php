@@ -205,7 +205,7 @@ body{
                         <input type="checkbox" id="btn-2">
                         <ul class="SchoolManagement2">
                             <li><a href="../Attendance_Management/AdminAttendanceIntake.php" class="ViewStudAtten">View Student's Attendance</a></li>
-                            <li><a href="#">Manage class</a></li>
+                            <li><a href="../Classroom_Management/AdminClassScheduleList.php" class="ViewClassSche">View Class Schedule</a></li>
                             <li><a href="#">Manage subject</a></li>
                             <li><a href="#">Manage timetable</a></li>
                         </ul>
