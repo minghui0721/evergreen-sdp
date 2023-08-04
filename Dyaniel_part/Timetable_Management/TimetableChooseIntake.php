@@ -21,6 +21,9 @@ include "../dbConn.php";
     <div class="wrapper">
         <div class="title">
             <h1>Manage Timetable</h1>
+            <a href="CreateTimetable.php">
+            <button><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></i> &nbsp;Add New</button>
+            </a>
         </div>
         
         <div class="IntakeContainer">
@@ -42,7 +45,7 @@ include "../dbConn.php";
                 $IntakeName=$Intake." ".$CoProName_row['program_name'].' '.$CoProName_row['course_name'];
             ?>
 
-            <a href="TimetableList.php?intakeID=<?php echo $IntakeID;?>&intakeName=<?php echo $IntakeName;?>">
+            <a href="TimetableList.php?intakeID=<?php echo $IntakeID;?>">
                 <div class="IntakeBox">
                     <h3><?php echo $IntakeName;?></h3>
                     <p><i class="fa-solid fa-play" style="color: #ffffff;"></i></p>

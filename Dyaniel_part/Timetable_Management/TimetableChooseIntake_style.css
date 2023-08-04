@@ -28,7 +28,28 @@ body{
     font-size: 50px;
     text-decoration: underline;
     margin: 20px 50px;
-    top: 18px;
+    top: 0px;
+    float: left;
+    display: inline;
+}
+
+.title button{
+    background-color: #58db5c;
+    color: white;
+    font-size: 23px;
+    margin: 30px 80px 0 0;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    float: right;
+    display: inline;
+}
+
+.title button:hover{
+    background-color: #44c748;
+    text-decoration: underline;
 }
 
 .IntakeContainer{

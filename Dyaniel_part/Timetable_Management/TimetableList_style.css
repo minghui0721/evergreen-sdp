@@ -39,31 +39,12 @@ body{
 }
 
 .TitleBar h1{
+    position: relative;
     color: white;
     font-size: 50px;
     text-decoration: underline;
     margin: 15px 50px;
-    float: left;
-    display: inline;
-}
-
-.TitleBar button{
-    background-color: #58db5c;
-    color: white;
-    font-size: 23px;
-    margin: 30px 50px;
-    padding: 8px 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    float: right;
-    display: inline;
-}
-
-.TitleBar button:hover{
-    background-color: #44c748;
-    text-decoration: underline;
+    top: 20px;
 }
 
 .ClassroomList{

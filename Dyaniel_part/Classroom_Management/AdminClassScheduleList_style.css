@@ -22,10 +22,12 @@ body{
 }
 
 .TitleBar h1{
+    position: relative;
     color: white;
     font-size: 50px;
     text-decoration: underline;
-    margin: 15px 50px;
+    margin: 20px 0 0 50px;
+    top: 20px;
 }
 
 .ClassroomList{

@@ -6,9 +6,26 @@ body{
     padding: 0;
 }
 
+.back_button{
+    background-color: #004288;
+    color: white;
+    font-size: 25px;
+    margin: 120px 0 0 180px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+.back_button:hover{
+    background-color: #002c5c;
+}
+
 .Title{
     width: 80%;
-    margin: 80px 0 0 150px;
+    margin: 20px 0 0 150px;
 }
 
 .Title h1{
@@ -28,7 +45,7 @@ body{
 
 .Title .date{
     position: relative;
-    left: 380px;
+    left: 330px;
 }
 
 .ClassScheContainer{
@@ -41,7 +58,7 @@ body{
 }
 
 .ClassScheBox{
-    margin: 10px 0 30px 100px;
+    margin: 10px 0 30px 80px;
 }
 
 .ClassScheContainer .Time{
@@ -87,4 +104,9 @@ body{
     position: relative;
     left: 70px;
     margin: 0;
+}
+
+.NoClass{
+    text-align: center;
+    font-size: 20px;
 }
