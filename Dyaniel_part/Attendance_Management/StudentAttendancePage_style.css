@@ -1,0 +1,101 @@
+body{
+    background-color: #1d1d36 ;
+    font-family: 'Belanosima', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.wrapper{
+    width: 85%;
+    margin: 100px 200px;
+}
+
+.title{
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.OverallAttendance_Box{
+    background-color: #003063;
+    width: 30%;
+    height: 130px;
+    border-radius: 15px;
+}
+
+.OverallAttendance_Box .text{
+    position: relative;
+    font-size: 18px;
+    top: 15px;
+    left: 15px;
+}
+
+.OverallAttendance_Box .OverallPercentage{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    bottom: 35px;
+}
+
+.SignAttendance a{
+    position: relative;
+    left: 450px;
+    bottom: 40px;
+}
+
+.SignAttendance button{
+    background-color: #5c5adb;
+    color: white;
+    font-size: 23px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.SignAttendance button:hover{
+    background-color: #4e4cb6;
+}
+
+.AttendanceDetails_Container{
+    background-color: #002349;
+    width: 85%;
+    height: max-content;
+    margin: 20px 0 0 0;
+    padding: 5px 0 30px 0;
+    border-radius: 25px;
+}
+
+.AttendanceDetails_Container .text{
+    margin: 0 0 0 30px;
+}
+
+.SubjectAttendance_Box{
+    background-color: #5c5adb ;
+    width:80% ;
+    margin:18px 0 0 35px;
+    border-radius: 10px;
+    clear: both;
+}
+
+.Subject,
+.TotalClasses,
+.Percent{
+    display: inline-block;
+}
+
+.Subject{
+    width: 200px;
+    margin: 0 0 0 20px;
+}
+
+.TotalClasses{
+    font-size: 20px;
+    width: 200px;
+    margin: 0 0 0 240px;
+}
+
+.Percent{
+    font-size: 20px;
+}

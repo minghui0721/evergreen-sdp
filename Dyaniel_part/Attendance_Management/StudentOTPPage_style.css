@@ -16,11 +16,28 @@ body{
     text-decoration: underline;
 }
 
+.back_button{
+    background-color: #004288;
+    color: white;
+    font-size: 25px;
+    margin: 20px 20px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+.back_button:hover{
+    background-color: #002c5c;
+}
+
 .OTPContainer{
     background-color: #5c5adb;
     width: 50%;
     height: 300px;
-    margin: 100px 0 0 280px;
+    margin: 50px 0 0 280px;
     border-radius: 20px;
 }
 

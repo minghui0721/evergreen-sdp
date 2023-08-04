@@ -120,14 +120,7 @@ for (i = 0; i < a.length; i++) {
             <span> &nbsp; Tutorial Exercises</span>
         </a>
         <br><br><hr>
-
-        <h2 class="title_2"> Module Information and Sample Assesments</h2>
-        <a href="#">
-            <ion-icon name="folder-outline"></ion-icon>
-            <span> &nbsp; Module</span><br>
-        </a>
    </div>
-   <br><br><br>
 </body>
 
 
