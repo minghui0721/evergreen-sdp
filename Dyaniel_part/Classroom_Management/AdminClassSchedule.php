@@ -2,10 +2,10 @@
 include "../dbConn.php";
 
 // Retreive the data from from
-$ClassID=$_GET['classID'];
-$ClassName=$_GET['className'];
-$RoomType=$_GET['roomType'];
-$Date=$_GET['date'];
+$ClassID=$_POST['classID'];
+$ClassName=$_POST['className'];
+$RoomType=$_POST['roomType'];
+$Date=$_POST['date'];
 
 ?>
 
@@ -24,7 +24,7 @@ $Date=$_GET['date'];
 </head>
 <body>
     <!-- Back Button -->
-    <a href="ClassFinder.php"> <!-- path -->
+    <a href="AdminClassScheduleList.php"> <!-- path -->
         <button class="back_button">
             <i class="fa-solid fa-caret-left"></i> Back
         </button>

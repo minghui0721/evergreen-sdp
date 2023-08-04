@@ -59,7 +59,7 @@ $DateWithDay[6]= date('d M Y', strtotime($LastDate)).", Sat";
                 ?>
 
                 <tr>
-                    <form action="ClassSchedule.php" method="post"> <!-- path -->
+                    <form action="AdminClassSchedule.php" method="post"> <!-- path -->
                         <input type="hidden" name="classID" id="classID" value="<?php echo $ClassList_row["class_ID"];?>">
                         <input type="hidden" name="className" id="className" value="<?php echo $ClassList_row["class_name"];?>">
                         <input type="hidden" name="roomType" id="roomType" value="<?php echo $ClassList_row["room_type"];?>">
