@@ -1,0 +1,178 @@
+body{
+    background-color: #1d1d36;
+    font-family: 'Belanosima', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.title{
+    width: 80%;
+    /* background-color: aqua; */
+    margin: 100px 0 0 160px;
+}
+
+.title h1{
+    font-size: 50px;
+    text-decoration: underline;
+    float: left;
+}
+
+.title .FilterBox{
+    background-color: #2d7cd1;
+    color: white;
+    font-size: 23px;
+    margin: 50px 130px 0 0;
+    padding: 10px 50px;
+    border-radius: 10px;
+    border: solid #004085 2px;
+    box-shadow: 1px 1px 4px #002d5c;
+    float: right;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.title .FilterBox:hover{
+    background-color: #296bb3;
+}
+
+.title .FilterBox h3{
+    margin: 0;
+    padding: 0;
+}
+
+.FilterWindow{
+    position: relative;
+    background-color: #2d7cd1;
+    width: 40%;
+    height: 400px;
+    font-size: 35px;
+    top: 200px;
+    left: 370px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 8px #1767bd;
+    padding: 25px 50px;
+    z-index: 2;
+    display: none;
+    /* display: block;
+    position: absolute; */
+}
+
+.FilterWindow h2{
+    font-size: 40px;
+    text-decoration: underline;
+    margin: 30px 0 0 50px;
+    padding: 0;
+}
+
+.col1,
+.col2{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.col1 .Day,
+.col1 .RoomType{
+    display: inline-block;
+}
+
+.col2 .StartTime,
+.col2 .EndTime{
+    display: inline-block;
+}
+
+.col1 .Day{
+    width: 200px;
+    margin:30px 0 0 60px;
+}
+
+.col1 .RoomType{
+    position: relative;
+    left: 70px;
+}
+
+.col2 .StartTime{
+    width: 200px;
+    margin: 40px 0 0 60px;
+}
+
+.col2 .EndTime{
+    position: relative;
+    left: 70px;
+}
+
+.FilterWindow p{
+    margin: 0 0 5px 0;
+}
+
+.FilterWindow select{
+    width: 200px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 3px 0;
+}
+
+.FilterWindow .startTime,
+.FilterWindow .endTime{
+    width: 200px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 3px 0;
+}
+
+.FilterWindow .filter{
+    background-color: #003d7e;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    margin: 40px 0 0 245px;
+    padding: 5px 25px;
+    border: solid #0a4d94 3px;
+    border-radius: 10px;
+    transition:background-color 0.2s;
+}
+
+.FilterWindow .filter:hover{
+    background-color: #002349;
+}
+
+
+.FilteredResult{
+    position: relative;
+    display: grid;
+    grid-template-columns:200px 200px 200px 200px 200px ;
+    gap: 50px 50px;
+    background-color: #002349;
+    width: 1250px;
+    margin: 20px 0 0 120px;
+    padding: 30px 0 ;
+    border-radius: 25px;
+    clear: both;
+}
+
+.FilteredResult a{
+    text-decoration: none;
+    color: white;
+}
+
+.Result{
+    /* height: 150px; */
+    padding: 42px;
+    margin: 20px 0 0 40px;
+    background-color: #5c5adb;
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.Result:hover{
+    background-color: #4644a7;
+}
+
+.Result p{
+    margin: 10px 0 0 0;
+}

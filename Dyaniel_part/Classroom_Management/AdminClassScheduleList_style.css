@@ -12,27 +12,10 @@ body{
     float: right;
 }
 
-.back_button{
-    background-color: #004288;
-    color: white;
-    font-size: 25px;
-    margin: 20px 0 0 35px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-
-.back_button:hover{
-    background-color: #002c5c;
-}
-
 .TitleBar{
     background-color: #004085;
     width: 90%;
-    margin: 20px 50px 0;
+    margin: 50px 50px 0;
     padding: 0;
     height: 90px;
     border-radius: 15px;
@@ -43,14 +26,14 @@ body{
     color: white;
     font-size: 50px;
     text-decoration: underline;
-    margin: 15px 50px;
+    margin: 20px 0 0 50px;
     top: 20px;
 }
 
 .ClassroomList{
     color: white;
     width: 90%;
-    height: 480px;
+    height: 505px;
     margin: 20px 50px;
     padding: 0;
     overflow: auto;
@@ -79,15 +62,14 @@ body{
     table-layout: fixed;
 }
 
-.ClassroomList th{
+.ClassroomList th,td{
     font-size: 25px;
+}
+
+.ClassroomList th{
     position: sticky;
     background-color: #004085;
     top: 0;
-}
-
-.ClassroomList td{
-    font-size: 18px;
 }
 
 .ClassroomList td{
@@ -95,36 +77,28 @@ body{
     background-color: #5c5adb;
 }
 
-.ClassroomList .edit_button{
-    font-size: 15x;
-    padding: 10px 10px;
-    background-color: #4090db;
-    margin-right: 5px;
+.ClassroomList .date{
+    font-size: 18px;
+    font-family: 'Belanosima', sans-serif;
+    background-color: #3c3b92;
+    color: white;
     border: none;
-    border-radius: 50%;
-    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.ClassroomList .view{
+    font-size: 23px;
+    font-family: 'Belanosima', sans-serif;
+    background-color: #2d7cd1;
+    color: white;
+    border: solid #004085 2px;
+    box-shadow: 1px 1px 4px #002d5c;
+    border-radius: 5px;
+    padding: 5px 20px;
     transition: background-color 0.2s;
 }
 
-.ClassroomList .delete_button{
-    font-size: 15px;
-    padding: 10px 10px;
-    background-color: #e85854;
-    margin-left: 5px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.ClassroomList .edit_button:hover{
-    background-color: #3576b3;
-}
-
-.ClassroomList .delete_button:hover{
-    background-color: #cf524e;
-}
-
-a{
-    text-decoration: none;
+.ClassroomList .view:hover{
+    background-color:#2362a5 ;
 }
