@@ -4,7 +4,7 @@ include "../dbConn.php"
 ?>
     <link rel="stylesheet" type="text/css" href="ClassList_style.css?v=<?php echo time(); ?>">
     <!-- path -->
-    <title>Classroom List</title>
+    <title>Manage Classroom</title>
 
 <style>
     .SchoolManagement{
@@ -17,7 +17,7 @@ include "../dbConn.php"
 </style>
     <div class="wrapper">
         <div class="TitleBar">
-            <h1>Classroom List</h1>
+            <h1>Manage Classroom</h1>
             <a href="CreateClass.php">
             <button><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></i> &nbsp;Add New</button>
             </a>

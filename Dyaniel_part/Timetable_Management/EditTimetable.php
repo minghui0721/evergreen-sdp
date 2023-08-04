@@ -19,7 +19,7 @@ include "../dbConn.php";
 <?php
 // Retrieve data from database
 $TimetableID=$_GET['TimetableID'];
-$TimetableList_query="SELECT a.timetable_ID, b.class_name, c.courseProgram_ID, c.intake, d.subject_name, e.lecturer_name, a.date, a.start_time, a.end_time
+$TimetableList_query="SELECT a.timetable_ID, b.class_name,c.intake_ID, c.courseProgram_ID, c.intake, d.subject_name, e.lecturer_name, a.date, a.start_time, a.end_time
 FROM timetable_details a
 INNER JOIN class b
 ON a.class_ID = b.class_ID
@@ -182,7 +182,7 @@ $SelectedIntake=$TimetableList_row['intake']." ".$CoProName_row['program_name'].
             </form>
 
             <!-- back button -->
-            <a href="TimetableList.php">
+            <a href="TimetableList.php?intakeID=<?php echo $TimetableList_row['intake_ID'];?>">
                 <button class="back_button">
                     Back
                 </button>
@@ -212,7 +212,7 @@ if (isset($_POST['Edit'])){
 ?>
 <script>
     alert("!Update Succesfully!")
-    window.location.replace("TimetableList.php")
+    window.location.replace("TimetableList.php?intakeID=<?php echo $Intake;?>")
 </script>
 <!-- path -->
 

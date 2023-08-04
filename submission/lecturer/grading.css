@@ -1,18 +1,18 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-.setup_title{
+.setup_title {
     font-size: 25px;
     width: 100;
     font-weight: normal;
 }
 
 .container_setup {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     background-color: #a387f2;
@@ -20,7 +20,6 @@
     box-shadow: 5px 5px 5px 5px #c4adf1;
     margin-top: 20px;
 }
-
 
 .title_setup {
     text-align: center;
@@ -91,11 +90,11 @@ button:hover {
     box-shadow: 5px 5px #45CFDD;
 }
 
-.input ion-icon{
+.input ion-icon {
     margin-bottom: -3px;
 }
 
-.history_title{
+.history_title {
     margin-top: 20px;
     margin-left: 70px;
     font-size: 30px;
@@ -108,7 +107,6 @@ table {
     border-collapse: collapse;
     margin-bottom: 30px;
     margin-top: 10px;
-    margin-left: 150px;
 }
 
 th, td {
@@ -117,7 +115,7 @@ th, td {
     text-align: left;
 }
 
-td a{
+td a {
     text-decoration: none;
 }
 
@@ -125,24 +123,23 @@ td a{
 a:link {
     color: blue;
     text-decoration: none;
-  }
-  
-  /* Visited link */
-  a:visited {
+}
+
+/* Visited link */
+a:visited {
     color: purple;
     text-decoration: none;
-  }
-  
-  /* Hovered link */
-  a:hover {
+}
+
+/* Hovered link */
+a:hover {
     color: #7745bd;
-  }
-  
-  /* Active link (while clicking) */
-  a:active {
+}
+
+/* Active link (while clicking) */
+a:active {
     color: green;
-  }
-  
+}
 
 th {
     background-color: #6563d9;
@@ -163,29 +160,3 @@ th {
 tr {
     animation: fadeIn 0.5s ease-out;
 }
-
-.details{
-    text-align: center;
-    font-weight: 300;
-    font-size: 20px;
-}
-
-.arrow-icon {
-    margin-left: 5px;
-}
-
-/* Animation for arrow icon */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-10px);
-    }
-}
-
-/* Apply the animation to the arrow icon continuously (infinite) */
-.arrow-icon {
-    animation: bounce 1s infinite;
-}
-

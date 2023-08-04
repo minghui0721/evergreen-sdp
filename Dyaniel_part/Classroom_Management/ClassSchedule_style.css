@@ -1,0 +1,112 @@
+body{
+    background-color: #1d1d36;
+    color: white;
+    font-family: 'Belanosima', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.back_button{
+    background-color: #004288;
+    color: white;
+    font-size: 25px;
+    margin: 120px 0 0 180px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+.back_button:hover{
+    background-color: #002c5c;
+}
+
+.Title{
+    width: 80%;
+    margin: 20px 0 0 150px;
+}
+
+.Title h1{
+    font-size: 55px;
+    margin: 20px 0 0 30px;
+}
+
+.Title p{
+    display: inline-block;
+    font-size: 35px;
+    margin: 10px 0 0 30px;
+}
+
+.Title .roomType{
+    width: 500px;
+}
+
+.Title .date{
+    position: relative;
+    left: 330px;
+}
+
+.ClassScheContainer{
+    background-color: #004085;
+    width: 75%;
+    height: fit-content;
+    margin: 30px 0 0 180px;
+    padding: 20px 0 10px 0;
+    border-radius: 20px;
+}
+
+.ClassScheBox{
+    margin: 10px 0 30px 80px;
+}
+
+.ClassScheContainer .Time{
+    position: relative;
+    display: inline-block;
+    font-size: 25px;
+    margin: 0 30px 0 0;
+    bottom: 5px;
+}
+
+.ClassScheContainer .ClassDetailsBox{
+    display: inline-block;
+    font-size: 25px;
+    background-color: #5c5adb;
+    width: 80%;
+    height: fit-content;
+    border-radius: 20px;
+}
+
+.FirstLine{
+    margin: 0 0 0 30px;
+}
+
+.FirstLine p{
+    margin: 10px 0 10px 0;
+}
+
+.SecondLine{
+    margin: 0;
+}
+
+.SecondLine p{
+    display: inline-block;
+    padding: 0 0 15px 0;
+}
+
+.SecondLine .intake{
+    width: 500px;
+    margin: 0 0 0 30px;
+}
+
+.SecondLine .lecturer{
+    position: relative;
+    left: 70px;
+    margin: 0;
+}
+
+.NoClass{
+    text-align: center;
+    font-size: 20px;
+}

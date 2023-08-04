@@ -1,0 +1,180 @@
+<?php
+include "../dbConn.php";
+include "../WeekDateRange.php";
+//<!-- path -->
+
+date_default_timezone_set('Asia/Singapore');
+$CurrentTime = date('h:i a');
+$CurrentTime_1hourAfter = date('h:i a', strtotime('+1 hour'));
+$CurrentDate = date('Y-m-d');
+list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=CurrentWeekDateRange();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/03e0369c68.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="ClassFinder_style.css?v=<?php echo time(); ?>">
+    <title>Class Finder</title>
+    <!-- path -->
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">
+            <h1>Class Finder</h1>
+
+            <button class="FilterBox" onclick="displayWindow()">
+            <!-- <div class="FilterBox"> -->
+                <h3>Filter</h3>
+            <!-- </div> -->
+            </button>
+        </div>
+
+        <script>
+            function displayWindow(){
+                const filterWindow = document.querySelector('.FilterWindow');
+                filterWindow.style.display = 'block';
+                filterWindow.style.position = 'absolute';
+            }
+        </script>
+
+        <div class="FilterWindow">
+            <h2>Class Filter</h2>
+            <form action="#" method="post" >
+                <div class="col1">
+                    <div class="Day">
+                        <p>Day</p>
+                        <select name="day" id="day">
+                            <option value="<?php echo $FirstDay?>">
+                            <?php echo date('d M Y, D', strtotime($FirstDay));?>
+                            </option>
+
+                            <option value="<?php echo $SecondDay?>">
+                            <?php echo date('d M Y, D', strtotime($SecondDay));?>
+                            </option>
+
+                            <option value="<?php echo $ThirdDay?>">
+                            <?php echo date('d M Y, D', strtotime($ThirdDay));?>
+                            </option>
+
+                            <option value="<?php echo $FourthDay?>">
+                            <?php echo date('d M Y, D', strtotime($FourthDay));?>
+                            </option>
+
+                            <option value="<?php echo $FifthDay?>">
+                            <?php echo date('d M Y, D', strtotime($FifthDay));?>
+                            </option>
+
+                            <option value="<?php echo $SixthDay?>">
+                            <?php echo date('d M Y, D', strtotime($SixthDay));?>
+                            </option>
+
+                            <option value="<?php echo $LastDate?>">
+                            <?php echo date('d M Y, D', strtotime($LastDate));?>
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="RoomType">
+                        <p>Room type</p>
+                        <select name="roomType" id="roomType">
+                            <option value="Classroom">Classroom</option>
+                            <option value="Auditorium">Auditorium</option>
+                            <option value="Lab">Lab</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col2">
+                    <div class="StartTime">
+                        <p>Start time</p>
+                        <input type="time" name="startTime" id="startTime" class="startTime">
+                    </div>
+                    <div class="EndTime">
+                        <p>End time</p>
+                        <input type="time" name="endTime" id="endTime" class="endTime">
+                    </div>
+                </div>
+
+                <div class="FilterButton">
+                    <input type="submit" name="filter" id="filter" value="Filter" class="filter">
+                </div>
+            </form>
+        </div>
+
+        <div class="FilteredResult">
+            <?php
+            if(isset($_POST['filter'])){
+                $FilterDate=$_POST['day'];
+                $FilterRoomType=$_POST['roomType'];
+                $FilterStartTime=$_POST['startTime'];
+                $FilterEndTime=$_POST['endTime'];
+            }
+
+            else{
+                $FilterDate=$CurrentDate;
+                $FilterRoomType="Classroom";
+                $FilterStartTime=$CurrentTime;
+                $FilterEndTime=$CurrentTime_1hourAfter;
+            }
+
+
+            //Retrieve each classroom details
+            $Classroom_query="SELECT * FROM `class` WHERE `room_type`='$FilterRoomType'";
+            $Classroom_result=mysqli_query($connection,$Classroom_query);
+
+            while($Classroom_row=mysqli_fetch_assoc($Classroom_result)){
+                //save classroom details into variable
+                $ClassID=$Classroom_row['class_ID'];
+                $ClassName=$Classroom_row['class_name'];
+                $RoomType=$Classroom_row['room_type'];
+                $OpenTime=date('H:i', strtotime($Classroom_row['start_time']));
+                $CloseTime=date('H:i', strtotime($Classroom_row['end_time']));
+
+                // Check the classroom either open or not
+                $Check=true;
+                if($FilterStartTime<$OpenTime || $FilterEndTime>$CloseTime){
+                    continue;
+                }
+
+                // Check either there is any class in progress between the filter time interval based on class
+                $TimetableCheck_query="SELECT `start_time`, `end_time` FROM `timetable_details` WHERE `class_ID`='$ClassID' AND `date`='$FilterDate'";
+                $TimetableCheck_result=mysqli_query($connection,$TimetableCheck_query);
+                $TimetableCheck_count=mysqli_num_rows($TimetableCheck_result);
+
+                while($TimetableCheck_row=mysqli_fetch_assoc($TimetableCheck_result)){
+                    $ClassStart=date('H:i', strtotime($TimetableCheck_row['start_time']));
+                    $ClassEnd=date('H:i', strtotime($TimetableCheck_row['end_time']));
+
+
+
+                    if(($FilterStartTime>$ClassStart && $FilterStartTime>=$ClassEnd) || ($FilterEndTime<=$ClassStart && $FilterEndTime<$ClassEnd)){
+                    }
+                    else{
+                        $Check=false;
+                        break;
+                    }
+                }
+                if($Check==true){
+            ?>
+            <!-- path -->
+            <a href="ClassSchedule.php?classID=<?php echo $ClassID?>&className=<?php echo $ClassName?>&roomType=<?php echo $RoomType?>&date=<?php echo $FilterDate?>">
+                <div class="Result">
+                    <p class="ClassName"><?php echo $ClassName;?><br></p>
+                    <p class="RoomType"><?php echo $RoomType;?></p>
+                </div>
+            </a>
+                
+            <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+</body>
+</html>

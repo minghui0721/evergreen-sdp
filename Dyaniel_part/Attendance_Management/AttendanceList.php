@@ -30,10 +30,10 @@ include "../dbConn.php"
             cellpadding="10px">
                 <tr>
                     <th>Timetable ID</th>
+                    <th>Date</th>
+                    <th>Subject Name</th>
                     <th>Class Name</th>
                     <th>Intake</th>
-                    <th>Subject Name</th>
-                    <th>Date</th>
                     <th>Start Time</th>
                     <th>End Time</th>
                     <th>Action</th>
@@ -66,10 +66,10 @@ include "../dbConn.php"
 
                 <tr>
                     <td><?php echo $TimetableList_row["timetable_ID"];?></td>
+                    <td><?php echo date('d.m.Y', strtotime($TimetableList_row['date'])); ?></td>
+                    <td><?php echo $TimetableList_row["subject_name"];?></td>
                     <td><?php echo $TimetableList_row["class_name"];?></td>
                     <td><?php echo $Intake;?></td>
-                    <td><?php echo $TimetableList_row["subject_name"];?></td>
-                    <td><?php echo date('d.m.Y', strtotime($TimetableList_row['date'])); ?></td>
                     <td><?php echo date('h:i a', strtotime($TimetableList_row['start_time'])); ?></td>
                     <td><?php echo date('h:i a', strtotime($TimetableList_row['end_time'])); ?></td>
                     <td>

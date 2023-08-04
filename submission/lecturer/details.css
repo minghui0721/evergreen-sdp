@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.detail_table{
+    margin-left: 300px;
+}
+
+.Details_title{
+    margin-top: 40px;
+    margin-left: 200px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.assignment_title{
+    margin-left: 35%;
+    margin-bottom: 30px;
+    font-size: 25px;
+    font-weight: 300;
+    margin-top: 40px;
+    color: blueviolet;
+    opacity: 0; /* Start with 0 opacity */
+    transform: translateX(-100%); /* Start outside the viewport */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.assignment_title.show {
+    opacity: 1; /* Change opacity to 1 when the show class is added */
+    transform: translateX(0);
+}
+

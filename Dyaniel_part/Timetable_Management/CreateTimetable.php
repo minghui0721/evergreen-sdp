@@ -143,7 +143,7 @@ include "../dbConn.php"
             </form>
 
             <!-- back button -->
-            <a href="TimetableList.php">
+            <a href="TimetableChooseIntake.php">
                 <button class="back_button">
                     Back
                 </button>
@@ -172,7 +172,7 @@ if (isset($_POST['Create'])){
 ?>
 <script>
     alert("!Create Succesfully!")
-    window.location.replace("TimetableList.php");
+    window.location.replace("TimetableChooseIntake.php");
 </script>
 <!-- path -->
 
