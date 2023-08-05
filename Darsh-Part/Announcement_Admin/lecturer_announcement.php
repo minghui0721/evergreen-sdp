@@ -10,8 +10,15 @@ if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Retrieve the latest announcements from the database
-$sql = "SELECT * FROM admin_announcement ORDER BY publish_date DESC LIMIT 10";
+// Handle the search input
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $search = $_POST["search"];
+    $sql = "SELECT * FROM admin_announcement WHERE title LIKE '%$search%' OR content LIKE '%$search%' ORDER BY publish_date DESC";
+} else {
+    // Retrieve the latest announcements from the database
+    $sql = "SELECT * FROM admin_announcement ORDER BY publish_date DESC LIMIT 10";
+}
+
 $result = mysqli_query($connection, $sql);
 ?>
 
@@ -30,8 +37,10 @@ $result = mysqli_query($connection, $sql);
     </div>
     <h1>Welcome to the Lecturer's Announcement Page</h1>
     <div class="search-bar">
-      <input type="text" placeholder="Search Announcements">
-      <button type="submit">Search</button>
+      <form action="" method="post">
+        <input type="text" name="search" placeholder="Search Announcements">
+        <button type="submit">Search</button>
+      </form>
     </div>
   </div>
   <div class="container">
@@ -58,5 +67,6 @@ $result = mysqli_query($connection, $sql);
 <?php
 mysqli_close($connection);
 ?>
+
 
 
