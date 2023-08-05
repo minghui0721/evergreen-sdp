@@ -1,4 +1,6 @@
-/* admin_dash.css */
+.wrapper {
+  width: 80%;
+}
 
 body {
   font-family: "Dream Outloud Pro", Arial, sans-serif;
@@ -51,11 +53,11 @@ a:hover {
 
 .success-message {
   text-align: center;
-  color: green;
+  color: rgb(184, 244, 184);
 }
 
 .error-message {
   text-align: center;
-  color: red;
+  color: rgb(255, 58, 58);
 }
 

@@ -1,0 +1,156 @@
+/* CSS code for student feedback page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container p {
+  text-align: justify;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #26378e;
+  padding: 20px;
+  color: #fff;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 28px;
+  margin: 0;
+  font-family: "Cooper Black";
+}
+
+h2 {
+  color: #555;
+  margin-top: 0;
+}
+
+h3 {
+  color: #777;
+}
+
+form {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #04467b;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #95bbe1;
+}
+
+textarea {
+  height: 150px;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+/* New styles for welcome note and university picture */
+.welcome-note {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.welcome-note h2 {
+  color: #000000;
+}
+
+.university-picture {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.university-picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Rating */
+.rating-option {
+  display: flex;
+  align-items: center;
+}
+
+.rating-option input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3857a5;
+  border-radius: 50%;
+  transition: background-color 0.1s ease;
+}
+
+.rating-option input[type="radio"]:checked {
+  background-color: #3857a5;
+}
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  
