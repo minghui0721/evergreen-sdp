@@ -1,6 +1,6 @@
 <?php
 include "../Admin_header/AdminHeader.php";
-include "../WeekDateRange.php";
+include "../External_Function/WeekDateRange.php";
 include "../dbConn.php";
 
 $CurrentDate = date('Y-m-d');
@@ -23,11 +23,11 @@ $DateWithDay[6]= date('d M Y', strtotime($LastDate)).", Sat";
     <title>Class Schedule</title>
 
 <style>
-    .SchoolManagement2{
+    .AcademicManagement{
         display: block;
     }
 
-    .SchoolManagement2 .ViewClassSche{
+    .AcademicManagement .ClassSchedule{
         color: #5c5adb;
     }
 </style>

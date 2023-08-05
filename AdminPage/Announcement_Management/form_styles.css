@@ -1,0 +1,110 @@
+body {
+    font-family: "Dream Outloud Pro", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1d1d36;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #5c5adb;
+    border: 1px solid #050505;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 40px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-family: "Cooper Black", Arial, sans-serif;
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 18px;
+  }
+  
+  label,
+  input,
+  textarea {
+    margin-bottom: 16px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-row label,
+  .form-row input {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 12px 24px;
+    background-color: #1d1d36;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #545972;
+  }
+  
+  /* Additional Styling for the Form */
+  input[type="text"],
+  textarea,
+  input[type="datetime-local"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  input[type="text"],
+  input[type="datetime-local"] {
+    width: 100%;
+  }
+  
+  textarea {
+    width: 100%;
+    resize: vertical;
+  }
+  
+  /* Styling for Labels */
+  label {
+    font-weight: bold;
+    color: #f2f4f4;
+  }
+  
+  /* Styling for Form Rows */
+  .form-row {
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the Create Announcement Button */
+  button[type="submit"] {
+    background-color: #1d1d36;
+    font-weight: bold;
+    align-self: center;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #545972;
+  }
+  
