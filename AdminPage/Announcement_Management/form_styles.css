@@ -94,7 +94,7 @@ body {
   }
   
   /* Styling for Labels */
-  label {
+  .container label {
     font-weight: bold;
     color: #f2f4f4;
   }
