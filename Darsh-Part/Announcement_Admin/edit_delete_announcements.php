@@ -4,7 +4,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$database = 'sdp'; // Change this to your database name
+$database = 'evergreen_heights_university'; // Change this to your database name
 $connection = mysqli_connect($host, $user, $password, $database);
 
 if (!$connection) {

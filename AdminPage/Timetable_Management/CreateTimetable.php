@@ -168,6 +168,7 @@ if (isset($_POST['Create'])){
     // Validation
     $Check="pass";
     $Check=SubjectCheck($SubjectID,$Intake);
+    $Check=TimeCheck($ClassID, $Date, $StartTime, $EndTime);
 
     if($Check=="pass"){
     // Create New Timetable
@@ -187,6 +188,15 @@ if (isset($_POST['Create'])){
 ?>
 <script>
     alert("!Incorrect subject for this course!")
+    window.location.replace("#");
+</script>
+    <!-- path -->
+<?php
+    }
+    else if($Check=="Time Error"){
+?>
+<script>
+    alert("!The classroom is not available at this period!")
     window.location.replace("#");
 </script>
     <!-- path -->

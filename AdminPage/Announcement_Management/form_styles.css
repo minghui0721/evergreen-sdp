@@ -1,12 +1,19 @@
 body {
-    font-family: "Dream Outloud Pro", Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #1d1d36;
   }
+
+  .wrapper{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    float: right;
+  }
   
   .container {
+    font-family: "Dream Outloud Pro", Arial, sans-serif;
+    line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;

@@ -1,4 +1,6 @@
 <?php
+include "../Admin_header/AdminHeader.php";
+
 // Connect to the database
 $host = 'localhost';
 $user = 'root';
@@ -34,45 +36,58 @@ if (isset($_GET["edit_id"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit/Delete Announcements</title>
-    <link rel="stylesheet" href="edit_delete_announcements.css">
-    <link rel="stylesheet" href="edit_announcement_form.css">
+    <link rel="stylesheet" href="edit_delete_announcements.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="edit_announcement_form.css?v=<?php echo time(); ?>">
+
+<style>
+    .InformationManagement{
+        display: block;
+    }
+
+    .InformationManagement .ManageAnnouncements{
+        color: #5c5adb;
+    }
+</style>
+
 </head>
 <body>
-<div class="container">
-    <h1>Edit/Delete Announcements</h1>
-    <?php
-    // Check for status messages from delete_announcement.php
-    if (isset($_GET["status"])) {
-        $status = $_GET["status"];
-        if ($status === "deleted") {
-            echo "<p class='success-message'>Announcement deleted successfully!</p>";
-        } elseif ($status === "error") {
-            echo "<p class='error-message'>Failed to perform action. Please try again.</p>";
-        }
-    }
-    ?>
-    <div class="announcements">
-        <?php
-        if (mysqli_num_rows($result) > 0) {
-            echo "<table>";
-            echo "<tr><th>Title</th><th>Content</th><th>Publish Date</th><th>Actions</th></tr>";
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" . $row["title"] . "</td>";
-                echo "<td>" . $row["content"] . "</td>";
-                echo "<td>" . $row["publish_date"] . "</td>";
-                echo "<td>";
-                echo "<a href='edit_delete_announcements.php?edit_id=" . $row["announcement_id"] . "' class='edit-button'>Edit</a>";
-                echo "<a href='delete_announcement.php?announcement_id=" . $row["announcement_id"] . "' class='delete-button'>Delete</a>";
-                echo "</td>";
-                echo "</tr>";
+    <div class="wrapper">
+        <div class="container">
+            <h1>Edit/Delete Announcements</h1>
+            <?php
+            // Check for status messages from delete_announcement.php
+            if (isset($_GET["status"])) {
+                $status = $_GET["status"];
+                if ($status === "deleted") {
+                    echo "<p class='success-message'>Announcement deleted successfully!</p>";
+                } elseif ($status === "error") {
+                    echo "<p class='error-message'>Failed to perform action. Please try again.</p>";
+                }
             }
-            echo "</table>";
-        } else {
-            echo "<p>No announcements found.</p>";
-        }
-        ?>
-    </div>
+            ?>
+            <div class="announcements">
+                <?php
+                if (mysqli_num_rows($result) > 0) {
+                    echo "<table>";
+                    echo "<tr><th>Title</th><th>Content</th><th>Publish Date</th><th>Actions</th></tr>";
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row["title"] . "</td>";
+                        echo "<td>" . $row["content"] . "</td>";
+                        echo "<td>" . $row["publish_date"] . "</td>";
+                        echo "<td>";
+                        echo "<a href='edit_delete_announcements.php?edit_id=" . $row["announcement_id"] . "' class='edit-button'>Edit</a>";
+                        echo "<a href='delete_announcement.php?announcement_id=" . $row["announcement_id"] . "' class='delete-button'>Delete</a>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "<p>No announcements found.</p>";
+                }
+                ?>
+        </div>
+
 
 <?php
 if (isset($_GET["edit_id"])) {
@@ -103,6 +118,7 @@ if (isset($_GET["edit_id"])) {
                 <button type='submit'>Update Announcement</button>
             </form>
         </div>
+    </div>
 <?php
     } else {
         // The announcement with the provided edit_id does not exist or there was an error

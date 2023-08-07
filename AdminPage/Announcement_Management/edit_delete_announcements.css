@@ -1,15 +1,23 @@
 /* edit_delete_announcements.css */
 
 body {
-  font-family: "Dream Outloud Pro", Arial, sans-serif;
-  line-height: 1.6;
   margin: 0;
   padding: 0;
   background-color: #1d1d36;
 }
 
+.wrapper{
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
 .container {
-  max-width: 800px;
+  font-family: "Dream Outloud Pro", Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 820px;
+  height: 600px;
   margin: 0 auto;
   padding: 20px;
   background-color: #5c5adb;
@@ -17,7 +25,20 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   margin-top: 40px;
+  overflow-y: auto;
 }
+
+.container::-webkit-scrollbar{
+  width: 4px;
+  height: 5px;
+}
+
+.container::-webkit-scrollbar-thumb{
+  border: 2px;
+  background-color: white;
+  border-radius: 10px;
+}
+
 
 h1 {
   text-align: center;

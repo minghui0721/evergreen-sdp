@@ -231,6 +231,12 @@ body{
                             </li>
 
                             <li>
+                                <a href="#" class="StudentResult">
+                                · View students' result
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="#" class="StudentGrade">
                                 · View students' grade
                                 </a>
@@ -302,7 +308,7 @@ body{
                             </li>
 
                             <li>
-                                <a href="#" class="ManageAnnouncements">
+                                <a href="../Announcement_Management/admin_ann_dash.php" class="ManageAnnouncements">
                                 · Manage announcements
                                 </a>
                             </li>
