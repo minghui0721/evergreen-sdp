@@ -4,15 +4,15 @@ include "../dbConn.php";
 // <!-- path -->
 ?>
 
-    <link rel="stylesheet" type="text/css" href="AdminAttendanceIntake_style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="TimetableChooseIntake_style.css?v=<?php echo time(); ?>">
     <!-- path -->
-    <title>Student Attendance</title>
+    <title>Manage Timetable</title>
 <style>
-    .SchoolManagement2{
+    .AcademicManagement{
         display: block;
     }
 
-    .SchoolManagement2 .ViewStudAtten{
+    .AcademicManagement .ManageTimetable{
         color: #5c5adb;
     }
 </style>
@@ -20,7 +20,10 @@ include "../dbConn.php";
 <body>
     <div class="wrapper">
         <div class="title">
-            <h1>Student's Attendance</h1>
+            <h1>Manage Timetable</h1>
+            <a href="CreateTimetable.php">
+            <button><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i></i> &nbsp;Add New</button>
+            </a>
         </div>
         
         <div class="IntakeContainer">
@@ -42,7 +45,7 @@ include "../dbConn.php";
                 $IntakeName=$Intake." ".$CoProName_row['program_name'].' '.$CoProName_row['course_name'];
             ?>
 
-            <a href="AdminStudAttendanceList.php?intakeID=<?php echo $IntakeID;?>&intakeName=<?php echo $IntakeName;?>">
+            <a href="TimetableList.php?intakeID=<?php echo $IntakeID;?>">
                 <div class="IntakeBox">
                     <h3><?php echo $IntakeName;?></h3>
                     <p><i class="fa-solid fa-play" style="color: #ffffff;"></i></p>

@@ -10,11 +10,11 @@ $IntakeID=$_GET['intakeID'];
     <title>Timetable List</title>
 
 <style>
-    .SchoolManagement{
+    .AcademicManagement{
         display: block;
     }
 
-    .SchoolManagement .ManageTimetable{
+    .AcademicManagement .ManageTimetable{
         color: #5c5adb;
     }
 </style>

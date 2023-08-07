@@ -145,7 +145,6 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
                 // Check either there is any class in progress between the filter time interval based on class
                 $TimetableCheck_query="SELECT `start_time`, `end_time` FROM `timetable_details` WHERE `class_ID`='$ClassID' AND `date`='$FilterDate'";
                 $TimetableCheck_result=mysqli_query($connection,$TimetableCheck_query);
-                $TimetableCheck_count=mysqli_num_rows($TimetableCheck_result);
 
                 while($TimetableCheck_row=mysqli_fetch_assoc($TimetableCheck_result)){
                     $ClassStart=date('H:i', strtotime($TimetableCheck_row['start_time']));

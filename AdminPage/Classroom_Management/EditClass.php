@@ -7,11 +7,11 @@ include "../dbConn.php"
     <title>Edit Class</title>
 
     <style>
-    .SchoolManagement{
+    .AcademicManagement{
         display: block;
     }
 
-    .SchoolManagement .ManageClass{
+    .AcademicManagement .ManageClassroom{
         color: #5c5adb;
     }
 </style>

@@ -1,17 +1,18 @@
 <?php
 include "../Admin_header/AdminHeader.php";
-include "../dbConn.php"
+include "../dbConn.php";
+include "Validation.php";
 ?>
     <link rel="stylesheet" type="text/css" href="CreateTimetable_style.css?v=<?php echo time(); ?>">
     <!-- path -->
     <title>Create Timetable</title>
 
     <style>
-    .SchoolManagement{
+    .AcademicManagement{
         display: block;
     }
 
-    .SchoolManagement .ManageTimetable{
+    .AcademicManagement .ManageTimetable{
         color: #5c5adb;
     }
 </style>
@@ -164,7 +165,12 @@ if (isset($_POST['Create'])){
     $StartTime=$_POST['start-time'];
     $EndTime=$_POST['end-time'];
     
+    // Validation
+    $Check="pass";
+    $Check=SubjectCheck($SubjectID,$Intake);
+    $Check=TimeCheck($ClassID, $Date, $StartTime, $EndTime);
 
+    if($Check=="pass"){
     // Create New Timetable
     $TimetableDetails_query="INSERT INTO `timetable_details`(`class_ID`, `intake_ID`, `lecturer_ID`, `subject_ID`, `start_time`, `end_time`, `date`)
     VALUES ('$ClassID','$Intake','$LecturerID','$SubjectID','$StartTime','$EndTime','$Date')";
@@ -177,5 +183,24 @@ if (isset($_POST['Create'])){
 <!-- path -->
 
 <?php
+    }
+    else if($Check=="Subject Error"){
+?>
+<script>
+    alert("!Incorrect subject for this course!")
+    window.location.replace("#");
+</script>
+    <!-- path -->
+<?php
+    }
+    else if($Check=="Time Error"){
+?>
+<script>
+    alert("!The classroom is not available at this period!")
+    window.location.replace("#");
+</script>
+    <!-- path -->
+<?php
+    }
 }
 ?>

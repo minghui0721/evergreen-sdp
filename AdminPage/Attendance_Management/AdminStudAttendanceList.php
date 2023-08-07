@@ -10,11 +10,11 @@ $IntakeName=$_GET['intakeName'];
     <!-- path -->
     <title>Student Attendance List</title>
 <style>
-    .SchoolManagement2{
+    .AcademicManagement{
         display: block;
     }
 
-    .SchoolManagement2 .ViewStudAtten{
+    .AcademicManagement .StudentAttendance{
         color: #5c5adb;
     }
 </style>

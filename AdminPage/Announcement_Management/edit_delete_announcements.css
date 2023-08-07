@@ -1,0 +1,127 @@
+/* edit_delete_announcements.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1d1d36;
+}
+
+.wrapper{
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.container {
+  font-family: "Dream Outloud Pro", Arial, sans-serif;
+  line-height: 1.6;
+  max-width: 820px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #5c5adb;
+  border: 1px solid #050505;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 40px;
+  overflow-y: auto;
+}
+
+.container::-webkit-scrollbar{
+  width: 4px;
+  height: 5px;
+}
+
+.container::-webkit-scrollbar-thumb{
+  border: 2px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+h1 {
+  text-align: center;
+  font-family: "Cooper Black", Arial, sans-serif;
+  color: white;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.announcement {
+  position: relative; /* Add this to enable relative positioning */
+  padding: 20px;
+  background-color: #5c5adb;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.announcement h3 {
+  color: #ececf5;
+}
+
+.announcement p {
+  color: #f7f7f9;
+}
+
+.announcement .publish-date {
+  color: #545972;
+  font-style: italic;
+}
+
+.edit-delete-buttons {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.edit-button{
+  padding: 10px 20px;
+  background-color: #40763c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.delete-button{
+  padding: 10px 20px;
+  background-color: #974c4c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #545972;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #070707;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #4d61b1;
+}
+
+  
