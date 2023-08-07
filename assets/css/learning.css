@@ -1,0 +1,35 @@
+.article_container{
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.article{
+    height: fit-content;
+    border: 1px solid black;
+    width: 65%;
+    padding: 60px 100px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.admin{
+    padding-bottom: 30px;
+}
+
+.admin svg{
+    height: 25px;
+}
+
+
+.article_header h1{
+    padding-bottom: 20px;
+}
+.article_content img{
+    width: 100%;
+    padding-top: 30px;
+}
+
+.article_content h2{
+    padding-top: 30px;
+}
