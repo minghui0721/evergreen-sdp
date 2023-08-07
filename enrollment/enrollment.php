@@ -1,7 +1,12 @@
+<?php
+include '../assets/base_url/config.php';
+?>
+
+
 <!-- Retrieving the courses from db -->
 <?php
 // Prepare the SQL query
-include 'database/db_connection.php';
+include '../database/db_connection.php';
 $sql = "SELECT * FROM course_program";
 
 // Execute the query and store the result in a variable
@@ -71,9 +76,11 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="documentTitle"></title>
-    <script src="assets/js/config.js"></script> 
-    <link rel="stylesheet" href="assets/css/enrollment.css.?v=<?php echo time(); ?>">  
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
+    <script src="../assets/js/config.js"></script> 
+    <link rel="stylesheet" href="../assets/css/enrollment.css.?v=<?php echo time(); ?>">  
+    <link rel="stylesheet" href="../assets/css/header.css.?v=<?php echo time(); ?>">  
+    <link rel="stylesheet" href="../assets/css/footer.css.?v=<?php echo time(); ?>">  
+    <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
 
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
@@ -247,7 +254,7 @@ $conn->close();
         }
         };
 
-        xhttp.open('GET', 'header.php', true);
+        xhttp.open('GET', '../header.php', true);
         xhttp.send();
 
          // Load footer content
@@ -257,7 +264,7 @@ $conn->close();
                 footerContainer.innerHTML = this.responseText;
             }
         };
-        footerXhttp.open('GET', 'footer.php', true);
+        footerXhttp.open('GET', '../footer.php', true);
         footerXhttp.send();
     </script>
 </body>

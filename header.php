@@ -1,3 +1,7 @@
+<?php
+include 'assets/base_url/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +30,11 @@
             </div>
         
             <div class="col  logo d-flex align-items-center justify-content-center ">
-                <a href="index.php"><img src="assets/images/evergreen-logo.png" alt="logo"></a>
+                <a href="index.php"><img src="<?php echo BASE_URL ?>/assets/images/evergreen-logo.png" alt="Header Image"></a>
             </div>
         
             <div class="col social-icons">
-                <a href="#" class="login_svg">
+                <a href="<?php echo BASE_URL ?>/Joseph_part/Login/main/main.php" target = "_blank" class="login_svg">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
                     </svg> Log In
                 </a>
@@ -60,31 +64,31 @@
                 <div class="menu">
                         <ul class="list-unstyled d-flex justify-content-between flex-wrap">
                             <li class="col-lg-2 col-md-4 col-12 ">
-                                <a href="index.php">
-                                    <button id="home">Home</button>
+                                <a href="<?php echo BASE_URL ?>/index.php">
+                                    <button id="home" class="home-button">Home</button>
                                 </a>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12"> 
-                                <a href="about.php">
+                                <a href="<?php echo BASE_URL ?>/about.php">
                                     <button id="service">About Evergreen</button>
                                 </a>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12">
-                                <a href="academic.php">
+                                <a href="<?php echo BASE_URL ?>/academic.php">
                                     <button id="aboutus">Academics</button>
                                 </a>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <a href="event.php">
+                                <a href="<?php echo BASE_URL ?>/event.php">
                                     <button id="donation">Events</button>
                                 </a>
                                 
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <a href="admission.php"><button id="career">Admissions</button></a>
+                                <a href="<?php echo BASE_URL ?>/admission.php"><button id="career">Admissions</button></a>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <a href="contact_us.php"><button id="contactus">Contact Us</button></a>
+                                <a href="<?php echo BASE_URL ?>/contact_us.php"><button id="contactus">Contact Us</button></a>
                             </li>
                         </ul>
                     </div>

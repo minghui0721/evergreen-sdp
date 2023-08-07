@@ -1,5 +1,5 @@
 <?php
-include 'database/db_connection.php';
+include '../database/db_connection.php';
 
 // POST Method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the prepared statement
     if (mysqli_stmt_execute($stmt_insert)) {
-        echo '<script>alert("Enrollment form submitted successfully!"); window.location.href = "index.php";</script>';
+        echo '<script>alert("Thank you for submitting your enrollment application! Your application has been received successfully. Our admissions team will review your application and contact you shortly. If you have any further questions or need assistance, please feel free to contact our admissions office. We appreciate your interest in Evergreen Heights and look forward to welcoming you to our campus!"); window.location.href = "../index.php";</script>';
     } else {
         echo "Error executing the query: " . mysqli_error($conn);
     }

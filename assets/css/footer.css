@@ -71,6 +71,10 @@ img{
     color: white;
 }
 
+.media a:hover{
+    color: #5c5adb;
+}
+
 .media{
     width: 250px;
     height: 300px;
@@ -108,6 +112,15 @@ img{
     width: 250px;
     height: 300px;
     margin-top: -30px;
+}
+
+.table_nav a{
+    text-decoration: none;
+    color: white;
+}
+
+.table_nav a:hover{
+    color: #5c5adb;
 }
 
 table {

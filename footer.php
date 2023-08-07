@@ -1,3 +1,7 @@
+<?php
+include 'assets/base_url/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +32,7 @@
         <div class="row_footer flex-wrap">
 
             <div class="col-lg-3 col-12 footer_logo">
-                <img src="assets/images/evergreen-white.png" alt="logo">
+                <img src="<?php echo BASE_URL ?>/assets/images/evergreen-white.png" alt="logo">
             </div>
 
                 
@@ -38,20 +42,20 @@
                 <div class="table_nav">
                     <table>
                         <tr>
-                            <td>About</td>
-                            <td>News</td>
+                            <td><a href="<?php echo BASE_URL ?>/index.php">About</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/articles.php">Articles</a></td>
                         </tr>
                         <tr>
-                            <td>Academics</td>
-                            <td>Events</td>
+                            <td><a href="<?php echo BASE_URL ?>/academic.php">Academics</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/event.php">Events</a></td>
                         </tr>
                         <tr>
-                            <td>Programs</td>
-                            <td>Admission</td>
+                            <td><a href="<?php echo BASE_URL ?>/enrollment/enrollment.php">Enrollment</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/admission.php">Admission</a></td>
                         </tr>
                         <tr>
-                            <td>Student</td>
-                            <td>Contact</td>
+                            <td><a href="<?php echo BASE_URL ?>/index.php">Home</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/contact_us.php">Contact</a></td>
                         </tr>
                     </table>
                 </div>
