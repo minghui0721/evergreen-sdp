@@ -2,7 +2,7 @@
 include '../database/db_connection.php';
 
 // Retrieve enrollment requests from the database
-$query = "SELECT * FROM enrollment_form";
+$query = "SELECT * FROM enrollment_form WHERE status = 'Pending' ";
 
 $result = mysqli_query($conn, $query);
 ?>
@@ -89,6 +89,61 @@ $result = mysqli_query($conn, $query);
         </table>
     </div>
 
+    <div class="approved-container">
+        <h1>Approved Enrollments</h1>
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>Program</th>
+                <th>Intake</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+            <?php
+            // Retrieve approved enrollment requests from the database
+            $approvedQuery = "SELECT * FROM enrollment_form WHERE status = 'Approved'";
+            $approvedResult = mysqli_query($conn, $approvedQuery);
+            $counter = 1;
+
+            while ($row = mysqli_fetch_assoc($approvedResult)) {
+                $ApprovedIntakeID = $row['intake_ID'];
+                $ApprovedIntakeQuery = "SELECT courseProgram_ID, intake FROM intake WHERE intake_ID = '$ApprovedIntakeID'";
+                $ApprovedIntakeResult = mysqli_query($conn, $ApprovedIntakeQuery);
+
+                if ($ApprovedIntakeRow = mysqli_fetch_assoc($ApprovedIntakeResult)) {
+                    $ApprovedCourseProgramID = $ApprovedIntakeRow['courseProgram_ID'];
+                    $ApprovedIntake = $intakeRow['intake'];
+
+                    // Fetch course_name and program_name from course_program table based on courseProgram_ID
+                    $ApprovedCourseProgramQuery = "SELECT course_name, program_name FROM course_program WHERE courseProgram_ID = '$ApprovedCourseProgramID'";
+                    $ApprovedCourseProgramResult = mysqli_query($conn, $ApprovedCourseProgramQuery);
+
+                    if ($ApprovedCourseProgramRow = mysqli_fetch_assoc($ApprovedCourseProgramResult)) {
+                        $ApprovedCourseName = $ApprovedCourseProgramRow['course_name'];
+                        $ApprovedProgramName = $ApprovedCourseProgramRow['program_name'];
+                    } else {
+                        $ApprovedCourseName = 'N/A';
+                        $ApprovedProgramName = 'N/A';
+                    }
+                } else {
+                    $ApprovedCourseProgramID = 'N/A'; // Set a default value if not found
+                }
+
+
+                echo '<tr>';
+                echo '<td>' . $counter . '</td>';
+                echo '<td>' . $ApprovedCourseName . ' (' . $ApprovedProgramName .  ')</td>';
+                echo '<td>' . $ApprovedIntake . '</td>';
+                echo '<td>' . $row['name'] . '</td>';
+                echo '<td>' . $row['email'] . '</td>';
+                echo '<td>' . $row['status'] . '</td>';
+                $counter++;
+            }
+            ?>
+        </table>
+    </div>
+
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="enlargedImg">
@@ -97,20 +152,7 @@ $result = mysqli_query($conn, $query);
     
     <script>
         const zoomImages = document.querySelectorAll('.zoom-image');
-        const approveButtons = document.querySelectorAll('.approve-btn');
-        const rejectButtons = document.querySelectorAll('.reject-btn');
-
-
-        rejectButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const enrollmentID = button.getAttribute('data-enrollment-id');
-                // Use AJAX to send the rejection request to the server and update the status
-                // Display success message or update the row's status
-            });
-        });
-
-        
-        // At the bottom of the script tag
+     
         function openModal(imgElement) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('enlargedImg');

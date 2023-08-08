@@ -28,6 +28,8 @@ if (isset($_GET['action'])) {
         $insertResult = mysqli_query($conn, $insertQuery);
 
         if ($insertResult) {
+            $updateQUery = "UPDATE enrollment_form SET status = 'Approved' WHERE enrollment_ID = $enrollmentID";
+            $updateResult = mysqli_query($conn, $updateQUery);
             echo "<script>alert('Enrollment request approved successfully');</script>";
             echo "<script>window.location.href = 'enrollment_request.php';</script>"; 
         } else {
@@ -47,3 +49,4 @@ if (isset($_GET['action'])) {
     }
 }
 ?>
+

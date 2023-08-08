@@ -1,5 +1,6 @@
 .page-container {
     position: relative;
+    margin-bottom: 100px;
 }
 
 
@@ -119,4 +120,33 @@ tr:nth-child(odd) {
     font-weight: bold;
     color: white;
     cursor: pointer;
+}
+
+
+.approved-container {
+    max-height: 300px;
+    overflow-y: auto; 
+    background-color: #1d1d36;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    width: 85%;
+    margin: 0 auto;
+
+}
+
+
+.approved-container th, .approved-container td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+
+
+.approved-container h1{
+    padding-top: 30px;
+}
+
+.approved-container table{
+    background-color: #5c5adb;
 }
