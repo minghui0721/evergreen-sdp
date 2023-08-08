@@ -9,7 +9,7 @@ body{
 .title{
     width: 80%;
     /* background-color: aqua; */
-    margin: 100px 0 0 160px;
+    margin: 100px 0 0 200px;
 }
 
 .title h1{
@@ -138,7 +138,7 @@ body{
     gap: 50px 50px;
     background-color: #002349;
     width: 1250px;
-    margin: 20px 0 0 120px;
+    margin: 40px 0 0 170px;
     border-radius: 25px;
     clear: both;
 }
