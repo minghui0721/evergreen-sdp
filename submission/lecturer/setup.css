@@ -94,3 +94,98 @@ button:hover {
 .input ion-icon{
     margin-bottom: -3px;
 }
+
+.history_title{
+    margin-top: 20px;
+    margin-left: 70px;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-left: 150px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+td a{
+    text-decoration: none;
+}
+
+/* Unvisited link */
+a:link {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  /* Visited link */
+  a:visited {
+    color: purple;
+    text-decoration: none;
+  }
+  
+  /* Hovered link */
+  a:hover {
+    color: #7745bd;
+  }
+  
+  /* Active link (while clicking) */
+  a:active {
+    color: green;
+  }
+  
+
+th {
+    background-color: #6563d9;
+}
+
+/* Animation for table rows */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+tr {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.details{
+    text-align: center;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.arrow-icon {
+    margin-left: 5px;
+}
+
+/* Animation for arrow icon */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Apply the animation to the arrow icon continuously (infinite) */
+.arrow-icon {
+    animation: bounce 1s infinite;
+}
+

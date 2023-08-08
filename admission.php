@@ -41,7 +41,7 @@
                 <ol>
                     <li><span>Check Eligibility:</span> Before proceeding with the application, make sure you meet the eligibility criteria for the program or course you wish to apply to.</li>
                     <li><span>Prepare Required Documents:</span> Gather all the necessary documents needed for the application.</li>
-                    <li><a class="custom" href="enrollment.php"><span>Online Application Form:</span></a> We have provided an online application form for your convenience. Please complete all the required fields in the form accurately and truthfully. Incomplete or inaccurate information may delay the processing of your application.</li>
+                    <li><a class="custom" href="enrollment/enrollment.php"><span>Online Application Form:</span></a> We have provided an online application form for your convenience. Please complete all the required fields in the form accurately and truthfully. Incomplete or inaccurate information may delay the processing of your application.</li>
                     <li><span>Application Deadlines:</span> Be mindful of the application deadlines for each program. Late applications may not be considered, so ensure you submit your application on or before the specified deadline.</li>
                     <li><span>Review and Edit:</span> Before submitting the application, carefully review all the information provided to avoid any errors or omissions. You may want to have a trusted individual proofread your application as well.</li>
                     <li><span>acknowledgment Email:</span> After submitting your application, you will receive an acknowledgment email or notification. </li>

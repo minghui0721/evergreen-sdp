@@ -2,10 +2,10 @@
 include "../dbConn.php";
 
 // Retreive the data from from
-$ClassID=$_POST['classID'];
-$ClassName=$_POST['className'];
-$RoomType=$_POST['roomType'];
-$Date=$_POST['date'];
+$ClassID=$_GET['classID'];
+$ClassName=$_GET['className'];
+$RoomType=$_GET['roomType'];
+$Date=$_GET['date'];
 
 ?>
 
@@ -18,13 +18,13 @@ $Date=$_POST['date'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="ClassSchedule_style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="AdminClassSchedule_style.css?v=<?php echo time(); ?>">
     <title>A-02-04 Class Schedule</title>
     <!-- path -->
 </head>
 <body>
     <!-- Back Button -->
-    <a href="AdminClassScheduleList.php"> <!-- path -->
+    <a href="ClassFinder.php"> <!-- path -->
         <button class="back_button">
             <i class="fa-solid fa-caret-left"></i> Back
         </button>

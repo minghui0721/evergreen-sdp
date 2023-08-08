@@ -2,7 +2,7 @@
 <?php
 // Prepare the SQL query
 include 'database/db_connection.php';
-$sql = "SELECT courseProgram_ID, course_name, course_description, img FROM course_program GROUP BY course_name";
+$sql = "SELECT courseProgram_ID, course_name, program_name, course_description, program_description, img FROM course_program";
 
 // Execute the query and store the result in a variable
 $result = mysqli_query($conn, $sql);
@@ -19,15 +19,25 @@ while ($row = mysqli_fetch_assoc($result)) {
     // Access the data for each row using associative array keys
     $courseProgramID = $row['courseProgram_ID'];
     $courseName = $row['course_name'];
+    $programName = $row['program_name'];
     $courseDescription = $row['course_description'];
+    $programDescription = $row['program_description'];
     $image = $row['img'];
+
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $imageType = $finfo->buffer($image);
+
+    $base64Image = base64_encode($image);
 
     // Store the course details in the $courses array
     $courses[] = array(
         'courseProgram_ID' => $courseProgramID,
         'course_name' => $courseName,
-        'description' => $courseDescription,
-        'image' => $image
+        'program_name' => $programName,
+        'coursedescription' => $courseDescription,
+        'description' => $programDescription,
+        'image' => $base64Image,
+        'image_type' => $imageType
     );
 }
 
@@ -78,14 +88,17 @@ $conn->close();
 
     foreach ($courses as $key => $course) {
 
+        $courseName = $course['course_name'];
+        $programName = $course['program_name'];
+
         // Determine if this is one of the specific pairs of loops to display image first
         $is_image_first_pair = in_array($counter, $image_first_pairs);
 
         if ($is_image_first_pair) {
             // Display image first, then details
-            echo '<div class="academic_img" style="background-image: url(\'' . $course['image'] . '\');"></div>';
+            echo '<div class="academic_img" style="background-image: url(\'data:' . $course['image_type'] . ';base64,' . $course['image'] . '\');"></div>';
             echo '<div class="academic_grid image_first">';
-            echo '<h2>' . $course['course_name'] . '</h2>';
+            echo '<h2>' . $courseName . ' <span style="font-size: 15px;">(' . $programName . ')</span>' . '</h2>';
             echo '<p>' . $course['description'] . '</p>';
             echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button"><button id="first_button">Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
@@ -94,13 +107,13 @@ $conn->close();
         } else {
             // Display details first, then image
             echo '<div class="academic_grid details_first">';
-            echo '<h2>' . $course['course_name'] . '</h2>';
+            echo '<h2>' . $courseName . ' <span style="font-size: 15px;">(' . $programName . ')</span>' . '</h2>';
             echo '<p>' . $course['description'] . '</p>';
             echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button"><button id="second_button" >Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
             // echo $course['credit_hours'] . '</p>';
             echo '</div>';
-            echo '<div class="academic_img" style="background-image: url(\'' . $course['image'] . '\');"></div>';
+            echo '<div class="academic_img" style="background-image: url(\'data:' . $course['image_type'] . ';base64,' . $course['image'] . '\');"></div>';
         }
 
         // Increment the counter after each course

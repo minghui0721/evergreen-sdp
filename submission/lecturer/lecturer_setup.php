@@ -28,7 +28,8 @@ if (isset($_POST['btnsubmit'])) {
 
     if (mysqli_query($connection, $sql)) {
         echo '<script>alert("Assignment data inserted successfully.");</script>';
-
+        header("Location: lecturer_setup.php");
+        exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($connection);
     }
@@ -47,7 +48,7 @@ mysqli_close($connection);
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="setup.css">
 </head>
-<script>
+<script>    
 function goBack() {
     window.history.back();
 }
@@ -109,8 +110,56 @@ function goBack() {
     <hr style = "width: 95%; margin-left: 35px;" >
 
     <div class="container_grade">
-        
-    </div>
+        <h2 class="history_title">History</h2>
+        <br>
+        <h2 class="details">Click on the Assignment Title to check the details</h2>
+        <table style="width:80%">
+            <tr>
+                <th>Assignment Title</th>
+                <th>Subject Name</th>
+                <th>Time Start</th>
+                <th>Time End</th>
+            </tr>
+
+            <?php
+            $host = 'localhost';
+            $user = 'root';
+            $password = '';
+            $database = 'evergreen_heights_university';
+
+            // Step 1 - Database connection
+            $connection = mysqli_connect($host, $user, $password, $database);
+
+            // Check database connection
+            if ($connection === false) {
+                die('Connection failed: ' . mysqli_connect_error());
+            }
+
+            // Step 2 - Fetch data from the database with subject_name from subject table
+            $lecturerID = 1;
+            $sql = "SELECT a.assignment_ID, a.assignment_title, a.subject_ID, a.time_start, a.time_end, s.subject_name 
+                    FROM assignment_set a
+                    INNER JOIN subject s ON a.subject_ID = s.subject_ID
+                    WHERE a.lecturer_ID = $lecturerID";
+            $result = mysqli_query($connection, $sql);
+
+            // Step 3 - Loop through the data and display it in the table
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo '<td><a href="details.php?assignment_ID=' . $row['assignment_ID'] . '"><ion-icon name="arrow-forward-outline" class="arrow-icon"></ion-icon> ' . $row['assignment_title'] . '</a></td>';
+                echo "<td>" . $row['subject_name'] . "</td>";
+                echo "<td>" . $row['time_start'] . "</td>";
+                echo "<td>" . $row['time_end'] . "</td>";
+                echo "</tr>";
+            }
+
+            // Close the database connection
+            mysqli_close($connection);
+            ?>
+        </table>
+</div>
+
+</div>
 </body>
 </html>
 

@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.setup_title {
+    font-size: 25px;
+    width: 100;
+    font-weight: normal;
+}
+
+.container_setup {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #a387f2;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 5px #c4adf1;
+    margin-top: 20px;
+}
+
+.title_setup {
+    text-align: center;
+    font-weight: normal;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.input {
+    flex: 1;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.input:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"],
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button_wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #86d4f8;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #50c6fd;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.input input:focus {
+    outline: none;
+    border-color: #D5FFE4;
+}
+
+.input input:invalid {
+    border-color: #6563d9;
+}
+
+.input input:valid {
+    border-color: #45CFDD;
+    box-shadow: 5px 5px #45CFDD;
+}
+
+.input ion-icon {
+    margin-bottom: -3px;
+}
+
+.history_title {
+    margin-top: 20px;
+    margin-left: 70px;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+td a {
+    text-decoration: none;
+}
+
+/* Unvisited link */
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+/* Visited link */
+a:visited {
+    color: purple;
+    text-decoration: none;
+}
+
+/* Hovered link */
+a:hover {
+    color: #7745bd;
+}
+
+/* Active link (while clicking) */
+a:active {
+    color: green;
+}
+
+th {
+    background-color: #6563d9;
+}
+
+/* Animation for table rows */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+tr {
+    animation: fadeIn 0.5s ease-out;
+}

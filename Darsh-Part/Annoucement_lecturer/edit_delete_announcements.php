@@ -21,7 +21,7 @@ $result = mysqli_query($connection, $sql);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit/Delete-Announcement List</title>
-  <link rel="stylesheet" href="edit_delete.css">
+  <link rel="stylesheet" href="edit_delete.css?v=<?php echo time();?>">
 </head>
 <body>
   <div class="box">

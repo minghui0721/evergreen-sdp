@@ -98,6 +98,10 @@
     margin-top: 15px;
 }
 
+.life_header p{
+    font-size: 18px;
+}
+
 
 .life_header button:hover{
         transition-duration: 0.4s;
@@ -247,19 +251,19 @@
 
 
 .new1{
-    background-image: url(../images/class.avif);
+    background-image: url(../images/learning.avif);
     background-position: center;
     background-size: cover;
 }
 
 .new2{
-    background-image: url(../images/building.jpg);
+    background-image: url(../images/teacher.avif);
     background-position: center;
     background-size: cover;
 }
 
 .new3{
-    background-image: url(../images/student.avif);
+    background-image: url(../images/mental.avif);
     background-position: center;
     background-size: cover;
 }
@@ -268,12 +272,14 @@
 .new1 h3, .new2 h3, .new3 h3{
     text-align: left;
     font-size: 20px;
-    color: black;
+    color: white;
+    z-index: 1;
 }
 
 .new1 h2, .new2 h2, .new3 h2{
     text-align: left;
     margin-top: auto;
+    z-index: 1;
 }
 
 /* create a black 'paper' to make the image darker */
@@ -441,7 +447,7 @@
 
 /* get in touch */
 .get_intouch{
-    height: 600px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;

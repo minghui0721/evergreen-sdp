@@ -20,9 +20,6 @@ body{
 }
 
 
-
-
-
 .row_navigation{
     text-align: center;
     align-items: center;
@@ -30,19 +27,84 @@ body{
     margin-bottom: 0;
 }
 
-
-
 /* the icon */
-svg{
+.social-icons svg{
     width: 50px;
     height: 30px;
-    fill: #002349;
+    fill: #1d1d36;
 }
 
 a{
     text-decoration: none;
 }
 
+
+
+.btn_search {
+    cursor: pointer;
+    background-color: transparent;
+    border-style: none;
+    outline: none;
+    display: flex;
+    margin-left: 50px;
+}
+
+
+
+.social-icons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+.social-icons a{
+    text-decoration: none;
+}
+
+
+.login_svg {
+    text-decoration: none;
+    color: #1d1d36;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-right: 30px;
+}
+
+
+.login_svg svg{
+    height: 30px;
+    fill: #1d1d36;
+}
+
+
+
+.input_search {
+    display: inline-block; /* Directly show the input field */
+    border-style: none;
+    border-bottom: 1px solid #1d1d36;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    transition: all .5s ease-in-out;
+    padding-right: 80px;
+    color: #1d1d36;
+    margin-right: -20px;
+    
+}
+
+
+.input_search::placeholder{
+    color:#1d1d36;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+  }
+
+
+
+.input_search:focus{
+    outline: none;
+  }
 
 
 .menu ul{
@@ -88,20 +150,15 @@ a{
 }
 
 
-.email, .logo, .social-icons{
+.logo{
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.email{
+.btn_search{
     font-size: 20px;
-}
-
-.email a{
-    text-decoration: none;
-    color: #1d1d36;
 }
 
 
@@ -113,7 +170,6 @@ a{
 
 
 @media (max-width: 767px) {
-    .email,
     .social-icons {
         display: none;
     }

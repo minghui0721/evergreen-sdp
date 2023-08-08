@@ -1,3 +1,15 @@
+<?php
+include "../dbConn.php";
+include "../WeekDateRange.php";
+//<!-- path -->
+
+date_default_timezone_set('Asia/Singapore');
+$CurrentTime = date('h:i a');
+$CurrentTime_1hourAfter = date('h:i a', strtotime('+1 hour'));
+$CurrentDate = date('Y-m-d');
+list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=CurrentWeekDateRange();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,16 +50,42 @@
                     <div class="Day">
                         <p>Day</p>
                         <select name="day" id="day">
-                            <option value="">1</option>
-                            <option value="">2</option>
+                            <option value="<?php echo $FirstDay?>">
+                            <?php echo date('d M Y, D', strtotime($FirstDay));?>
+                            </option>
+
+                            <option value="<?php echo $SecondDay?>">
+                            <?php echo date('d M Y, D', strtotime($SecondDay));?>
+                            </option>
+
+                            <option value="<?php echo $ThirdDay?>">
+                            <?php echo date('d M Y, D', strtotime($ThirdDay));?>
+                            </option>
+
+                            <option value="<?php echo $FourthDay?>">
+                            <?php echo date('d M Y, D', strtotime($FourthDay));?>
+                            </option>
+
+                            <option value="<?php echo $FifthDay?>">
+                            <?php echo date('d M Y, D', strtotime($FifthDay));?>
+                            </option>
+
+                            <option value="<?php echo $SixthDay?>">
+                            <?php echo date('d M Y, D', strtotime($SixthDay));?>
+                            </option>
+
+                            <option value="<?php echo $LastDate?>">
+                            <?php echo date('d M Y, D', strtotime($LastDate));?>
+                            </option>
                         </select>
                     </div>
 
                     <div class="RoomType">
                         <p>Room type</p>
                         <select name="roomType" id="roomType">
-                            <option value="">1</option>
-                            <option value="">2</option>
+                            <option value="Classroom">Classroom</option>
+                            <option value="Auditorium">Auditorium</option>
+                            <option value="Lab">Lab</option>
                         </select>
                     </div>
                 </div>
@@ -55,41 +93,84 @@
                 <div class="col2">
                     <div class="StartTime">
                         <p>Start time</p>
-                        <select name="startTime" id="startTime">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                        </select>
+                        <input type="time" name="startTime" id="startTime" class="startTime">
                     </div>
                     <div class="EndTime">
                         <p>End time</p>
-                        <select name="endTime" id="endTime">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                        </select>
+                        <input type="time" name="endTime" id="endTime" class="endTime">
                     </div>
                 </div>
 
                 <div class="FilterButton">
-                    <input type="submit" name="filter" id="filter" value="Filter">
+                    <input type="submit" name="filter" id="filter" value="Filter" class="filter">
                 </div>
             </form>
         </div>
 
         <div class="FilteredResult">
             <?php
-            $i=0;
-            while($i<15){
+            if(isset($_POST['filter'])){
+                $FilterDate=$_POST['day'];
+                $FilterRoomType=$_POST['roomType'];
+                $FilterStartTime=$_POST['startTime'];
+                $FilterEndTime=$_POST['endTime'];
+            }
+
+            else{
+                $FilterDate=$CurrentDate;
+                $FilterRoomType="Classroom";
+                $FilterStartTime=$CurrentTime;
+                $FilterEndTime=$CurrentTime_1hourAfter;
+            }
+
+
+            //Retrieve each classroom details
+            $Classroom_query="SELECT * FROM `class` WHERE `room_type`='$FilterRoomType'";
+            $Classroom_result=mysqli_query($connection,$Classroom_query);
+
+            while($Classroom_row=mysqli_fetch_assoc($Classroom_result)){
+                //save classroom details into variable
+                $ClassID=$Classroom_row['class_ID'];
+                $ClassName=$Classroom_row['class_name'];
+                $RoomType=$Classroom_row['room_type'];
+                $OpenTime=date('H:i', strtotime($Classroom_row['start_time']));
+                $CloseTime=date('H:i', strtotime($Classroom_row['end_time']));
+
+                // Check the classroom either open or not
+                $Check=true;
+                if($FilterStartTime<$OpenTime || $FilterEndTime>$CloseTime){
+                    continue;
+                }
+
+                // Check either there is any class in progress between the filter time interval based on class
+                $TimetableCheck_query="SELECT `start_time`, `end_time` FROM `timetable_details` WHERE `class_ID`='$ClassID' AND `date`='$FilterDate'";
+                $TimetableCheck_result=mysqli_query($connection,$TimetableCheck_query);
+
+                while($TimetableCheck_row=mysqli_fetch_assoc($TimetableCheck_result)){
+                    $ClassStart=date('H:i', strtotime($TimetableCheck_row['start_time']));
+                    $ClassEnd=date('H:i', strtotime($TimetableCheck_row['end_time']));
+
+
+
+                    if(($FilterStartTime>$ClassStart && $FilterStartTime>=$ClassEnd) || ($FilterEndTime<=$ClassStart && $FilterEndTime<$ClassEnd)){
+                    }
+                    else{
+                        $Check=false;
+                        break;
+                    }
+                }
+                if($Check==true){
             ?>
-            
-            <a href="ClassSchedule.php">
+            <!-- path -->
+            <a href="ClassSchedule.php?classID=<?php echo $ClassID?>&className=<?php echo $ClassName?>&roomType=<?php echo $RoomType?>&date=<?php echo $FilterDate?>">
                 <div class="Result">
-                    <p class="ClassName">A-02-04</p>
-                    <p class="RoomType">Classroon</p>
+                    <p class="ClassName"><?php echo $ClassName;?><br></p>
+                    <p class="RoomType"><?php echo $RoomType;?></p>
                 </div>
             </a>
                 
             <?php
-            $i++;
+                }
             }
             ?>
         </div>

@@ -1,3 +1,4 @@
+
 <?php
 $host = 'localhost';
 $user = 'root';
@@ -54,3 +55,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Close the database connection
 mysqli_close($connection);
 ?>
+
