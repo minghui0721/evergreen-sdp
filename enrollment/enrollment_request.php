@@ -35,55 +35,62 @@ $result = mysqli_query($conn, $query);
             
             <?php
             $counter = 1;
-            while ($row = mysqli_fetch_assoc($result)) {
 
-                $intakeID = $row['intake_ID'];
-                $intakeQuery = "SELECT courseProgram_ID, intake FROM intake WHERE intake_ID = '$intakeID'";
-                $intakeResult = mysqli_query($conn, $intakeQuery);
-                if ($intakeRow = mysqli_fetch_assoc($intakeResult)) {
-                    $courseProgramID = $intakeRow['courseProgram_ID'];
-                    $intake = $intakeRow['intake'];
+            if (mysqli_num_rows($result) == 0) {
+                echo '<table>';
+                echo '<tr><td colspan="7">No Enrollment Requests at the moment</td></tr>';
+                echo '</table>';
+            } else{
+                while ($row = mysqli_fetch_assoc($result)) {
 
-                    // Fetch course_name and program_name from course_program table based on courseProgram_ID
-                    $courseProgramQuery = "SELECT course_name, program_name FROM course_program WHERE courseProgram_ID = '$courseProgramID'";
-                    $courseProgramResult = mysqli_query($conn, $courseProgramQuery);
-
-                    if ($courseProgramRow = mysqli_fetch_assoc($courseProgramResult)) {
-                        $courseName = $courseProgramRow['course_name'];
-                        $programName = $courseProgramRow['program_name'];
+                    $intakeID = $row['intake_ID'];
+                    $intakeQuery = "SELECT courseProgram_ID, intake FROM intake WHERE intake_ID = '$intakeID'";
+                    $intakeResult = mysqli_query($conn, $intakeQuery);
+                    if ($intakeRow = mysqli_fetch_assoc($intakeResult)) {
+                        $courseProgramID = $intakeRow['courseProgram_ID'];
+                        $intake = $intakeRow['intake'];
+    
+                        // Fetch course_name and program_name from course_program table based on courseProgram_ID
+                        $courseProgramQuery = "SELECT course_name, program_name FROM course_program WHERE courseProgram_ID = '$courseProgramID'";
+                        $courseProgramResult = mysqli_query($conn, $courseProgramQuery);
+    
+                        if ($courseProgramRow = mysqli_fetch_assoc($courseProgramResult)) {
+                            $courseName = $courseProgramRow['course_name'];
+                            $programName = $courseProgramRow['program_name'];
+                        } else {
+                            $courseName = 'N/A';
+                            $programName = 'N/A';
+                        }
                     } else {
-                        $courseName = 'N/A';
-                        $programName = 'N/A';
+                        $courseProgramID = 'N/A'; // Set a default value if not found
                     }
-                } else {
-                    $courseProgramID = 'N/A'; // Set a default value if not found
-                }
-
-                $result_image = $row['result'];
-                $finfo = new finfo(FILEINFO_MIME_TYPE);
-                $imageType = $finfo->buffer($result_image);
-                $base64Image = base64_encode($result_image);
-                
-                echo '<tr>';
-                echo '<td>' . $counter . '</td>';
-                echo '<td>' . $courseName . ' (' . $programName .  ')</td>';
-                echo '<td>' . $intake . '</td>';
-                echo '<td>' . $row['name'] . '</td>';
-                echo '<td>' . $row['email'] . '</td>';
-                
-            // Inside the loop
-                echo '<td class="zoom-image"><img src="data:' . $imageType . ';base64,' . $base64Image . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
-
-                echo '<td>
-                        <form method="GET" action="process_approval.php">
-                            <button class="approve-btn" name="action" value="approve" data-enrollment-id="' . $row['enrollment_ID'] . '">Approve</button>
-                            <button class="reject-btn" name="action" value="reject" data-enrollment-id="' . $row['enrollment_ID'] . '">Reject</button>
-                            <input type="hidden" name="enrollment_id" value="' . $row['enrollment_ID'] . '">
-                        </form>
-                    </td>';
-                echo '</tr>';
-
-                $counter++;
+    
+                    $result_image = $row['result'];
+                    $finfo = new finfo(FILEINFO_MIME_TYPE);
+                    $imageType = $finfo->buffer($result_image);
+                    $base64Image = base64_encode($result_image);
+                    
+                    echo '<tr>';
+                    echo '<td>' . $counter . '</td>';
+                    echo '<td>' . $courseName . ' (' . $programName .  ')</td>';
+                    echo '<td>' . $intake . '</td>';
+                    echo '<td>' . $row['name'] . '</td>';
+                    echo '<td>' . $row['email'] . '</td>';
+                    
+                    // Inside the loop
+                    echo '<td class="zoom-image"><img src="data:' . $imageType . ';base64,' . $base64Image . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
+    
+                    echo '<td>
+                            <form method="GET" action="process_approval.php">
+                                <button class="approve-btn" name="action" value="approve" data-enrollment-id="' . $row['enrollment_ID'] . '">Approve</button>
+                                <button class="reject-btn" name="action" value="reject" data-enrollment-id="' . $row['enrollment_ID'] . '">Reject</button>
+                                <input type="hidden" name="enrollment_id" value="' . $row['enrollment_ID'] . '">
+                            </form>
+                        </td>';
+                    echo '</tr>';
+    
+                    $counter++;
+                }   
             }
             ?>
         </table>
@@ -113,7 +120,7 @@ $result = mysqli_query($conn, $query);
 
                 if ($ApprovedIntakeRow = mysqli_fetch_assoc($ApprovedIntakeResult)) {
                     $ApprovedCourseProgramID = $ApprovedIntakeRow['courseProgram_ID'];
-                    $ApprovedIntake = $intakeRow['intake'];
+                    $ApprovedIntake = $ApprovedIntakeRow['intake'];
 
                     // Fetch course_name and program_name from course_program table based on courseProgram_ID
                     $ApprovedCourseProgramQuery = "SELECT course_name, program_name FROM course_program WHERE courseProgram_ID = '$ApprovedCourseProgramID'";
