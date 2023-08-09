@@ -143,7 +143,7 @@ for (i = 0; i < a.length; i++) {
             <ul>
         <?php foreach ($detailsData as $details) { ?>
             <li>
-                <a href="download_details.php?slide_id=<?php echo $details['assignmentDetails_ID']; ?>">
+                <a href="download_details.php?assignmentDetails_ID=<?php echo $details['assignmentDetails_ID']; ?>">
                 <ion-icon name="document-outline"></ion-icon>
                     &nbsp; <?php echo $details['assignment_title']; ?>
                 </a>
