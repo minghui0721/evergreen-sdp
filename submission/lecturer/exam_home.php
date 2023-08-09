@@ -20,7 +20,7 @@ $LecturerID=1;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment Setup Form</title>
-    <link rel="stylesheet" href="../moodle/home.css">
+    <link rel="stylesheet" href="../moodle/home.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="setup.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -83,7 +83,7 @@ function goBack() {
                 <div class="input">
                     <label for="subject_ID">Subject Name<ion-icon name="school-outline"></ion-icon></label>
                     <select name="subject_ID" id="subjectSelect" required>
-                    <option value="">Select a subject</option>
+                    <option value="" disable>Select a subject</option>
                     </select>
                 </div>
             </div>
