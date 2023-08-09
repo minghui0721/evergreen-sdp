@@ -17,7 +17,7 @@ body {
   font-family: "Dream Outloud Pro", Arial, sans-serif;
   line-height: 1.6;
   max-width: 820px;
-  height: 600px;
+  max-height: 590px;
   margin: 0 auto;
   padding: 20px;
   background-color: #5c5adb;

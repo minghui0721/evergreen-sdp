@@ -314,7 +314,7 @@ body{
                             </li>
 
                             <li>
-                                <a href="#" class="ViewFeedback">
+                                <a href="../View_Feedback/admin_feedback.php" class="ViewFeedback">
                                 · View feedback
                                 </a>
                             </li>
