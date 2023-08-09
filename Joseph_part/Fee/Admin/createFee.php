@@ -84,7 +84,7 @@ if (isset($_POST['create_fee'])) {
 
                 <div class="form-column">
                     <label for="course_name">Course:</label>
-                    <select name="course_name" required>
+                    <select name="course_name" required onchange="this.form.submit()">
                         <option value="" disabled selected>Select a course</option>
                         <?php
                         if (isset($_POST['program_name'])) {
@@ -102,7 +102,7 @@ if (isset($_POST['create_fee'])) {
 
                 <div class="form-column">
                     <label for="intake">Intake:</label>
-                    <select name="intake" required>
+                    <select name="intake" required onchange="this.form.submit()">
                         <option value="" disabled selected>Select an intake</option>
                         <?php
                         if (isset($_POST['program_name']) && isset($_POST['course_name'])) {
