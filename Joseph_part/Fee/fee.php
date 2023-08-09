@@ -4,13 +4,15 @@ include 'dbConn.php';
 
 // Check if the student is logged in
 if (!isset($_SESSION['email'])) {
-    header("Location: ../Login/login.php");
+    header("Location: ../Login/student/login.php");
     exit();
 }
 
 // Fetch student details from the database based on the stored student_ID
 $student_ID = $_SESSION['student_ID'];
 $student_name = $_SESSION['student_name'];
+
+
 
 // Query the student table to get the intake_ID related to the student_ID
 $query_student = "SELECT intake_ID FROM student WHERE student_ID = '$student_ID'";
@@ -31,12 +33,13 @@ $row_due = mysqli_fetch_assoc($result_due);
 $dueDateFromDB = $row_due['due_date'];
 $TotalAmount = $row_due['total_amount'];
 
+// Use the courseProgram_ID to fetch the program_name and course_name from the course_program table
+$query_course_program = "SELECT program_name, course_name FROM course_program WHERE courseProgram_ID = '$courseProgram_ID'";
+$result_course_program = mysqli_query($connection, $query_course_program);
+$row_course_program = mysqli_fetch_assoc($result_course_program);
+$program_name = $row_course_program['program_name'];
+$course_name = $row_course_program['course_name'];
 
-// Function to calculate installment amount
-function calculateInstallmentAmount($totalAmount, $numberOfMonths)
-{
-    return $totalAmount / $numberOfMonths;
-}
 
 // Initialize variables to prevent undefined variable warnings
 $paymentOption = '';
@@ -44,10 +47,6 @@ $paymentDetails = '';
 
 // Process the form submission
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Validate and sanitize inputs here
-    // ... (existing code)
-
-    // Simulate receipt generation and data storage
     $_SESSION['paymentOption'] = $paymentOption;
     $_SESSION['numberOfMonths'] = ($paymentOption === 'installment') ? $_POST['numberOfMonths'] : '';
 
@@ -67,7 +66,37 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
+// Function to calculate installment amount
+function calculateInstallmentAmount($totalAmount, $numberOfMonths)
+{
+    return $totalAmount / $numberOfMonths;
+}
+
 echo "<script>const studentName = '" . $student_name . "';</script>";
+
+// Process the form submission if the payment is confirmed
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['confirm_payment'])) {
+    $paymentOption = $_POST['paymentOption'];
+    $paymentMethod = $_POST['paymentMethod'];
+
+    // Update the payment details in the payment table
+    $query_update_payment = "UPDATE payment SET payment_datetime = NOW(), payment_method = '$paymentMethod', status = 'Completed' WHERE student_ID = '$student_ID' AND fee_ID = '$courseProgram_ID'";
+    mysqli_query($connection, $query_update_payment);
+
+    // Update the installment details in the installment table if applicable
+    if ($paymentOption === 'installment') {
+        $numberOfMonths = $_POST['numberOfMonths'];
+        $installmentAmount = calculateInstallmentAmount($TotalAmount, $numberOfMonths);
+        $currentDueDate = date('Y-m-d');
+
+        $query_update_installments = "UPDATE installment SET amount = $installmentAmount, due_date = '$currentDueDate' WHERE fee_ID = '$courseProgram_ID' AND installment_count <= $numberOfMonths";
+        mysqli_query($connection, $query_update_installments);
+    }
+
+    // Redirect to a success page or display a success message
+    header("Location: fee.php");
+    exit();
+}
 
 ?>
 
@@ -98,8 +127,8 @@ echo "<script>const studentName = '" . $student_name . "';</script>";
                 </div>
                 <div class="form-row">
                     <div class="form-column">
-                        <label for="courseID">Course ID:</label>
-                        <input type="text" name="courseProgram_ID" value="<?php echo $courseProgram_ID; ?>" readonly>
+                        <label for="courseName">Course:</label>
+                        <input type="text" name="courseName" value="<?php echo $program_name . ' in ' . $course_name; ?>" readonly>
                     </div>
                     <div class="form-column">
                         <label for="dueDate">Due Date:</label>
@@ -294,12 +323,13 @@ function hideModal() {
     const modal = document.getElementById('paymentModal');
     modal.style.display = 'none';
 
-    // Clear the form inputs when the modal is closed
-    document.getElementById('paymentOption').selectedIndex = 0;
-    document.getElementById('numberOfMonths').value = '6';
-    document.getElementById('paymentMethodDiv').style.display = 'none';
-    selectedButton = null; // Reset the selected button
+    // Re-evaluate the visibility of the installment and payment method sections
+    showInstallmentOptions();
+
+    // Reset the selected button
+    selectedButton = null;
 }
+
     </script>
 </body>
 </html>

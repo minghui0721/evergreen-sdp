@@ -6,7 +6,7 @@ body {
 }
 
 form {
-    max-width: 400px;
+    max-width: 450px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -17,10 +17,16 @@ form {
 
 
 form label {
-    display: block;
+    display: inline-block;
     margin-bottom: 5px;
     font-weight: bold;
 }
+
+form label.checkbox-label {
+    font-weight: normal;
+    margin-left: 5px;
+}
+
 
 form input[type="text"],
 form input[type="email"],
@@ -34,6 +40,8 @@ form input[type="password"]{
     box-sizing: border-box;
     font-size: 1em;
 }
+
+
 
 form button {
     background-color: #002349;

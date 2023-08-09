@@ -163,27 +163,6 @@ table tr:hover {
   transition: transform 0.2s ease-in-out;
 }
 
-span.pending {
-  padding: 8px;
-  border-radius: 2rem;
-  background-color: #ebc473;
-  color: black;
-}
-
-span.rejected {
-  padding: 8px;
-  border-radius: 2rem;
-  background-color: #d893a3;
-  color: red;
-}
-
-span.approved {
-  padding: 8px;
-  border-radius: 2rem;
-  background-color: #86e49d;
-  color: green;
-}
-
 .table-responsive {
   overflow-x: auto;
 }
@@ -206,4 +185,57 @@ span.approved {
   .table-responsive {
     overflow-x: scroll;
   }
+}
+
+.action-buttons {
+  justify-content: center;
+  align-items: center;
+}
+
+.action-buttons a {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 20px;  
+}
+
+.action-buttons a:last-child {
+  margin-right: 0;  
+}
+
+.action-buttons a:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.action-buttons .edit-icon {
+  color: #5c5adb;
+}
+
+.action-buttons .delete-icon {
+  color: #d893a3;
+}
+.tooltip-text {
+  visibility: hidden;
+  width: 70px;  /* Reduced width */
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  font-size: 10px;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  margin-left: -40px;  /* Adjusted margin for centering based on new width */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.action-buttons a:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
