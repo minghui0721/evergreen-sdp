@@ -126,7 +126,7 @@ tr:nth-child(odd) {
 
 .modal-content {
     background-color: #5c5adb;
-    margin: 5% auto;
+    margin: 8% auto;
     padding: 20px;
     width: 60%;
     position: relative;
@@ -135,9 +135,17 @@ tr:nth-child(odd) {
 .close-btn {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 50px;         
     font-weight: bold;
+    cursor: pointer;
+    margin-top: -20px;
+    margin-right: 10px;
 }
+
+.close-btn:hover {
+    color: #1d1d36;            /* Darker color on hover for better feedback */
+}
+
 
 .close-btn:hover, .close-btn:focus {
     color: #000;

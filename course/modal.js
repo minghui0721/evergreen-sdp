@@ -14,6 +14,7 @@ modalBtns.forEach(btn => {
         fetch('fetch_course.php?courseProgram_ID=' + courseProgramID)
             .then(response => response.json())
             .then(data => {
+                document.getElementById("courseProgram_ID").value = data.courseProgram_ID;
                 document.getElementById("course_name").value = data.course_name;
                 document.getElementById("program_name").value = data.program_name;
                 document.getElementById("course_description").value = data.course_description;

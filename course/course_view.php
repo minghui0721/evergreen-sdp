@@ -118,6 +118,9 @@ while ($row = mysqli_fetch_assoc($result)) {
         
         <!-- Your form -->
         <form action="add_course.php" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="courseProgram_ID" id="courseProgram_ID">
+
             <label for="course_name">Course Name:</label>
             <input type="text" id="course_name" name="course_name" required><br>
 
@@ -139,8 +142,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             <input type="file" id="img" name="img" accept="image/*" required><br>
 
             <img id="courseImage" src="" alt="Course Image"> <!-- Image element to display the course image -->
+            <br>
 
-            <input type="submit" value="Add Course">
+           <input type="submit" value="Add Course <?php echo isset($_POST['courseProgram_ID']) ? '(ID: ' . $_POST['courseProgram_ID'] . ')' : ''; ?>">
+
         </form>
         
     </div>
