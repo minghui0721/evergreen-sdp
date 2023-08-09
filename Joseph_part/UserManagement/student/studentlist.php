@@ -43,7 +43,8 @@ $results = mysqli_query($connection, $query);
             <label for="search-input">Search:</label>
             <input type="text" id="search-input" name="search" placeholder="Enter what you are searching for">
             <button type="submit">Search</button>
-            <a href="addStudent.php" name="add" class="add-button">Add Student</a>
+            <a href="addStudent.php" name="add" class="add-button">Enroll Student</a>
+            <!-- enroll student page -->
         </form>
     </div>
     <div class="table-wrapper">
@@ -66,10 +67,17 @@ $results = mysqli_query($connection, $query);
                     <td><?php echo $row['intake']; ?> </td>
                     <td><?php echo $row['program_name'] . " in " . $row['course_name']; ?> </td>
 
-                    <td>
-                        <i class="fa-solid fa-pen-to-square"></i><a href="editstudent.php?student_ID=<?php echo $row['student_ID'];?>">Edit</a>
-                        <i class="fa-solid fa-eraser"></i><a href="deletestudent.php?student_ID=<?php echo $row['student_ID'];?>" onclick="return confirmDelete();">Delete</a>
+                    <td class="action-buttons">
+                        <a href="editstudent.php?student_ID=<?php echo $row['student_ID'];?>" title="Edit Student">
+                            <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                            <span class="tooltip-text">Edit Student</span>
+                        </a>
+                        <a href="deletestudent.php?student_ID=<?php echo $row['student_ID'];?>" onclick="return confirmDelete();" title="Delete Student">
+                            <i class="fa-solid fa-eraser delete-icon"></i>
+                            <span class="tooltip-text">Delete Student</span>
+                        </a>
                     </td>
+
                 </tr>
             <?php } ?>
         </table>

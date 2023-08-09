@@ -2,18 +2,32 @@
 include 'dbConn.php';
 
 if(isset($_GET['lecturer_ID'])) {
-    $student_ID = $_GET['lecturer_ID'];
+    $lecturer_ID = $_GET['lecturer_ID'];
     
-    // Retrieve student record to be edited based on the ID
+    // Retrieve lecturer record to be edited based on the ID
     $query = "SELECT * FROM lecturer WHERE lecturer_ID = '$lecturer_ID'";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_assoc($result);
 
-    // Check if the student exists
+    // Check if the lecturer exists
     if(!$row) {
         die("Lecturer not found.");
     }
+
+    // Retrieve the current intake IDs for the lecturer
+    $intake_query = "SELECT intake_ID FROM lecturer_handle WHERE lecturer_ID = '$lecturer_ID'";
+    $intake_result = mysqli_query($connection, $intake_query);
+    $current_intake_IDs = array();
+    while($intake_row = mysqli_fetch_assoc($intake_result)) {
+        $current_intake_IDs[] = $intake_row['intake_ID'];
+    }
 }
+
+// Retrieve all intakes and their associated course programs
+$all_intakes_query = "SELECT i.intake_ID, i.intake, cp.program_name, cp.course_name 
+                      FROM intake i 
+                      JOIN course_program cp ON i.courseProgram_ID = cp.courseProgram_ID";
+$all_intakes_result = mysqli_query($connection, $all_intakes_query);
 
 if(isset($_POST['submit'])) {
     // Retrieve form data
@@ -21,13 +35,25 @@ if(isset($_POST['submit'])) {
     $lecturer_name = $_POST['lecturer_name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $intake_IDs = $_POST['intake'];  // now an array
 
-    // Update student record in the database
-    $update_query = "UPDATE lecturer SET lecturer_name = '$lecturer_name', phone = '$phone', email = '$email' WHERE lecturer_ID = '$lecturer_id'";
+    // Update lecturer record in the database
+    $update_query = "UPDATE lecturer SET lecturer_name = '$lecturer_name', phone = '$phone', email = '$email' WHERE lecturer_ID = '$lecturer_ID'";
     $update_result = mysqli_query($connection, $update_query);
 
     if($update_result) {
-        // Redirect to the student list page after successful update
+        // Delete existing lecturer_handle records for this lecturer
+        $delete_handle_query = "DELETE FROM lecturer_handle WHERE lecturer_ID = '$lecturer_ID'";
+        $delete_handle_result = mysqli_query($connection, $delete_handle_query);
+
+        // Insert new lecturer_handle records
+        foreach ($intake_IDs as $intake_ID) {
+            $insert_handle_query = "INSERT INTO lecturer_handle (lecturer_ID, intake_ID) 
+                                    VALUES ('$lecturer_ID', '$intake_ID')";
+            $insert_handle_result = mysqli_query($connection, $insert_handle_query);
+        }
+
+        // Redirect to the lecturer list page after successful update
         echo "Successful updating lecturer's record! ";
         header("Location: lecturerlist.php");
         exit();
@@ -60,7 +86,15 @@ if(isset($_POST['submit'])) {
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" value="<?php echo $row['email']; ?>" required><br>
         
+        <label for="intake">Course Program:</label><br>
+        <?php while($intake_row = mysqli_fetch_assoc($all_intakes_result)) { ?>
+            <input type="checkbox" id="intake_<?php echo $intake_row['intake_ID']; ?>" name="intake[]" value="<?php echo $intake_row['intake_ID']; ?>" <?php if(in_array($intake_row['intake_ID'], $current_intake_IDs)) echo 'checked'; ?>>
+            <label class="checkbox-label" for="intake_<?php echo $intake_row['intake_ID']; ?>"><?php echo $intake_row['intake'] . ', ' . $intake_row['program_name'] . ', ' . $intake_row['course_name']; ?></label><br>
+        <?php } ?>
+          
         <button type="submit" name="submit">Update</button>
     </form>
 </body>
 </html>
+
+          
