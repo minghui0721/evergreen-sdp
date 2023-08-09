@@ -1,0 +1,103 @@
+body{
+    background-color: #1d1d36;
+    font-family: 'Belanosima', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+.back_button{
+    background-color: #004288;
+    color: white;
+    font-size: 25px;
+    margin: 20px 0 0 35px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+
+.back_button:hover{
+    background-color: #002c5c;
+}
+
+.TitleBar{
+    width: 90%;
+    margin: 30px 50px 0;
+    padding: 0;
+    height: 90px;
+    border-radius: 15px;
+}
+
+.TitleBar h1{
+    color: white;
+    font-size: 40px;
+    margin: 15px 0 0 20px;
+}
+
+.TitleBar h2{
+    color: white;
+    font-size: 35px;
+    margin: 0px 20px;
+}
+
+.ClassroomList{
+    color: white;
+    width: 90%;
+    max-height: 505px;
+    margin: 20px 50px;
+    padding: 0;
+    overflow: auto;
+}
+
+.ClassroomList::-webkit-scrollbar{
+    width: 6px;
+    height: 10px;
+}
+
+.ClassroomList::-webkit-scrollbar-thumb{
+    border: 2px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.ClassroomList table,th,td{
+    border-collapse: collapse;
+    padding: auto;
+}
+
+.ClassroomList table{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    table-layout: fixed;
+}
+
+.ClassroomList th{
+    font-size: 25px;
+    position: sticky;
+    background-color: #004085;
+    top: 0;
+}
+
+.ClassroomList td{
+    height: 35px;
+    font-size: 23px;
+}
+
+.ClassroomList td{
+    text-align: center;
+    background-color: rgb(68, 65, 189);
+}
+
+.ClassroomList table tr:nth-of-type(even) td {
+    background-color: #5c5adb;
+}

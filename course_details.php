@@ -8,6 +8,7 @@ if(isset($_GET['courseProgram_id'])){
     $courseProgramID = $_GET['courseProgram_id'];
 }
 
+
 $sql = "SELECT * FROM course_program WHERE courseProgram_ID = $courseProgramID";
 
 // Execute the query and store the result in a variable
@@ -22,10 +23,15 @@ if (!$result) {
 $row = mysqli_fetch_assoc($result) ;
 
 $courseName = $row['course_name'];
+$programName = $row['program_name'];
 $courseDescription = $row['course_description'];
 $image = $row['img'];
 
-$details_sql = "SELECT * FROM course_details WHERE course_ID = $courseProgramID";
+$finfo = new finfo(FILEINFO_MIME_TYPE);
+$imageType = $finfo->buffer($image);
+$base64Image = base64_encode($image);
+
+$details_sql = "SELECT * FROM course_details WHERE courseProgram_ID = $courseProgramID";
 
 $details_result = mysqli_query($conn, $details_sql);
 
@@ -36,7 +42,17 @@ if(!$details_result){
 $details_row = mysqli_fetch_assoc($details_result);
 
 $purpose = $details_row['purpose'];
+$learningObjectives = $details_row['purpose'];
+
+// Split the learning objectives by '.'
+$learningObjectivesArray = explode("\n", $learningObjectives);
+// Trim each element in the array to remove any leading or trailing whitespace
+$learningObjectivesArray = array_map('trim', $learningObjectivesArray);
+
 $prerequisite = $details_row['prerequisite'];
+$prerequisiteArray = explode("\n", $prerequisite);
+$prerequisiteArray = array_map('trim', $prerequisiteArray);
+
 $credit_houts = $details_row['credit_hours'];
 
 
@@ -66,24 +82,47 @@ $conn->close();
 <div class="courseDetails_container">
     <div class="details_header">
         <?php
-            echo '<h2>' . $courseName . '</h2>';
+            echo '<h2>' . $courseName . ' (' . $programName . ')'. '</h2>';
         ?>
     </div>
 
     <div class="color">
-
-    </div>
-            
-    <div class="bg_image">
-            <?php
-                echo '<img src="' . $image . '" alt="Image Description">';
-            ?>
+        <div class="bg_image">
+                <?php
+                    echo '<img src="data:' . $imageType . ';base64,' . $base64Image . '" alt="Image Description">';
+                ?>
+        </div>
     </div>
 
     <div class="content">
+        <h2>Course Description</h2>
         <?php
-            echo '<p>' . $purpose . '</p>';
+            echo '<p>' . $courseDescription . '</p>';
         ?>
+
+        <h2>Learning Objectives</h2>
+        <ul>
+            <?php foreach ($learningObjectivesArray as $objective) { ?>
+                <li><?php echo $objective; ?></li>
+            <?php } ?>
+        </ul>
+
+        <h2>Prerequisite</h2>
+        <ul>
+            <?php foreach ($prerequisiteArray as $prerequisite) { ?>
+                <li><?php echo $prerequisite; ?></li>
+            <?php } ?>
+        </ul>
+        
+        <h2>Credit Hours</h2>
+        <ul>
+            <li>Total Credit Hours: <?php echo $credit_houts; ?> hours</li>
+        </ul>
+
+        <div class="button1">
+            <a href="enrollment.php"><button>Application</button></a>
+        </div>
+
     </div>
 
 </div>

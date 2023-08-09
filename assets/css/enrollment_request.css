@@ -1,0 +1,152 @@
+.page-container {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+body{
+    background-color: #5c5adb;
+    color: white;
+}
+
+
+table {
+    margin: 0 auto;
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    padding: 30px;
+}
+
+th {
+    font-weight: bold;
+    position: sticky; /* Set the position to sticky */
+    top: 0; /* Stick to the top */
+    z-index: 1; /* Ensure the header appears above other content */
+    background-color: #1d1d36;
+}
+
+/* Button Styles */
+.approve-btn, .reject-btn {
+    padding: 8px 12px;
+    margin-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.approve-btn {
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.reject-btn {
+    width: 100px;
+    background-color: #f44336;
+    color: white;
+}
+
+.approve-btn:hover, .reject-btn:hover {
+    background-color: white;
+    color: #4CAF50; /* Change to desired color */
+}
+
+/* Image Styles */
+.zoom-image img {
+    max-width: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.zoom-image img:hover {
+    transform: scale(1.1);
+}
+
+tr:not(:first-child):nth-child(even):hover,
+tr:not(:first-child):nth-child(odd):hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+tr:nth-child(even) {
+    background-color: #1d1d367a;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #1d1d36;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+
+.approved-container {
+    max-height: 300px;
+    overflow-y: auto; 
+    background-color: #1d1d36;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    width: 85%;
+    margin: 0 auto;
+
+}
+
+
+.approved-container th, .approved-container td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+
+
+.approved-container h1{
+    padding-top: 30px;
+}
+
+.approved-container table{
+    background-color: #5c5adb;
+}

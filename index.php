@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +16,7 @@
     </script>
 </head>
 <body>
+
     <!-- font -->
     <?php include 'assets/fonts/font.html'; ?>
     
@@ -42,9 +45,9 @@
         <div class="uni_life">
 
             <div class="life_header">
-                <h2>SAFETY MEASURES IN PLACE</h2>
-                <p>We do everything to ensure the health, safety and well-being of our students and employees. Additional information can be found here</p>
-                <a href="#"><button>Safety Measures</button></a>
+                <h2>EXPLORE OUR ACADEMIC PROGRAMS</h2>
+                <p>Embark on a journey of knowledge and growth with our diverse range of academic programs. </p>
+                <a href="academic.php"><button>Discover More</button></a>
             </div>
 
 
@@ -53,15 +56,15 @@
                 <div class="grid grid2">
                     <div class="grid_content">
                         <h2>Student Life</h2>
-                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. </p>
-                        <a href="studentinfo"><button>Student Information</button></a>
+                        <p>We believe that learning extends beyond the classroom, and that's why our university offers a vibrant array of events and activities that cater to diverse interests and passions.</p>
+                        <a href="event.php"><button>Explore Campus Events</button></a>
                     </div>
                 </div>
                 <div class="grid grid3">
                     <div class="grid_content">
                         <h2>Open Enrollment</h2>
-                        <p>I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. </p>
-                        <a href="enrollment"><button>Apply Today</button></a>
+                        <p>Our university opens its doors to aspiring students like you, providing a nurturing environment that fosters growth, learning, and personal development.  </p>
+                        <a href="enrollment.php"><button>Apply Today</button></a>
                     </div>
                 </div>
                 <div class="grid grid4"></div>
@@ -71,37 +74,39 @@
         <!-- latest news -->
         <div class="container-fluid new">
             <div class="latest_header">
-                <h2>LATEST NEWS</h2>
+                <h2>FEATURED ARTICLES</h2>
             </div>
 
             <div class="background_div"></div>
 
             <div class="news">
-                <a href="#">
+                <a href="learning.php" target="_blank">
                     <div class="grid new1">
-                        <h3>Mar 22</h3>
+                        <h3>April 18</h3>
                         <h2>Learning at Home Effectively</h2>
                     </div>
                 </a>
                 
-                <a href="#">
+                <a href="teacher.php" target="_blank">
                     <div class="grid new2">
-                        <h3>Mar 22</h3>
+                        <h3>July 21</h3>
                         <h2>Get to Know Your Teachers</h2>
                     </div>
                 </a>
 
-                <a href="#">
+                <a href="mental.php" target="_blank">
                     <div class="grid new3">
-                        <h3>Mar 22</h3>
-                        <h2>The News Safety Regulations</h2>
+                        <h3>October 23</h3>
+                        <h2>Mental Health Awareness</h2>
                     </div>
                 </a>
                 
             </div>
 
             <div class="news_button">
-                <button>Read All News</button>
+                <a href="articles.php">
+                    <button>Read All Articles</button>
+                </a>
             </div>
         </div>
 
