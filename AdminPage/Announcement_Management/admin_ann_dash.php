@@ -11,7 +11,7 @@ include "../Admin_header/AdminHeader.php";
   <title>Admin Announcement Dashboard</title>
   <link rel="stylesheet" href="admin_dash.css?v=<?php echo time(); ?>">
 
-  <style>
+<style>
     .InformationManagement{
         display: block;
     }

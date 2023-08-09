@@ -50,7 +50,7 @@ body{
 .ClassroomList{
     color: white;
     width: 90%;
-    height: 480px;
+    max-height: 480px;
     margin: 20px 50px;
     padding: 0;
     overflow: auto;

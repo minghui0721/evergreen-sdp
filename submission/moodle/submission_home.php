@@ -211,8 +211,12 @@ if ($resultCheckSubjectID && mysqli_num_rows($resultCheckSubjectID) > 0) {
             <div class="submission_container">
             <h4 class="<?php echo $timeRemainingClass; ?>"><?php echo $timeRemainingStatus; ?></h4>
             </div>
-            <div class="submission_container" style ="height: 90px;">
-                <h4>File Submissions: <a href="upload.php?subject_id=<?php echo $ID;?>&assignment_id=<?php echo $assignmentID;?> " class="submission_button" >Submit</a></h4>
+            <div class="submission_container" style="height: 90px;">
+                <?php if ($submissionStatus === "Submitted for Grading") { ?>
+                    <h4>File Submissions: <a href="delete_submission.php?subject_id=<?php echo $ID; ?>&assignment_id=<?php echo $assignmentID; ?>" class="submission_button">Delete</a></h4>
+                <?php } else { ?>
+                    <h4>File Submissions: <a href="upload.php?subject_id=<?php echo $ID; ?>&assignment_id=<?php echo $assignmentID; ?>" class="submission_button">Submit</a></h4>
+                <?php } ?>
             </div>
 
     </div>
