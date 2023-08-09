@@ -73,6 +73,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
                 echo '<tr>';
+                
                 echo '<td>' . $counter . '</td>';
                 echo '<td>' . $courseName. '</td>';
                 echo '<td>' . $programName . '</td>';
@@ -139,7 +140,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <textarea id="program_description" name="program_description" rows="4" cols="50" required></textarea><br>
 
             <label for="img" class="label_image">Upload Image:</label>
-            <input type="file" id="img" name="img" accept="image/*" required><br>
+            <input type="file" id="img" name="img" accept="image/*"><br>
 
             <img id="courseImage" src="" alt="Course Image"> <!-- Image element to display the course image -->
             <br>

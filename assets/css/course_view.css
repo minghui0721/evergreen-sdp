@@ -229,3 +229,7 @@ input[type="file"]:hover {
 .label_image{
     margin-bottom: 20px;
 }
+
+.table_row{
+    color: red;
+}
