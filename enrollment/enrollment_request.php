@@ -83,7 +83,7 @@ $result = mysqli_query($conn, $query);
                     echo '<td>
                             <form method="GET" action="process_approval.php">
                                 <button class="approve-btn" name="action" value="approve" data-enrollment-id="' . $row['enrollment_ID'] . '">Approve</button>
-                                <button class="reject-btn" name="action" value="reject" data-enrollment-id="' . $row['enrollment_ID'] . '">Reject</button>
+                                <button class="reject-btn" name="action" value="reject" data-enrollment-id="' . $row['enrollment_ID'] . '" onclick="return confirmReject();">Reject</button>
                                 <input type="hidden" name="enrollment_id" value="' . $row['enrollment_ID'] . '">
                             </form>
                         </td>';
@@ -172,6 +172,10 @@ $result = mysqli_query($conn, $query);
             };
         }
 
+
+        function confirmReject() {
+        return confirm('Are you sure you want to reject this enrollment request? This action cannot be undone.');
+        }
 </script>
 
 

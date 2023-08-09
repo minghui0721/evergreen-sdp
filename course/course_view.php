@@ -51,7 +51,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <h1>Course Details</h1>
 
     <div class="page-container">
-
+        <a href="course_create.php" class="add-course-btn">Add New Course</a>
         <table>
             <tr>
                 <th>No.</th>
@@ -70,6 +70,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 $courseProgramID = $course['courseProgram_ID'];
                 $courseName = $course['course_name'];
                 $programName = $course['program_name'];
+
 
                 echo '<tr>';
                 echo '<td>' . $counter . '</td>';
@@ -92,22 +93,64 @@ while ($row = mysqli_fetch_assoc($result)) {
                 echo '<td>' . $course['description'] . '</td>';
 
                 echo '<td>
-                            <form method="GET" action="process_approval.php">
-                                <button class="approve-btn" name="action" value="approve" data-enrollment-id="' . $courseProgramID . '">Approve</button>
-                                <button class="reject-btn" name="action" value="reject" data-enrollment-id="' . $courseProgramID  . '">Reject</button>
-                                <input type="hidden" name="enrollment_id" value="' . $courseProgramID  . '">
+                            
+                                <button class="edit-btn showModalBtn" data-courseprogram-id="' . $courseProgramID . '">Edit</button>
+                            <form method="GET" action="process_course.php">
+                                <button class="delete-btn" name="action" value="delete" data-courseProgram-id="' . $courseProgramID  . '" onclick="return confirmDelete();">Delete</button>
+                                <input type="hidden" name="courseProgram_id" value="' . $courseProgramID  . '">
                             </form>
                         </td>';
 
                 echo '</tr>';
+                
 
                 $counter++;
             }
             ?>
         </table>
 
-
     </div>
+
+    <!-- Modal Structure -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <!-- Your form -->
+        <form action="add_course.php" method="post" enctype="multipart/form-data">
+            <label for="course_name">Course Name:</label>
+            <input type="text" id="course_name" name="course_name" required><br>
+
+            <label for="program_name">Program Name:</label>
+            <select id="program_name" name="program_name" required>
+                <option value="" disabled selected>Select Program</option>
+                <option value="Foundation">Foundation</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Degree">Degree</option>
+            </select><br>
+
+            <label for="course_description">Course Description:</label>
+            <textarea id="course_description" name="course_description" rows="4" cols="50" required></textarea><br>
+
+            <label for="program_description">Program Description:</label>
+            <textarea id="program_description" name="program_description" rows="4" cols="50" required></textarea><br>
+
+            <label for="img" class="label_image">Upload Image:</label>
+            <input type="file" id="img" name="img" accept="image/*" required><br>
+
+            <img id="courseImage" src="" alt="Course Image"> <!-- Image element to display the course image -->
+
+            <input type="submit" value="Add Course">
+        </form>
+        
+    </div>
+</div>
+
+
+
+<script src="modal.js"></script>
+
+    
 
     
     <script>
@@ -124,6 +167,10 @@ while ($row = mysqli_fetch_assoc($result)) {
                 modal.style.display = 'none';
             };
         }
+
+        function confirmDelete() {
+        return confirm('Are you sure you want to delete this record? This action cannot be undone.');
+    }
 
 </script>
 

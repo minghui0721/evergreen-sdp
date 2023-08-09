@@ -48,6 +48,10 @@ select {
     font-family: 'Belanosima', sans-serif;
 }
 
+select{
+    width: 102%;
+}
+
 select[disabled] {
     color: red;
     background-color: red;
@@ -88,4 +92,23 @@ input[type="file"]:hover {
     margin-bottom: 20px;
 }
 
-  
+
+
+.back-course-btn {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 175px;
+    margin-bottom: 25px;
+}
+
+.back-course-btn:hover {
+    background-color: white;
+    color: #3498db;
+}
+
+

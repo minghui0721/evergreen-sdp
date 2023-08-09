@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errorMessage = "File upload failed. Error code: " . $_FILES["img"]["error"];
         echo '<script>console.error("' . $errorMessage . '");</script>';
     }
+}
 
 
 
@@ -61,17 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo '<script class="">alert("Course details inserted successfully!");</script>';
                 echo '<script>window.location.href = "course_view.php";</script>';
             } else {
-                // Insertion failed
-                echo '<script>alert("Course details inserted successfully!");</script>';
+                echo '<script>alert("Course details inserted unsuccessfully!");</script>';
                 echo '<script>window.location.href = "course_view.php";</script>';
-        } else {
-            // Insertion failed
-            echo '<script>alert("Course details inserted successfully!");</script>';
-            echo '<script>window.location.href = "course_view.php";</script>';
-            }
-
+        } 
         // Close the prepared statement
         mysqli_stmt_close($stmt);
-        }
     } }
 ?>
