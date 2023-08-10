@@ -16,6 +16,16 @@ body{
     color: white;
 }
 
+@keyframes scale-up-top {
+    0% {
+        transform: scale(0.5);
+        transform-origin: 50% 0%;
+    }
+    100% {
+        transform: scale(1);
+        transform-origin: 50% 0%;
+    }
+  }
 
 table {
     margin: 0 auto;
@@ -23,6 +33,7 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
     font-size: 20px;
+    animation: scale-up-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 th, td {
@@ -80,7 +91,7 @@ th {
 
 tr:not(:first-child):nth-child(even):hover,
 tr:not(:first-child):nth-child(odd):hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     transition: transform 0.3s;
 }
 
@@ -126,7 +137,7 @@ tr:nth-child(odd) {
 
 .modal-content {
     background-color: #5c5adb;
-    margin: 8% auto;
+    margin: 4% auto;
     padding: 20px;
     width: 60%;
     position: relative;
@@ -230,6 +241,3 @@ input[type="file"]:hover {
     margin-bottom: 20px;
 }
 
-.table_row{
-    color: red;
-}

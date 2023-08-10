@@ -104,6 +104,7 @@ input[type="file"]:hover {
     transition: background-color 0.3s ease, color 0.3s ease;
     margin-left: 175px;
     margin-bottom: 25px;
+    border-radius: 5px;
 }
 
 .back-course-btn:hover {

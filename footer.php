@@ -1,5 +1,42 @@
 <?php
 include 'assets/base_url/config.php';
+
+include 'database/db_connection.php';
+
+$sql = "SELECT address FROM school_info LIMIT 1";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+$address = $row['address'];
+
+function breakAfterThreeWords($text) {
+    $words = explode(' ', $text);
+    $lines = array_chunk($words, 3);
+    
+    // Make sure we have more than one line and the last line doesn't already have 4 words
+    while (count($lines) > 1 && count(end($lines)) < 4) {
+        $lastLineWords = array_pop($lines);
+        $secondLastLineWords = array_pop($lines);
+
+        $movedWord = array_pop($secondLastLineWords);  // get the last word from the second-last line
+        array_unshift($lastLineWords, $movedWord);     // add that word to the start of the last line
+        
+        // Add the modified lines back to the lines array
+        $lines[] = $secondLastLineWords;
+        $lines[] = $lastLineWords;
+    }
+
+    // Get all lines except the last one and add breaks between them
+    $allButLast = array_slice($lines, 0, -1);
+    $result = implode('<br>', array_map('implode', array_fill(0, count($allButLast), ' '), $allButLast));
+
+    // Append the last line without adding a break after it
+    $result .= implode(' ', end($lines));
+
+    return $result;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -81,8 +118,9 @@ include 'assets/base_url/config.php';
             
             <div class="col-lg-3 col-12 address">
                 <h3>Address</h3>
-                <p>Jalan Teknologi 5 <br>Taman Teknologi Malaysia<br>57000 Kuala Lumpur<br>Wilayah Persekutuan Kuala Lumpur</p>
+                <p><?php echo breakAfterThreeWords($address); ?></p>
             </div>
+
 
         </div>
 
@@ -91,6 +129,7 @@ include 'assets/base_url/config.php';
     <div class="rules">
         <p>&copy; 2023 Evergreen Height University. All Rights Reserved.</p>
     </div>
+
 
 
        

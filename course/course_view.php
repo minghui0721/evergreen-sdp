@@ -43,7 +43,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/course_view.css?v=<?php echo time(); ?>"> <!-- Include your CSS file -->
     <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <title>Enrollment Requests</title>
+    <title id="documentTitle"></title>
+    <script src="../assets/js/config.js"></script> 
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
 
 </head>
 <body>
