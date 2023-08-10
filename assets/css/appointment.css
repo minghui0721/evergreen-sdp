@@ -1,0 +1,228 @@
+/* Reset default margins and paddings */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and text color */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1d1d36;
+    color: white;
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.appointment_set {
+    width: 35%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #5c5adb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    padding-bottom: 20px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.options{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Buttons */
+.options button {
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+
+
+#detailsButton:hover{
+    transition-duration: 0.2s;
+    opacity: 1;
+}
+
+.options button.selected {
+    background-color: #1d1d36;
+    color: #fff;
+}
+
+.options button:not(.selected) {
+    opacity: 0.7;
+}
+
+
+/* Form */
+#appointment-form{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 80px;
+}
+
+#appointment-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#appointment-form input[type="date"],
+#appointment-form input[type="time"],
+#appointment-form select {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#appointment-form select {
+    width: 85%;
+}
+
+
+#appointment-form button[type="submit"] {
+    background-color: #1d1d36;
+    color: #fff;
+    border: none;
+    padding: 11px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 85%;
+}
+
+#appointment-form button[type="submit"]:hover{
+    transition-duration: 0.2s;
+    opacity: 0.7;
+}
+
+
+.appointment_request{
+    height: fit-content;
+    padding: 50px;
+    margin-top: 40px;
+    background-color: #5c5adb;
+    border-radius: 10px;
+}
+
+
+/* Appointments table */
+.appointment_request table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #1d1d36;
+}
+
+.appointment_request th, .appointment_request td {
+    padding: 12px 15px;
+    text-align: left;
+    padding: 20px;
+    border: none;
+}
+
+.appointment_request th {
+    /* background-color: #42ba96; */
+    border-bottom: 5px solid #5c5adb;
+    font-weight: bold;
+}
+
+
+
+.appointment_request tr:hover {
+    background-color: #cfdde9;
+    color: black;
+}
+
+
+
+/* Button Styles */
+.approve-btn, .reject-btn {
+    padding: 8px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.approve-btn {
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.reject-btn {
+    width: 100px;
+    background-color: #f44336;
+    color: white;
+}
+
+.approve-btn:hover, .reject-btn:hover {
+    background-color: white;
+    color: #4CAF50; /* Change to desired color */
+}
+
+
+/* Details section */
+.details-section {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.slot {
+    text-align: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #1d1d36; 
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 20px;
+}
+
+.slot:hover {
+    background-color: #4CAF50;
+}
+
+
+
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .options {
+        margin-bottom: 20px;
+    }
+
+    .options button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
