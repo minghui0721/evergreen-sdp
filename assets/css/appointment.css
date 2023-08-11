@@ -120,8 +120,9 @@ body {
 
 
 .appointment_request{
+    width: 90%;
     height: fit-content;
-    padding: 50px;
+    padding: 30px;
     margin-top: 40px;
     background-color: #5c5adb;
     border-radius: 10px;
@@ -132,8 +133,9 @@ body {
 .appointment_request table {
     border-collapse: collapse;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 18px;
     background-color: #1d1d36;
+    width: 100%;
 }
 
 .appointment_request th, .appointment_request td {
@@ -144,7 +146,6 @@ body {
 }
 
 .appointment_request th {
-    /* background-color: #42ba96; */
     border-bottom: 5px solid #5c5adb;
     font-weight: bold;
 }
@@ -168,22 +169,44 @@ body {
 }
 
 .approve-btn {
-    width: 100px;
+    width: 80px;
     background-color: #4CAF50;
     color: white;
 }
 
 .reject-btn {
-    width: 100px;
+    width: 80px;
     background-color: #f44336;
     color: white;
 }
 
 .approve-btn:hover, .reject-btn:hover {
     background-color: white;
-    color: #4CAF50; /* Change to desired color */
+    color: #4CAF50; 
 }
 
+.reason-text{
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.submit-reason-btn{
+    background-color: #f44336;
+    color: white;
+    padding: 8px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-reason-btn:hover{
+    opacity: 0.7;
+}
 
 /* Details section */
 .details-section {

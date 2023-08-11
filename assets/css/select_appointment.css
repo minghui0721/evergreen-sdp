@@ -1,0 +1,84 @@
+body{
+    background-color: #5c5adb;
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.slot-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.slot {
+    flex-basis: calc(33.333% - 24px); 
+    background-color: #1d1d36;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; 
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+}
+
+.slot:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #c4c3ea;
+    color: black;
+}
+
+.slot input[type="radio"] {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    transform: scale(1.5); 
+}
+
+
+/* Button Styles */
+.btn {
+    background-color: #007BFF; 
+    color: #ffffff;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    margin-top: 20px; 
+    display: block;   
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btn:hover {
+    background-color: #0056b3; 
+}
+
+.btn:active {
+    transform: scale(0.96); 
+}
+
+/* Ensures focus is visually noticeable */
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px white;
+}
+
+.slot label {
+    cursor: pointer;
+    display: block; 
+}
