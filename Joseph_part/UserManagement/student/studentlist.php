@@ -37,50 +37,52 @@ $results = mysqli_query($connection, $query);
     <script src="https://kit.fontawesome.com/d3e9e194a4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h2>Student List</h2>
-    <div class="search-bar">
-        <form action="" method="post">
-            <label for="search-input">Search:</label>
-            <input type="text" id="search-input" name="search" placeholder="Enter what you are searching for">
-            <button type="submit">Search</button>
-            <a href="addStudent.php" name="add" class="add-button">Enroll Student</a>
-            <!-- enroll student page -->
-        </form>
-    </div>
-    <div class="table-wrapper">
-        <table border="0" class="animated">
-            <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-                <th>Contact</th>
-                <th>Email</th>
-                <th>Intake</th>
-                <th>Course Program</th>
-                <th>Action</th>
-            </tr>
-            <?php while($row = mysqli_fetch_assoc($results)) { ?>
+    <div class="wrapper">
+        <h2>Student List</h2>
+        <div class="search-bar">
+            <form action="" method="post">
+                <label for="search-input">Search:</label>
+                <input type="text" id="search-input" name="search" placeholder="Enter what you are searching for">
+                <button type="submit">Search</button>
+                <!-- <a href="addStudent.php" name="add" class="add-button">Enroll Student</a> -->
+                <!-- enroll student page -->
+            </form>
+        </div>
+        <div class="table-wrapper">
+            <table border="0" class="animated">
                 <tr>
-                    <td><?php echo $row['student_ID']; ?> </td>
-                    <td><?php echo $row['student_name']; ?> </td>
-                    <td><?php echo $row['phone']; ?> </td>
-                    <td><?php echo $row['email']; ?> </td>
-                    <td><?php echo $row['intake']; ?> </td>
-                    <td><?php echo $row['program_name'] . " in " . $row['course_name']; ?> </td>
-
-                    <td class="action-buttons">
-                        <a href="editstudent.php?student_ID=<?php echo $row['student_ID'];?>" title="Edit Student">
-                            <i class="fa-solid fa-pen-to-square edit-icon"></i>
-                            <span class="tooltip-text">Edit Student</span>
-                        </a>
-                        <a href="deletestudent.php?student_ID=<?php echo $row['student_ID'];?>" onclick="return confirmDelete();" title="Delete Student">
-                            <i class="fa-solid fa-eraser delete-icon"></i>
-                            <span class="tooltip-text">Delete Student</span>
-                        </a>
-                    </td>
-
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Intake</th>
+                    <th>Course Program</th>
+                    <th>Action</th>
                 </tr>
-            <?php } ?>
-        </table>
+                <?php while($row = mysqli_fetch_assoc($results)) { ?>
+                    <tr>
+                        <td><?php echo $row['student_ID']; ?> </td>
+                        <td><?php echo $row['student_name']; ?> </td>
+                        <td><?php echo $row['phone']; ?> </td>
+                        <td><?php echo $row['email']; ?> </td>
+                        <td><?php echo $row['intake']; ?> </td>
+                        <td><?php echo $row['program_name'] . " in " . $row['course_name']; ?> </td>
+
+                        <td class="action-buttons">
+                            <a href="editstudent.php?student_ID=<?php echo $row['student_ID'];?>" title="Edit Student">
+                                <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                                <span class="tooltip-text">Edit Student</span>
+                            </a>
+                            <a href="deletestudent.php?student_ID=<?php echo $row['student_ID'];?>" onclick="return confirmDelete();" title="Delete Student">
+                                <i class="fa-solid fa-eraser delete-icon"></i>
+                                <span class="tooltip-text">Delete Student</span>
+                            </a>
+                        </td>
+
+                    </tr>
+                <?php } ?>
+            </table>
+        </div>
     </div>
 <script>
     function confirmDelete() {
