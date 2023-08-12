@@ -7,7 +7,7 @@ $sql = "
     SELECT * 
     FROM appointment_set AS a_set 
     WHERE a_set.lecturer_ID = $lecturerID 
-    AND a_set.appointment_date > CURDATE()
+    AND a_set.appointment_date >= CURDATE()
 ";
 $result = $conn->query($sql);
 ?>
@@ -67,9 +67,10 @@ $result = $conn->query($sql);
                     echo '<span>Platform: ' . $row['platform'] . '</span>';
                     echo '</label>';
                     echo '</div>';
-                }
+                }   
 
             }
+            break;
 
             if (!$slotAvailable) {
                 echo '<div class="slot no-slot">No Available Slot</div>';

@@ -16,12 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($data['studentId']) && isset($data['action'])) {
         $studentId = $conn->real_escape_string($data['studentId']);
         $action = $conn->real_escape_string($data['action']);
+        $start = $conn->real_escape_string($data['startTime']);
+        
 
         if ($action === 'approve') {
             // Run approve code
             if (isset($data['status'])) {
                 $status = $conn->real_escape_string($data['status']);
-                $query = "UPDATE appointment SET status='$status' WHERE student_ID='$studentId'";
+                $query = "UPDATE appointment SET status='$status' WHERE student_ID='$studentId' AND appointment_time = '$start'";
                 if ($conn->query($query) === TRUE) {
                     echo json_encode(["success" => true]);
                 } else {
@@ -35,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($data['status']) && isset($data['reason'])) {
                 $status = $conn->real_escape_string($data['status']);
                 $reason = $conn->real_escape_string($data['reason']);
-                $query = "UPDATE appointment SET status='$status', reject_reason='$reason' WHERE student_ID='$studentId'";
+                $query = "UPDATE appointment SET status='$status', reject_reason='$reason' WHERE student_ID='$studentId' AND appointment_time ='$start'";
                 if ($conn->query($query) === TRUE) {
                     echo json_encode(["success" => true]);
                 } else {

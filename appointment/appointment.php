@@ -54,6 +54,70 @@ function generateTimeSlots($start, $end) {
 
 $slots = generateTimeSlots($start, $end);
 
+$takenAppointments = [];
+$appointmentDetails = [];
+$appointmentCheckQuery = "
+    SELECT a.appointment_time, a.student_ID, TIME_FORMAT(a.appointment_time, '%H:%i') as formatted_time
+    FROM appointment a
+    WHERE a.lecturer_ID = 1 
+    AND a.appointment_date = '$appointmentDate' AND a.status = 'Approved'
+";
+
+$checkResult = $conn->query($appointmentCheckQuery);
+if ($checkResult->num_rows > 0) {
+    while ($checkRow = $checkResult->fetch_assoc()) {
+        $takenAppointments[] = $checkRow['formatted_time'];
+        $appointmentDetails[$checkRow['formatted_time']] = $checkRow['student_ID'];
+    }
+}
+
+$appointmentDetailsArray = []; // Initialize the array
+
+foreach ($takenAppointments as $appointmentTime) {
+    $studentID = $appointmentDetails[$appointmentTime];
+
+    // Fetch student details
+    $studentQuery = "SELECT * FROM student WHERE student_ID = $studentID";
+    $studentResult = $conn->query($studentQuery);
+    $studentRow = $studentResult->fetch_assoc();
+
+    $intakeID = $studentRow['intake_ID'];
+
+    // Fetch intake details
+    $intakeQuery = "SELECT * FROM intake WHERE intake_ID = $intakeID";
+    $intakeResult = $conn->query($intakeQuery);
+    $intakeRow = $intakeResult->fetch_assoc();
+
+    $courseProgramID = $intakeRow['courseProgram_ID'];
+
+    // Fetch course and program details
+    $courseProgramQuery = "SELECT cp.course_name, cp.program_name FROM course_program cp WHERE cp.courseProgram_ID = $courseProgramID";
+    $courseProgramResult = $conn->query($courseProgramQuery);
+    $courseProgramRow = $courseProgramResult->fetch_assoc();
+
+    $studentName = $studentRow['student_name'];
+    $email = $studentRow['email'];
+    $courseName = $courseProgramRow['course_name'];
+    $programName = $courseProgramRow['program_name'];
+    $intake = $intakeRow['intake'];
+
+    // Store the details in the appointmentDetailsArray
+    $appointmentDetailsArray[$appointmentTime] = [
+        "studentName" => $studentName,
+        "email" => $email,
+        "courseName" => $courseName,
+        "programName" => $programName,
+        "intake" => $intake
+    ];
+}
+
+
+
+$appointmentDetailsArrayJSON = json_encode($appointmentDetailsArray);
+echo "<div id='appointment-details-array' data-array='$appointmentDetailsArrayJSON'></div>";
+
+
+
 // retrieve current date
 $currentDate = date("Y-m-d");
 ?>
@@ -65,7 +129,7 @@ $currentDate = date("Y-m-d");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../assets/js/config.js"></script> 
+    <script src="../assets/js/config.js"></script>
     <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/appointment.css.?v=<?php echo time(); ?>">  
     <title id="documentTitle"></title>
@@ -115,12 +179,36 @@ $currentDate = date("Y-m-d");
             <?php 
                 $counter = 1;
                 foreach ($slots as $slot) {
-                    echo "<div class='slot'>Slot {$counter} ({$slot}) on {$platform}</div>";
+                    // Split slot into start and end times for comparison
+                    // list() function is used to assign values to a list of variables in one operation. 
+                    list($slotStart, $slotEnd) = explode('-', $slot);
+                    $isTaken = in_array($slotStart, $takenAppointments); // Check if slot start time is in the taken appointments list
+
+                    $color = $isTaken ? "red" : "#4CAF50"; // Color red if taken, otherwise green
+                    if ($isTaken) {
+                        echo "<div class='slot tooltip clickable-slot' style='background-color: red;' 
+                                data-appointment-date='{$appointmentDate}' 
+                                data-start-time='{$slotStart}' 
+                                data-platform='{$platform}'>";
+
+                        echo "<span class='tooltiptext'>Appointment is booked</span>";
+                    } else {
+                        echo "<div class='slot tooltip' style='background-color: #4CAF50;'>";
+                    }
+                    
+                    echo "Slot {$counter} --> Date: {$appointmentDate} ({$slot}) on {$platform}</div>";
                     $counter++;
                 }
             ?>
-
             </div>
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p></p>
+                </div>
+            </div>
+
 
     </div>
 
@@ -156,12 +244,13 @@ $currentDate = date("Y-m-d");
                     echo "<td>" . $row['appointment_date'] . "</td>";
                     echo "<td>" . $row['appointment_time'] . "</td>";
                     echo "<td>
-                        <button class='approve-btn' data-id='" . $row['student_ID'] ."'>Approve</button>
-                        <button class='reject-btn' data-id='" . $row['student_ID'] ."'>Reject</button>
+                        <button class='approve-btn' data-id='" . $row['student_ID'] ."' data-appointment-time='" . $row['appointment_time'] . "'>Approve</button>
+
+                        <button class='reject-btn' data-id='" . $row['student_ID'] . "'>Reject</button>
 
                         <div class='reason-input' style='display: none;'>
                             <input type='text' class='reason-text' placeholder='Enter reason'>
-                            <button class='submit-reason-btn' data-id='" . $row['student_ID'] . "'>Submit</button>
+                            <button class='submit-reason-btn' data-appointment-time='" . $row['appointment_time'] ."' data-id='" . $row['student_ID'] . "'>Submit</button>
                         </div>
                     </td>";
                 }
@@ -180,6 +269,8 @@ $currentDate = date("Y-m-d");
         approveButtons.forEach(function(button) {
             button.addEventListener('click', function() {
                 let studentId = button.getAttribute('data-id');
+                let appointmentTime = button.getAttribute('data-appointment-time');
+
                 
                 // Use AJAX to send a request to the backend
                 fetch('update_status.php', {
@@ -187,7 +278,7 @@ $currentDate = date("Y-m-d");
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ studentId: studentId, status: "Approved", action: "approve"}) // Send studentId and status as JSON
+                    body: JSON.stringify({ studentId: studentId, status: "Approved", action: "approve", startTime: appointmentTime }) // Send studentId, status, and startTime as JSON
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -222,6 +313,7 @@ $currentDate = date("Y-m-d");
     submitReasonButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             let studentId = button.getAttribute('data-id');
+            let appointmentTime = button.getAttribute('data-appointment-time');
             let reasonInput = button.previousElementSibling;
             let reason = reasonInput.value.trim();
 
@@ -236,7 +328,7 @@ $currentDate = date("Y-m-d");
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ studentId: studentId, status: "Rejected", reason: reason, action: "reject" }) // Send studentId, status, and reason as JSON
+                body: JSON.stringify({ studentId: studentId, status: "Rejected", reason: reason, action: "reject", startTime: appointmentTime }) // Send studentId, status, and reason as JSON
             })
             .then(response => {
                 if (!response.ok) {
@@ -360,6 +452,83 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
     });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('myModal');
+    const close = document.querySelector('.close');
+    const clickableSlots = document.querySelectorAll('.clickable-slot');
+
+    const appointmentDetailsArrayJSON = document.getElementById('appointment-details-array').getAttribute('data-array');
+    const appointmentDetailsArray = JSON.parse(appointmentDetailsArrayJSON);
+
+
+    clickableSlots.forEach(function(slot) {
+        slot.addEventListener("click", function() {
+            const appointmentDate = this.getAttribute('data-appointment-date');
+            const startTime = this.getAttribute('data-start-time');
+            const [startHour, startMinute] = startTime.split(':').map(Number);
+
+            let endHour = startHour;
+            let endMinute = startMinute + 30;
+
+            if (endMinute >= 60) {
+                endHour += 1;
+                endMinute -= 60;
+            }
+
+            const formattedEndTime = `${endHour.toString().padStart(2, '0')}:${endMinute.toString().padStart(2, '0')}`;
+
+            const platform = this.getAttribute('data-platform');            
+            
+            // Retrieve student details from the appointmentDetailsArray using startTime
+            const studentDetails = appointmentDetailsArray[startTime];
+           
+            if (studentDetails) {
+            const studentName = studentDetails.studentName;
+            const email = studentDetails.email;
+            const courseName = studentDetails.courseName;
+            const programName = studentDetails.programName;
+            const intake = studentDetails.intake;
+
+            const appointmentDetails = `
+                <div class="appointment-details">
+                    <h2>Appointment Details</h2>
+                    <p><strong>Student:</strong> ${studentName}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Course:</strong> ${courseName}</p>
+                    <p><strong>Program:</strong> ${programName}</p>
+                    <p><strong>Intake:</strong> ${intake}</p>
+                </div>
+                <div class="appointment-datetime">  
+                    <hr>
+                    <p><strong>Date:</strong> ${appointmentDate}</p>
+                    <p><strong>Time:</strong> ${startTime} - ${formattedEndTime}</p>
+                    <p><strong>Platform:</strong> ${platform}</p>
+                </div>
+            `;
+
+            modal.querySelector(".modal-content p").innerHTML = appointmentDetails;
+
+            modal.style.display = "block";
+        } else {
+            console.log(`No student details found for startTime: ${startTime}`);
+        }
+        });
+    });
+
+    close.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
+
+
 </script>
     
 </body>
