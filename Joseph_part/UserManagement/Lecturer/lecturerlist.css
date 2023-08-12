@@ -7,6 +7,12 @@ h2 {
     animation: fadeIn 2s ease-in-out forwards;
   }
 
+.wrapper{
+  width:80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
 
 .table-wrapper {
     overflow: hidden;
@@ -241,3 +247,4 @@ table td ul, table td li {
   color: #d893a3;
   cursor: pointer;
 }
+

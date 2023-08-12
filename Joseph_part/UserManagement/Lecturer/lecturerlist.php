@@ -82,55 +82,57 @@ $results = mysqli_query($connection, $query);
     <script src="https://kit.fontawesome.com/d3e9e194a4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h2>Lecturer List</h2>
-    <div class="search-bar">
-        <form action="" method="post">
-            <label for="search-input">Search:</label>
-            <input type="text" id="search-input" name="search" placeholder="Enter what you are searching for">
-            <button type="submit">Search</button>
-            <a href="addlecturer.php" name="add" class="add-button">Add Lecturer</a>
-        </form>
-    </div>
-    <div class="table-wrapper">
-        <table border="0" class="animated">
-            <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Teach</th>
-                <th>Action</th>
-            </tr>
-            <?php while($row = mysqli_fetch_assoc($results)) { ?>
+    <div class="wrapper">
+        <h2>Lecturer List</h2>
+        <div class="search-bar">
+            <form action="" method="post">
+                <label for="search-input">Search:</label>
+                <input type="text" id="search-input" name="search" placeholder="Enter what you are searching for">
+                <button type="submit">Search</button>
+                <a href="addlecturer.php" name="add" class="add-button">Add Lecturer</a>
+            </form>
+        </div>
+        <div class="table-wrapper">
+            <table border="0" class="animated">
                 <tr>
-                    <td><?php echo $row['lecturer_ID']; ?> </td>
-                    <td><?php echo $row['lecturer_name']; ?> </td>
-                    <td><?php echo $row['email']; ?> </td>
-                    <td><?php echo $row['phone']; ?> </td>
-                    <td>
-                        <ul>
-                        <?php 
-                            // Create array of handles by splitting on line break
-                            $handles = explode('<br />', htmlspecialchars_decode($row['handle']));
-                            foreach ($handles as $handle) {
-                                echo "<li>$handle</li>";
-                            }
-                        ?>
-                        </ul>
-                    </td>
-                    <td class="action-buttons">
-                        <a href="editlecturer.php?lecturer_ID=<?php echo $row['lecturer_ID'];?>">
-                            <i class="fa-solid fa-pen-to-square edit-icon"></i>
-                            <span class="tooltip-text">Edit</span>
-                        </a>
-                        <a href="deletelecturer.php?lecturer_ID=<?php echo $row['lecturer_ID'];?>" onclick="return confirmDelete();">
-                            <i class="fa-solid fa-eraser delete-icon"></i>
-                            <span class="tooltip-text">Delete</span>
-                        </a>
-                    </td>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Teach</th>
+                    <th>Action</th>
                 </tr>
-            <?php } ?>
-        </table>
+                <?php while($row = mysqli_fetch_assoc($results)) { ?>
+                    <tr>
+                        <td><?php echo $row['lecturer_ID']; ?> </td>
+                        <td><?php echo $row['lecturer_name']; ?> </td>
+                        <td><?php echo $row['email']; ?> </td>
+                        <td><?php echo $row['phone']; ?> </td>
+                        <td>
+                            <ul>
+                            <?php 
+                                // Create array of handles by splitting on line break
+                                $handles = explode('<br />', htmlspecialchars_decode($row['handle']));
+                                foreach ($handles as $handle) {
+                                    echo "<li>$handle</li>";
+                                }
+                            ?>
+                            </ul>
+                        </td>
+                        <td class="action-buttons">
+                            <a href="editlecturer.php?lecturer_ID=<?php echo $row['lecturer_ID'];?>">
+                                <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                                <span class="tooltip-text">Edit</span>
+                            </a>
+                            <a href="deletelecturer.php?lecturer_ID=<?php echo $row['lecturer_ID'];?>" onclick="return confirmDelete();">
+                                <i class="fa-solid fa-eraser delete-icon"></i>
+                                <span class="tooltip-text">Delete</span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </div>
     </div>
 
 <script>

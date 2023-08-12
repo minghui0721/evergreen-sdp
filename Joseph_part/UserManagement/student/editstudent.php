@@ -60,32 +60,34 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="editstudent.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <h2>Edit Student</h2>
-    <form action="" method="post">
-        <label for="student_ID">ID:</label>
-        <input type="text" id="student_ID" name="student_ID" value="<?php echo $row['student_ID']; ?>" required><br>
+    <div class="wrapper">
+        <h2>Edit Student</h2>
+        <form action="" method="post">
+            <label for="student_ID">ID:</label>
+            <input type="text" id="student_ID" name="student_ID" value="<?php echo $row['student_ID']; ?>" required><br>
 
-        <label for="student_name">Full Name:</label>
-        <input type="text" id="student_name" name="student_name" value="<?php echo $row['student_name']; ?>" required><br>
-        
-        <label for="phone">Contact:</label>
-        <input type="text" id="phone" name="phone" value="<?php echo $row['phone']; ?>" required><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?php echo $row['email']; ?>" required><br>
-        
-        <label for="intake">Course Program:</label>
-            <select id="intake" name="intake_ID" required>
-                <?php 
-                while($intake_row = mysqli_fetch_assoc($intake_results)) {
-                    $selected = ($intake_row['intake_ID'] == $row['intake_ID']) ? 'selected' : '';
-                    echo "<option value='{$intake_row['intake_ID']}' $selected>{$intake_row['intake']} - {$intake_row['program_name']} in {$intake_row['course_name']}</option>";
-                }
-                ?>
-            </select>
-            <br>
+            <label for="student_name">Full Name:</label>
+            <input type="text" id="student_name" name="student_name" value="<?php echo $row['student_name']; ?>" required><br>
+            
+            <label for="phone">Contact:</label>
+            <input type="text" id="phone" name="phone" value="<?php echo $row['phone']; ?>" required><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?php echo $row['email']; ?>" required><br>
+            
+            <label for="intake">Course Program:</label>
+                <select id="intake" name="intake_ID" required>
+                    <?php 
+                    while($intake_row = mysqli_fetch_assoc($intake_results)) {
+                        $selected = ($intake_row['intake_ID'] == $row['intake_ID']) ? 'selected' : '';
+                        echo "<option value='{$intake_row['intake_ID']}' $selected>{$intake_row['intake']} - {$intake_row['program_name']} in {$intake_row['course_name']}</option>";
+                    }
+                    ?>
+                </select>
+                <br>
 
-        <button type="submit" name="submit">Update</button>
-    </form>
+            <button type="submit" name="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>

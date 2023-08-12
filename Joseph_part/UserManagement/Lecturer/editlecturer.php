@@ -72,28 +72,30 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="editlecturer.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <h2>Edit Lecturer</h2>
-    <form action="" method="post">
-        <label for="lecturer_ID">ID:</label>
-        <input type="text" id="lecturer_ID" name="lecturer_ID" value="<?php echo $row['lecturer_ID']; ?>" required><br>
+    <div class="wrapper">
+        <h2>Edit Lecturer</h2>
+        <form action="" method="post">
+            <label for="lecturer_ID">ID:</label>
+            <input type="text" id="lecturer_ID" name="lecturer_ID" value="<?php echo $row['lecturer_ID']; ?>" required><br>
 
-        <label for="lecturer_name">Full Name:</label>
-        <input type="text" id="lecturer_name" name="lecturer_name" value="<?php echo $row['lecturer_name']; ?>" required><br>
-        
-        <label for="phone">Contact:</label>
-        <input type="text" id="phone" name="phone" value="<?php echo $row['phone']; ?>" required><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<?php echo $row['email']; ?>" required><br>
-        
-        <label for="intake">Course Program:</label><br>
-        <?php while($intake_row = mysqli_fetch_assoc($all_intakes_result)) { ?>
-            <input type="checkbox" id="intake_<?php echo $intake_row['intake_ID']; ?>" name="intake[]" value="<?php echo $intake_row['intake_ID']; ?>" <?php if(in_array($intake_row['intake_ID'], $current_intake_IDs)) echo 'checked'; ?>>
-            <label class="checkbox-label" for="intake_<?php echo $intake_row['intake_ID']; ?>"><?php echo $intake_row['intake'] . ', ' . $intake_row['program_name'] . ', ' . $intake_row['course_name']; ?></label><br>
-        <?php } ?>
-          
-        <button type="submit" name="submit">Update</button>
-    </form>
+            <label for="lecturer_name">Full Name:</label>
+            <input type="text" id="lecturer_name" name="lecturer_name" value="<?php echo $row['lecturer_name']; ?>" required><br>
+            
+            <label for="phone">Contact:</label>
+            <input type="text" id="phone" name="phone" value="<?php echo $row['phone']; ?>" required><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?php echo $row['email']; ?>" required><br>
+            
+            <label for="intake">Course Program:</label><br>
+            <?php while($intake_row = mysqli_fetch_assoc($all_intakes_result)) { ?>
+                <input type="checkbox" id="intake_<?php echo $intake_row['intake_ID']; ?>" name="intake[]" value="<?php echo $intake_row['intake_ID']; ?>" <?php if(in_array($intake_row['intake_ID'], $current_intake_IDs)) echo 'checked'; ?>>
+                <label class="checkbox-label" for="intake_<?php echo $intake_row['intake_ID']; ?>"><?php echo $intake_row['intake'] . ', ' . $intake_row['program_name'] . ', ' . $intake_row['course_name']; ?></label><br>
+            <?php } ?>
+            
+            <button type="submit" name="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>
 

@@ -7,6 +7,11 @@ h2 {
     animation: fadeIn 2s ease-in-out forwards;
   }
 
+.table-responsive {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 .wrapper{
   width:80%;
   margin: 0;
@@ -48,11 +53,25 @@ table:hover::-webkit-scrollbar-thumb{
 }
 
 
+
+.table td,
+.table th {
+    padding: 1.5rem; /* Increase padding for data cells */
+    vertical-align: top;
+    border: 1px solid #dee2e6; /* Add a border to all sides of cells */
+}
+
+@media screen and (max-width: 576px) {
+  .table-responsive {
+    overflow-x: scroll;
+  }
+}
+
 th, td {
     text-align: center;
     padding: 10px;
-    padding: 1.5rem; /* Increase padding for data cells */
-    margin: 1.5rem; /* Increase margin for data cells */
+    padding: 1.3rem; /* Increase padding for data cells */
+    margin: 1.3rem; /* Increase margin for data cells */
     vertical-align: top;
     border-top: 1px solid #dee2e6;
 }
@@ -72,9 +91,40 @@ table th {
 
 /* Style table rows */
 table tr {
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style table data cells */
+table td {
+  text-align: center;
+  padding: 1.3rem;
+  margin: 1.3rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  width: 15%; /* Adjust the width as needed */
+}
+
+/* Style table header */
+table th {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  width: 15%; /* Adjust the width as needed */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 576px) {
+  .table-responsive {
+      overflow-x: scroll;
+  }
+  /* Adjust the width for smaller screens */
+  table th,
+  table td {
+      width: 20%;
+  }
 }
 
 table tr:nth-child(even) {
@@ -133,26 +183,6 @@ a:hover {
     transition: transform 0.2s ease-in-out;
   }
 
-.add-button {
-    background-color: #002349;
-    font-size: 16px;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 4px;
-    margin-left: 10px;
-
-}
-
-.add-button:hover{
-  background-color: #577ea8;
-  transform: scale(1.02);
-  transition: transform 0.2s ease-in-out;
-}
-
 .search-bar a{
   text-decoration: none;
 }
@@ -169,74 +199,29 @@ table tr:hover {
   transition: transform 0.2s ease-in-out;
 }
 
-.table-responsive {
-  overflow-x: auto;
-}
 
-.table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  background-color: transparent;
-}
 
-.table td,
-.table th {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
-
-@media screen and (max-width: 576px) {
-  .table-responsive {
-    overflow-x: scroll;
-  }
-}
-
-.action-buttons {
-  justify-content: center;
-  align-items: center;
-}
 
 .action-buttons a {
+  position: relative; /* Required for positioning the tooltip */
   display: inline-block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-right: 20px;  
+  margin-right: 10px; /* Space between the icons */
 }
 
-.action-buttons a:last-child {
-  margin-right: 0;  
-}
-
-.action-buttons a:hover {
-  text-decoration: none;
-  transform: scale(1.1);
-}
-
-.action-buttons .edit-icon {
-  color: #5c5adb;
-}
-
-.action-buttons .delete-icon {
-  color: #d893a3;
-}
 .tooltip-text {
   visibility: hidden;
-  width: 70px;  /* Reduced width */
+  width: 60px; /* Adjusted width */
   background-color: #555;
   color: #fff;
   text-align: center;
-  font-size: 10px;
   padding: 5px 0;
   border-radius: 6px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; 
+  top: 50%;
   left: 50%;
-  margin-left: -40px;  /* Adjusted margin for centering based on new width */
+  transform: translate(-50%, -150%); /* Center and move up */
+  white-space: nowrap; /* Prevent wrapping */
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -244,4 +229,28 @@ table tr:hover {
 .action-buttons a:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+.edit-icon {
+  color: #5c5adb;
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: #d893a3;
+  cursor: pointer;
+}
+
+span.unpaid {
+  padding: 8px;
+  border-radius: 1rem;
+  background-color: #d893a3;
+  color: red;
+}
+
+span.paid {
+  padding: 8px;
+  border-radius: 1rem;
+  background-color: #86e49d;
+  color: green;
 }

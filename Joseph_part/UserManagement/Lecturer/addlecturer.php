@@ -64,31 +64,33 @@ mysqli_close($connection);
 
 </head>
 <body>
-    <h2>Add Lecturer</h2>
-    <form action="" method="post" onsubmit="return validateForm();">
-        <label for="student_name">Full Name:</label>
-        <input type="text" id="lecturer_name" name="lecturer_name" required>
+    <div class="wrapper">
+        <h2>Add Lecturer</h2>
+        <form action="" method="post" onsubmit="return validateForm();">
+            <label for="student_name">Full Name:</label>
+            <input type="text" id="lecturer_name" name="lecturer_name" required>
 
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
 
-        <label class="course-program-label">Course Program:</label>
-        <div class="checkbox-container">
-            <?php while($row = mysqli_fetch_assoc($result)) { ?>
-                <div>
-                    <input type="checkbox" id="intake_<?php echo $row['intake_ID']; ?>" name="intake[]" value="<?php echo $row['intake_ID']; ?>">
-                    <label class="checkbox-label" for="intake_<?php echo $row['intake_ID']; ?>"><?php echo $row['intake'] . ', ' . $row['program_name'] . ', ' . $row['course_name']; ?></label>
-                </div>
-            <?php } ?>
-        </div>
+            <label class="course-program-label">Course Program:</label>
+            <div class="checkbox-container">
+                <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                    <div>
+                        <input type="checkbox" id="intake_<?php echo $row['intake_ID']; ?>" name="intake[]" value="<?php echo $row['intake_ID']; ?>">
+                        <label class="checkbox-label" for="intake_<?php echo $row['intake_ID']; ?>"><?php echo $row['intake'] . ', ' . $row['program_name'] . ', ' . $row['course_name']; ?></label>
+                    </div>
+                <?php } ?>
+            </div>
 
-        <button type="submit" name="add">Add Lecturer</button>
-    </form>
+            <button type="submit" name="add">Add Lecturer</button>
+        </form>
+    </div>
 </body>
 </html>

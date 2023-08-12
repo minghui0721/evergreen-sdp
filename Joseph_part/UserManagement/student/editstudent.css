@@ -5,6 +5,13 @@ body {
   line-height: 1.0;
 }
 
+.wrapper{
+  width:80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
 form {
   max-width: 400px;
   margin: 0 auto;
