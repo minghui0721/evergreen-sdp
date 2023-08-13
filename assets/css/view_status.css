@@ -1,42 +1,87 @@
-body {
-    background-color: #5c5adb;
+/* Ensure no margins or paddings on body and html */
+body, html {
     margin: 0;
     padding: 0;
 }
 
-.container {
+.container{
+    background: rgb(29,29,54);
+    background: linear-gradient(0deg, rgba(29,29,54,1) 0%, rgba(44,42,178,1) 0%, rgba(92,90,219,1) 100%);
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100%;
+}
+
+h1{
+    font-size: 40px;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+#appointmentTable{
     margin: 0 auto;
     padding: 20px;
-    background-color: #1d1d36;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    animation: fade-in 0.5s ease-out;
+    width:95%;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-spacing: 0;
+
 }
 
 
-h1 {
+.tbl_header tr:first-child {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 16px; /* You can adjust the font size here */
+}
+
+
+th{
+    padding: 20px 15px;
     text-align: center;
-    margin-bottom: 20px;
-    color: #5c5adb;
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+
+
+
+td{
+    padding: 30px 15px;
+    text-align: center;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+    border-bottom: solid 1px rgba(255,255,255,0.2);
+  }
+
+tr:hover{
+    background-color: #1d1d36;
 }
 
-#filters {
+
+
+.center-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
     gap: 10px;
     margin-bottom: 20px;
 }
 
-#filters button {
+input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.center-container button {
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
@@ -46,40 +91,11 @@ input[type="text"] {
     transition: background-color 0.3s ease;
 }
 
-#filters button:hover {
+.center-container button:hover {
     background-color: #0056b3;
 }
 
-#appointmentTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
 
-#appointmentTable th,
-#appointmentTable td {
-    padding: 12px;
-    text-align: left;
-}
-
-#appointmentTable th {
-    background-color: #f2f2f2;
-    color: #333;
-    font-weight: 600;
-}
-
-#appointmentTable tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#appointmentTable tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-#appointmentTable tr:hover {
-    background-color: #e0e0e0;
-}
 
 
 .fade-in {

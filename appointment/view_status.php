@@ -15,15 +15,19 @@
 <body>
 <?php include '../assets/fonts/font.html'; ?>
 <div class="container fade-in">
-        <h1>Student Appointments History</h1>
-        
-        <input type="text" id="searchInput" placeholder="Search by lecturer name or email...">
+            
+            <h1>Student Appointments History</h1>
+
+        <div class="center-container">
+                <input type="text" id="searchInput" placeholder="Search by lecturer name or email...">
+                <button id="filterAll">All</button>
+                <button id="filterPending">Pending</button>
+                <button id="filterApproved">Approved</button>
+                <button id="filterRejected">Rejected</button>
+        </div>
+
 
         <div id="filters">
-            <button id="filterAll">All</button>
-            <button id="filterPending">Pending</button>
-            <button id="filterApproved">Approved</button>
-            <button id="filterRejected">Rejected</button>
         </div>
 
 
@@ -48,43 +52,50 @@
         $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
-            echo "<table id='appointmentTable'>
-                <tr>
-                    <th>Appointment Date</th>
-                    <th>Appointment Time</th>
-                    <th>Status</th>
-                    <th>Reject Reason</th>
-                    <th>Lecturer Name</th>
-                    <th>Lecturer Email</th>
-                </tr>";
-        
-            while ($row = $result->fetch_assoc()) {
-                $appointmentDate = $row['appointment_date'];
-                $appointmentTime = $row['appointment_time'];
-                $status = $row['status'];
-                $rejectReason = $row['reject_reason'];
-                $lecturerID = $row['lecturer_ID'];
-        
-                // Get lecturer details from the lecturer table
-                $lecturerQuery = "SELECT lecturer_name, email FROM lecturer WHERE lecturer_ID = $lecturerID";
-                $lecturerResult = $conn->query($lecturerQuery);
-                $lecturerRow = $lecturerResult->fetch_assoc();
-        
-                $lecturerName = $lecturerRow['lecturer_name'];
-                $lecturerEmail = $lecturerRow['email'];
-        
-                echo "<tr>";
-                echo "<td>$appointmentDate</td>";
-                echo "<td>$appointmentTime</td>";
-                echo "<td>$status</td>";
-                echo "<td>$rejectReason</td>";
-                echo "<td>$lecturerName</td>";
-                echo "<td>$lecturerEmail</td>";
-                echo "</tr>";
-            }
-            echo "</table>";        
+            echo "<div class='tbl_header'>
+        <table id='appointmentTable'>
+            <tr>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
+                <th>Status</th>
+                <th>Reject Reason</th>
+                <th>Lecturer Name</th>
+                <th>Lecturer Email</th>
+            </tr>";
+
+        while ($row = $result->fetch_assoc()) {
+            $appointmentDate = $row['appointment_date'];
+            $appointmentTime = $row['appointment_time'];
+            $status = $row['status'];
+            $rejectReason = $row['reject_reason'];
+            $lecturerID = $row['lecturer_ID'];
+
+            // Get lecturer details from the lecturer table
+            $lecturerQuery = "SELECT lecturer_name, email FROM lecturer WHERE lecturer_ID = $lecturerID";
+            $lecturerResult = $conn->query($lecturerQuery);
+            $lecturerRow = $lecturerResult->fetch_assoc();
+
+            $lecturerName = $lecturerRow['lecturer_name'];
+            $lecturerEmail = $lecturerRow['email'];
+
+            echo "<tr>";
+            echo "<td>$appointmentDate</td>";
+            echo "<td>$appointmentTime</td>";
+            echo "<td>$status</td>";
+            echo "<td>$rejectReason</td>";
+            echo "<td>$lecturerName</td>";
+            echo "<td>$lecturerEmail</td>";
+            echo "</tr>";
+        }
+
+        echo "</table></div>";
+   
         } else {
-            echo "<p>No appointments found for student ID $studentID.</p>";
+            echo "<table id='appointmentTable'>";
+            echo "<tr>";
+            echo "<td ># No appointments found for this student.</td>";
+            echo "</tr>";
+            echo "</table>";
         }
 
         $conn->close();

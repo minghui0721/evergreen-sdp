@@ -111,12 +111,8 @@ foreach ($takenAppointments as $appointmentTime) {
     ];
 }
 
-
-
 $appointmentDetailsArrayJSON = json_encode($appointmentDetailsArray);
 echo "<div id='appointment-details-array' data-array='$appointmentDetailsArrayJSON'></div>";
-
-
 
 // retrieve current date
 $currentDate = date("Y-m-d");
