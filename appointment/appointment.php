@@ -126,11 +126,12 @@ $currentDate = date("Y-m-d");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../assets/js/config.js"></script>
-    <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
+    <script src="../assets/js/favicon.js"></script>
     <link rel="stylesheet" href="../assets/css/appointment.css.?v=<?php echo time(); ?>">  
     <title id="documentTitle"></title>
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+        setFavicon();
     </script>
 </head>
 <body>
