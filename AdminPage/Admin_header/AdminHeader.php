@@ -267,8 +267,8 @@ body{
                             </li>
 
                             <li>
-                                <a href="#" class="ManagePayments">
-                                · Manage payments
+                                <a href="#" class="ViewPayments">
+                                · View payments
                                 </a>
                             </li>
                         </ul>

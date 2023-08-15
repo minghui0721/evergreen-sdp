@@ -9,10 +9,6 @@ body {
     min-height: 100vh;
 }
 
-.center-container {
-    text-align: center;
-}
-
 .wrapper{
     width:80%;
     margin: 0;
@@ -20,10 +16,14 @@ body {
     float: right;
 }
 
+.center-container {
+    text-align: center;
+}
+
 .container {
     max-width: 600px;
     width: 450px;
-    margin-top: 20px;
+    margin: 20px 0 0 380px;
     background-color: #f2f2f2;
     padding: 20px;
     border: 1px solid #ccc;
