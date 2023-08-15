@@ -183,7 +183,7 @@ body{
         <div class="rightside">
             <p>Admin</p>
             <div class="dropdown">
-                <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+                <a href="../Login/adminLogin.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
             </div>
         </div>
     </div>
@@ -261,13 +261,13 @@ body{
                         <ul class="FinancialManagement">
 
                             <li>
-                                <a href="#" class="ManageFees">
-                                · Manage fees
+                                <a href="../Fee&Payment_Management/createFee.php" class="CreateFees">
+                                · Create fees
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" class="ViewPayments">
+                                <a href="../Fee&Payment_Management/viewPayment.php" class="ViewPayments">
                                 · View payments
                                 </a>
                             </li>
@@ -284,8 +284,14 @@ body{
                         <ul class="UserManagement">
 
                         <li>
-                                <a href="#" class="ManageAccounts">
-                                    · Manage accounts
+                                <a href="../User_Management/lecturerlist.php" class="ManageLecturer">
+                                    · Manage Lecturer
+                                </a>
+                        </li>
+
+                        <li>
+                                <a href="../User_Management/studentlist.php" class="ManageStudent">
+                                    · Manage Student
                                 </a>
                         </li>
 
