@@ -1,5 +1,5 @@
 <?php
-include "../dbConn.php";
+include "dbConn.php";
 // <!-- path -->
 
 if (isset($_POST['submit'])){

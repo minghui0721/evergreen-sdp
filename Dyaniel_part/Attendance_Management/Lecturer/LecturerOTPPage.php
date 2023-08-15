@@ -1,6 +1,6 @@
 <!-- path -->
 <?php
-include "../dbConn.php";
+include "dbConn.php";
 include "Generate_OTP.php";
 
 // Determine either the attendance is exist or not, if not create attendance

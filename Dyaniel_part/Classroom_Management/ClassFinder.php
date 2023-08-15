@@ -1,8 +1,9 @@
 <?php
-include "../dbConn.php";
-include "../WeekDateRange.php";
+include "dbConn.php";
+include "WeekDateRange.php";
 //<!-- path -->
 
+//Default current datetime and time after 1 hour
 date_default_timezone_set('Asia/Singapore');
 $CurrentTime = date('h:i a');
 $CurrentTime_1hourAfter = date('h:i a', strtotime('+1 hour'));

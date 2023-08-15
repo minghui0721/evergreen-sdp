@@ -1,6 +1,6 @@
 <?php
 $LecturerID="1";
-include "../dbConn.php"
+include "dbConn.php"
 // <!-- path -->
 ?>
 <!DOCTYPE html>
