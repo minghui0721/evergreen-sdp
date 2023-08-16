@@ -1,3 +1,7 @@
+<?php
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +10,9 @@
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/learning.css?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/learning.css?v=<?php echo time(); ?>">  
     
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
@@ -34,7 +38,7 @@
             <div class="article_content">
                 <p>As a student embarking on your academic journey, mastering the art of financial literacy is a crucial life skill that can pave the way for a secure and prosperous future. While focusing on your studies is essential, understanding how to manage your finances is equally important. In this article, we'll delve into the realm of financial literacy and explore practical tips to help you navigate the world of money management effectively.</p>
 
-                <img src="assets/images/financial.jpg" alt="financial">
+                <img src="../assets/images/financial.jpg" alt="financial">
 
                 <h2>1. Budgeting Basics</h2>
                 <p> Creating a budget is the foundation of financial success. Learn how to allocate your funds for essentials like tuition, books, and living expenses while setting aside money for savings and leisure activities. We'll guide you through the process of crafting a realistic budget tailored to your needs..</p>

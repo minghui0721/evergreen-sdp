@@ -1,5 +1,5 @@
 <?php
-include 'assets/base_url/config.php';
+include '../assets/base_url/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,25 +9,58 @@ include 'assets/base_url/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="search.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="stylesheet" href="assets/css/header.css?v=<?php echo time(); ?>">    
+    <link rel="stylesheet" href="../assets/css/header.css?v=<?php echo time(); ?>">    
     <script>
-        // document.getElementById() is used to retrieve an element by its unique 'id' attribute
-        // innerText is used to represent the text content of an element.
-        // exp: browserName = Testing
-        // output: <title id="documentTitle">Testing</title>
+                const searchInput = document.getElementById("searchInput");
+                const searchOptionsList = document.getElementById("searchOptionsList");
+                const searchResults = document.getElementById("searchResults");
+
+                searchInput.addEventListener("input", function () {
+                    const inputValue = this.value.toLowerCase();
+                    const options = searchOptionsList.getElementsByTagName("option");
+
+                    const matchingOptions = [];
+
+                    for (const option of options) {
+                        const optionValue = option.value.toLowerCase();
+                        if (optionValue.includes(inputValue)) {
+                            matchingOptions.push(optionValue);
+                        }
+                    }
+
+                    if (matchingOptions.length > 0) {
+                        searchResults.innerHTML = matchingOptions.map(option => `<button type="button" class="search-result-button">${option}</button>`).join("");
+                    } else {
+                        searchResults.innerHTML = "";
+                    }
+                });
+
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 </head>
 <body>
-    <?php include 'assets/fonts/font.html'; ?>
+    <?php include '../assets/fonts/font.html'; ?>
      <!-- Header -->
      <div class="container_header">
         <div class="row_header">
             <div class="col btn_search">
-                <input type="text" id="searchInput" class="input_search" placeholder="Search...">
+                <form id="searchForm" method="post" action="search.php">
+                    <input type="text" id="searchInput" name="searchInput" class="input_search" list="searchOptionsList" placeholder="Type to search...">
+                    <datalist id="searchOptionsList">
+                        <option value="About Evergreen">Know More About Us</option>
+                        <option value="Read Articles">Articles</option>
+                        <option value="Contact Us">Feel Free!</option>
+                        <option value="School Event">Join Us!</option>
+                        <option value="Academics">Courses & Programs</option>
+                        <option value="Enrollment">Enrollment to Evergreen</option>
+                    </datalist>
+                    <div id="searchResults" class="search-results"></div> <!-- Container for displaying search results -->
+                </form>
             </div>
+
+
         
             <div class="col  logo d-flex align-items-center justify-content-center ">
                 <a href="index.php"><img src="<?php echo BASE_URL ?>/assets/images/evergreen-logo.png" alt="Header Image"></a>
@@ -64,37 +97,37 @@ include 'assets/base_url/config.php';
                 <div class="menu">
                         <ul class="list-unstyled d-flex justify-content-between flex-wrap">
                             <li class="col-lg-2 col-md-4 col-12 ">
-                                <a href="<?php echo BASE_URL ?>/index.php">
+                                <a href="<?php echo BASE_URL ?>/guest/index.php">
                                     <button id="home" class="home-button">Home</button>
                                 </a>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12"> 
-                                <a href="<?php echo BASE_URL ?>/about.php">
+                                <a href="<?php echo BASE_URL ?>/guest/about.php">
                                     <button id="service">About Evergreen</button>
                                 </a>
                             </li>
                             <li class="col-lg-2 col-md-4 col-12">
-                                <a href="<?php echo BASE_URL ?>/academic.php">
+                                <a href="<?php echo BASE_URL ?>/guest/academic.php">
                                     <button id="aboutus">Academics</button>
                                 </a>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <a href="<?php echo BASE_URL ?>/event.php">
+                                <a href="<?php echo BASE_URL ?>/guest/event.php">
                                     <button id="donation">Events</button>
                                 </a>
                                 
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <a href="<?php echo BASE_URL ?>/admission.php"><button id="career">Admissions</button></a>
+                                <a href="<?php echo BASE_URL ?>/guest/admission.php"><button id="career">Admissions</button></a>
                             </li>
                             <li class="col-lg-2 col-md-4  col-12">
-                                <a href="<?php echo BASE_URL ?>/contact_us.php"><button id="contactus">Contact Us</button></a>
+                                <a href="<?php echo BASE_URL ?>/guest/contact_us.php"><button id="contactus">Contact Us</button></a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-
 </body>
+
 </html>

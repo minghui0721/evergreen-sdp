@@ -1,5 +1,5 @@
 <?php
-include '../assets/base_url/config.php';
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
 ?>
 
 
@@ -80,7 +80,7 @@ $conn->close();
     <link rel="stylesheet" href="../assets/css/enrollment.css.?v=<?php echo time(); ?>">  
     <link rel="stylesheet" href="../assets/css/header.css.?v=<?php echo time(); ?>">  
     <link rel="stylesheet" href="../assets/css/footer.css.?v=<?php echo time(); ?>">  
-    <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
 
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
@@ -90,9 +90,9 @@ $conn->close();
     <div id="header"></div>
 
     <div class="container">
-        <h1>Enrollment Application</h1>
+        <h1 class="animation_bottom">Enrollment Application</h1>
         
-        <form action="submit_enrollment.php" method="post" enctype="multipart/form-data">
+        <form action="submit_enrollment.php" method="post" enctype="multipart/form-data" class="animation_fade">
         <div class="form-group">
             <label for="full_name">Full Name:</label>
             <input type="text" id="full_name" name="full_name" required>
@@ -224,8 +224,6 @@ $conn->close();
 
 
 
-
-
         <div class="form-group">
             <label for="payment_option">Payment Option:</label>
             <select id="payment_option" name="payment_option" required>
@@ -254,7 +252,7 @@ $conn->close();
         }
         };
 
-        xhttp.open('GET', '../header.php', true);
+        xhttp.open('GET', '../guest/header.php', true);
         xhttp.send();
 
          // Load footer content
@@ -264,8 +262,11 @@ $conn->close();
                 footerContainer.innerHTML = this.responseText;
             }
         };
-        footerXhttp.open('GET', '../footer.php', true);
+        footerXhttp.open('GET', '../guest/footer.php', true);
         footerXhttp.send();
     </script>
+
+    <script src="../assets/js/animation.js"></script> 
+
 </body>
 </html>

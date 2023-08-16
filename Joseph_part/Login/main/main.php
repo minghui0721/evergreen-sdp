@@ -1,10 +1,19 @@
+<?php
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="main.css?v=<?php echo time(); ?>">
-    <title>Document</title>
+   <script src="../../../assets/js/config.js"></script>
+   <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+   <title id="documentTitle"></title>
+    <script>
+        document.getElementById("documentTitle").innerText = browserName; 
+    </script>
 </head>
 <body>
     <div class="login-container">

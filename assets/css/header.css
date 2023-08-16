@@ -6,6 +6,22 @@ body{
 }
 
 
+/* animation for hader */
+.animation{
+    animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: scale(1.4);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
 
 /* In the CSS, we set the left and right padding of the "container-fluid" class to 0, removing the default padding. This allows the "row1" div to occupy the full width of the screen, inheriting the width of its parent container. */
 .container_header{
@@ -85,7 +101,6 @@ a{
     padding: 10px;
     font-size: 18px;
     letter-spacing: 2px;
-    transition: all .5s ease-in-out;
     padding-right: 80px;
     color: #1d1d36;
     margin-right: -20px;

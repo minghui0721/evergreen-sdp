@@ -1,5 +1,7 @@
 <?php
-include 'database/db_connection.php';
+include '../database/db_connection.php';
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['event_id'])) {
     // Retrieve the event_id from the form submission
     $eventId = $_POST['event_id'];
@@ -28,20 +30,20 @@ $conn->close();
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/register_event.css.?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/register_event.css.?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 </head>
 <body>
-<?php include 'assets/fonts/font.html'; ?>
+<?php include '../assets/fonts/font.html'; ?>
 <!-- header -->
 <div id="header"></div>
 
 <div class="register">
-    <div class="register_form">
+    <div class="register_form animation_fade">
         <form action="event_application.php" method="POST">
             <div class="register_header">
                 <h2>Add Your Details</h2>
@@ -67,7 +69,7 @@ $conn->close();
         </form>
     </div>
     <div class="event_container">
-        <div class="event_box">
+        <div class="event_box animation_fade">
             <div class="event_name">
                 <?php echo $name; ?>
             </div>
@@ -114,5 +116,8 @@ $conn->close();
         footerXhttp.send();
 </script>
     
+
+<script src="../assets/js/animation.js"></script> 
+
 </body>
 </html>

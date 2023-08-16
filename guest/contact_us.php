@@ -1,7 +1,6 @@
 <?php
-include 'assets/base_url/config.php';
-
-include 'database/db_connection.php';
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+include '../database/db_connection.php';
 
 $sql = "SELECT * FROM school_info LIMIT 1";
 $result = mysqli_query($conn, $sql);
@@ -32,27 +31,27 @@ $summerClose = subtractTwelveHours($row['summer_close']);
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/contact_us.css.?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/contact_us.css.?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 </head>
 <body>
-<?php include 'assets/fonts/font.html'; ?>
+<?php include '../assets/fonts/font.html'; ?>
 <!-- header -->
 <div id="header"></div>
 
 
 <div class="contact_us">
-    <div class="contact_header">
+    <div class="contact_header animation_bottom">
         <h2>CONTACT US</h2>
         <p>Feel free to use the provided contact information to get in touch with us. You can give us a call, drop us an email, or simply visit us at our esteemed address. Additionally, the Google Maps section allows you to locate our campus easily.</p>
     </div>
 
     <div class="contact_container">
-        <div class="container_block">
+        <div class="container_block animation_fade">
             <div class="contact_details">
                 <h2>Visit the School</h2>
                 <div class="school_info"><h3>ADDRESS</h3>
@@ -133,5 +132,7 @@ $summerClose = subtractTwelveHours($row['summer_close']);
         footerXhttp.send();
 </script>
     
+<script src="../assets/js/animation.js"></script> 
+
 </body>
 </html>

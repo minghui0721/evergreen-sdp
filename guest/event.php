@@ -1,7 +1,7 @@
 <?php
+include '../database/db_connection.php';
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
 
-
-include 'database/db_connection.php';
 $sql = "SELECT * FROM event";
 
 $result = mysqli_query($conn, $sql);
@@ -45,27 +45,27 @@ $conn->close();
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/event.css.?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/event.css.?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 </head>
 <body>
-<?php include 'assets/fonts/font.html'; ?>
+<?php include '../assets/fonts/font.html'; ?>
 <!-- header -->
 <div id="header"></div>
 
 
 <!-- content -->
 <div class="event">
-    <h2>SCHOOLS EVENTS</h2>
+    <h2 class="animation_bottom">SCHOOLS EVENTS</h2>
 
     <div class="event_grid">
     <div class="event_background"></div>
             <?php foreach ($event as $e) { ?>
-                <div class="event_card">
+                <div class="event_card animation_fade">
                 <?php
                 // Format the date
                 $eventDate = date("j M Y", strtotime($e['event_date']));
@@ -125,6 +125,8 @@ $conn->close();
         footerXhttp.open('GET', 'footer.php', true);
         footerXhttp.send();
     </script>
+    
+    <script src="../assets/js/animation.js"></script> 
     
 </body>
 </html>

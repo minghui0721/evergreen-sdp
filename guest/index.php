@@ -1,3 +1,6 @@
+<?php
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+?>
 
 
 <!DOCTYPE html>
@@ -8,9 +11,9 @@
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/index.css?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/index.css?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
@@ -18,10 +21,10 @@
 <body>
 
     <!-- font -->
-    <?php include 'assets/fonts/font.html'; ?>
+    <?php include '../assets/fonts/font.html'; ?>
     
     <!-- header -->
-    <div id="header"></div>
+    <div id="header" class="animation"></div>
 
     <!-- content -->
     <div class="container_content">
@@ -44,24 +47,24 @@
         <!-- uni life -->
         <div class="uni_life">
 
-            <div class="life_header">
-                <h2>EXPLORE OUR ACADEMIC PROGRAMS</h2>
-                <p>Embark on a journey of knowledge and growth with our diverse range of academic programs. </p>
-                <a href="academic.php"><button>Discover More</button></a>
+            <div class="life_header animation_bottom">
+                    <h2>EXPLORE OUR ACADEMIC PROGRAMS</h2>
+                    <p>Embark on a journey of knowledge and growth with our diverse range of academic programs. </p>
+                    <a href="academic.php"><button>Discover More</button></a>
             </div>
 
 
             <div class="four_grid">
                 <div class="grid grid1"></div>
                 <div class="grid grid2">
-                    <div class="grid_content">
+                    <div class="grid_content animation_bottom">
                         <h2>Student Life</h2>
                         <p>We believe that learning extends beyond the classroom, and that's why our university offers a vibrant array of events and activities that cater to diverse interests and passions.</p>
                         <a href="event.php"><button>Explore Campus Events</button></a>
                     </div>
                 </div>
                 <div class="grid grid3">
-                    <div class="grid_content">
+                    <div class="grid_content animation_bottom">
                         <h2>Open Enrollment</h2>
                         <p>Our university opens its doors to aspiring students like you, providing a nurturing environment that fosters growth, learning, and personal development.  </p>
                         <a href="enrollment.php"><button>Apply Today</button></a>
@@ -73,7 +76,7 @@
 
         <!-- latest news -->
         <div class="container-fluid new">
-            <div class="latest_header">
+            <div class="latest_header animation_fade">
                 <h2>FEATURED ARTICLES</h2>
             </div>
 
@@ -112,7 +115,7 @@
 
 
         <div class="life_culture">
-            <div class="culture_header">
+            <div class="culture_header animation_bottom">
                 <h2>LIFE & CULTURE</h2>
                 <h3>Follow <span>#evergreenuniversity</span> on Instagram</h3>
             </div>
@@ -140,8 +143,8 @@
         <!-- email -->
         <!-- phone -->
         <div class="get_intouch">
-            <h2>GET IN TOUCH WITH US!</h2>
-            <p>We will send you the latest news</p>
+            <h2 class="animation_fade">GET IN TOUCH WITH US!</h2>
+            <p class="animation_fade">We will send you the latest news</p>
             <form action="get_intouch.php" method="POST">
                 <div class="label">
                     <label for="email">Email:</label>
@@ -185,7 +188,9 @@
         };
         footerXhttp.open('GET', 'footer.php', true);
         footerXhttp.send();
-
     </script>
+    <script src="../assets/js/animation.js"></script> 
+
 </body>
 </html>
+

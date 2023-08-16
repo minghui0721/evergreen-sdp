@@ -1,3 +1,7 @@
+<?php
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +13,8 @@
     <script src="../assets/js/config.js"></script> 
     <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
     <!-- <link rel="stylesheet" href="../assets/css/dashboard.css.?v=<?php echo time(); ?>">   -->
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>

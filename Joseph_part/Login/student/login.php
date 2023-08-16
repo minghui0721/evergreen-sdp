@@ -1,13 +1,14 @@
 <?php
 session_start();
-include 'dbConn.php';
+include '../../../database/db_connection.php';
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
 
 if (isset($_POST['btnLogin'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     $query = "SELECT * FROM student WHERE email = '$email'";
-    $results = mysqli_query($connection, $query);
+    $results = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($results);
     $count = mysqli_num_rows($results);
 
@@ -17,7 +18,7 @@ if (isset($_POST['btnLogin'])) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['student_ID'] = $row['student_ID'];
             $_SESSION['student_name'] = $row['student_name'];
-            header("Location: ../../Fee/Student/studentPayment.php");                
+            header("Location: ../../../student/dashboard.php");                
         } else {
             echo "<script>alert('Login Unsuccessfully. Please check your credentials.');</script>";
         }
@@ -25,7 +26,7 @@ if (isset($_POST['btnLogin'])) {
         echo "<script>alert('Email not found. Please try again.');</script>";
     }
  }
- mysqli_close($connection);
+ mysqli_close($conn);
  ?>
  
 
@@ -37,7 +38,13 @@ if (isset($_POST['btnLogin'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="login.css?v=<?php echo time(); ?>">
-    <title>Login Form</title>
+    <script src="../../../assets/js/config.js"></script>
+    <link rel="stylesheet" href="../assets/css/appointment.css.?v=<?php echo time(); ?>">  
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <title id="documentTitle"></title>
+    <script>
+        document.getElementById("documentTitle").innerText = browserName; 
+    </script>
 
 </head>
 <body>

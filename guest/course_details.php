@@ -1,7 +1,8 @@
 <!-- Retrieving the courses from db -->
 <?php
 // Prepare the SQL query
-include 'database/db_connection.php';
+include '../database/db_connection.php';
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
 
 
 if(isset($_GET['courseProgram_id'])){
@@ -67,26 +68,26 @@ $conn->close();
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/course_details.css.?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/course_details.css.?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 </head>
 <body>
-<?php include 'assets/fonts/font.html'; ?>
+<?php include '../assets/fonts/font.html'; ?>
 <!-- header -->
 <div id="header"></div>
 
 <div class="courseDetails_container">
-    <div class="details_header">
+    <div class="details_header animation_bottom">
         <?php
             echo '<h2>' . $courseName . ' (' . $programName . ')'. '</h2>';
         ?>
     </div>
 
-    <div class="color">
+    <div class="color animation_fade">
         <div class="bg_image">
                 <?php
                     echo '<img src="data:' . $imageType . ';base64,' . $base64Image . '" alt="Image Description">';
@@ -95,32 +96,32 @@ $conn->close();
     </div>
 
     <div class="content">
-        <h2>Course Description</h2>
+        <h2 class="animation_bottom">Course Description</h2>
         <?php
             echo '<p>' . $courseDescription . '</p>';
         ?>
 
-        <h2>Learning Objectives</h2>
+        <h2 class="animation_bottom">Learning Objectives</h2>
         <ul>
             <?php foreach ($learningObjectivesArray as $objective) { ?>
                 <li><?php echo $objective; ?></li>
             <?php } ?>
         </ul>
 
-        <h2>Prerequisite</h2>
+        <h2 class="animation_bottom">Prerequisite</h2>
         <ul>
             <?php foreach ($prerequisiteArray as $prerequisite) { ?>
                 <li><?php echo $prerequisite; ?></li>
             <?php } ?>
         </ul>
         
-        <h2>Credit Hours</h2>
+        <h2 class="animation_bottom">Credit Hours</h2>
         <ul>
             <li>Total Credit Hours: <?php echo $credit_houts; ?> hours</li>
         </ul>
 
         <div class="button1">
-            <a href="enrollment.php"><button>Application</button></a>
+            <a href="../enrollment/enrollment.php"><button>Application</button></a>
         </div>
 
     </div>
@@ -157,5 +158,7 @@ $conn->close();
         footerXhttp.send();
 </script>
     
+<script src="../assets/js/animation.js"></script> 
+
 </body>
 </html>
