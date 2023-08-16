@@ -24,14 +24,12 @@ while ($row = mysqli_fetch_assoc($result)) {
     // Access the data for each row using associative array keys
     $subject_ID = $row['subject_ID'];
     $subject_name = $row['subject_name'];
-    $description = $row['description'];
     $image = $row['img'];
 
     // Store the course details in the $subjects array
     $subjects[] = array(
         'subject_ID' => $subject_ID,
         'subject_name' => $subject_name,
-        'description' => $description,
         'img' => $image
     );
 }

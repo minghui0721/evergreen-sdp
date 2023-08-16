@@ -15,7 +15,7 @@ if ($connection === false) {
 
 if (isset($_POST['btnsubmit'])) {
     // Retrieve the form data
-    $lecturerID = $_POST['lecturer_ID'];
+    $lecturerID = 1;
     $courseProgramID = $_POST['courseProgram_ID'];
     $timeStart = $_POST['time_start'];
     $timeEnd = $_POST['time_end'];
@@ -75,10 +75,6 @@ function goBack() {
         <form action="" method="post">
             <div class="input-group">
                 <div class="input">
-                    <label for="lecturer_ID">Lecturer ID <ion-icon name="man-outline"></ion-icon><ion-icon name="woman-outline"></ion-icon></label>
-                    <input type="number" name="lecturer_ID" id="lecturer_ID" required min="1">
-                </div>
-                <div class="input">
                     <label for="courseProgram_ID">Course Program ID <ion-icon name="school-outline"></ion-icon></label>
                     <input type="number" name="courseProgram_ID" id="courseProgram_ID" required min="1">
                 </div>
@@ -119,6 +115,7 @@ function goBack() {
                 <th>Subject Name</th>
                 <th>Time Start</th>
                 <th>Time End</th>
+                <th>Action</th>
             </tr>
 
             <?php
@@ -150,6 +147,7 @@ function goBack() {
                 echo "<td>" . $row['subject_name'] . "</td>";
                 echo "<td>" . $row['time_start'] . "</td>";
                 echo "<td>" . $row['time_end'] . "</td>";
+                echo '<td><a href="update_form.php?assignment_ID=' . $row['assignment_ID'] . '">Update</a></td>';
                 echo "</tr>";
             }
 
