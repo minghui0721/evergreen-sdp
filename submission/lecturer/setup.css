@@ -189,3 +189,45 @@ tr {
     animation: bounce 1s infinite;
 }
 
+
+.input input[id="lecturer_ID"]{
+    transform: translateX(-100%);
+    animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.input input[id="time_start"]{
+    transform: translateX(-100%);
+    animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.input input[id="assignment_title"]{
+    transform: translateX(-100%);
+    animation: slide-in-left 0.6s ease-out forwards;
+}
+
+.input input[id="courseProgram_ID"]{
+    transform: translateX(100%);
+    animation: slide-in-right 0.6s ease-out forwards;
+}
+
+.input input[id="time_end"]{
+    transform: translateX(100%);
+    animation: slide-in-right 0.6s ease-out forwards;
+}
+
+.input input[id="subject_ID"]{
+    transform: translateX(100%);
+    animation: slide-in-right 0.6s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    to {
+        transform: translateX(0);
+    }
+}

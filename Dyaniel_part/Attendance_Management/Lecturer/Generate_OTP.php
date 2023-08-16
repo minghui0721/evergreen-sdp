@@ -1,7 +1,7 @@
 <?php
 
 function GenerateOTP($TimetableID){
-    include "../dbConn.php";
+    include "dbConn.php";
     // <!-- path -->
 
     // Generate OTP

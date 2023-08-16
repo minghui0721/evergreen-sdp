@@ -49,7 +49,9 @@ $IntakeName=$_GET['intakeName'];
                 // Retrieve Student ID based on Intake ID
                 $StudentID_query="SELECT `student_ID`, `student_name` FROM `student` WHERE `intake_ID`='$IntakeID'";
                 $StudentID_result=mysqli_query($connection,$StudentID_query);
+                $StudentIDCount = mysqli_num_rows($StudentID_result);
 
+                if($StudentIDCount != 0){
                 while($StudentID_row=mysqli_fetch_assoc($StudentID_result)){
                     $StudentID=$StudentID_row['student_ID'];
                     $StudentName=$StudentID_row['student_name'];
@@ -64,6 +66,8 @@ $IntakeName=$_GET['intakeName'];
                     $OverallPresent_result=mysqli_query($connection,$OverallPresent_query);
                     $OverallPresent=mysqli_num_rows($OverallPresent_result);
 
+                    if($OverallAll != 0 && $OverallPresent != 0){
+
                     $OverallPercentage=(($OverallPresent/$OverallAll)*100);
                     $OverallPercentage=round($OverallPercentage,2)."%";
                 ?>
@@ -75,7 +79,9 @@ $IntakeName=$_GET['intakeName'];
                 </tr>
 
                 <?php
-                    }
+                        }
+                    }    
+                }
                 ?>
             </table>
         </div>

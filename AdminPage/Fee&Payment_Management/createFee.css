@@ -1,29 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    
 }
 
 .wrapper{
-    width:80%;
-    margin: 0;
+    width: 80%;
+    margin: 50px 0 0 0;
     padding: 0;
     float: right;
-}
-
-.center-container {
-    text-align: center;
+    display: flex;
 }
 
 .container {
-    max-width: 600px;
-    width: 450px;
-    margin: 20px 0 0 380px;
+    width: 700px;
+    font-size: 30px;
+    margin: 20px 0 0 230px;
     background-color: #f2f2f2;
     padding: 20px;
     border: 1px solid #ccc;
@@ -31,11 +23,12 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    font-size: 2.5em;
+.center-container h1{
+    font-size: 50px;
     font-weight: bold;
-    color: #002349;
-    margin-bottom: 20px;
+    color: white;
+    text-decoration: underline;
+    margin: 20px 0 60px 150px;
 }
 
 .form-row {
@@ -58,6 +51,7 @@ h1 {
 input[type="text"],
 select {
     width: 100%;
+    font-size: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -72,10 +66,11 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 25px;
     display: block;
     width: 100%;
     margin-top: 1.5em;
+    transition:background-color 0.2s ;
 }
 
 input[type="submit"]:hover {

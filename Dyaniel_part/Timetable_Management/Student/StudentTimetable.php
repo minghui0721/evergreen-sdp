@@ -1,6 +1,6 @@
 <?php
-include "../dbConn.php";
-include "../WeekDateRange.php";
+include "dbConn.php";
+include "WeekDateRange.php";
 
 $StudentID=1;
 

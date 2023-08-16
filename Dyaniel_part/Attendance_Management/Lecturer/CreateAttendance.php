@@ -1,5 +1,5 @@
 <?php
-include "../dbConn.php";
+include "dbConn.php";
 
 // Retreive ID
 $RetrieveID_query="SELECT `intake_ID`, `lecturer_ID` FROM `timetable_details` WHERE `timetable_ID`='$TimetableID'";

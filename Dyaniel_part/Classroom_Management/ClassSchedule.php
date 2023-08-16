@@ -1,5 +1,5 @@
 <?php
-include "../dbConn.php";
+include "dbConn.php";
 
 // Retreive the data from from
 $ClassID=$_GET['classID'];
@@ -18,7 +18,7 @@ $Date=$_GET['date'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="AdminClassSchedule_style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="ClassSchedule_style.css?v=<?php echo time(); ?>">
     <title>A-02-04 Class Schedule</title>
     <!-- path -->
 </head>
