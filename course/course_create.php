@@ -28,6 +28,7 @@ $result = mysqli_query($conn, $query);
 
     <h1>Add Course Details</h1>
     
+    <a href="course_view.php" class="back-course-btn">Back</a>
     <form action="add_course.php" method="post" enctype="multipart/form-data">
         <label for="course_name">Course Name:</label>
         <input type="text" id="course_name" name="course_name" required><br>

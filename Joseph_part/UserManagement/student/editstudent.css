@@ -5,6 +5,13 @@ body {
   line-height: 1.0;
 }
 
+.wrapper{
+  width:80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
 form {
   max-width: 400px;
   margin: 0 auto;
@@ -24,7 +31,7 @@ form label {
 
 form input[type="text"],
 form input[type="email"],
-form input[type="tel"] {
+form input[type="tel"]{
   width: 100%;
   padding: 0.5em;
   margin-bottom: 5px;
@@ -33,6 +40,19 @@ form input[type="tel"] {
   box-sizing: border-box;
   font-size: 1em;
 }
+
+form select {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+
 
 form button {
   background-color: #002349;
@@ -66,6 +86,7 @@ h2 {
 form input,
 form label {
   margin-top: 10px;
+
 }
 
 h2 {

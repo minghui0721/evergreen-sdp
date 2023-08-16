@@ -1,0 +1,261 @@
+h2 {
+    margin: 30px;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out forwards;
+  }
+
+.table-responsive {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.wrapper{
+  width:80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.search-input{
+  color: white;
+  font-size: 20px;
+}
+
+.table-wrapper {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the table */
+    width: 80%; /* Set the desired width of the table */
+  }
+  
+table {
+    width: 100%; /* Use 100% width to fill the container */
+    margin: 0 auto; /* Center the table within the table-wrapper */
+    border-collapse: separate;
+    border-spacing: 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+table::-webkit-scrollbar-thumb{
+  border-radius: .5rem;
+  background-color: #ccc;
+  visibility: hidden;
+}
+
+
+table:hover::-webkit-scrollbar-thumb{
+  visibility: visible;
+}
+
+
+
+.table td,
+.table th {
+    padding: 1.5rem; /* Increase padding for data cells */
+    vertical-align: top;
+    border: 1px solid #dee2e6; /* Add a border to all sides of cells */
+}
+
+@media screen and (max-width: 576px) {
+  .table-responsive {
+    overflow-x: scroll;
+  }
+}
+
+th, td {
+    text-align: center;
+    padding: 10px;
+    padding: 1.3rem; /* Increase padding for data cells */
+    margin: 1.3rem; /* Increase margin for data cells */
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #002349;
+}
+
+/* Style table header */
+table th {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Style table rows */
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style table data cells */
+table td {
+  text-align: center;
+  padding: 1.3rem;
+  margin: 1.3rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  width: 15%; /* Adjust the width as needed */
+}
+
+/* Style table header */
+table th {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  width: 15%; /* Adjust the width as needed */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 576px) {
+  .table-responsive {
+      overflow-x: scroll;
+  }
+  /* Adjust the width for smaller screens */
+  table th,
+  table td {
+      width: 20%;
+  }
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style links */
+a {
+    color: #5c5adb;
+    text-decoration: none;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+.search-bar form {
+    display: flex;
+    align-items: center;
+  }
+  
+.search-bar label {
+    margin-right: 10px;
+  }
+  
+.search-bar input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+.search-bar button {
+    margin-left: 15px;
+    padding: 5px 10px;
+    background-color: #002349;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+.search-bar button:hover {
+    background-color: #577ea8;
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+  }
+
+.search-bar a{
+  text-decoration: none;
+}
+
+.search-bar .add-button {
+    margin-left: 15px;
+  }
+
+
+table tr:hover {
+  background-color:#a9b9ca;
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+
+
+.action-buttons a {
+  position: relative; /* Required for positioning the tooltip */
+  display: inline-block;
+  margin-right: 10px; /* Space between the icons */
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 60px; /* Adjusted width */
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%); /* Center and move up */
+  white-space: nowrap; /* Prevent wrapping */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.action-buttons a:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.edit-icon {
+  color: #5c5adb;
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: #d893a3;
+  cursor: pointer;
+}
+
+span.unpaid {
+  padding: 8px;
+  border-radius: 1rem;
+  background-color: #d893a3;
+  color: red;
+}
+
+span.paid {
+  padding: 8px;
+  border-radius: 1rem;
+  background-color: #86e49d;
+  color: green;
+}

@@ -7,6 +7,12 @@ h2 {
     animation: fadeIn 2s ease-in-out forwards;
   }
 
+.wrapper{
+  width:80%;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
 
 .table-wrapper {
     overflow: hidden;
@@ -163,27 +169,6 @@ table tr:hover {
   transition: transform 0.2s ease-in-out;
 }
 
-span.pending {
-  padding: 8px;
-  border-radius: 2rem;
-  background-color: #ebc473;
-  color: black;
-}
-
-span.rejected {
-  padding: 8px;
-  border-radius: 2rem;
-  background-color: #d893a3;
-  color: red;
-}
-
-span.approved {
-  padding: 8px;
-  border-radius: 2rem;
-  background-color: #86e49d;
-  color: green;
-}
-
 .table-responsive {
   overflow-x: auto;
 }
@@ -207,3 +192,59 @@ span.approved {
     overflow-x: scroll;
   }
 }
+
+.handle {
+  text-align: left;
+}
+
+.handle-container br::before {
+  content: "• ";
+  margin-right: -1.50em;
+}
+
+table td ul, table td li {
+  padding: 0;
+  margin: 0;
+  /* list-style-position: inside; */
+}
+
+
+.action-buttons a {
+  position: relative; /* Required for positioning the tooltip */
+  display: inline-block;
+  margin-right: 10px; /* Space between the icons */
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 60px; /* Adjusted width */
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%); /* Center and move up */
+  white-space: nowrap; /* Prevent wrapping */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.action-buttons a:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.edit-icon {
+  color: #5c5adb;
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: #d893a3;
+  cursor: pointer;
+}
+

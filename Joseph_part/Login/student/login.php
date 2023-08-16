@@ -17,7 +17,7 @@ if (isset($_POST['btnLogin'])) {
             $_SESSION['email'] = $row['email'];
             $_SESSION['student_ID'] = $row['student_ID'];
             $_SESSION['student_name'] = $row['student_name'];
-            header("Location: ../../Fee/fee.php");                
+            header("Location: ../../Fee/Student/studentPayment.php");                
         } else {
             echo "<script>alert('Login Unsuccessfully. Please check your credentials.');</script>";
         }
