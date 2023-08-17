@@ -1,7 +1,9 @@
 <!-- Retrieving the courses from db -->
 <?php
 // Prepare the SQL query
-include 'database/db_connection.php';
+include '../database/db_connection.php';
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+
 $sql = "SELECT courseProgram_ID, course_name, program_name, course_description, program_description, img FROM course_program";
 
 // Execute the query and store the result in a variable
@@ -54,26 +56,26 @@ $conn->close();
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/academic.css.?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/academic.css.?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 </head>
 <body>
-<?php include 'assets/fonts/font.html'; ?>
+<?php include '../assets/fonts/font.html'; ?>
 <!-- header -->
 <div id="header"></div>
 
 <div class="academic_container">
-    <div class="academic_intro">
+    <div class="academic_intro animation_bottom">
         <h2>ACADEMICS</h2>
         <p>Welcome to Evergreen Height University's 'Academics' page. We take pride in offering a diverse range of courses that inspire curiosity and foster personal growth. From Software Engineering to Business Management, our programs cater to a wide array of interests. Explore the endless possibilities for your academic journey and unlock your potential with us at Evergreen Height University.</p>
     </div>
 
     
-    <div class="academic">
+    <div class="academic animation_fade">
     <div class="background_color"></div>
     <?php
     $counter = 0; // Start with 1 to show details first
@@ -98,18 +100,18 @@ $conn->close();
             // Display image first, then details
             echo '<div class="academic_img" style="background-image: url(\'data:' . $course['image_type'] . ';base64,' . $course['image'] . '\');"></div>';
             echo '<div class="academic_grid image_first">';
-            echo '<h2>' . $courseName . ' <span style="font-size: 15px;">(' . $programName . ')</span>' . '</h2>';
-            echo '<p>' . $course['description'] . '</p>';
-            echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button"><button id="first_button">Learn More</button></a>';
+            echo '<h2 class="animation_bottom">' . $courseName . ' <span style="font-size: 15px;">(' . $programName . ')</span>' . '</h2>';
+            echo '<p class="animation_bottom">' . $course['description'] . '</p>';
+            echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button animation_bottom"><button id="first_button">Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
             // echo $course['credit_hours'] . '</p>';
             echo '</div>';
         } else {
             // Display details first, then image
             echo '<div class="academic_grid details_first">';
-            echo '<h2>' . $courseName . ' <span style="font-size: 15px;">(' . $programName . ')</span>' . '</h2>';
-            echo '<p>' . $course['description'] . '</p>';
-            echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button"><button id="second_button" >Learn More</button></a>';
+            echo '<h2 class="animation_bottom">' . $courseName . ' <span style="font-size: 15px;">(' . $programName . ')</span>' . '</h2>';
+            echo '<p  class="animation_bottom">' . $course['description'] . '</p>';
+            echo '<a href="course_details.php?courseProgram_id=' . $course['courseProgram_ID'] . '" class="course_button animation_bottom"><button id="second_button" >Learn More</button></a>';
             // echo $course['prerequisites'] . '</p>';
             // echo $course['credit_hours'] . '</p>';
             echo '</div>';
@@ -152,6 +154,8 @@ $conn->close();
         footerXhttp.open('GET', 'footer.php', true);
         footerXhttp.send();
 </script>
+
+<script src="../assets/js/animation.js"></script> 
 
 </body>
 </html>

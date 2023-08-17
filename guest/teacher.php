@@ -1,3 +1,7 @@
+<?php
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +10,9 @@
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/learning.css?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/learning.css?v=<?php echo time(); ?>">  
     
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
@@ -34,7 +38,7 @@
             <div class="article_content">
                 <p>As the new academic year commences, students embark on a journey of learning, growth, and discovery. One essential aspect of this journey is getting to know their teachers. The relationship between students and teachers goes beyond the boundaries of a traditional classroom. It forms the foundation for a strong educational bond that fosters a positive and engaging learning environment.</p>
 
-                <img src="assets/images/teacher.avif" alt="">
+                <img src="../assets/images/teacher.avif" alt="">
 
                 <h2>1. Approachability and Openness</h2>
                 <p>Knowing your teacher personally allows you to feel more at ease when seeking help or clarifying doubts. An approachable teacher creates an inviting atmosphere where students feel comfortable sharing their thoughts and ideas. Establishing open communication channels helps in building trust, which is vital for a fruitful teacher-student relationship.</p>

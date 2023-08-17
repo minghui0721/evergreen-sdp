@@ -1,3 +1,7 @@
+<?php
+include '../assets/favicon/favicon.php'; // Include the favicon.php file
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +10,16 @@
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="shortcut icon" href="assets/images/evergreen-background.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/articles.css?v=<?php echo time(); ?>">  
+    <script src="../assets/js/config.js"></script> 
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <link rel="stylesheet" href="../assets/css/articles.css?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 </head>
 <body>
     <!-- font -->
-    <?php include 'assets/fonts/font.html'; ?>
+    <?php include '../assets/fonts/font.html'; ?>
     
     <!-- header -->
     <div id="header"></div>
@@ -29,7 +33,7 @@
         <div class="articles_content">
             <div class="articles">
                 <div class="articles_image">
-                    <img src="assets/images/learning.avif" alt="home learning">
+                    <img src="../assets/images/learning.avif" alt="home learning">
                 </div>
                 <div class="articles_details">
                     <div class="details_admin">
@@ -46,7 +50,7 @@
             </div>
             <div class="articles">
                 <div class="articles_image">
-                    <img src="assets/images/teacher.avif" alt="teacher">
+                    <img src="../assets/images/teacher.avif" alt="teacher">
                 </div>
                 <div class="articles_details">
                     <div class="details_admin">
@@ -64,7 +68,7 @@
             </div>
             <div class="articles">
                 <div class="articles_image">
-                    <img src="assets/images/mental.avif" alt="mental health">
+                    <img src="../assets/images/mental.avif" alt="mental health">
                 </div>
                 <div class="articles_details">
                     <div class="details_admin">
@@ -81,7 +85,7 @@
             </div>
             <div class="articles">
                 <div class="articles_image">
-                    <img src="assets/images/financial.jpg" alt="articles_image">
+                    <img src="../assets/images/financial.jpg" alt="articles_image">
                 </div>
                 <div class="articles_details">
                     <div class="details_admin">

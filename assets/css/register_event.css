@@ -1,3 +1,56 @@
+/* scale in bottom animation*/
+.animation_bottom{
+    opacity: 0;
+    transition: all 1s;
+    transform: translateX(-100px);
+    filter: blur(5px);
+}
+
+.show1 {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.slide-in {
+    opacity: 0;
+    transition: all 1s;
+    transform: translateX(-100px);
+    filter: blur(5px);
+}
+
+.show2 {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+    animation: scale-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes scale-in-bottom {
+    0% {
+        transform: scale(0);
+        transform-origin: 50% 100%;
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        transform-origin: 50% 100%;
+        opacity: 1;
+    }
+}
+
+/* fade animation */
+.animation_fade {
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 1.5s ease; /* Smooth transition */
+}
+
+/* Animation for fading in the element when it's in view */
+.show-fade {
+    opacity: 1; /* Fully visible element */
+}
+
+
 .register{
     height: 70vh;
     flex-wrap: wrap;
@@ -11,14 +64,16 @@
 
 .register_header h2{
     font-size: 60px;
-    padding-top: 60px;
+    padding-top: 30px;
+    padding-right: 30px;
 }
 
 .register_form{
     display: flex;
     justify-content: center;
     flex: 0 0 70%;
-    padding: 20px;
+    padding-right: 100px;
+    padding-top: 20px;
     box-sizing: border-box;
 }
 
@@ -28,7 +83,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .form_input{

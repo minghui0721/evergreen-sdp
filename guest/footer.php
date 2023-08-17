@@ -1,7 +1,7 @@
 <?php
-include 'assets/base_url/config.php';
+include '../assets/base_url/config.php';
 
-include 'database/db_connection.php';
+include '../database/db_connection.php';
 
 $sql = "SELECT address FROM school_info LIMIT 1";
 $result = mysqli_query($conn, $sql);
@@ -47,8 +47,8 @@ function breakAfterThreeWords($text) {
     <title id="documentTitle"></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/config.js"></script> 
-    <link rel="stylesheet" href="assets/css/footer.css?v=<?php echo time(); ?>">
+    <script src="../assets/js/config.js"></script> 
+    <link rel="stylesheet" href="../assets/css/footer.css?v=<?php echo time(); ?>">
 
     <script>
         // document.getElementById() is used to retrieve an element by its unique 'id' attribute
@@ -60,7 +60,7 @@ function breakAfterThreeWords($text) {
 
 </head>
 <body>
-    <?php include 'assets/fonts/font.html'; ?>
+    <?php include '../assets/fonts/font.html'; ?>
 
     <!-- Footer -->
     <div class="container_footer">
@@ -79,20 +79,20 @@ function breakAfterThreeWords($text) {
                 <div class="table_nav">
                     <table>
                         <tr>
-                            <td><a href="<?php echo BASE_URL ?>/index.php">About</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/about.php">About</a></td>
                             <td><a href="<?php echo BASE_URL ?>/articles.php">Articles</a></td>
                         </tr>
                         <tr>
-                            <td><a href="<?php echo BASE_URL ?>/academic.php">Academics</a></td>
-                            <td><a href="<?php echo BASE_URL ?>/event.php">Events</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/academic.php">Academics</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/event.php">Events</a></td>
                         </tr>
                         <tr>
-                            <td><a href="<?php echo BASE_URL ?>/enrollment/enrollment.php">Enrollment</a></td>
-                            <td><a href="<?php echo BASE_URL ?>/admission.php">Admission</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/enrollment/enrollment.php">Enrollment</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/admission.php">Admission</a></td>
                         </tr>
                         <tr>
-                            <td><a href="<?php echo BASE_URL ?>/index.php">Home</a></td>
-                            <td><a href="<?php echo BASE_URL ?>/contact_us.php">Contact</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/index.php">Home</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/contact_us.php">Contact</a></td>
                         </tr>
                     </table>
                 </div>

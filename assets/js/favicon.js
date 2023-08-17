@@ -1,4 +1,4 @@
-const faviconURL = '../assets/images/evergreen-logo(without background).png'; // Modify with your actual path
+const faviconURL = '../../../assets/images/evergreen-logo(without background).png'; // Modify with your actual path
 
 function setFavicon() {
     const link = document.querySelector("link[rel*='icon']") || createFaviconLink();
@@ -13,4 +13,6 @@ function createFaviconLink() {
     link.id = 'dynamicFavicon';
     return link;
 }
+
+setFavicon();
 

@@ -1,6 +1,8 @@
 <?php
 session_start();
 include 'dbConn.php';
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+
 
 if (isset($_POST['btnLogin'])) {
    $email = $_POST['email'];
@@ -34,7 +36,12 @@ mysqli_close($connection);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="LecturerLogin.css?v=<?php echo time(); ?>">
-    <title>Login Form</title>
+    <script src="../../../assets/js/config.js"></script>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <title id="documentTitle"></title>
+    <script>
+        document.getElementById("documentTitle").innerText = browserName; 
+    </script>
 
 </head>
 <body>
