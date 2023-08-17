@@ -15,8 +15,6 @@ $result = mysqli_query($conn, $query);
     <title id="documentTitle"></title>
     <script src="../assets/js/config.js"></script> 
     <link rel="stylesheet" href="../assets/css/course_create.css.?v=<?php echo time(); ?>">  
-    <link rel="stylesheet" href="../assets/css/header.css.?v=<?php echo time(); ?>">  
-    <link rel="stylesheet" href="../assets/css/footer.css.?v=<?php echo time(); ?>">  
     <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
 
     <script>

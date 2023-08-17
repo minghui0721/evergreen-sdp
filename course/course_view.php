@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/course_view.css?v=<?php echo time(); ?>"> <!-- Include your CSS file -->
-    <link rel="shortcut icon" href="../assets/images/evergreen-background.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/evergreen-background.jpeg" type="image/x-icon">
     <title id="documentTitle"></title>
     <script src="../assets/js/config.js"></script> 
     <script>

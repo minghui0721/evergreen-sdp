@@ -1,0 +1,179 @@
+.wrapper{
+    width: 80%;
+    max-height: 615px;
+    margin: 50px 0 0 0;
+    padding: 0;
+    float: right;
+    overflow-y: auto;
+}
+
+.wrapper::-webkit-scrollbar{
+    width: 4px;
+    height: 5px;
+}
+  
+.wrapper::-webkit-scrollbar-thumb{
+    border: 2px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.page-container {
+    width: 100%;
+    /* position: relative; */
+    margin-bottom: 100px;
+}
+
+
+.wrapper h1{
+    font-size: 45px;
+    text-align: center;
+    margin: 0 0 0 20px;
+    padding-bottom: 20px;
+}
+
+body{
+    color: white;
+}
+
+
+.page-container table {
+    margin: 0 auto;
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    padding: 30px;
+}
+
+th {
+    font-weight: bold;
+    position: sticky; /* Set the position to sticky */
+    top: 0; /* Stick to the top */
+    z-index: 1; /* Ensure the header appears above other content */
+    background-color: #3a388a;
+}
+
+/* Button Styles */
+.approve-btn, .reject-btn {
+    padding: 8px 12px;
+    margin-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.approve-btn {
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.reject-btn {
+    width: 100px;
+    background-color: #f44336;
+    color: white;
+}
+
+.approve-btn:hover, .reject-btn:hover {
+    background-color: white;
+    color: #4CAF50; /* Change to desired color */
+}
+
+/* Image Styles */
+.zoom-image img {
+    max-width: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.zoom-image img:hover {
+    transform: scale(1.1);
+}
+
+tr:not(:first-child):nth-child(even):hover,
+tr:not(:first-child):nth-child(odd):hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+tr:nth-child(even) {
+    background-color: #5c5adb;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #3a388a;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+
+.approved-container {
+    max-height: 300px;
+    background-color: #1d1d36;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    width: 85%;
+    margin: 0 auto;
+
+}
+
+.approved-container table {
+    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+
+.approved-container th, .approved-container td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+
+
+.approved-container h1{
+    padding-top: 30px;
+}
+
+.approved-container table{
+    background-color: #5c5adb;
+}
