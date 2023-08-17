@@ -1,0 +1,129 @@
+.wrapper{
+    width: 80%;
+    height: 680px;
+    margin: 0;
+    padding: 0;
+    float: right;
+    color: white;
+}
+
+.wrapper h1{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom:20px;
+}
+
+
+/* Style the form container */
+form {
+    width: 70%;
+    max-height: 395px;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #5c5adb;
+    font-size: 20px;
+    margin-bottom: 50px;
+    overflow-y: auto;
+}
+
+form::-webkit-scrollbar{
+    width: 4px;
+    height: 5px;
+}
+  
+form::-webkit-scrollbar-thumb{
+    border: 2px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Style form labels */
+.wrapper label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style form inputs and textarea */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-family: 'Belanosima', sans-serif;
+}
+
+select{
+    width: 102%;
+}
+
+select[disabled] {
+    color: red;
+    background-color: red;
+}
+
+
+input[type="submit"] {
+    background-color: #1d1d36;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    transition-duration: 0.3s;
+    opacity: 0.6;
+    padding-left:50px;
+    padding-right:50px;
+  }
+
+
+
+/* Style file input and label */
+input[type="file"] {
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+
+input[type="file"]:hover {
+    opacity: 0.6;
+}
+
+.label_image{
+    margin-bottom: 20px;
+}
+
+
+
+.back-course-btn {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 140px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.back-course-btn:hover {
+    background-color: white;
+    color: #3498db;
+}
+
+

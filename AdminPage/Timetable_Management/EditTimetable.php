@@ -73,7 +73,7 @@ $SelectedIntake=$TimetableList_row['intake']." ".$CoProName_row['program_name'].
                         <p>Intake:</p>
                         <select name="intake" id="intake">
                         <?php
-                        $Intake_query="SELECT `intake_ID`, `courseProgram_ID`, `intake` FROM `intake`";
+                        $Intake_query="SELECT `intake_ID`, `courseProgram_ID`, `intake` FROM `intake` ORDER BY `intake` ASC";
                         $Intake_result=mysqli_query($connection,$Intake_query);
                         while($Intake_row=mysqli_fetch_assoc($Intake_result)){
 

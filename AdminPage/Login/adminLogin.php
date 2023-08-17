@@ -10,7 +10,7 @@ if (isset($_POST['btnLogin'])) {
     $password = $_POST['password'];
 
     if ($email === $adminEmail && $password === $adminPassword) {
-        header("Location: ../Fee&Payment_Management/createFee.php"); // Replace with the actual admin page
+        header("Location: ../Enrollment_Management/enrollment_request.php"); // Replace with the actual admin page
         exit();
     } else {
         // Incorrect credentials, set an error message
@@ -41,9 +41,6 @@ if (isset($_POST['btnLogin'])) {
                 <i class='bx bxs-lock'></i>
             </div>
             <button type="submit" name="btnLogin" id="btnLogin" class="btn">Login</button>
-            <div class="login">
-                <p>Login as LECTURER or STUDENT?<a href="../main/main.php"> Login Here</a></p>
-            </div>
             <?php if (!empty($errorMessage)) { ?>
                 <p class="error-message"><?php echo $errorMessage; ?></p>
             <?php } ?>

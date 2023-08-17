@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../../assets/images/evergreen-logo(without background).png" type="image/x-icon">
 <style>
 body{
     background-color: #1d1d36;
@@ -82,7 +83,7 @@ body{
 .SideHeader{
     position: relative;
     width: 19%;
-    height: 685px;
+    height: 680px;
     background-color: white;
     margin: 0;
     padding: 0;
@@ -201,13 +202,13 @@ body{
                         <ul class="AcademicManagement">
 
                             <li>
-                                <a href="#" class="ManageEnrollment">
+                                <a href="../Enrollment_Management/enrollment_request.php" class="ManageEnrollment">
                                 · Manage enrollment
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" class="ManageCourse">
+                                <a href="../Course_Management/course_view.php" class="ManageCourse">
                                 · Manage course
                                 </a>
                             </li>
@@ -308,8 +309,8 @@ body{
                         <ul class="InformationManagement">
 
                             <li>
-                                <a href="#" class="ManageSchoolInfo">
-                                · Manage school info
+                                <a href="../SchoolInfo_Management/school_info.php" class="EditSchoolInfo">
+                                · Edit school info
                                 </a>
                             </li>
 
