@@ -1,6 +1,8 @@
 <?php
 session_start();
-include 'dbConn.php';
+include '../../../database/db_connection.php';
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -10,7 +12,7 @@ if (isset($_POST['btnResetPassword'])) {
 
     // Check if the email exists in the database
     $query = "SELECT * FROM student WHERE email = '$email'";
-    $results = mysqli_query($connection, $query);
+    $results = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($results);
     $count = mysqli_num_rows($results);
 
@@ -23,13 +25,13 @@ if (isset($_POST['btnResetPassword'])) {
         $expiration_time = time() + (24 * 60 * 60); // Token will expire after 24 hours
         $update_query = "UPDATE student SET reset_token = '$token', reset_expiration = '$expiration_time' WHERE student_ID = '$student_ID'";
 
-        if (mysqli_query($connection, $update_query)) {
+        if (mysqli_query($conn, $update_query)) {
             // Send an email to the user with the password reset link
             $reset_link = "http://localhost/SDP/Login/student/reset_password.php?token=$token";
 
-            require '../SendEmail/PHPMailer.php';;
-            require '../SendEmail/SMTP.php';
-            require '../SendEmail/Exception.php';
+            require '../../SendEmail/PHPMailer.php';;
+            require '../../SendEmail/SMTP.php';
+            require '../../SendEmail/Exception.php';
 
             // Create a new instance of PHPMailer
             $mail = new PHPMailer();
@@ -58,7 +60,7 @@ if (isset($_POST['btnResetPassword'])) {
     } else {
         echo "<script>alert('Email not found. Please enter a valid email address.');</script>";
     }
-    mysqli_close($connection);
+    mysqli_close($conn);
 }
 ?>
 
@@ -69,7 +71,12 @@ if (isset($_POST['btnResetPassword'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="forgotpassword.css?v=<?php echo time(); ?>">
-    <title>Forgot Password</title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
+    <script src="../../../assets/js/config.js"></script>
+    <title id="documentTitle"></title>
+    <script>
+        document.getElementById("documentTitle").innerText = browserName; 
+    </script>
 </head>
 <body>
     <div class="container">

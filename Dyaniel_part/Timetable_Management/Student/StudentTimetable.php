@@ -28,11 +28,15 @@ list($Week4Start,$Week4End)=Week4StartEnd();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="StudentTimtable_style.css?v=<?php echo time(); ?>">
-    <title>Timetable</title>
+    <link rel="stylesheet" href="StudentTimtable_style.css?v=<?php echo time(); ?>">
+    <title>Timetable</title>  
     <!-- path -->
 </head>
+
 <body>
+
+    <div id="header"></div>
+
     <div class="TitleBar">
         <h1>Timetable</h1>
         <form action="#" method="post">
@@ -166,6 +170,20 @@ list($Week4Start,$Week4End)=Week4StartEnd();
         $z++;
         }
     ?>
+
+<script>
+        const container = document.getElementById('header');
+        // Load header content
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            container.innerHTML = this.responseText;
+        }
+        };
+
+        xhttp.open('GET', '../../../student/studentHeader.php', true);
+        xhttp.send();
+    </script>
 </body>
 </html>
 

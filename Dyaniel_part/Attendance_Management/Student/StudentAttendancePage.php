@@ -31,9 +31,14 @@ $OverallPercentage=round($OverallPercentage,2);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="StudentAttendancePage_style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../../assets/css/studentHeader.css">
     <title>Attendance</title>
 </head>
 <body>
+
+<!-- header -->
+<div id="header"></div>
+
     <div class="wrapper">
         <div class="title">
             <h1>Attendance</h1>
@@ -147,5 +152,20 @@ $OverallPercentage=round($OverallPercentage,2);
             ?>
         </div>
     </div>
+
+    
+<script>
+        const container = document.getElementById('header');
+        // Load header content
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            container.innerHTML = this.responseText;
+        }
+        };
+
+        xhttp.open('GET', '../../student/studentHeader.php', true);
+        xhttp.send();
+    </script>
 </body>
 </html>

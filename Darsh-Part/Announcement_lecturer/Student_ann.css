@@ -1,0 +1,111 @@
+/* Student_ann.css */
+
+/* Styles for the header */
+body {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-size: cover;
+  background-position: center;
+  color: #19192d;
+  padding: 40px 0;
+  font-family: "Cooper Black", Arial, sans-serif;
+  font-size: 30px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.header h1{
+  font-size: 40px;
+  margin-top: 150px;
+}
+
+/* Styles for the welcome section */
+div.welcome {
+  background-color: #48586e;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.welcome img {
+  max-width: 260%;
+  max-height: 360px;
+  margin-right: 20px;
+}
+
+p {
+  padding: 20px;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Styles for the announcements section */
+main {
+  padding: 20px;
+}
+
+section.announcements {
+  background-color: #9393a7;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#announcementList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.announcement-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #adb3c3;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+/* Styles for the search form */
+.search-bar {
+  text-align: right;
+  margin-top: 20px;
+}
+
+#searchForm input[type="text"] {
+  padding: 8px;
+  width: 300px;
+  border: 1px solid #0c0b0b;
+  border-radius: 3px;
+}
+
+#searchForm button {
+  padding: 8px 16px;
+  background-color: #2e345f;
+  color: #fff;
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+#searchForm button:hover {
+  background-color: #19192d;
+}
+
+/* Styles for the announcement details */
+#announcementDetails {
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  color: #1d1d36;
+}
+
+
+
+  
