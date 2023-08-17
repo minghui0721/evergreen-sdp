@@ -53,7 +53,7 @@ function goBack() {
                 <th>Grade ID</th>
                 <th>Exam ID</th>
                 <th>Course Program</th>
-                <th>Student Name</th>
+                <th>Student Name </th>
                 <th>Subject Name</th>
                 <th>Exam Marks</th>
                 <th style="width: 130px;">Action</th>

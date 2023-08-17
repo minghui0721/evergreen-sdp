@@ -18,7 +18,6 @@ if ($connection === false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Grading</title>
-    <link rel="stylesheet" href="../lecturer/setup.css">
     <link rel="stylesheet" href="view_grading.css">
 </head>
 <script>    
@@ -81,7 +80,7 @@ function goBack() {
                     $assignmentRow = $assignmentResult->fetch_assoc();
 
                     // If assignment marks exist, display them; otherwise, display N/A
-                    $assignmentMarks = $assignmentRow ? $assignmentRow["grade"] : "N/A";
+                    $assignmentMarks = $assignmentRow ? $assignmentRow["grade"].' <ion-icon name="medal-outline" style="font-size: 17px;"></ion-icon>' : 'N/A <ion-icon name="close-circle-outline"style="font-size: 17px;"></ion-icon>';
                     echo "<td>" . $assignmentMarks . "</td>";
                 echo "</tr>";
             }
