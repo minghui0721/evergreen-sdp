@@ -1,0 +1,113 @@
+body{
+    background: linear-gradient(0deg, rgba(29,29,54,1) 0%, rgba(44,42,178,1) 0%, rgba(92,90,219,1) 100%);
+    height: fit-content;
+    margin-bottom: 50px;
+}
+/* Header */
+.button_header {
+    padding: 30px;
+    padding-left: 50px;
+    color: white;
+    background-color: #1d1d36;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #5c5adb;
+    transition: color 0.3s;
+}
+
+.back-button svg {
+    fill: white;
+    width: 24px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.back-button:hover {
+    color: #3f3d56;
+    opacity: 0.5;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    font-size: 24px;
+    height: 30px;
+    margin-left: 10px;
+    padding-top: 4px;
+}
+
+/* Content */
+.lecturer_content {
+    margin-top: 50px;
+}
+
+.lecturer-card {
+    background-color: #fff;
+    width: 45%;
+    height: fit-content;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: block;
+    text-align: center;
+}
+
+.lecturer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.lecturer-details {
+    margin-top: 20px;
+}
+
+.lecturer-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.lecturer-email {
+    font-size: 18px;
+    color: #888;
+    margin: 5px 0;
+}
+
+.course-program {
+    font-size: 16px;
+    margin: 5px 0;
+    padding-top: 20px;
+}
+
+.handle {
+    font-size: 20px;
+    color: #5c5adb;
+    display: block;
+}
+
+.book-button {
+    background-color: #5c5adb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.book-button:hover {
+    background-color: #3f3d56;
+}

@@ -38,7 +38,7 @@ include '../assets/base_url/config.php';
 
           <li class="list-inline-item"><a href="<?php echo BASE_URL ?>/Darsh-Part/Announcement_lecturer/student.php" class="announcement_list">Announcement</a></li>
 
-          <li class="list-inline-item"><a href="more.php" class="more_list">More</a></li>
+          <li class="list-inline-item"><a href="<?php echo BASE_URL ?>/student/more.php" class="more_list">More</a></li>
         </ul>
       </nav>
     </div>

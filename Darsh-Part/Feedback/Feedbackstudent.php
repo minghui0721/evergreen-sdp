@@ -1,9 +1,19 @@
+<?php
+include '../../assets/favicon/favicon.php'; // Include the favicon.php file
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Evergreen University - Student Feedback</title>
   <link rel="stylesheet" type="text/css" href="Feedbackstudent.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cooper+Black&display=swap">
+  <script src="../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
 </head>
 <body>
   <header>

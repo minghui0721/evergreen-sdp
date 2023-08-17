@@ -33,6 +33,15 @@ $OverallPercentage=round($OverallPercentage,2);
     <link rel="stylesheet" type="text/css" href="StudentAttendancePage_style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../../../assets/css/studentHeader.css">
     <title>Attendance</title>
+    <style>
+            .attendance_list{
+                color: #5c5adb;
+            }
+
+            .attendance_list:hover{
+                opacity: 1;
+            }
+     </style>
 </head>
 <body>
 

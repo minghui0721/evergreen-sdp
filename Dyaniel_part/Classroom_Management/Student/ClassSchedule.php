@@ -1,5 +1,7 @@
 <?php
-include "dbConn.php";
+include "../../../database/db_connection.php";
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+
 
 // Retreive the data from from
 $ClassID=$_GET['classID'];
@@ -19,7 +21,12 @@ $Date=$_GET['date'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="ClassSchedule_style.css?v=<?php echo time(); ?>">
-    <title>A-02-04 Class Schedule</title>
+    <script src="../../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
     <!-- path -->
 </head>
 <body>
@@ -49,7 +56,7 @@ $Date=$_GET['date'];
         ON a.subject_ID = d.subject_ID
         WHERE a.class_ID='$ClassID' AND a.date='$Date'
         ORDER BY a.start_time ASC";
-        $Timetable_result=mysqli_query($connection,$Timetable_query);
+        $Timetable_result=mysqli_query($conn,$Timetable_query);
         $Timetable_count=mysqli_num_rows($Timetable_result);
 
         if($Timetable_count>0){
@@ -57,7 +64,7 @@ $Date=$_GET['date'];
                 //retrieve the Course Name and Program Name based on courseProgram_ID
                 $CoProID=$Timetable_row['courseProgram_ID'];
                 $CoProName_query="SELECT `course_name`, `program_name`FROM `course_program` WHERE `courseProgram_ID`='$CoProID'";
-                $CoProName_result=mysqli_query($connection,$CoProName_query);
+                $CoProName_result=mysqli_query($conn,$CoProName_query);
                 $CoProName_row=mysqli_fetch_assoc($CoProName_result);
 
                 // save retrieved data into variable

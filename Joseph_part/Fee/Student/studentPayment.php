@@ -1,10 +1,12 @@
 <?php
 session_start();
-include 'dbConn.php'; 
+include '../../../database/db_connection.php'; 
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+
 $student_ID = $_SESSION['student_ID'];
 
 $query_distinct_fees = "SELECT DISTINCT fee_ID FROM payment WHERE student_ID = $student_ID AND status = 'Unpaid'";
-$result_distinct_fees = mysqli_query($connection, $query_distinct_fees);
+$result_distinct_fees = mysqli_query($conn, $query_distinct_fees);
 
 $unpaid_payments = [];
 
@@ -13,7 +15,7 @@ if ($result_distinct_fees) {
         $fee_ID = $row['fee_ID'];
 
         $query_unpaid_payment = "SELECT * FROM payment WHERE student_ID = $student_ID AND fee_ID = $fee_ID";
-        $result_unpaid_payment = mysqli_query($connection, $query_unpaid_payment);
+        $result_unpaid_payment = mysqli_query($conn, $query_unpaid_payment);
 
         if ($result_unpaid_payment) {
             while ($payment = mysqli_fetch_assoc($result_unpaid_payment)) {
@@ -24,7 +26,7 @@ if ($result_distinct_fees) {
         }
     }
 } else {
-    echo "Error fetching distinct fee IDs: " . mysqli_error($connection);
+    echo "Error fetching distinct fee IDs: " . mysqli_error($conn);
 }
 
 function getOrdinalSuffix($number) {
@@ -49,7 +51,12 @@ function getOrdinalSuffix($number) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="studentPayment.css?v=<?php echo time(); ?>">
-    <title>Student Fee Payment Details</title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script src="../../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
 </head>
 <body>
     <div class="container">
@@ -64,7 +71,7 @@ function getOrdinalSuffix($number) {
                 <?php
                 // Query to fetch unpaid payment data
                 $query_unpaid_payments = "SELECT * FROM payment WHERE student_ID = $student_ID AND status = 'Unpaid'";
-                $result_unpaid_payments = mysqli_query($connection, $query_unpaid_payments);
+                $result_unpaid_payments = mysqli_query($conn, $query_unpaid_payments);
 
                 if ($result_unpaid_payments) {
                     $unpaid_payments = [];
@@ -81,7 +88,7 @@ function getOrdinalSuffix($number) {
 
                             // Fetch the fee details
                             $query_fee = "SELECT total_amount, due_date FROM fee WHERE fee_ID = $fee_ID";
-                            $result_fee = mysqli_query($connection, $query_fee);
+                            $result_fee = mysqli_query($conn, $query_fee);
 
                             if ($result_fee) {
                                 $fee = mysqli_fetch_assoc($result_fee);
@@ -91,7 +98,7 @@ function getOrdinalSuffix($number) {
 
                             // Fetch program and course details
                             $query_course_program = "SELECT program_name, course_name FROM course_program WHERE courseProgram_ID = (SELECT courseProgram_ID FROM intake WHERE intake_ID = (SELECT intake_ID FROM student WHERE student_ID = $student_ID))";
-                            $result_course_program = mysqli_query($connection, $query_course_program);
+                            $result_course_program = mysqli_query($conn, $query_course_program);
 
                             if (!$result_course_program) {
                                 echo "Error fetching course program data: " . mysqli_error($connection);

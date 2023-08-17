@@ -35,6 +35,16 @@ mysqli_close($conn);
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
 
+<style>
+            .announcement_list{
+                color: #5c5adb;
+            }
+
+            .announcement_list:hover{
+                opacity: 1;
+            }
+     </style>
+
 </head>
 <body>
 

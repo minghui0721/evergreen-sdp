@@ -1,12 +1,8 @@
 <?php
 // Connect to the database
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'sdp'; // Change this to your database name
-$connection = mysqli_connect($host, $user, $password, $database);
+include '../../database/db_connection.php';
 
-if (!$connection) {
+if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -19,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM admin_announcement ORDER BY publish_date DESC LIMIT 10";
 }
 
-$result = mysqli_query($connection, $sql);
+$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +61,7 @@ $result = mysqli_query($connection, $sql);
 </html>
 
 <?php
-mysqli_close($connection);
+mysqli_close($conn);
 ?>
 
 

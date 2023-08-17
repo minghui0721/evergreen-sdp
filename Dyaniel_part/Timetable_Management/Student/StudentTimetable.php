@@ -31,6 +31,15 @@ list($Week4Start,$Week4End)=Week4StartEnd();
     <link rel="stylesheet" href="StudentTimtable_style.css?v=<?php echo time(); ?>">
     <title>Timetable</title>  
     <!-- path -->
+    <style>
+            .timetable_list{
+                color: #5c5adb;
+            }
+
+            .timetable_list:hover{
+                opacity: 1;
+            }
+     </style>
 </head>
 
 <body>

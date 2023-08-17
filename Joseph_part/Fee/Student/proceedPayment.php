@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'dbConn.php';
+include '../../../database/db_connection.php'; 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -12,22 +12,22 @@ $payment_amount = isset($_GET['amount']) ? $_GET['amount'] : 0;
 
 // Fetch payment details and other necessary data
 $payment_query = "SELECT * FROM payment WHERE payment_ID = $payment_ID";
-$payment_result = mysqli_query($connection, $payment_query);
+$payment_result = mysqli_query($conn, $payment_query);
 $payment_data = mysqli_fetch_assoc($payment_result);
 
 $student_name_query = "SELECT student_name FROM student WHERE student_ID = {$payment_data['student_ID']}";
-$student_name_result = mysqli_query($connection, $student_name_query);
+$student_name_result = mysqli_query($conn, $student_name_query);
 if ($student_name_result) {
     $student = mysqli_fetch_assoc($student_name_result);
     $student_name = $student['student_name'];
 } else {
     // Handle query error
-    echo "Error fetching student name: " . mysqli_error($connection);
+    echo "Error fetching student name: " . mysqli_error($conn);
     exit; // Exit the script
 }
 
 $course_program_query = "SELECT program_name, course_name FROM course_program WHERE courseProgram_ID = (SELECT courseProgram_ID FROM intake WHERE intake_ID = (SELECT intake_ID FROM student WHERE student_ID = {$payment_data['student_ID']}))";
-$course_program_result = mysqli_query($connection, $course_program_query);
+$course_program_result = mysqli_query($conn, $course_program_query);
 $course_program = mysqli_fetch_assoc($course_program_result);
 
 if ($payment_data['installment_ID'] == 0 && isset($payment_data['fee_ID'])) {
@@ -35,7 +35,7 @@ if ($payment_data['installment_ID'] == 0 && isset($payment_data['fee_ID'])) {
 
     // Fetch the total amount from the fee table
     $fee_query = "SELECT total_amount FROM fee WHERE fee_ID = $fee_ID";
-    $fee_result = mysqli_query($connection, $fee_query);
+    $fee_result = mysqli_query($conn, $fee_query);
 
     if ($fee_result && mysqli_num_rows($fee_result) > 0) {
         $fee_data = mysqli_fetch_assoc($fee_result);
@@ -68,22 +68,22 @@ $payment_methods = array('Credit Card', 'Debit Card', 'Bank Transfer');
 
 // Handle payment submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $selected_method = mysqli_real_escape_string($connection, $_POST['payment_method']); // Escape and sanitize the input
+    $selected_method = mysqli_real_escape_string($conn, $_POST['payment_method']); // Escape and sanitize the input
 
     // Perform payment processing and update payment status
     $update_query = "UPDATE payment SET payment_datetime = NOW(), payment_method = '$selected_method', status = 'Paid' WHERE payment_ID = $payment_ID";
-    $update_result = mysqli_query($connection, $update_query);
+    $update_result = mysqli_query($conn, $update_query);
 
     if ($update_result) {
         // Fetch student's email from the database
         $student_email_query = "SELECT email FROM student WHERE student_ID = {$payment_data['student_ID']}";
-        $student_email_result = mysqli_query($connection, $student_email_query);
+        $student_email_result = mysqli_query($conn, $student_email_query);
         if ($student_email_result) {
             $student_email_data = mysqli_fetch_assoc($student_email_result);
             $student_email = $student_email_data['email'];
         } else {
             // Handle query error
-            echo "Error fetching student email: " . mysqli_error($connection);
+            echo "Error fetching student email: " . mysqli_error($conn);
             exit; // Exit the script
         }
 

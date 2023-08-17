@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'dbConn.php';
+include '../../database/db_connection.php'; 
+
 
 // Check if the student is logged in
 if (!isset($_SESSION['email'])) {
@@ -16,26 +17,26 @@ $student_name = $_SESSION['student_name'];
 
 // Query the student table to get the intake_ID related to the student_ID
 $query_student = "SELECT intake_ID FROM student WHERE student_ID = '$student_ID'";
-$result_student = mysqli_query($connection, $query_student);
+$result_student = mysqli_query($conn, $query_student);
 $row_student = mysqli_fetch_assoc($result_student);
 $intake_ID = $row_student['intake_ID'];
 
 // Use the intake_ID to fetch the courseProgram_ID from the intake table
 $query_intake = "SELECT courseProgram_ID FROM intake WHERE intake_ID = '$intake_ID'";
-$result_intake = mysqli_query($connection, $query_intake);
+$result_intake = mysqli_query($conn, $query_intake);
 $row_intake = mysqli_fetch_assoc($result_intake);
 $courseProgram_ID = $row_intake['courseProgram_ID'];
 
 // Fetch due date data from the fee table in the database based on the student's course_ID
 $query_due = "SELECT due_date, total_amount FROM fee WHERE courseProgram_ID = '$courseProgram_ID'";
-$result_due = mysqli_query($connection, $query_due);
+$result_due = mysqli_query($conn, $query_due);
 $row_due = mysqli_fetch_assoc($result_due);
 $dueDateFromDB = $row_due['due_date'];
 $TotalAmount = $row_due['total_amount'];
 
 // Use the courseProgram_ID to fetch the program_name and course_name from the course_program table
 $query_course_program = "SELECT program_name, course_name FROM course_program WHERE courseProgram_ID = '$courseProgram_ID'";
-$result_course_program = mysqli_query($connection, $query_course_program);
+$result_course_program = mysqli_query($conn, $query_course_program);
 $row_course_program = mysqli_fetch_assoc($result_course_program);
 $program_name = $row_course_program['program_name'];
 $course_name = $row_course_program['course_name'];

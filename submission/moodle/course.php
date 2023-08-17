@@ -1,14 +1,10 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'evergreen_heights_university';
+include '../../assets/favicon/favicon.php'; // Include the favicon.php file
+include "../../database/db_connection.php";
 
-// Step 1 - Database connection
-$connection = mysqli_connect($host, $user, $password, $database);
 
 // Check database connection
-if ($connection === false) {
+if ($conn === false) {
     die('Connection failed: ' . mysqli_connect_error());
 
 }
@@ -19,7 +15,7 @@ if(isset($_GET['subject_id'])){
 }
 
 $sql = "SELECT * FROM subject where subject_ID = $ID"; // You may use an appropriate WHERE clause here
-$result = mysqli_query($connection, $sql);
+$result = mysqli_query($conn, $sql);
 
 if ($result->num_rows > 0) {
     // Output data of the first row
@@ -37,9 +33,14 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $subjectName; ?></title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="course.css">
+    <script src="../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
 </head>
 <script>
 function goBack() {

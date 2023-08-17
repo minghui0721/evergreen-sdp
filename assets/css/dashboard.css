@@ -5,3 +5,161 @@
 .dashboard_list:hover{
     opacity: 1;
 }
+
+.dashboard-content{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0px 50px;
+}
+
+
+.profile-section{
+  margin-top: 120px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+}
+
+.profile-details {
+  padding: 20px;
+  padding-left: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-details img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-left: 50px;
+  border: 2px solid #1d1d36;
+  padding: 5px; /* Add padding to create spacing between the border and the image */
+}
+
+
+.profile-details h2{
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.profile-details strong {
+  font-weight: bold;
+}
+
+
+
+.logout-button {
+  text-align: right;
+  padding-right: 120px;
+}
+
+.logout-button button svg{
+  fill: #fff;
+}
+
+.logout-button button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #5c5adb;
+  border: none;
+  transition: background-color 0.3s, opacity 0.3s; /* Added transition properties */
+}
+
+.logout-button button:hover {
+  background-color: #5c5adb;
+  opacity: 0.7;
+}
+
+
+.schedule-section,
+.events-section {
+  padding: 30px;
+   width: 50%;
+    color: #fff;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-section {
+  background-color: #5c5adb;
+  color: #1d1d36;
+    animation: fadeInLeft 1s ease-in-out;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.schedule-section h2, .events-section h2{
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.events-section {
+  background-color: #1d1d36;
+    color: #5c5adb;
+    animation: fadeInRight 1s ease-in-out;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.events-list, .schedule-list{
+  list-style-type: none;
+}
+
+.schedule-list li{
+  background-color: #1d1d36;
+}
+
+.events-list li{
+  background-color: #5c5adb;
+}
+
+.events-list li, .schedule-list li {
+  /* height: 180px; */
+  font-size: 18px;
+  color: white;
+  margin-bottom: 20px;
+  padding: 30px;
+  border-radius: 5px;
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+
+.events-list li:hover, .schedule-list li:hover {
+  transform: scale(1.05);
+}
+
+
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Adjust the layout for responsive design */
+@media (max-width: 768px) {
+    .profile-section,
+    .events-section {
+        padding: 50px 10px;
+    }
+}

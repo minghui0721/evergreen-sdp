@@ -1,0 +1,132 @@
+
+
+
+.functions{
+    height: fit-content;
+    position: relative;
+    font-size: 30px;
+    color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto auto auto;
+    column-gap: 150px;
+    position: relative;
+    margin-top: 130px;
+    animation: fade-in-bottom 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;}
+
+
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid{
+    width: 300px;
+    height: 120px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+
+
+.function1{
+    background-image: url(../images/fee.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.function2{
+    background-image: url(../images/classroom.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.function3{
+    background-image: url(../images/feedback.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.function4{
+    background-image: url(../images/feedback.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.function5{
+    background-image: url(../images/result.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.function6{
+    background-image: url(../images/lecturer.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.function7{
+    background-image: url(../images/career.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.function8{
+    background-image: url(../images/intake.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.function9{
+    background-image: url(../images/profile.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+.function1 h2, 
+.function2 h2, 
+.function3 h2, 
+.function4 h2, 
+.function5 h2, 
+.function6 h2, 
+.function7 h2, 
+.function8 h2, 
+.function9 h2{
+    text-align: center;
+    z-index: 1;
+}
+
+/* create a black 'paper' to make the image darker */
+.grid::before{
+    position: absolute;
+    content: "";
+    background-color: black;
+    border-radius: 10px;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.functions a{
+    text-decoration: none;
+    color: white;
+    transition-duration: 0.3s;
+    opacity: 1;
+}
+
+.functions a:hover{
+    opacity: 0.8;
+    transform: scale(1.1);  /*zoom in 10%*/
+}

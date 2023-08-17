@@ -1,7 +1,7 @@
 <?php
 include '../database/db_connection.php';
 
-$lecturerID = 1; 
+$lecturerID = $_GET['lecturer_id'];
 
 $sql = "
     SELECT * 

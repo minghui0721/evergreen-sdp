@@ -1,21 +1,16 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'evergreen_heights_university';
-
-// Step 1 - Database connection
-$connection = mysqli_connect($host, $user, $password, $database);
+include '../../assets/favicon/favicon.php'; // Include the favicon.php file
+include "../../database/db_connection.php";
 
 // Check database connection
-if ($connection === false) {
+if ($conn === false) {
     die('Connection failed: ' . mysqli_connect_error());
 
 }
 
 // Fetch courses from the database
 $sql = "SELECT * FROM subject where courseProgram_ID = '1'"; // Replace 'your_table_name' with the actual table name
-$result = mysqli_query($connection, $sql);
+$result = mysqli_query($conn, $sql);
 
 $subjects = array(); // Initialize an empty array to store course details
 
@@ -40,12 +35,17 @@ while ($row = mysqli_fetch_assoc($result)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module Page</title>
+    <script src="../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
     <link rel="stylesheet" href="home.css">
 </head>
 <header>
 <div class="header-content">
-            <a href="#"><button class="backbtn">Back</button></a>
+            <a href="../../student/more.php"><button class="backbtn">Back</button></a>
             <a href="home.php"></a>
                 <img src="./img/logo.png" height="80" weight="420" alt="Error" class="logo">
             </a>

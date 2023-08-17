@@ -1,14 +1,9 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'evergreen_heights_university';
-
-// Step 1 - Database connection
-$connection = mysqli_connect($host, $user, $password, $database);
+include '../../assets/favicon/favicon.php'; // Include the favicon.php file
+include "../../database/db_connection.php";
 
 // Check database connection
-if ($connection === false) {
+if ($conn === false) {
     die('Connection failed: ' . mysqli_connect_error());
 
 }
@@ -22,7 +17,7 @@ if(isset($_GET['subject_id'])){
 if ($ID > 0) {
     // Query the subject based on subject_ID
     $sql = "SELECT * FROM subject WHERE subject_ID = $ID";
-    $result = mysqli_query($connection, $sql);
+    $result = mysqli_query($conn, $sql);
 
     if ($result->num_rows > 0) {
         // Output data of the first row
@@ -37,7 +32,7 @@ if ($ID > 0) {
 
 // Query the tutorial based on subject_ID
 $sqlTutorial = "SELECT * FROM tutorial_exercises WHERE subject_ID = $ID";
-$resultTutorial = mysqli_query($connection, $sqlTutorial);
+$resultTutorial = mysqli_query($conn, $sqlTutorial);
 $TutorialData = array();
 
 while ($rowTutorial = mysqli_fetch_assoc($resultTutorial)) {
@@ -79,9 +74,14 @@ if (isset($_GET['tutorial_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Programming (052023-KGT)</title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="course.css">
+    <script src="../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
 </head>
 
 <script>

@@ -1,6 +1,8 @@
 <?php
-include "dbConn.php";
+include "../../../database/db_connection.php";
 include "WeekDateRange.php";
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+
 //<!-- path -->
 
 //Default current datetime and time after 1 hour
@@ -21,7 +23,12 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="ClassFinder_style.css?v=<?php echo time(); ?>">
-    <title>Class Finder</title>
+    <script src="../../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
     <!-- path -->
 </head>
 <body>
@@ -127,7 +134,7 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
 
             //Retrieve each classroom details
             $Classroom_query="SELECT * FROM `class` WHERE `room_type`='$FilterRoomType'";
-            $Classroom_result=mysqli_query($connection,$Classroom_query);
+            $Classroom_result=mysqli_query($conn,$Classroom_query);
 
             while($Classroom_row=mysqli_fetch_assoc($Classroom_result)){
                 //save classroom details into variable
@@ -145,7 +152,7 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
 
                 // Check either there is any class in progress between the filter time interval based on class
                 $TimetableCheck_query="SELECT `start_time`, `end_time` FROM `timetable_details` WHERE `class_ID`='$ClassID' AND `date`='$FilterDate'";
-                $TimetableCheck_result=mysqli_query($connection,$TimetableCheck_query);
+                $TimetableCheck_result=mysqli_query($conn,$TimetableCheck_query);
 
                 while($TimetableCheck_row=mysqli_fetch_assoc($TimetableCheck_result)){
                     $ClassStart=date('H:i', strtotime($TimetableCheck_row['start_time']));

@@ -1,14 +1,9 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'evergreen_heights_university';
-
-// Step 1 - Database connection
-$connection = mysqli_connect($host, $user, $password, $database);
+include '../../assets/favicon/favicon.php'; // Include the favicon.php file
+include "../../database/db_connection.php";
 
 // Check database connection
-if ($connection === false) {
+if ($conn === false) {
     die('Connection failed: ' . mysqli_connect_error());
 
 }
@@ -19,7 +14,7 @@ if(isset($_GET['subject_id'])){
 }
 
 $sql = "SELECT * FROM subject where subject_ID = $ID"; // You may use an appropriate WHERE clause here
-$result = mysqli_query($connection, $sql);
+$result = mysqli_query($conn, $sql);
 
 if ($result->num_rows > 0) {
     // Output data of the first row
@@ -33,7 +28,7 @@ if ($result->num_rows > 0) {
 
 // Query the details based on subject_ID
 $sqldetails = "SELECT * FROM assignment_details WHERE subject_ID = $ID";
-$resultdetails = mysqli_query($connection, $sqldetails);
+$resultdetails = mysqli_query($conn, $sqldetails);
 $detailsData = array();
 
 while ($rowdetails = mysqli_fetch_assoc($resultdetails)) {
@@ -73,9 +68,14 @@ if (isset($_GET['details_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $subjectName; ?></title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="course.css">
+    <script src="../../assets/js/config.js"></script> 
+    <title id="documentTitle"></title>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
+    <script>
+        document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+    </script>
 </head>
 <script>
 function goBack() {
@@ -156,7 +156,7 @@ for (i = 0; i < a.length; i++) {
    <?php
 // Check if the subject_ID exists in the assignment_set table
 $sqlCheckSubjectID = "SELECT assignment_ID FROM assignment_set WHERE subject_ID = $ID AND assignment_ID IS NOT NULL";
-$resultCheckSubjectID = mysqli_query($connection, $sqlCheckSubjectID);
+$resultCheckSubjectID = mysqli_query($conn, $sqlCheckSubjectID);
 
 // Check if the query was successful and fetch the assignment_ID
 if ($resultCheckSubjectID && mysqli_num_rows($resultCheckSubjectID) > 0) {
