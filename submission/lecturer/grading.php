@@ -50,7 +50,7 @@ function goBack() {
             if ($connection === false) {
                 die('Connection failed: ' . mysqli_connect_error());
             }
-
+            
             // Fetch all the submissions from the assignment_submission table, filtered by assignment and student IDs
             $query = "SELECT asub.submission_ID, asub.assignment_ID, asub.student_ID, s.subject_name, asub.submission_file, asub.submission_date FROM assignment_submission asub
                       JOIN subject s ON asub.subject_ID = s.subject_ID
@@ -98,13 +98,7 @@ function goBack() {
 
                 // Set a session variable to indicate successful submission
                 $_SESSION['grade_submitted'] = true;
-
-                // Close the database connection
-                mysqli_close($connection);
-
-                // Redirect back to the details.php page after grading
-                header('Location: details.php?assignment_id=' . $assignment_id . '&student_id=' . $student_id);
-                exit();
+                
             }
 
             // Close the database connection after using the query result
@@ -115,18 +109,18 @@ function goBack() {
         ?>
     </div>
     <script>
-        // Check if the session variable is set (indicating successful submission)
-        if (<?php echo isset($_SESSION['grade_submitted']) ? 'true' : 'false'; ?>) {
-            // After 2 seconds, go back to the previous page
-            setTimeout(() => {
-                window.history.back();
-            }, 2000);
+    // After successfully submitting the grades
+    if (<?php echo isset($_SESSION['grade_submitted']) ? 'true' : 'false'; ?>) {
+        // After 2 seconds, go back to the previous page
+        setTimeout(() => {
+            window.history.back();
+        }, 3000);
 
-            // Clear the session variable after 2 seconds
-            setTimeout(() => {
-                <?php unset($_SESSION['grade_submitted']); ?>
-            }, 2000);
-        }
-    </script>
+        // Clear the session variable after 2 seconds
+        setTimeout(() => {
+            <?php unset($_SESSION['grade_submitted']); ?>
+        }, 3000);
+    }
+</script>
 </body>
 </html>

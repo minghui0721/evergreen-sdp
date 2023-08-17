@@ -53,12 +53,13 @@ function goBack() {
                 <th>Grade ID</th>
                 <th>Exam ID</th>
                 <th>Course Program</th>
-                <th>Student ID</th>
+                <th>Student Name</th>
                 <th>Subject Name</th>
+                <th>Exam Marks</th>
                 <th style="width: 130px;">Action</th>
             </tr>
             <?php
-            $sql = "SELECT g.grade_ID, g.exam_ID, g.courseProgram_ID, g.student_ID, e.subject_ID
+            $sql = "SELECT g.grade_ID, g.exam_ID, g.courseProgram_ID, g.student_ID, e.subject_ID, g.grade
                     FROM grade g
                     JOIN exam e ON g.exam_ID = e.exam_ID";
             
@@ -86,6 +87,8 @@ function goBack() {
                 $subjectResult = $connection->query($subjectQuery);
                 $subjectRow = $subjectResult->fetch_assoc();
                 echo "<td>" . $subjectRow["subject_name"] . "</td>";
+
+                echo "<td>" . $row["grade"] . "</td>";
 
                 echo "<td><a href='grade_exam.php?id=" . $row["grade_ID"] . "&prevPage=" . urlencode($_SERVER['REQUEST_URI']) . "'><button style='margin-left: 15px;'>Grade</button></a></td>";
                 echo "</tr>";
