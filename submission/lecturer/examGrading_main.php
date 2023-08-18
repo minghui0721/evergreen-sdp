@@ -8,7 +8,7 @@ include '../../assets/favicon/favicon.php'; // Include the favicon.php file
 try {
     // Replace lecturer_ID with the actual value
     $lecturerID = $_SESSION['lecturer_ID'];
-
+    $lecturerID = 1;
     // Step 1: Retrieve subject details using lecturer_ID
     $query1 = "SELECT s.subject_ID, s.subject_name, s.courseProgram_ID
                FROM subject s

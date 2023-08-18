@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include '../../assets/favicon/favicon.php'; // Include the favicon.php file
@@ -20,7 +21,27 @@ if ($conn === false) {
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
     <link rel="stylesheet" href="../admin/view_grading.css">
+    <link rel="stylesheet" href="../../assets/css/studentHeader.css">
+    <link rel="stylesheet" href="../../assets/css/more.css.?v = <?php echo time();?>">
+
 </head>
+
+<div id="header"></div>
+
+
+<script>
+        const container = document.getElementById('header');
+        // Load header content
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            container.innerHTML = this.responseText;
+        }
+        };
+
+        xhttp.open('GET', '../../student/studentHeader.php', true);
+        xhttp.send();
+    </script>
 <div class="container_grade">
             <br>
             <table style="width:90%">
