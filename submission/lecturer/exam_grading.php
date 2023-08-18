@@ -22,19 +22,31 @@ $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
     // Fetch grade data for each student
-    $queryExamMarks = "SELECT grade, grade_ID FROM grade WHERE student_ID = ? AND exam_id = ?";
+    $queryExamMarks = "SELECT grade, grade_ID FROM grade WHERE student_ID = ? AND exam_ID = ?";
     $stmtExamMarks = $conn->prepare($queryExamMarks);
     $stmtExamMarks->bind_param('si', $row['student_ID'], $examID);
     $stmtExamMarks->execute();
     $resultExamMarks = $stmtExamMarks->get_result();
     $rowExamMarks = $resultExamMarks->fetch_assoc();
 
-    // Add student data including grade_ID to the array
-    $studentData[] = array(
-        'student_name' => $row['student_name'],
-        'student_ID' => $row['student_ID'],
-        'grade_ID' => $rowExamMarks['grade_ID'] ?? null  // Use null if grade_ID not found
-    );
+
+
+if ($rowExamMarks = $resultExamMarks->fetch_assoc()) {
+    $gradeID = $rowExamMarks['grade_ID'];
+    $grade = $rowExamMarks['grade'];
+} else {
+    $gradeID = null;
+    $grade = null;
+}
+
+
+// Add student data including grade_ID and grade to the array
+$studentData[] = array(
+    'student_name' => $row['student_name'],
+    'student_ID' => $row['student_ID'],
+    'grade_ID' => $gradeID,
+    'grade' => $grade
+);
 
     // Close the grade query prepared statement
     $stmtExamMarks->close();
@@ -101,26 +113,51 @@ function goBack() {
                 <th style="width: 130px;">Action</th>
             </tr>
             <?php foreach ($studentData as $index => $student): ?>
-            <tr>
-                <td><?php echo $index + 1; ?></td>
-                <td><?php echo $student['student_name']; ?></td>
-                <td><?php echo $courseName; ?></td>
-                <td><?php echo $programName; ?></td>
-                <td><?php echo $intake; ?></td>
-                <td>
+                <tr>
+                    <td><?php echo $index + 1; ?></td>
+                    <td><?php echo $student['student_name']; ?></td>
+                    <td><?php echo $courseName; ?></td>
+                    <td><?php echo $programName; ?></td>
+                    <td><?php echo $intake; ?></td>
+                    <td>
+                        <?php
+                        if ($student['grade_ID']) {
+                            $grade = $student['grade'];
+                            echo $grade;
+                        } else {
+                            $grade = 0;
+                            echo $grade;
+                        }
+                        ?>
+                    </td>
+                    <td>
+<?php echo $grade; ?>
                     <?php
-                    if ($rowExamMarks) {
-                        echo $rowExamMarks['grade'];
-                    } else {
-                        echo 'Pending...';
-                    }
-                    ?>
-                </td>
-                <?php
-                echo "<td><a href='grade_exam.php?student_id=" . urlencode($student['student_ID']) . "&grade_id=" . urlencode($rowExamMarks['grade_ID']) . "&prevPage=" . urlencode($_SERVER['REQUEST_URI']) . "'><button style='margin-left: 15px;'>Grade</button></a></td>";
-                ?>
-            </tr>
-        <?php endforeach; ?>
+                            $gradeLink = "grade_exam.php" .
+                                "?student_id=" . $student['student_ID'] .
+                                "&grade_id=" . $student['grade_ID'] .
+                                "&grade=" . $grade .
+                                "&exam_id=" . $examID .
+                                "&courseProgram_id=" . $courseProgramID .
+                                "&prevPage=" . $_SERVER['REQUEST_URI'];
+                            ?>
+                            <a href="<?php echo $gradeLink; ?>">
+                                <button style="margin-left: 15px;">Grade</button>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
+
+                <!-- if grade = 0, then insert new record -->
+
+                <!-- if grade not 0, update grade -->
+
+
+
+
+
+
         </table>
     </div>
 </body>

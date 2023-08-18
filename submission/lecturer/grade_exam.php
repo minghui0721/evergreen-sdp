@@ -27,54 +27,37 @@ function goBack() {
 </header>
 
 <body>
-    <div class="container_setup">
-        <form action="" method="post">
+<?php
+// Database connection and other setup code
+
+if (isset($_GET['student_id'], $_GET['grade_id'], $_GET['exam_id'], $_GET['courseProgram_id'], $_GET['grade'], $_GET['prevPage'])) {
+    $studentID = $_GET['student_id'];
+    $gradeID = $_GET['grade_id'];
+    $grade = $_GET['grade']; // Corrected line
+    $examID = $_GET['exam_id'];
+    $courseProgramID = $_GET['courseProgram_id'];
+    $prevPage = $_GET['prevPage'];
+    echo $grade;
+} else {
+    echo "One or more required parameters are missing.";
+}
+
+?>
+<!-- Rest of your HTML code -->
+
+<div class="container_setup">
+<form action="grade_submit.php?student_id=<?php echo $studentID; ?>&grade_id=<?php echo $gradeID; ?>&grade=<?php echo $grade; ?>&exam_id=<?php echo $examID; ?>&courseProgram_id=<?php echo $courseProgramID; ?>&prevPage=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" method="post">
             <label for="grade">Enter Grade Marks:</label>
-            <input type="number" name="grade" id="grade" min="0" required>
+            <input type="number" name="grade" id="grade" value= <?php echo $grade ?> min="0" required>
             <input type="hidden" name="gradeID" value="<?php echo $gradeID; ?>">
             <br><br>
             <button type="submit" name="btnSubmit">Submit</button>
         </form>
     </div>
+    
 
-    <?php
-        if (isset($_GET['btnSubmit'])) {
-            $grade = $_GET['grade'];
-            $gradeID = $_GET['gradeID'];
-
-            // Database connection parameters
-            $host = 'localhost';
-            $user = 'root';
-            $password = '';
-            $database = 'evergreen_heights_university';
-
-            // Step 1 - Database connection
-            $connection = mysqli_connect($host, $user, $password, $database);
-
-            // Check database connection
-            if ($connection === false) {
-                die('Connection failed: ' . mysqli_connect_error());
-            }
-
-            // Update the grade in the database (modify this query based on your database structure)
-            $updateQuery = "UPDATE grade SET grade = '$grade' WHERE grade_ID = $gradeID";
-            $updateResult = $connection->query($updateQuery);
-
-            if ($updateResult) {
-                echo '<script>alert("Exam graded successfully!");</script>';
-                echo '<script>window.location.href = "' . $_GET['prevPage'] . '";</script>';
-                exit(); // Terminate the script
-            } else {
-                echo '<script>alert("Error grading exam: ' . $connection->error . '");</script>';
-            }
+    <!--  -->
 
 
-            // Close connection
-            $connection->close();
-        }
-else {
-        echo "Grade ID not provided.";
-    }
-    ?>
 </body>
 </html>
