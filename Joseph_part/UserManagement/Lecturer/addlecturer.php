@@ -90,6 +90,9 @@ mysqli_close($connection);
             </div>
 
             <button type="submit" name="add">Add Lecturer</button>
+            <div class="cancel-container">
+                <a class="cancel-link" href="lecturerlist.php">Cancel</a>
+            </div> 
         </form>
     </div>
 </body>

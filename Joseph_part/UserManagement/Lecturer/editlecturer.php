@@ -94,6 +94,9 @@ if(isset($_POST['submit'])) {
             <?php } ?>
             
             <button type="submit" name="submit">Update</button>
+            <div class="cancel-container">
+                <a class="cancel-link" href="lecturerlist.php">Cancel</a>
+            </div>        
         </form>
     </div>
 </body>
