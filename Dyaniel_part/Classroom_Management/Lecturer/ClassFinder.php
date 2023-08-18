@@ -1,5 +1,5 @@
 <?php
-include "dbConn.php";
+include "../../../database/db_connection.php";
 include "WeekDateRange.php";
 //<!-- path -->
 
@@ -127,7 +127,7 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
 
             //Retrieve each classroom details
             $Classroom_query="SELECT * FROM `class` WHERE `room_type`='$FilterRoomType'";
-            $Classroom_result=mysqli_query($connection,$Classroom_query);
+            $Classroom_result=mysqli_query($conn,$Classroom_query);
 
             while($Classroom_row=mysqli_fetch_assoc($Classroom_result)){
                 //save classroom details into variable

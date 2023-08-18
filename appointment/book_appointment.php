@@ -1,4 +1,6 @@
 <?php
+session_start();
+$lecturerID = $_GET['lecturer_id'];
 include '../database/db_connection.php';
 
 $message = '';  // Define a variable to hold the message.
@@ -9,7 +11,7 @@ if (isset($_POST['appointment_slot'])) {
     // Assuming you have the student_ID in session or any global context. 
     // For this example, I'm just using a placeholder
     // $studentID = $_SESSION['student_ID']; 
-    $studentID = "1"; 
+    $studentID = $_SESSION['student_ID']; 
 
     // Fetch the lecturer_ID and appointment_date from the appointment_set table using the setID
     $sql = "SELECT lecturer_ID, appointment_date FROM appointment_set WHERE appointmentSet_ID = $setID";
@@ -45,7 +47,7 @@ $conn->close();
 <head>
     <script>
         alert('<?php echo $message; ?>');  // Display the message in a browser alert.
-        window.location.href = 'select_appointment.php';  // Redirect to 'select_appointment.php'.
+        window.location.href = 'select_appointment.php?lecturer_id=<?php echo $lecturerID; ?>';  // Redirect to 'select_appointment.php' with lecturer_id.    
     </script>
 </head>
 <body>

@@ -1,5 +1,5 @@
 <?php
-include 'dbConn.php';
+include '../../../database/db_connection.php';
 
 //Step 2 - Create the command - 
 if(isset($_POST['search'])) {
@@ -10,7 +10,7 @@ if(isset($_POST['search'])) {
 }
 
 //Execute your query
-$results = mysqli_query($connection, $query);
+$results = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>

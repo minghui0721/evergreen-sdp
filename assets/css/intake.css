@@ -1,0 +1,151 @@
+body{
+    background: linear-gradient(0deg, rgba(29,29,54,1) 0%, rgba(44,42,178,1) 0%, rgba(92,90,219,1) 100%);
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* Header */
+.button_header {
+    padding: 30px;
+    padding-left: 50px;
+    color: white;
+    background-color: #1d1d36;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #5c5adb;
+    transition: color 0.3s;
+}
+
+.back-button svg {
+    fill: white;
+    width: 24px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.back-button:hover {
+    color: #3f3d56;
+    opacity: 0.5;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    font-size: 24px;
+    height: 30px;
+    margin-left: 10px;
+    padding-top: 4px;
+}
+
+
+
+/* Intake Calendar */
+.more_list {
+    color: #5c5adb;
+}
+
+.more_list:hover {
+    opacity: 1;
+}
+
+.intake-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 150px auto;
+    max-width: 1400px;
+    padding: 0 20px;
+}
+
+.intake {
+    flex: 0 0 calc(33.33% - 50px); /* Adjust the width for each table and subtract margin */
+    margin-right: 20px; /* Add margin between tables */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #1d1d36;
+    color: white;
+    animation: roll-in-right 0.6s ease-out both;
+}
+
+@keyframes roll-in-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.intake:hover {
+    transform: translateY(-5px); /* Add a subtle lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intake h2 {
+    margin-top: 0;
+    color: #5c5adb;
+}
+
+.intake p {
+    margin: 10px 0;
+    color: white;
+}
+
+.intake ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.intake ul li {
+    margin-bottom: 5px;
+}
+
+
+/* table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #5c5adb;
+    color: #1d1d36;
+}
+
+tr{
+    border-bottom: 1px solid #1d1d36;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #b6b2b2;
+    transition: background-color 0.3s;
+}

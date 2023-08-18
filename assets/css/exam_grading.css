@@ -84,7 +84,8 @@ th{
     text-align: center;
     font-weight: 500;
     font-size: 20px;
-    color: white;
+    color: #1d1d36;
+    font-weight: bold;
 }
 
 
@@ -102,39 +103,7 @@ td{
   }
 
 tr:hover{
-    background-color: #1d1d36;
-}
-
-
-
-.center-container {
-    display: flex;
-    justify-content: center; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content */
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-input[type="text"] {
-    width: 60%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-
-.center-container button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.center-container button:hover {
-    background-color: #0056b3;
+    background-color: #5c5adb;
 }
 
 
@@ -150,3 +119,18 @@ input[type="text"] {
     100% { opacity: 1; }
 }
 
+
+/* button */
+.grade-button {
+    padding: 10px 20px;
+    background-color: #1d1d36;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.grade-button:hover {
+    background-color:#007BFF;
+}

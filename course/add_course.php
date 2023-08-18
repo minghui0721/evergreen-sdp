@@ -19,10 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = mysqli_query($conn, $checkQuery);
         $existingRecord = mysqli_fetch_assoc($result);
         $img = "noChange";
-        echo $courseName;
-        echo $programName;
-        echo $courseDescription;
-        echo $programDescription;
     }
 }
 

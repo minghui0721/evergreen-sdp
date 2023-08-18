@@ -42,7 +42,7 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
         </div>
     </a>
                 
-    <a href="../Dyaniel_part/Classroom_Management/Student/ClassFinder.php">
+    <a href="../Dyaniel_part/Classroom_Management/Lecturer/ClassFinder.php">
         <div class="grid function2">
             <h2>Classroom Finder</h2>
         </div>
@@ -58,12 +58,12 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
                 <h2>Course Material</h2>
         </div>
     </a>    
-    <a href="../submission/student/view_grade.php">
+    <a href="../submission/lecturer/examGrading_main.php">
         <div class="grid function5">
-                <h2>Results</h2>
+                <h2>Exam Grading</h2>
         </div>
     </a>    
-    <a href="lecturer_list.php">
+    <a href="#" onclick="goBack()">
         <div class="grid function6">
                 <h2>Lecturer</h2>
         </div>
@@ -73,17 +73,23 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
                 <h2>Career Hub</h2>
         </div>
     </a>    
-    <a href="intake.php">
+    <a href="../student/intake.php">
         <div class="grid function8">
                 <h2>Intake Calendar</h2>
         </div>
     </a>    
-    <a href="../appointment/view_status.php">
+    <a href="../appointment/appointment.php">
         <div class="grid function9">
-                <h2>Consultation History</h2>
+                <h2>Manage Consultation</h2>
         </div>
     </a>    
 </div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 
 
@@ -98,7 +104,7 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
         }
         };
 
-        xhttp.open('GET', 'studentHeader.php', true);
+        xhttp.open('GET', 'lecturerHeader.php', true);
         xhttp.send();
     </script>
 </body>

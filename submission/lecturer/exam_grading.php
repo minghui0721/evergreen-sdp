@@ -1,18 +1,43 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'evergreen_heights_university';
+// Database connection parameters
+session_start();
+include '../../database/db_connection.php';
 
-// Step 1 - Database connection
-$connection = mysqli_connect($host, $user, $password, $database);
+// Retrieve the values from the URL parameters
+$subject = $_GET['subject'];
+$intake = $_GET['intake'];
+$date = $_GET['date'];
+$time = $_GET['time'];
+$examID = $_GET['exam_id'];
+$intakeID = $_GET['intake_id'];
+$courseProgramID = $_GET['courseProgram_id'];
 
-// Check database connection
-if ($connection === false) {
-    die('Connection failed: ' . mysqli_connect_error());
+// Retrieve student data for the given intake_ID
+$studentData = array();
+$query = "SELECT student_name FROM student WHERE intake_ID = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param('i', $intakeID);
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_assoc()) {
+    $studentData[] = $row['student_name'];
 }
 
+// Retrieve course name and program name from the course_program table
+$queryCourseProgram = "SELECT course_name, program_name FROM course_program WHERE courseProgram_ID = ?";
+$stmtCourseProgram = $conn->prepare($queryCourseProgram);
+$stmtCourseProgram->bind_param('i', $courseProgramID);
+$stmtCourseProgram->execute();
+$resultCourseProgram = $stmtCourseProgram->get_result();
+$rowCourseProgram = $resultCourseProgram->fetch_assoc();
+$courseName = $rowCourseProgram['course_name'];
+$programName = $rowCourseProgram['program_name'];
+
+// Close the database connection
+$conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,58 +69,36 @@ function goBack() {
     <hr id="header_line">
 </header>
 
+
 <body>
-<div class="container_grade">
-<h2 class="history_title">Exam Grading</h2>
+    <div class="container_grade">
+        <h2 class="history_title">Exam Grading</h2>
         <br>
         <table style="width:80%">
             <tr>
-                <th>Grade ID</th>
-                <th>Exam ID</th>
-                <th>Course Program</th>
-                <th>Student Name </th>
-                <th>Subject Name</th>
+                <th>No.</th>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Program</th>
+                <th>Intake</th>
                 <th>Exam Marks</th>
                 <th style="width: 130px;">Action</th>
             </tr>
-            <?php
-            $sql = "SELECT g.grade_ID, g.exam_ID, g.courseProgram_ID, g.student_ID, e.subject_ID, g.grade
-                    FROM grade g
-                    JOIN exam e ON g.exam_ID = e.exam_ID";
-            
-            $result = $connection->query($sql);
-
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["grade_ID"] . "</td>";
-                echo "<td>" . $row["exam_ID"] . "</td>";
-
-                $courseProgramID = $row["courseProgram_ID"];
-                $courseProgramQuery = "SELECT course_name FROM course_program WHERE courseProgram_ID = $courseProgramID";
-                $courseProgramResult = $connection->query($courseProgramQuery);
-                $courseProgramRow = $courseProgramResult->fetch_assoc();
-                echo "<td>" . $courseProgramRow["course_name"] . "</td>";
-
-                $studentID = $row["student_ID"];
-                $studentQuery = "SELECT student_name FROM student WHERE student_ID = $studentID";
-                $studentResult = $connection->query($studentQuery);
-                $studentRow = $studentResult->fetch_assoc();
-                echo "<td>" . $studentRow["student_name"] . "</td>";
-
-                $subjectID = $row["subject_ID"];
-                $subjectQuery = "SELECT subject_name FROM subject WHERE subject_ID = $subjectID";
-                $subjectResult = $connection->query($subjectQuery);
-                $subjectRow = $subjectResult->fetch_assoc();
-                echo "<td>" . $subjectRow["subject_name"] . "</td>";
-
-                echo "<td>" . $row["grade"] . "</td>";
-
-                echo "<td><a href='grade_exam.php?id=" . $row["grade_ID"] . "&prevPage=" . urlencode($_SERVER['REQUEST_URI']) . "'><button style='margin-left: 15px;'>Grade</button></a></td>";
-                echo "</tr>";
-            }
-            $connection->close();
-            ?>
+            <?php foreach ($studentData as $index => $student): ?>
+            <tr>
+                <td><?php echo $index + 1; ?></td>
+                <td><?php echo $student; ?></td>
+                <td><?php echo $courseName; ?></td>
+                <td><?php echo $programName; ?></td>
+                <td><?php echo $intake; ?></td>
+                <td><!-- Display exam marks here --></td>
+                <td>
+                <a href="grade_exam.php?id=<?php echo $row  ['grade_ID']; ?>&prevPage=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>">
+            <button style="margin-left: 15px;">Grade</button>
+                </a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 </body>
-

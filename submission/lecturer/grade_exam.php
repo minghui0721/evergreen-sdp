@@ -28,8 +28,7 @@ function goBack() {
 
 <body>
     <?php
-    if (isset($_GET['id'])) {
-        $gradeID = $_GET['id'];
+        $gradeID = 1;
     ?>
     <div class="container_setup">
         <form action="" method="post">
@@ -76,7 +75,7 @@ function goBack() {
             // Close connection
             $connection->close();
         }
-    } else {
+else {
         echo "Grade ID not provided.";
     }
     ?>
