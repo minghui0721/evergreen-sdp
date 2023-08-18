@@ -27,9 +27,6 @@ function goBack() {
 </header>
 
 <body>
-    <?php
-        $gradeID = 1;
-    ?>
     <div class="container_setup">
         <form action="" method="post">
             <label for="grade">Enter Grade Marks:</label>
@@ -41,9 +38,9 @@ function goBack() {
     </div>
 
     <?php
-        if (isset($_POST['btnSubmit'])) {
-            $grade = $_POST['grade'];
-            $gradeID = $_POST['gradeID'];
+        if (isset($_GET['btnSubmit'])) {
+            $grade = $_GET['grade'];
+            $gradeID = $_GET['gradeID'];
 
             // Database connection parameters
             $host = 'localhost';
