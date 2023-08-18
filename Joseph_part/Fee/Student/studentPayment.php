@@ -145,7 +145,8 @@ function getOrdinalSuffix($number) {
                                     </div>
                                     <div class="payment-details">
                                         <h4>Amount</h4>
-                                        <p style="color: red;font-weight: bold;">RM <?php echo $fee['total_amount']; ?></p>                                        <h4>Due Date</h4>
+                                        <p style="color: red;font-weight: bold;">RM <?php echo $fee['total_amount']; ?></p>                                        
+                                        <h4>Due Date</h4>
                                         <p><?php echo $fee['due_date']; ?></p>
                                     </div>
                                     <div class="payment-link">
@@ -199,95 +200,98 @@ function getOrdinalSuffix($number) {
                 <?php
                 // Query to fetch paid payment data
                 $query_paid_payments = "SELECT * FROM payment WHERE student_ID = $student_ID AND status = 'Paid'";
-                $result_paid_payments = mysqli_query($connection, $query_paid_payments);
+                $result_paid_payments = mysqli_query($conn, $query_paid_payments);
 
                 if ($result_paid_payments) {
-                    $paid_payments = [];
-                    while ($payment = mysqli_fetch_assoc($result_paid_payments)) {
-                        $fee_ID = $payment['fee_ID'];
-                        $installment_ID = $payment['installment_ID'];
-                        $payment_method = $payment['payment_method'];
+                    if (mysqli_num_rows($result_paid_payments) === 0) {
+                        echo "<p>You have no paid payments.</p>";
+                    } else {
+                        while ($payment = mysqli_fetch_assoc($result_paid_payments)) {
+                            $fee_ID = $payment['fee_ID'];
+                            $installment_ID = $payment['installment_ID'];
+                            $payment_method = $payment['payment_method'];
 
-                        if ($installment_ID == 0) {
-                            // Fetch the fee details for the full payment
-                            $query_fee = "SELECT total_amount FROM fee WHERE fee_ID = $fee_ID";
-                            $result_fee = mysqli_query($connection, $query_fee);
-                            
-                            // Fetch program and course details
-                            $query_course_program = "SELECT program_name, course_name FROM course_program WHERE courseProgram_ID = (SELECT courseProgram_ID FROM intake WHERE intake_ID = (SELECT intake_ID FROM student WHERE student_ID = $student_ID))";
-                            $result_course_program = mysqli_query($connection, $query_course_program);
+                            if ($installment_ID == 0) {
+                                // Fetch the fee details for the full payment
+                                $query_fee = "SELECT total_amount FROM fee WHERE fee_ID = $fee_ID";
+                                $result_fee = mysqli_query($conn, $query_fee);
 
-                            if ($result_fee && $result_course_program) {
-                                $fee = mysqli_fetch_assoc($result_fee);
-                                $course_program = mysqli_fetch_assoc($result_course_program);
-                            } else {
-                                echo "Error fetching fee or course program data: " . mysqli_error($connection);
-                                continue; // Skip this payment and move to the next
-                            }
-                            
-                            // Display payment details for each full paid payment
-                            ?>
-                            <div class="payment-block">
-                                <div class="payment-title">
-                                    <h3 class="payment-title-text">Full Payment for <?php echo $course_program['program_name']; ?> <?php echo $course_program['course_name']; ?></h3>
-                                    <div class="title-underline"></div>
-                                </div>
-                                <div class="payment-details">
-                                    <h4>Paid Amount</h4>
-                                    <p style="color: green;font-weight: bold;">RM <?php echo $fee['total_amount']; ?></p>
-                                    <h4>Payment Date</h4>
-                                    <p><?php echo $payment['payment_datetime']; ?></p>
-                                    <h4>Payment Method</h4>
-                                    <p><?php echo $payment_method; ?></p>
-                                </div>
-                            </div>
-                            <?php
-                        } else {
-                            // Retrieve the installment for the specific payment
-                            $query_installment = "SELECT * FROM installment WHERE fee_ID = $fee_ID AND installment_ID = $installment_ID";
-                            $result_installment = mysqli_query($connection, $query_installment);
-                        
-                            if ($result_installment && mysqli_num_rows($result_installment) > 0) {
-                                $installment = mysqli_fetch_assoc($result_installment);
                                 // Fetch program and course details
                                 $query_course_program = "SELECT program_name, course_name FROM course_program WHERE courseProgram_ID = (SELECT courseProgram_ID FROM intake WHERE intake_ID = (SELECT intake_ID FROM student WHERE student_ID = $student_ID))";
-                                $result_course_program = mysqli_query($connection, $query_course_program);
+                                $result_course_program = mysqli_query($conn, $query_course_program);
 
-                                if ($result_course_program) {
+                                if ($result_fee && $result_course_program) {
+                                    $fee = mysqli_fetch_assoc($result_fee);
                                     $course_program = mysqli_fetch_assoc($result_course_program);
-
-                                    // Display the payment and installment information
-                                    ?>
-                                    <div class="payment-block">
-                                        <div class="payment-title">
-                                            <h3 class="payment-title-text"><?php echo getOrdinalSuffix($installment['installment_count']); ?> Installment for <?php echo $course_program['program_name']; ?> <?php echo $course_program['course_name']; ?></h3>
-                                            <div class="title-underline"></div>
-                                        </div>
-                                        <div class="payment-details">
-                                            <!-- <h4>Payment ID</h4> -->
-                                            <!-- <p><?php echo $payment['payment_ID']; ?></p> -->
-                                            <h4>Paid Amount</h4>
-                                            <p style="color: green;font-weight: bold;">RM <?php echo $installment['amount']; ?></p>
-                                            <h4>Payment Method</h4>
-                                            <p><?php echo $payment_method; ?></p>
-                                            <h4>Payment Date</h4>
-                                            <p><?php echo $payment['payment_datetime']; ?></p>
-                                            <!-- <h4>Installment ID</h4>
-                                            <p><?php echo $installment['installment_ID']; ?></p> Display the installment ID -->
-                                        </div>
-                                    </div>
-                                    <?php
                                 } else {
-                                    echo "Error fetching course program data: " . mysqli_error($connection);
+                                    echo "Error fetching fee or course program data: " . mysqli_error($conn);
                                     continue; // Skip this payment and move to the next
                                 }
+
+                                // Display payment details for each full paid payment
+                                ?>
+                                <div class="payment-block">
+                                    <div class="payment-title">
+                                        <h3 class="payment-title-text">Full Payment for <?php echo $course_program['program_name']; ?> <?php echo $course_program['course_name']; ?></h3>
+                                        <div class="title-underline"></div>
+                                    </div>
+                                    <div class="payment-details">
+                                        <h4>Paid Amount</h4>
+                                        <p style="color: green;font-weight: bold;">RM <?php echo $fee['total_amount']; ?></p>
+                                        <h4>Payment Date</h4>
+                                        <p><?php echo $payment['payment_datetime']; ?></p>
+                                        <h4>Payment Method</h4>
+                                        <p><?php echo $payment_method; ?></p>
+                                    </div>
+                                </div>
+                                <?php
                             } else {
-                                echo "Error fetching installment data: " . mysqli_error($connection);
+                                // Retrieve the installment for the specific payment
+                                $query_installment = "SELECT * FROM installment WHERE fee_ID = $fee_ID AND installment_ID = $installment_ID";
+                                $result_installment = mysqli_query($conn, $query_installment);
+
+                                if ($result_installment && mysqli_num_rows($result_installment) > 0) {
+                                    $installment = mysqli_fetch_assoc($result_installment);
+                                    // Fetch program and course details
+                                    $query_course_program = "SELECT program_name, course_name FROM course_program WHERE courseProgram_ID = (SELECT courseProgram_ID FROM intake WHERE intake_ID = (SELECT intake_ID FROM student WHERE student_ID = $student_ID))";
+                                    $result_course_program = mysqli_query($conn, $query_course_program);
+
+                                    if ($result_course_program) {
+                                        $course_program = mysqli_fetch_assoc($result_course_program);
+
+                                        // Display the payment and installment information
+                                        ?>
+                                        <div class="payment-block">
+                                            <div class="payment-title">
+                                                <h3 class="payment-title-text"><?php echo getOrdinalSuffix($installment['installment_count']); ?> Installment for <?php echo $course_program['program_name']; ?> <?php echo $course_program['course_name']; ?></h3>
+                                                <div class="title-underline"></div>
+                                            </div>
+                                            <div class="payment-details">
+                                                <!-- <h4>Payment ID</h4> -->
+                                                <!-- <p><?php echo $payment['payment_ID']; ?></p> -->
+                                                <h4>Paid Amount</h4>
+                                                <p style="color: green;font-weight: bold;">RM <?php echo $installment['amount']; ?></p>
+                                                <h4>Payment Method</h4>
+                                                <p><?php echo $payment_method; ?></p>
+                                                <h4>Payment Date</h4>
+                                                <p><?php echo $payment['payment_datetime']; ?></p>
+                                                <!-- <h4>Installment ID</h4>
+                                                <p><?php echo $installment['installment_ID']; ?></p> Display the installment ID -->
+                                            </div>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        echo "Error fetching course program data: " . mysqli_error($conn);
+                                        continue; // Skip this payment and move to the next
+                                    }
+                                } else {
+                                    echo "Error fetching installment data: " . mysqli_error($conn);
+                                }
                             }
                         }
                     }
                 } else {
-                    echo "Error fetching paid payment data: " . mysqli_error($connection);
+                    echo "Error fetching paid payment data: " . mysqli_error($conn);
                 }
                 ?>
             </div>

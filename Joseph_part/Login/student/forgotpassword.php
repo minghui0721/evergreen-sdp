@@ -27,7 +27,7 @@ if (isset($_POST['btnResetPassword'])) {
 
         if (mysqli_query($conn, $update_query)) {
             // Send an email to the user with the password reset link
-            $reset_link = "http://localhost/SDP/Login/student/reset_password.php?token=$token";
+            $reset_link = "http://localhost/evergreen-sdp/evergreen-sdp/Joseph_part/Login/student/reset_password.php?token=$token";
 
             require '../../SendEmail/PHPMailer.php';;
             require '../../SendEmail/SMTP.php';
@@ -69,6 +69,9 @@ if (isset($_POST['btnResetPassword'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=Fjalla+One&family=PT+Serif&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="forgotpassword.css?v=<?php echo time(); ?>">
     <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
