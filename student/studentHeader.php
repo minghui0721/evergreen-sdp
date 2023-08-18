@@ -46,9 +46,3 @@ include '../assets/base_url/config.php';
 
 </body>
 </html>
-
-<?php
-$test = BASE_URL ."/Dyaniel_part/Attendance_Management/Student/StudentAttendancePage.php" ;
-echo $test;
-
-?>

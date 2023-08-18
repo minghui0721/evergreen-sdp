@@ -173,7 +173,7 @@ $OverallPercentage=round($OverallPercentage,2);
         }
         };
 
-        xhttp.open('GET', '../../student/studentHeader.php', true);
+        xhttp.open('GET', '../../../student/studentHeader.php', true);
         xhttp.send();
     </script>
 </body>
