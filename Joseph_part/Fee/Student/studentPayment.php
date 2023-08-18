@@ -50,15 +50,38 @@ function getOrdinalSuffix($number) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&family=Fjalla+One&family=PT+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="studentPayment.css?v=<?php echo time(); ?>">
+<<<<<<< Updated upstream
     <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
     <script src="../../../assets/js/config.js"></script> 
     <title id="documentTitle"></title>
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+=======
+    <title>Student Fee Payment Details</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('header');
+            // Load header content using XMLHttpRequest
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    container.innerHTML = this.responseText;
+                }
+            };
+
+            xhttp.open('GET', '../../../student/studentHeader.php', true);
+            xhttp.send();
+        });
+>>>>>>> Stashed changes
     </script>
 </head>
 <body>
+    <!-- header -->
+    <div id="header"></div>
     <div class="container">
         <h1>Student Fee Payment Details</h1>
         <div class="dashboard">
@@ -299,6 +322,7 @@ function getOrdinalSuffix($number) {
 
         // Trigger the click event on the "Unpaid" tab button to set it as active by default
         document.querySelector('[data-tab="unpaid"]').click();
+    
     </script>
 
 </body>
