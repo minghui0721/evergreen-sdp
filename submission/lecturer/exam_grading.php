@@ -24,6 +24,27 @@ while ($row = $result->fetch_assoc()) {
     $studentData[] = $row['student_name'];
 }
 
+// Fetch exam marks for each student and populate the studentData array
+foreach ($studentData as &$student) {
+    $queryExamMarks = "SELECT grade FROM grade WHERE student_name = ? AND exam_id = ?";
+    $stmtExamMarks = $conn->prepare($queryExamMarks);
+    $stmtExamMarks->bind_param('si', $student, $examID);
+    $stmtExamMarks->execute();
+    $resultExamMarks = $stmtExamMarks->get_result();
+    $rowExamMarks = $resultExamMarks->fetch_assoc();
+
+    if ($rowExamMarks) {
+        $student['grade'] = $rowExamMarks['grade'];
+    } else {
+        $student['grade'] = 'N/A';
+    }
+
+    $stmtExamMarks->close(); // Close the second prepared statement
+}
+
+// Close the first prepared statement
+$stmt->close();
+
 // Retrieve course name and program name from the course_program table
 $queryCourseProgram = "SELECT course_name, program_name FROM course_program WHERE courseProgram_ID = ?";
 $stmtCourseProgram = $conn->prepare($queryCourseProgram);
@@ -43,7 +64,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment Setup Form</title>
+    <title>Exam Grading</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="setup.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -91,14 +112,12 @@ function goBack() {
                 <td><?php echo $courseName; ?></td>
                 <td><?php echo $programName; ?></td>
                 <td><?php echo $intake; ?></td>
-                <td><!-- Display exam marks here --></td>
-                <td>
-                <a href="grade_exam.php?id=<?php echo $row  ['grade_ID']; ?>&prevPage=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>">
-            <button style="margin-left: 15px;">Grade</button>
-                </a>
-                </td>
+                <td><?php echo $student['exam_marks']; ?></td>
+                <?php
+                echo "<td><a href='grade_exam.php?student=" . urlencode($student) . "&prevPage=" . urlencode($_SERVER['REQUEST_URI']) . "'><button style='margin-left: 15px;'>Grade</button></a></td>";
+                ?>
             </tr>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         </table>
     </div>
 </body>
