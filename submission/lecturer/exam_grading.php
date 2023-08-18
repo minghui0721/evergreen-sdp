@@ -14,32 +14,42 @@ $courseProgramID = $_GET['courseProgram_id'];
 
 // Retrieve student data for the given intake_ID
 $studentData = array();
-$query = "SELECT student_name FROM student WHERE intake_ID = ?";
+$query = "SELECT student_name, student_ID FROM student WHERE intake_ID = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param('i', $intakeID);
 $stmt->execute();
 $result = $stmt->get_result();
 
 while ($row = $result->fetch_assoc()) {
-    $studentData[] = $row['student_name'];
-}
-
-// Fetch exam marks for each student and populate the studentData array
-foreach ($studentData as &$student) {
-    $queryExamMarks = "SELECT grade FROM grade WHERE student_name = ? AND exam_id = ?";
+    // Fetch grade data for each student
+    $queryExamMarks = "SELECT grade, grade_ID FROM grade WHERE student_ID = ? AND exam_ID = ?";
     $stmtExamMarks = $conn->prepare($queryExamMarks);
-    $stmtExamMarks->bind_param('si', $student, $examID);
+    $stmtExamMarks->bind_param('si', $row['student_ID'], $examID);
     $stmtExamMarks->execute();
     $resultExamMarks = $stmtExamMarks->get_result();
     $rowExamMarks = $resultExamMarks->fetch_assoc();
 
-    if ($rowExamMarks) {
-        $student['grade'] = $rowExamMarks['grade'];
-    } else {
-        $student['grade'] = 'N/A';
-    }
 
-    $stmtExamMarks->close(); // Close the second prepared statement
+
+if ($rowExamMarks = $resultExamMarks->fetch_assoc()) {
+    $gradeID = $rowExamMarks['grade_ID'];
+    $grade = $rowExamMarks['grade'];
+} else {
+    $gradeID = null;
+    $grade = null;
+}
+
+
+// Add student data including grade_ID and grade to the array
+$studentData[] = array(
+    'student_name' => $row['student_name'],
+    'student_ID' => $row['student_ID'],
+    'grade_ID' => $gradeID,
+    'grade' => $grade
+);
+
+    // Close the grade query prepared statement
+    $stmtExamMarks->close();
 }
 
 // Close the first prepared statement
@@ -54,9 +64,6 @@ $resultCourseProgram = $stmtCourseProgram->get_result();
 $rowCourseProgram = $resultCourseProgram->fetch_assoc();
 $courseName = $rowCourseProgram['course_name'];
 $programName = $rowCourseProgram['program_name'];
-
-// Close the database connection
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -106,18 +113,65 @@ function goBack() {
                 <th style="width: 130px;">Action</th>
             </tr>
             <?php foreach ($studentData as $index => $student): ?>
-            <tr>
-                <td><?php echo $index + 1; ?></td>
-                <td><?php echo $student; ?></td>
-                <td><?php echo $courseName; ?></td>
-                <td><?php echo $programName; ?></td>
-                <td><?php echo $intake; ?></td>
-                <td><?php echo $student['exam_marks']; ?></td>
-                <?php
-                echo "<td><a href='grade_exam.php?student=" . urlencode($student) . "&prevPage=" . urlencode($_SERVER['REQUEST_URI']) . "'><button style='margin-left: 15px;'>Grade</button></a></td>";
-                ?>
-            </tr>
-        <?php endforeach; ?>
+                <tr>
+                    <td><?php echo $index + 1; ?></td>
+                    <td><?php echo $student['student_name']; ?></td>
+                    <td><?php echo $courseName; ?></td>
+                    <td><?php echo $programName; ?></td>
+                    <td><?php echo $intake; ?></td>
+                    <td>
+                        <?php
+                        if ($student['grade_ID']) {
+                            $grade = $student['grade'];
+                            echo $grade;
+                        } else {
+                            $grade = 0;
+                            echo $grade;
+                        }
+                        ?>
+                    </td>
+                    <td>
+<?php echo $grade; ?>
+                    <?php
+                            $gradeLink = "grade_exam.php" .
+                                "?student_id=" . $student['student_ID'] .
+                                "&grade_id=" . $student['grade_ID'] .
+                                "&grade=" . $grade .
+                                "&exam_id=" . $examID .
+                                "&courseProgram_id=" . $courseProgramID .
+                                "&prevPage=" . $_SERVER['REQUEST_URI'];
+                            ?>
+                            <a href="<?php echo $gradeLink; ?>">
+                                <button style="margin-left: 15px;">Grade</button>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
+
+                <!-- if grade = 0, then insert new record -->
+
+                <!-- if grade not 0, update grade -->
+
+
+
+
+
+
         </table>
     </div>
 </body>
+
+</html>
+
+<?php
+// Close the database connection
+$conn->close();
+?>
+
+
+
+
+
+
+

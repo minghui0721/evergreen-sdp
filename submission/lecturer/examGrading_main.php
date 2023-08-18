@@ -77,7 +77,7 @@ try {
                     'Intake' => $intake['intake'],
                     'Date' => $examDate, // Split date_time into date
                     'Time' => $examTime, // Split date_time into time
-                    'Exam ID' => $exam['exam_ID'],
+                    'Exam_ID' => $exam['exam_ID'],
                     'intake_ID' => $intakeID,
                 );
 
@@ -137,8 +137,9 @@ $conn->close();
                         <td><?php echo $row['Date']; ?></td>
                         <td><?php echo $row['Time']; ?></td>
                         <td>
-                            <a href="exam_grading.php?subject=<?php echo $subject['subject_name']; ?>&intake=<?php echo $intake['intake']; ?>&date=<?php echo $examDate; ?>&time=<?php echo $examTime; ?>&exam_id=<?php echo $exam['exam_ID']; ?>&courseProgram_id=<?php echo $courseProgramID; ?>&intake_id=<?php echo $row['intake_ID']; ?>">
+                            <a href="exam_grading.php?subject=<?php echo $subject['subject_name']; ?>&intake=<?php echo $intake['intake']; ?>&date=<?php echo $examDate; ?>&time=<?php echo $examTime; ?>&exam_id=<?php echo $row['Exam_ID']; ?>&courseProgram_id=<?php echo $courseProgramID; ?>&intake_id=<?php echo $row['intake_ID']; ?>">
                                 <button class="grade-button">Grade</button>
+                                <?php echo $row['Exam_ID']; ?>
                             </a>
                         </td>
                     </tr>
