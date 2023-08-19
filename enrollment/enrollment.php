@@ -122,6 +122,12 @@ $conn->close();
             <input type="file" id="transcript" name="transcript" accept="image/*" required>
         </div>
 
+        
+        <div class="form-group">
+            <label for="profile">Upload Profile Picture:</label>
+            <input type="file" id="profile" name="profile" accept="image/*" required>
+        </div>
+
         <div class="form-group">
             <label for="program_option">Program Option:</label>
             <select id="program_option" name="program_option" required>

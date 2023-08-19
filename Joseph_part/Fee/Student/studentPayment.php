@@ -157,7 +157,7 @@ function getOrdinalSuffix($number) {
                             } else {
                                 // Retrieve the installment for the specific payment
                                 $query_installment = "SELECT * FROM installment WHERE fee_ID = $fee_ID AND installment_ID = $installment_ID";
-                                $result_installment = mysqli_query($connection, $query_installment);
+                                $result_installment = mysqli_query($conn, $query_installment);
                             
                                 if ($result_installment && mysqli_num_rows($result_installment) > 0) {
                                     $installment = mysqli_fetch_assoc($result_installment);
@@ -185,13 +185,13 @@ function getOrdinalSuffix($number) {
                                     </div>
                                     <?php
                                 } else {
-                                    echo "Error fetching installment data: " . mysqli_error($connection);
+                                    echo "Error fetching installment data: " . mysqli_error($conn);
                                 }
                             }                
                         }
                     }
                 } else {
-                    echo "Error fetching unpaid payment data: " . mysqli_error($connection);
+                    echo "Error fetching unpaid payment data: " . mysqli_error($conn);
                 }
                 ?>
             </div>

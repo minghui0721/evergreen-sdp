@@ -36,8 +36,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handling file upload and storing as BLOB
     $transcript = null; // Initialize $result variable to null
     if (isset($_FILES["transcript"]) && $_FILES["transcript"]["error"] == UPLOAD_ERR_OK) {
-        $file_tmp_name = $_FILES["transcript"]["tmp_name"];
-        $transcript = file_get_contents($file_tmp_name);
+        $file_tmp_name_transcript = $_FILES["transcript"]["tmp_name"];
+        $transcript = file_get_contents($file_tmp_name_transcript);
+    }
+
+    // Profile Picture
+    $profile = null; 
+    if (isset($_FILES["profile"]) && $_FILES["profile"]["error"] == UPLOAD_ERR_OK) {
+        $file_tmp_name_profile = $_FILES["profile"]["tmp_name"];
+        $profile = file_get_contents($file_tmp_name_profile);
+    }
+    
+    $profile = null; // Initialize $result variable to null
+    if (isset($_FILES["profile"]) && $_FILES["profile"]["error"] == UPLOAD_ERR_OK) {
+        $file_tmp_name = $_FILES["profile"]["tmp_name"];
+        $profile = file_get_contents($file_tmp_name);
     }
 
 
@@ -45,13 +58,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert data into the enrollment_form table using prepared statement
     // ...
-    $sql_insert = "INSERT INTO enrollment_form (intake_ID, name, email, phone, date_birth, address, school, result, submission_date, payment_option, status) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?)";
+    $sql_insert = "INSERT INTO enrollment_form (intake_ID, name, email, phone, date_birth, address, school, result, profile, submission_date, payment_option, status) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?)";
 
 
     $stmt_insert = mysqli_prepare($conn, $sql_insert);
     // Update the type definition string to have 10 data types (excluding CURRENT_TIMESTAMP)
-    mysqli_stmt_bind_param($stmt_insert, "isssssssss", $intake_ID, $fullname, $email, $phone, $birthdate, $address, $secondary_school, $transcript, $paymentOption, $status);
+    mysqli_stmt_bind_param($stmt_insert, "issssssssss", $intake_ID, $fullname, $email, $phone, $birthdate, $address, $secondary_school, $transcript, $profile, $paymentOption, $status);
 
 
     // Execute the prepared statement

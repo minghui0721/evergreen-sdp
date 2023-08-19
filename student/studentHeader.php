@@ -45,4 +45,8 @@ include '../assets/base_url/config.php';
   </header>
 
 </body>
+<<<<<<< Updated upstream
 </html>
+=======
+</html>
+>>>>>>> Stashed changes
