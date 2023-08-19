@@ -9,6 +9,16 @@ $profileResult = mysqli_query($conn, $profileQuery);
 $profileData = mysqli_fetch_assoc($profileResult);
 
 
+if ($profileData) {
+    $imageData = $profileData['img'];
+
+    // Determine the MIME type
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $imageType = $finfo->buffer($imageData);
+
+    // Encode the image data using base64
+    $base64Image = base64_encode($imageData);
+}
 
 $eventsQuery = "SELECT * FROM `event` WHERE `date` >= CURDATE() ORDER BY `date` ASC LIMIT 5";
 $eventsResult = mysqli_query($conn, $eventsQuery);
@@ -40,8 +50,8 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
 
 
 <div class="profile-section">
-  <div class="profile-details">
-    <img src="profilePicture.jpeg" alt="Profile Picture">
+  <div class="profile-details zoom-image">
+    <img src="data:<?php echo $imageType; ?>;base64,<?php echo $base64Image; ?>" alt="Profile Picture" width="100" height="100" onclick="openModal(this)">
     <h2>
       <p style="color: #5c5adb;"><?php echo $profileData['lecturer_name']; ?></p>
       <p><?php echo $profileData['email']; ?></p>
@@ -60,8 +70,28 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
         </button>
     </form>
   </div>
-
 </div>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img id="enlargedImg" class="modal-content">
+</div>
+
+
+<script>
+    function openModal(imgElement) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('enlargedImg');
+        modalImg.src = imgElement.src;
+        modal.style.display = 'block';
+
+        const closeModalBtn = document.getElementsByClassName('close')[0];
+        closeModalBtn.onclick = function() {
+            modal.style.display = 'none';
+        };
+    }
+</script>
 
 <script>
 function confirmLogout() {

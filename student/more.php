@@ -83,6 +83,11 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
                 <h2>Consultation History</h2>
         </div>
     </a>    
+    <a href="../Darsh-Part/Holiday/holiday.html">
+        <div class="grid function10">
+                <h2>Holidays</h2>
+        </div>
+    </a>    
 </div>
 
 
