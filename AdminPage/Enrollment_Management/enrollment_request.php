@@ -42,6 +42,7 @@ $result = mysqli_query($conn, $query);
                     <th>Name</th>
                     <th>Email</th>
                     <th>Result</th>
+                    <th>Picture</th>
                     <th>Action</th>
                 </tr>
                 
@@ -82,6 +83,11 @@ $result = mysqli_query($conn, $query);
                         $imageType = $finfo->buffer($result_image);
                         $base64Image = base64_encode($result_image);
                         
+                        $result_profile = $row['profile'];
+                        $finfo = new finfo(FILEINFO_MIME_TYPE);
+                        $profileType = $finfo->buffer($result_profile);
+                        $base64Profile = base64_encode($result_profile);
+                        
                         echo '<tr>';
                         echo '<td>' . $counter . '</td>';
                         echo '<td>' . $courseName . ' (' . $programName .  ')</td>';
@@ -91,12 +97,14 @@ $result = mysqli_query($conn, $query);
                         
                         // Inside the loop
                         echo '<td class="zoom-image"><img src="data:' . $imageType . ';base64,' . $base64Image . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
+                        echo '<td class="zoom-image"><img src="data:' . $profileType . ';base64,' . $base64Profile . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
         
                         echo '<td>
                                 <form method="GET" action="process_approval.php">
                                     <button class="approve-btn" name="action" value="approve" data-enrollment-id="' . $row['enrollment_ID'] . '">Approve</button>
                                     <button class="reject-btn" name="action" value="reject" data-enrollment-id="' . $row['enrollment_ID'] . '" onclick="return confirmReject();">Reject</button>
                                     <input type="hidden" name="enrollment_id" value="' . $row['enrollment_ID'] . '">
+                                    <input type="hidden" name="course_program_id" value="' . $courseProgramID . '">
                                 </form>
                             </td>';
                         echo '</tr>';

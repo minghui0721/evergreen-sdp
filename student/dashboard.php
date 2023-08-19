@@ -6,11 +6,31 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
 
 include '../database/db_connection.php';
 $studentId = $_SESSION['student_ID'];
+
+
+
 $profileQuery = "SELECT * FROM `student` WHERE `student_ID`='$studentId'";
 $profileResult = mysqli_query($conn, $profileQuery);
 $profileData = mysqli_fetch_assoc($profileResult);
 
 $intake_ID = $profileData['intake_ID'];
+$enrollment_ID = $profileData['enrollment_ID'];
+
+// Retrieve enrollment image from the database
+$enrollmentQuery = "SELECT profile FROM enrollment_form WHERE enrollment_ID='$enrollment_ID'";
+$enrollmentResult = mysqli_query($conn, $enrollmentQuery);
+$enrollmentData = mysqli_fetch_assoc($enrollmentResult);
+
+if ($enrollmentData) {
+    $imageData = $enrollmentData['profile'];
+
+    // Determine the MIME type
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $imageType = $finfo->buffer($imageData);
+
+    // Encode the image data using base64
+    $base64Image = base64_encode($imageData);
+}
 
 
 // Retrieve intake and courseProgram_ID based on intake_ID
@@ -62,14 +82,35 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
 
 
 <div class="profile-section">
-  <div class="profile-details">
-    <img src="profilePicture.jpeg" alt="Profile Picture">
+  <div class="profile-details zoom-image">
+    <img src="data:<?php echo $imageType; ?>;base64,<?php echo $base64Image; ?>" alt="Profile Picture" width="100" height="100" onclick="openModal(this)">
     <h2>
       <p style="color: #5c5adb;"><?php echo $profileData['student_name']; ?> (<?php echo $program_name; ?>)</p>
       <p><?php echo $intakeData['intake']; ?> | <?php echo $course_name; ?></p>
     </h2>
 
   </div>
+
+  <!-- Modal -->
+<div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img id="enlargedImg" class="modal-content">
+</div>
+
+
+<script>
+    function openModal(imgElement) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('enlargedImg');
+        modalImg.src = imgElement.src;
+        modal.style.display = 'block';
+
+        const closeModalBtn = document.getElementsByClassName('close')[0];
+        closeModalBtn.onclick = function() {
+            modal.style.display = 'none';
+        };
+    }
+</script>
 
   <!-- Add a logout button -->
   <div class="logout-button">

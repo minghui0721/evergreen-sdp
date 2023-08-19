@@ -121,6 +121,11 @@ $conn->close();
             <label for="transcript">Upload Secondary Result:</label>
             <input type="file" id="transcript" name="transcript" accept="image/*" required>
         </div>
+        
+        <div class="form-group">
+            <label for="profile">Upload Profile Picture:</label>
+            <input type="file" id="profile" name="profile" accept="image/*" required>
+        </div>
 
         <div class="form-group">
             <label for="program_option">Program Option:</label>
