@@ -14,16 +14,39 @@ if (isset($_GET['action'])) {
         $feeRow = mysqli_fetch_assoc($feeResult);
         $feeID = $feeRow['fee_ID'];
 
+<<<<<<< Updated upstream
         if ($feeID) {
             // Retrieve installment_ID values from installment_table using fee_ID
             $installmentQuery = "SELECT installment_ID FROM installment WHERE fee_ID = '$feeID'";
             $installmentResult = mysqli_query($conn, $installmentQuery);
+=======
+        // Extract data
+        $intakeID = $row['intake_ID'];
+        $studentName = $row['name'];
+        $email = $row['email'];
+        $phone = $row['phone'];
+        $picture = $row['profile'];
+        // Profile Picture
+        $profile = null; 
+        if (!empty($picture)) {
+            $profile = base64_encode($picture); // Convert blob data to base64-encoded string
+        }
+
+>>>>>>> Stashed changes
 
             $installmentIDs = array(); // Initialize an array to store installment_ID values
 
+<<<<<<< Updated upstream
             while ($installmentRow = mysqli_fetch_assoc($installmentResult)) {
                 $installmentIDs[] = $installmentRow['installment_ID'];
             }
+=======
+        // Insert data into student table
+        $insertQuery = "INSERT INTO student (intake_ID, enrollment_ID, student_name, student_password, reset_token, reset_expiration, email, phone)
+                        VALUES ('$intakeID', '$enrollmentID', '$studentName', '$defaultPassword', null, null, '$email', '$phone')";
+                        echo "Debug: SQL Query: $insertQuery"; // Add this line
+        $insertResult = mysqli_query($conn, $insertQuery);
+>>>>>>> Stashed changes
 
             // Retrieve data from enrollment_form table
             $query = "SELECT * FROM enrollment_form WHERE enrollment_ID = $enrollmentID";

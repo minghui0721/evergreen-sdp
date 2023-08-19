@@ -36,8 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handling file upload and storing as BLOB
     $transcript = null; // Initialize $result variable to null
     if (isset($_FILES["transcript"]) && $_FILES["transcript"]["error"] == UPLOAD_ERR_OK) {
-        $file_tmp_name = $_FILES["transcript"]["tmp_name"];
-        $transcript = file_get_contents($file_tmp_name);
+        $file_tmp_name_transcript = $_FILES["transcript"]["tmp_name"];
+        $transcript = file_get_contents($file_tmp_name_transcript);
+    }
+
+    // Profile Picture
+    $profile = null; 
+    if (isset($_FILES["profile"]) && $_FILES["profile"]["error"] == UPLOAD_ERR_OK) {
+        $file_tmp_name_profile = $_FILES["profile"]["tmp_name"];
+        $profile = file_get_contents($file_tmp_name_profile);
     }
     
     $profile = null; // Initialize $result variable to null

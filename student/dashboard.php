@@ -1,10 +1,8 @@
 <?php
 session_start();
 include '../assets/favicon/favicon.php'; // Include the favicon.php file
-
-
-
 include '../database/db_connection.php';
+
 $studentId = $_SESSION['student_ID'];
 
 
@@ -13,6 +11,8 @@ $profileQuery = "SELECT * FROM `student` WHERE `student_ID`='$studentId'";
 $profileResult = mysqli_query($conn, $profileQuery);
 $profileData = mysqli_fetch_assoc($profileResult);
 
+
+$enrollment_ID = $profileData['enrollment_ID'];
 $intake_ID = $profileData['intake_ID'];
 $enrollment_ID = $profileData['enrollment_ID'];
 
@@ -31,6 +31,18 @@ if ($enrollmentData) {
     // Encode the image data using base64
     $base64Image = base64_encode($imageData);
 }
+
+
+// Retrieve enrollment image from the database
+$enrollmentQuery = "SELECT profile FROM enrollment_form WHERE enrollment_ID='$enrollment_ID'";
+$enrollmentResult = mysqli_query($conn, $enrollmentQuery);
+$enrollmentData = mysqli_fetch_assoc($enrollmentResult);
+
+
+$result_image = $enrollmentData['profile'];
+$finfo = new finfo(FILEINFO_MIME_TYPE);
+$imageType = $finfo->buffer($result_image);
+$base64Image = base64_encode($result_image);
 
 
 // Retrieve intake and courseProgram_ID based on intake_ID
@@ -80,24 +92,40 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
 <!-- header -->
 <div id="header"></div>
 
-
 <div class="profile-section">
+<<<<<<< Updated upstream
   <div class="profile-details zoom-image">
     <img src="data:<?php echo $imageType; ?>;base64,<?php echo $base64Image; ?>" alt="Profile Picture" width="100" height="100" onclick="openModal(this)">
     <h2>
       <p style="color: #5c5adb;"><?php echo $profileData['student_name']; ?> (<?php echo $program_name; ?>)</p>
       <p><?php echo $intakeData['intake']; ?> | <?php echo $course_name; ?></p>
     </h2>
+=======
+  <div class="profile-details">
+      <img src="data:<?php echo $imageType; ?>;base64,<?php echo $base64Image; ?>" alt="Profile Picture" width="100" height="100" onclick="openModal(this)">
+>>>>>>> Stashed changes
 
+      <h2>
+          <p style="color: #5c5adb;"><?php echo $profileData['student_name']; ?> (<?php echo $program_name; ?>)</p>
+          <p><?php echo $intakeData['intake']; ?> | <?php echo $course_name; ?></p>
+      </h2>
   </div>
 
+<<<<<<< Updated upstream
   <!-- Modal -->
+=======
+
+<!-- Modal -->
+>>>>>>> Stashed changes
 <div id="imageModal" class="modal">
     <span class="close">&times;</span>
     <img id="enlargedImg" class="modal-content">
 </div>
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <script>
     function openModal(imgElement) {
         const modal = document.getElementById('imageModal');
@@ -112,6 +140,10 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
     }
 </script>
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   <!-- Add a logout button -->
   <div class="logout-button">
     <form action="../guest/index.php" method="post" onsubmit="return confirmLogout();">
@@ -123,7 +155,6 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
         </button>
     </form>
   </div>
-
 </div>
 
 <script>

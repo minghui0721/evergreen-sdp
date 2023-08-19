@@ -9,7 +9,8 @@
     grid-template-columns: auto auto auto;
     column-gap: 150px;
     position: relative;
-    margin-top: 130px;
+    margin-top: 120px;
+    margin-bottom: 60px;
     animation: fade-in-bottom 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;}
 
 
@@ -86,6 +87,11 @@
     background-position: top;
     background-size: cover;
 }
+.function10{
+    background-image: url(../images/holidays.jpg);
+    background-position: bottom;
+    background-size: cover;
+}
 
 
 
@@ -97,7 +103,8 @@
 .function6 h2, 
 .function7 h2, 
 .function8 h2, 
-.function9 h2{
+.function9 h2,
+.function10 h2{
     text-align: center;
     z-index: 1;
 }

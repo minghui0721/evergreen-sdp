@@ -42,7 +42,11 @@ $result = mysqli_query($conn, $query);
                     <th>Name</th>
                     <th>Email</th>
                     <th>Result</th>
+<<<<<<< Updated upstream
                     <th>Picture</th>
+=======
+                    <th>Profile</th>
+>>>>>>> Stashed changes
                     <th>Action</th>
                 </tr>
                 
@@ -82,6 +86,11 @@ $result = mysqli_query($conn, $query);
                         $finfo = new finfo(FILEINFO_MIME_TYPE);
                         $imageType = $finfo->buffer($result_image);
                         $base64Image = base64_encode($result_image);
+
+                        $result_profile = $row['profile'];
+                        $finfo = new finfo(FILEINFO_MIME_TYPE);
+                        $profilePicture = $finfo->buffer($result_profile);
+                        $base64Profile = base64_encode($result_profile);
                         
                         $result_profile = $row['profile'];
                         $finfo = new finfo(FILEINFO_MIME_TYPE);
@@ -97,7 +106,12 @@ $result = mysqli_query($conn, $query);
                         
                         // Inside the loop
                         echo '<td class="zoom-image"><img src="data:' . $imageType . ';base64,' . $base64Image . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
+<<<<<<< Updated upstream
                         echo '<td class="zoom-image"><img src="data:' . $profileType . ';base64,' . $base64Profile . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
+=======
+                        echo $imageType;
+                        echo '<td class="zoom-image"><img src="data:' . $profilePicture . ';base64,' . $base64Profile . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
+>>>>>>> Stashed changes
         
                         echo '<td>
                                 <form method="GET" action="process_approval.php">
