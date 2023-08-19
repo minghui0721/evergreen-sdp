@@ -121,14 +121,10 @@ $conn->close();
             <label for="transcript">Upload Secondary Result:</label>
             <input type="file" id="transcript" name="transcript" accept="image/*" required>
         </div>
-<<<<<<< Updated upstream
+
         
         <div class="form-group">
             <label for="profile">Upload Profile Picture:</label>
-=======
-        <div class="form-group">
-            <label for="profile">Profile Picture:</label>
->>>>>>> Stashed changes
             <input type="file" id="profile" name="profile" accept="image/*" required>
         </div>
 

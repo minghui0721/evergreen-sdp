@@ -42,11 +42,7 @@ $result = mysqli_query($conn, $query);
                     <th>Name</th>
                     <th>Email</th>
                     <th>Result</th>
-<<<<<<< Updated upstream
-                    <th>Picture</th>
-=======
                     <th>Profile</th>
->>>>>>> Stashed changes
                     <th>Action</th>
                 </tr>
                 
@@ -106,12 +102,9 @@ $result = mysqli_query($conn, $query);
                         
                         // Inside the loop
                         echo '<td class="zoom-image"><img src="data:' . $imageType . ';base64,' . $base64Image . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
-<<<<<<< Updated upstream
+
                         echo '<td class="zoom-image"><img src="data:' . $profileType . ';base64,' . $base64Profile . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
-=======
-                        echo $imageType;
-                        echo '<td class="zoom-image"><img src="data:' . $profilePicture . ';base64,' . $base64Profile . '" alt="Result Image" width="100" onclick="openModal(this)"></td>';
->>>>>>> Stashed changes
+   
         
                         echo '<td>
                                 <form method="GET" action="process_approval.php">

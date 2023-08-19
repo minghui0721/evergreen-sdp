@@ -93,39 +93,20 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
 <div id="header"></div>
 
 <div class="profile-section">
-<<<<<<< Updated upstream
   <div class="profile-details zoom-image">
     <img src="data:<?php echo $imageType; ?>;base64,<?php echo $base64Image; ?>" alt="Profile Picture" width="100" height="100" onclick="openModal(this)">
     <h2>
       <p style="color: #5c5adb;"><?php echo $profileData['student_name']; ?> (<?php echo $program_name; ?>)</p>
       <p><?php echo $intakeData['intake']; ?> | <?php echo $course_name; ?></p>
     </h2>
-=======
-  <div class="profile-details">
-      <img src="data:<?php echo $imageType; ?>;base64,<?php echo $base64Image; ?>" alt="Profile Picture" width="100" height="100" onclick="openModal(this)">
->>>>>>> Stashed changes
-
-      <h2>
-          <p style="color: #5c5adb;"><?php echo $profileData['student_name']; ?> (<?php echo $program_name; ?>)</p>
-          <p><?php echo $intakeData['intake']; ?> | <?php echo $course_name; ?></p>
-      </h2>
   </div>
 
-<<<<<<< Updated upstream
   <!-- Modal -->
-=======
-
-<!-- Modal -->
->>>>>>> Stashed changes
 <div id="imageModal" class="modal">
     <span class="close">&times;</span>
     <img id="enlargedImg" class="modal-content">
 </div>
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 <script>
     function openModal(imgElement) {
         const modal = document.getElementById('imageModal');
@@ -140,10 +121,6 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
     }
 </script>
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
   <!-- Add a logout button -->
   <div class="logout-button">
     <form action="../guest/index.php" method="post" onsubmit="return confirmLogout();">
