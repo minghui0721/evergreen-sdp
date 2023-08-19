@@ -53,6 +53,7 @@ if (isset($_GET['assignment_ID'])) {
             <link rel='stylesheet' href='../moodle/home.css'>
             <link rel='stylesheet' href='setup.css'>
             <link rel='stylesheet' href='details.css'>
+            
         </head>
         <script>
         function goBack() {

@@ -6,6 +6,7 @@
     <title>Grading Page</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="grading.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
 </head>
 <script>    
 function goBack() {

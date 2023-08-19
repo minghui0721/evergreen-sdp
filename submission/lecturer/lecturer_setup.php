@@ -47,6 +47,7 @@ mysqli_close($connection);
     <title>Assignment Setup Form</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="setup.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
 </head>
 <script>    
 function goBack() {

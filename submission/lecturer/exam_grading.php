@@ -27,29 +27,25 @@ while ($row = $result->fetch_assoc()) {
     $stmtExamMarks->bind_param('si', $row['student_ID'], $examID);
     $stmtExamMarks->execute();
     $resultExamMarks = $stmtExamMarks->get_result();
-    $rowExamMarks = $resultExamMarks->fetch_assoc();
-
-
-
-if ($rowExamMarks = $resultExamMarks->fetch_assoc()) {
-    $gradeID = $rowExamMarks['grade_ID'];
-    $grade = $rowExamMarks['grade'];
-} else {
-    $gradeID = null;
-    $grade = null;
-}
-
-
-// Add student data including grade_ID and grade to the array
-$studentData[] = array(
-    'student_name' => $row['student_name'],
-    'student_ID' => $row['student_ID'],
-    'grade_ID' => $gradeID,
-    'grade' => $grade
-);
+    
+    if ($rowExamMarks = $resultExamMarks->fetch_assoc()) {
+        $gradeID = $rowExamMarks['grade_ID'];
+        $grade = $rowExamMarks['grade'];
+    } else {
+        $gradeID = null;
+        $grade = null;
+    }
 
     // Close the grade query prepared statement
     $stmtExamMarks->close();
+
+    // Add student data including grade_ID and grade to the array
+    $studentData[] = array(
+        'student_name' => $row['student_name'],
+        'student_ID' => $row['student_ID'],
+        'grade_ID' => $gradeID,
+        'grade' => $grade
+    );
 }
 
 // Close the first prepared statement
@@ -74,6 +70,7 @@ $programName = $rowCourseProgram['program_name'];
     <title>Exam Grading</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="setup.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <script>    
@@ -96,7 +93,6 @@ function goBack() {
 
     <hr id="header_line">
 </header>
-
 
 <body>
     <div class="container_grade">
@@ -126,52 +122,32 @@ function goBack() {
                             echo $grade;
                         } else {
                             $grade = 0;
-                            echo $grade;
+                            echo "Pending...";
                         }
                         ?>
                     </td>
                     <td>
-<?php echo $grade; ?>
-                    <?php
-                            $gradeLink = "grade_exam.php" .
-                                "?student_id=" . $student['student_ID'] .
-                                "&grade_id=" . $student['grade_ID'] .
-                                "&grade=" . $grade .
-                                "&exam_id=" . $examID .
-                                "&courseProgram_id=" . $courseProgramID .
-                                "&prevPage=" . $_SERVER['REQUEST_URI'];
-                            ?>
-                            <a href="<?php echo $gradeLink; ?>">
-                                <button style="margin-left: 15px;">Grade</button>
-                            </a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-
-
-                <!-- if grade = 0, then insert new record -->
-
-                <!-- if grade not 0, update grade -->
-
-
-
-
-
-
+                        <?php
+                        $gradeLink = "grade_exam.php" .
+                            "?student_id=" . $student['student_ID'] .
+                            "&grade_id=" . $student['grade_ID'] .
+                            "&grade=" . $grade .
+                            "&exam_id=" . $examID .
+                            "&courseProgram_id=" . $courseProgramID .
+                            "&prevPage=" . $_SERVER['REQUEST_URI'];
+                        ?>
+                        <a href="<?php echo $gradeLink; ?>">
+                            <button style="margin-left: 15px;">Grade</button>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 </body>
-
 </html>
 
 <?php
 // Close the database connection
 $conn->close();
 ?>
-
-
-
-
-
-
-

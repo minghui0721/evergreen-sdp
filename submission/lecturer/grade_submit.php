@@ -29,12 +29,12 @@ if (isset($_POST['btnSubmit'])) {
     // Check if a grade record exists for the student and exam
     $checkQuery = "SELECT * FROM grade WHERE student_ID = $studentID AND exam_id = $examID";
     $checkResult = $connection->query($checkQuery);
-
-    if ($gradeGet == 0) {
+    
+    if ($checkResult->num_rows == 0) {
         // Insert a new grade record
         $insertQuery = "INSERT INTO grade (exam_ID, courseProgram_ID, student_ID, grade) VALUES ('$examID', '$courseProgramID', '$studentID', '$grade')";
         $insertResult = $connection->query($insertQuery);
-
+    
         if ($insertResult) {
             echo '<script>alert("Exam grade inserted successfully!");</script>';
         } else {
@@ -42,23 +42,19 @@ if (isset($_POST['btnSubmit'])) {
         }
     } else {
         // Update the existing grade record
-        if ($checkResult->num_rows > 0) {
-            $updateQuery = "UPDATE grade SET grade = ? WHERE grade_ID = ?";
-            $updateStmt = $connection->prepare($updateQuery);
-            $updateStmt->bind_param('di', $grade, $gradeID);
-        
-            $updateResult = $updateStmt->execute();
-        
-            if ($updateResult) {
-                echo '<script>alert("Exam grade updated successfully!");</script>';
-            } else {
-                echo '<script>alert("Error updating exam grade: ' . $updateStmt->error . '");</script>';
-            }
-        
-            $updateStmt->close();
+        $updateQuery = "UPDATE grade SET grade = ? WHERE student_ID = ? AND exam_id = ?";
+        $updateStmt = $connection->prepare($updateQuery);
+        $updateStmt->bind_param('dii', $grade, $studentID, $examID);
+    
+        $updateResult = $updateStmt->execute();
+    
+        if ($updateResult) {
+            echo '<script>alert("Exam grade updated successfully!");</script>';
         } else {
-            echo '<script>alert("Error: Grade record not found.");</script>';
+            echo '<script>alert("Error updating exam grade: ' . $updateStmt->error . '");</script>';
         }
+    
+        $updateStmt->close();
     }
 
     // Redirect back to the previous page

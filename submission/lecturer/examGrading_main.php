@@ -107,10 +107,15 @@ $conn->close();
     <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">    
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
+        function goBack() {
+    window.history.back();
+}
+</script>
 </script>
 </head>
 <body>
-<div class="container fade-in">            
+<div class="container fade-in">     
+    <a href="#" onclick="goBack()"><button class="backbtn">Back</button></a>       
         <h1>Exam Grading Overview</h1>
 
         <table id="appointmentTable">
@@ -139,7 +144,7 @@ $conn->close();
                         <td>
                             <a href="exam_grading.php?subject=<?php echo $subject['subject_name']; ?>&intake=<?php echo $intake['intake']; ?>&date=<?php echo $examDate; ?>&time=<?php echo $examTime; ?>&exam_id=<?php echo $row['Exam_ID']; ?>&courseProgram_id=<?php echo $courseProgramID; ?>&intake_id=<?php echo $row['intake_ID']; ?>">
                                 <button class="grade-button">Grade</button>
-                                <?php echo $row['Exam_ID']; ?>
+
                             </a>
                         </td>
                     </tr>
@@ -149,3 +154,28 @@ $conn->close();
     </div>
 </body>
 </html>
+
+<style>
+
+    .backbtn{
+    width: 100px;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: -200px;
+    margin-left: 50px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.5s;
+    border: 2px solid rgb(53, 51, 51);
+    background: #504099;
+    color: white;
+
+    
+}
+
+.backbtn:hover{
+    background: #093e78;
+    color: beige;
+}
+</style>

@@ -6,6 +6,7 @@
     <title>Assignment Setup Form</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="setup.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <script>    
@@ -37,27 +38,21 @@ if (isset($_GET['student_id'], $_GET['grade_id'], $_GET['exam_id'], $_GET['cours
     $examID = $_GET['exam_id'];
     $courseProgramID = $_GET['courseProgram_id'];
     $prevPage = $_GET['prevPage'];
-    echo $grade;
 } else {
     echo "One or more required parameters are missing.";
 }
 
 ?>
-<!-- Rest of your HTML code -->
 
 <div class="container_setup">
 <form action="grade_submit.php?student_id=<?php echo $studentID; ?>&grade_id=<?php echo $gradeID; ?>&grade=<?php echo $grade; ?>&exam_id=<?php echo $examID; ?>&courseProgram_id=<?php echo $courseProgramID; ?>&prevPage=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" method="post">
             <label for="grade">Enter Grade Marks:</label>
-            <input type="number" name="grade" id="grade" value= <?php echo $grade ?> min="0" required>
+            <input type="number" name="grade" id="grade" value="<?php echo $grade; ?>" min="0" max="100" required>
+
             <input type="hidden" name="gradeID" value="<?php echo $gradeID; ?>">
             <br><br>
             <button type="submit" name="btnSubmit">Submit</button>
         </form>
     </div>
-    
-
-    <!--  -->
-
-
 </body>
 </html>
