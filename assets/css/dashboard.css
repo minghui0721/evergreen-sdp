@@ -63,6 +63,13 @@
   grid-template-columns: 2fr 1fr;
 }
 
+.student-profile-section{
+  margin-top: 96px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+}
+
 .profile-details {
   padding: 20px;
   padding-left: 100px;

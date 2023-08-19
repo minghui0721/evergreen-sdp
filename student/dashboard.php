@@ -92,7 +92,7 @@ $eventsResult = mysqli_query($conn, $eventsQuery);
 <!-- header -->
 <div id="header"></div>
 
-<div class="profile-section">
+<div class="student-profile-section">
   <div class="profile-details zoom-image">
     <img src="data:<?php echo $imageType; ?>;base64,<?php echo $base64Image; ?>" alt="Profile Picture" width="100" height="100" onclick="openModal(this)">
     <h2>
