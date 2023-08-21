@@ -67,7 +67,7 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
                     <div class="grid_content animation_bottom">
                         <h2>Open Enrollment</h2>
                         <p>Our university opens its doors to aspiring students like you, providing a nurturing environment that fosters growth, learning, and personal development.  </p>
-                        <a href="enrollment.php"><button>Apply Today</button></a>
+                        <a href="../enrollment/enrollment.php"><button>Apply Today</button></a>
                     </div>
                 </div>
                 <div class="grid grid4"></div>

@@ -80,14 +80,14 @@ function breakAfterThreeWords($text) {
                     <table>
                         <tr>
                             <td><a href="<?php echo BASE_URL ?>/guest/about.php">About</a></td>
-                            <td><a href="<?php echo BASE_URL ?>/articles.php">Articles</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/guest/articles.php">Articles</a></td>
                         </tr>
                         <tr>
                             <td><a href="<?php echo BASE_URL ?>/guest/academic.php">Academics</a></td>
                             <td><a href="<?php echo BASE_URL ?>/guest/event.php">Events</a></td>
                         </tr>
                         <tr>
-                            <td><a href="<?php echo BASE_URL ?>/guest/enrollment/enrollment.php">Enrollment</a></td>
+                            <td><a href="<?php echo BASE_URL ?>/enrollment/enrollment.php">Enrollment</a></td>
                             <td><a href="<?php echo BASE_URL ?>/guest/admission.php">Admission</a></td>
                         </tr>
                         <tr>
@@ -107,7 +107,7 @@ function breakAfterThreeWords($text) {
                 <div class="media">
                     <a href="https://www.facebook.com/Ming Hui/" target="_blank">Facebook</a>            
                     
-                    <a href="https://wa.me/601164163673" target="_blank">Twitter</a>
+                    <a href="https://wa.me/601164163673" target="_blank">WhatsApp</a>
 
                     <a href="https://instagram.com/minghuiii_21?igshid=YmMyMTA2M2Y=" target="_blank">Instagram</a>
 
