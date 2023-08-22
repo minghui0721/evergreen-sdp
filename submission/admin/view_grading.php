@@ -19,6 +19,7 @@ if ($connection === false) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Grading</title>
     <link rel="stylesheet" href="view_grading.css">
+    <link rel="stylesheet" href="../lecturer/setup.css">
 </head>
 <script>    
 function goBack() {
@@ -31,7 +32,9 @@ function goBack() {
 
 <body>
     <div class="wrapper">
+    
         <div class="container_grade">
+        <h2 class="setup_title" style = "margin-left:550px; margin-top:20px;" >Student Grading</h2>
             <br>
             <table style="width:80%">
                 <tr>

@@ -1,3 +1,9 @@
+<?php
+session_start(); // Start the session
+include '../../assets/favicon/favicon.php';
+$lecturer_ID = $_SESSION['lecturer_ID'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,8 +38,6 @@ function goBack() {
 <div class="container_setup">
         <h1 class="title_setup">Grading Form</h1>
         <?php
-        session_start(); // Start the session
-
         $host = 'localhost';
         $user = 'root';
         $password = '';

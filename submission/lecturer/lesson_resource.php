@@ -1,4 +1,8 @@
-
+<?php
+session_start();
+include '../../assets/favicon/favicon.php';
+$lecturer_ID = $_SESSION['lecturer_ID'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">

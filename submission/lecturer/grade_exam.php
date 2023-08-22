@@ -1,3 +1,9 @@
+<?php
+session_start();
+include '../../assets/favicon/favicon.php';
+$lecturer_ID = $_SESSION['lecturer_ID'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,7 @@
     <link rel="stylesheet" href="setup.css">
     <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
 </head>
 <script>    
 function goBack() {

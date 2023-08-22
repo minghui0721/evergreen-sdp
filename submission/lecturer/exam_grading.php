@@ -2,6 +2,7 @@
 // Database connection parameters
 session_start();
 include '../../database/db_connection.php';
+include '../../assets/favicon/favicon.php';
 
 // Retrieve the values from the URL parameters
 $subject = $_GET['subject'];

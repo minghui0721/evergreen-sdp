@@ -1,4 +1,7 @@
 <?php
+session_start();
+include '../../assets/favicon/favicon.php';
+
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -6,6 +9,7 @@ $database = 'evergreen_heights_university';
 
 // Step 1 - Database connection
 $connection = mysqli_connect($host, $user, $password, $database);
+$lecturer_ID = $_SESSION['lecturer_ID'];
 
 // Check database connection
 if ($connection === false) {

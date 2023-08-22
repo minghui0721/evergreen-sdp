@@ -1,4 +1,6 @@
 <?php
+session_start();
+include '../../assets/favicon/favicon.php';
 $host = 'localhost';
 $user = 'root';
 $password = '';

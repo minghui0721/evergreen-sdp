@@ -1,4 +1,7 @@
 <?php
+session_start();
+include '../../assets/favicon/favicon.php';
+
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -6,7 +9,7 @@ $database = 'evergreen_heights_university';
 
 // Step 1 - Database connection
 $connection = mysqli_connect($host, $user, $password, $database);
-
+$lecturer_ID = $_SESSION['lecturer_ID'];
 // Check database connection
 if ($connection === false) {
     die('Connection failed: ' . mysqli_connect_error());
@@ -20,6 +23,7 @@ if ($connection === false) {
     <title>Assignment Setup Form</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="setup.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
 </head>
 <script>    
 function goBack() {
