@@ -25,8 +25,9 @@ if (isset($_POST['btnLogin'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="../../assets/images/evergreen-logo(without background).png" type="image/x-icon">
     <link rel="stylesheet" href="adminLogin.css?v=<?php echo time(); ?>">
-    <title>Login Form</title>
+    <title>Admin Login</title>
 </head>
 <body>
     <div class="container">

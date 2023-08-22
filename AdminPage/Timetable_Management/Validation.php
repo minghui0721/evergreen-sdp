@@ -19,6 +19,9 @@ function SubjectCheck($SubjectID,$IntakeID){
     if($CheckSub_count==0){
         return "Subject Error";
     }
+    else{
+        return "pass";
+    }
 }
 
 function TimeCheck($ClassID, $Date, $StartTime, $EndTime){
@@ -51,6 +54,7 @@ function TimeCheck($ClassID, $Date, $StartTime, $EndTime){
 
 
         if(($StartTime<$ClassStart && $EndTime<=$ClassStart) || ($StartTime>=$ClassEnd && $EndTime>$ClassEnd)){
+            return "pass";
         }
         else{
             return "Time Error";

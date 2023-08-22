@@ -1,6 +1,7 @@
 <?php
 include "../Admin_header/AdminHeader.php";
-include "../dbConn.php"
+include "../dbConn.php";
+include "Validation.php";
 ?>
     <link rel="stylesheet" type="text/css" href="EditClass_style.css?v=<?php echo time(); ?>">
     <!-- path -->
@@ -99,7 +100,14 @@ if (isset($_POST['Edit'])){
     $RoomType=$_POST['room-type'];
     $OpenTime=$_POST['open-time'];
     $CloseTime=$_POST['close-time'];
-    
+
+    // Validation
+    $Check="pass";
+    $Check=ClassNameCheck($ClassName);
+    echo $Check;
+
+    //Create New Classroom
+    if($Check=="pass"){
     $class_query="UPDATE `class` SET `class_name`='$ClassName',`room_type`='$RoomType' ,`start_time`='$OpenTime',`end_time`='$CloseTime'
     WHERE class_ID=$ClassID";
     mysqli_query($connection,$class_query);
@@ -111,5 +119,15 @@ if (isset($_POST['Edit'])){
 <!-- path -->
 
 <?php
+    }
+    else if($Check=="Classroom Exist"){
+?>
+<script>
+    alert("!This class name already exist!\nTry another")
+    window.location.replace("#");
+</script>
+    <!-- path -->
+<?php
+    }
 }
 ?>
