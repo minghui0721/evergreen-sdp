@@ -10,7 +10,7 @@ include "../Admin_header/AdminHeader.php";
   <link rel="stylesheet" type="text/css" href="admin_feedback.css?v=<?php echo time(); ?>">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cooper+Black&display=swap">
 
-  <style>
+<style>
     .InformationManagement{
         display: block;
     }

@@ -1,0 +1,91 @@
+.wrapper{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+.wrapper .title{
+    position: relative;
+    color: white;
+    font-size:28px ;
+    margin: 35px 0 0 70px;
+    top: 30px;
+}
+
+/* Add hover animation for table rows */
+tr:not(:first-child):nth-child(even):hover,
+tr:not(:first-child):nth-child(odd):hover{
+    transform: scale(1.02);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Add animation to fade in and slide up the table */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container_grade{
+    width: 90%;
+    max-height: 530px;
+    overflow-y: auto;
+}
+
+.container_grade::-webkit-scrollbar{
+    width: 6px;
+    height: 5px;
+}
+  
+.container_grade::-webkit-scrollbar-thumb{
+    border: 2px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* Apply fade in and slide up animation to the table */
+table {
+    width: 93%;
+    font-size: 20px;
+    border-collapse: collapse;
+    margin-top: 0px;
+    margin-left: 70px;
+    box-shadow: 5px 5px 5px ;
+    animation: fadeInUp 1s ease-in-out; /* Apply the fadeInUp animation */
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid black;
+    text-align: left;
+}
+
+th {
+    background-color: #3a388a;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+
+td{
+    height: 50px;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #5c5adb;
+}
+
+
+tr:nth-child(odd) {
+    background-color: #3a388a;
+}

@@ -8,7 +8,7 @@ $password = '';
 $database = 'evergreen_heights_university'; // Change this to your database name
 $connection = mysqli_connect($host, $user, $password, $database);
 
-if (!$connection) {
+if (!$connection) { 
     die("Connection failed: " . mysqli_connect_error());
 }
 

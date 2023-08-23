@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../../assets/images/evergreen-logo(without background).png" type="image/x-icon">
+    <title>Evergreen Heights University</title>
 <style>
 body{
     background-color: #1d1d36;
@@ -232,8 +233,8 @@ body{
                             </li>
 
                             <li>
-                                <a href="#" class="StudentResult">
-                                · View students' result
+                                <a href="../View_Grade/view_grading.php" class="ViewGrading">
+                                · View grading
                                 </a>
                             </li>
 
@@ -323,12 +324,6 @@ body{
                             <li>
                                 <a href="../View_Feedback/admin_feedback.php" class="ViewFeedback">
                                 · View feedback
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="GenerateReport">
-                                · Generate Report
                                 </a>
                             </li>
 
