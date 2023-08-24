@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <th>No.</th>
                         <th>Course Name</th>
                         <th>Program Name</th>
-                        <th>Intake</th>
+                        <!-- <th>Intake</th> -->
                         <th>Course Description</th>
                         <th>Program Description</th>
                         <th>Action</th>
@@ -105,7 +105,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         $intake = $intakeRow['intake'];
                         $open = $intakeRow['opening_date'];
 
-                        echo '<td>' . $intake . '</td>';
+                        // echo '<td>' . $intake . '</td>';
 
                         echo '<td>' . $course['coursedescription'] . '</td>';
                         echo '<td>' . $course['description'] . '</td>';
