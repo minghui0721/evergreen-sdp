@@ -1,8 +1,10 @@
 <?php
+session_start();
 include "dbConn.php";
 include "WeekDateRange.php";
 
-$StudentID=1;
+$StudentID = 1;
+
 
 // Retrieve student's intakeID
 $GetIntake_query="SELECT `intake_ID` FROM `student` WHERE `student_ID`='$StudentID'";
@@ -12,7 +14,7 @@ $GetIntake_row=mysqli_fetch_assoc($GetIntake_result);
 $IntakeID=$GetIntake_row['intake_ID'];
 
 
-// Calculate the Strt Date & End Date of 4 week
+// Calculate the Start Date & End Date of 4 week
 list($CurrentStart,$CurrentEnd)=CurrentStartEnd();
 list($Week2Start,$Week2End)=Week2StartEnd();
 list($Week3Start,$Week3End)=Week3StartEnd();
@@ -48,6 +50,8 @@ list($Week4Start,$Week4End)=Week4StartEnd();
 
     <div class="TitleBar">
         <h1>Timetable</h1>
+
+        <!-- Drop down list to choose week -->
         <form action="#" method="post">
             <select name="week" id="week">
                 <option value="week1" <?php if ($_SERVER['REQUEST_METHOD']==='POST' && $_POST['week'] === 'week1') echo 'selected'; ?>>
@@ -180,7 +184,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
         }
     ?>
 
-<script>
+<!-- <script>
         const container = document.getElementById('header');
         // Load header content
         const xhttp = new XMLHttpRequest();
@@ -192,7 +196,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
 
         xhttp.open('GET', '../../../student/studentHeader.php', true);
         xhttp.send();
-    </script>
+    </script> -->
 </body>
 </html>
 

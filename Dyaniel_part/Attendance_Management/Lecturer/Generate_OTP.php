@@ -5,14 +5,14 @@ function GenerateOTP($TimetableID){
     // <!-- path -->
 
     // Generate OTP
-    $OTP=random_int(100,999);
+    $OTP=random_int(100, 999);
 
     // Check if the OTP exists in the database
     $CompareOTP_query = "SELECT `opt` FROM `opt` WHERE `opt` = '$OTP'";
     $CompareOTP_result = mysqli_query($connection, $CompareOTP_query);
     $CompareOTP_row = mysqli_fetch_assoc($CompareOTP_result);
 
-    // If the OTP already exists, generate a new one
+    // If the OTP already exists, generate the OTP again
     while ($CompareOTP_row) {
         $OTP = random_int(100, 999);
         $CompareOTP_query = "SELECT `opt` FROM `opt` WHERE `opt` = '$OTP'";
@@ -29,7 +29,7 @@ function GenerateOTP($TimetableID){
     ?>
         <script>
         alert("OTP Generated Fail")
-        window.location.replace("OTPPage.php")
+        window.location.replace("AttendanceList.php")
         // <!-- path -->
         </script>
     <?php
