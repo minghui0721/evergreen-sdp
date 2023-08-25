@@ -1,7 +1,9 @@
 <?php
-$LecturerID="1";
-include "dbConn.php"
+session_start();
+include "dbConn.php";
 // <!-- path -->
+
+$LecturerID=$_SESSION['lecturer_ID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

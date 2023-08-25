@@ -27,7 +27,8 @@ if(isset($_GET['lecturer_ID'])) {
 // Retrieve all intakes and their associated course programs
 $all_intakes_query = "SELECT i.intake_ID, i.intake, cp.program_name, cp.course_name 
                       FROM intake i 
-                      JOIN course_program cp ON i.courseProgram_ID = cp.courseProgram_ID";
+                      JOIN course_program cp ON i.courseProgram_ID = cp.courseProgram_ID
+                      ORDER BY i.intake ASC, cp.program_name DESC";
 $all_intakes_result = mysqli_query($connection, $all_intakes_query);
 
 if(isset($_POST['submit'])) {

@@ -4,7 +4,8 @@ include "../Admin_header/AdminHeader.php";
 
 $query = "SELECT i.intake_ID, i.intake, cp.program_name, cp.course_name 
           FROM intake i 
-          JOIN course_program cp ON i.courseProgram_ID = cp.courseProgram_ID";
+          JOIN course_program cp ON i.courseProgram_ID = cp.courseProgram_ID
+          ORDER BY i.intake ASC, cp.program_name DESC";
 $result = mysqli_query($connection, $query);
 
 if (isset($_POST['add'])) {

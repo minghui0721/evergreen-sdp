@@ -5,8 +5,8 @@ include "WeekDateRange.php";
 
 //Default current datetime and time after 1 hour
 date_default_timezone_set('Asia/Singapore');
-$CurrentTime = date('h:i a');
-$CurrentTime_1hourAfter = date('h:i a', strtotime('+1 hour'));
+$CurrentTime = date('H:i:s');
+$CurrentTime_1hourAfter = date('H:i:s', strtotime('+1 hour'));
 $CurrentDate = date('Y-m-d');
 list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=CurrentWeekDateRange();
 ?>
@@ -24,6 +24,17 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
     <title>Class Finder</title>
     <!-- path -->
 </head>
+
+</head>
+<!-- header -->
+<header class="button_header">
+    <div class="button">
+        <a href="../../../lecturer/more.php" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>        </a>
+        <h2>Lecturer Directory</h2>
+    </div>
+</header>
+
 <body>
     <div class="wrapper">
         <div class="title">
@@ -145,7 +156,7 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
 
                 // Check either there is any class in progress between the filter time interval based on class
                 $TimetableCheck_query="SELECT `start_time`, `end_time` FROM `timetable_details` WHERE `class_ID`='$ClassID' AND `date`='$FilterDate'";
-                $TimetableCheck_result=mysqli_query($connection,$TimetableCheck_query);
+                $TimetableCheck_result=mysqli_query($conn,$TimetableCheck_query);
 
                 while($TimetableCheck_row=mysqli_fetch_assoc($TimetableCheck_result)){
                     $ClassStart=date('H:i', strtotime($TimetableCheck_row['start_time']));

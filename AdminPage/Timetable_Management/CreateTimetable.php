@@ -89,7 +89,7 @@ include "Validation.php";
                         <p>Class Name:</p>
                         <select name="classID" id="classID">
                         <?php
-                        $Class_query="SELECT `class_ID`,`class_name` FROM `class`";
+                        $Class_query="SELECT `class_ID`,`class_name` FROM `class` ORDER BY class_name ASC";
                         $Class_result=mysqli_query($connection,$Class_query);
                         while($Class_row=mysqli_fetch_assoc($Class_result)){
                         ?>

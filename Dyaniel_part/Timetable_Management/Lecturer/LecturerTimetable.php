@@ -1,9 +1,10 @@
 <?php
+session_start();
 include "dbConn.php";
 include "WeekDateRange.php";
 //<!-- path -->
 
-$LecturerID=1;
+$LecturerID=$_SESSION['lecturer_ID'];
 
 // Calculate the Strt Date & End Date of 4 week
 list($CurrentStart,$CurrentEnd)=CurrentStartEnd();
@@ -44,7 +45,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
                 </option>
             </select>
 
-            <input type="submit" name="search" id="search" value="search">
+            <input type="submit" name="search" id="search" value="Search">
         </form>
     </div>
 

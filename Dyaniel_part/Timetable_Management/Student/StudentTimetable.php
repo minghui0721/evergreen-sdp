@@ -3,7 +3,7 @@ session_start();
 include "dbConn.php";
 include "WeekDateRange.php";
 
-$StudentID = 1;
+$StudentID = $_SESSION['student_ID'];
 
 
 // Retrieve student's intakeID
@@ -68,7 +68,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
                 </option>
             </select>
 
-            <input type="submit" name="search" id="search" value="search">
+            <input type="submit" name="search" id="search" value="Search">
         </form>
     </div>
 
@@ -184,7 +184,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
         }
     ?>
 
-<!-- <script>
+<script>
         const container = document.getElementById('header');
         // Load header content
         const xhttp = new XMLHttpRequest();
@@ -196,7 +196,7 @@ list($Week4Start,$Week4End)=Week4StartEnd();
 
         xhttp.open('GET', '../../../student/studentHeader.php', true);
         xhttp.send();
-    </script> -->
+</script>
 </body>
 </html>
 

@@ -7,8 +7,8 @@ include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
 
 //Default current datetime and time after 1 hour
 date_default_timezone_set('Asia/Singapore');
-$CurrentTime = date('h:i a');
-$CurrentTime_1hourAfter = date('h:i a', strtotime('+1 hour'));
+$CurrentTime = date('H:i:s');
+$CurrentTime_10minutesAfter = date('H:i:s', strtotime('+10 minutes'));
 $CurrentDate = date('Y-m-d');
 list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=CurrentWeekDateRange();
 ?>
@@ -30,7 +30,20 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
     <!-- path -->
+
+    
 </head>
+
+</head>
+<!-- header -->
+<header class="button_header">
+    <div class="button">
+        <a href="../../../student/more.php" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>        </a>
+        <h2>Student Directory</h2>
+    </div>
+</header>
+
 <body>
     <div class="wrapper">
         <div class="title">
@@ -117,20 +130,21 @@ list($FirstDay,$SecondDay,$ThirdDay,$FourthDay,$FifthDay,$SixthDay, $LastDate)=C
 
         <div class="FilteredResult">
             <?php
-            if(isset($_POST['filter'])){
+            if($_SERVER['REQUEST_METHOD']==='POST'){
+                if(isset($_POST['filter'])){
                 $FilterDate=$_POST['day'];
                 $FilterRoomType=$_POST['roomType'];
                 $FilterStartTime=$_POST['startTime'];
                 $FilterEndTime=$_POST['endTime'];
+                }
             }
 
             else{
                 $FilterDate=$CurrentDate;
                 $FilterRoomType="Classroom";
                 $FilterStartTime=$CurrentTime;
-                $FilterEndTime=$CurrentTime_1hourAfter;
+                $FilterEndTime=$CurrentTime_10minutesAfter;
             }
-
 
             //Retrieve each classroom details
             $Classroom_query="SELECT * FROM `class` WHERE `room_type`='$FilterRoomType'";

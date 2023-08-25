@@ -25,6 +25,7 @@ FROM class a
 WHERE class_ID=$ClassID";
 $ClassList_result=mysqli_query($connection,$ClassList_query);
 $ClassList_row=mysqli_fetch_assoc($ClassList_result);
+$OriClassName = $ClassList_row['class_name'];
 ?>
 
 </head>
@@ -101,10 +102,12 @@ if (isset($_POST['Edit'])){
     $OpenTime=$_POST['open-time'];
     $CloseTime=$_POST['close-time'];
 
-    // Validation
+    
     $Check="pass";
+    if($ClassName != $OriClassName){
+    //Class Name Validation
     $Check=ClassNameCheck($ClassName);
-    echo $Check;
+    }
 
     //Create New Classroom
     if($Check=="pass"){

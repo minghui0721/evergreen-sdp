@@ -1,9 +1,10 @@
 <?php
+session_start();
 include "dbConn.php";
 include "WeekDateRange.php";
 //<!-- path -->
 
-$StudentID=1;
+$StudentID=$_SESSION['student_ID'];
 
 //Calculate overall attendance percentage
 $OverallAll_query="SELECT * FROM `attendance` WHERE `student_ID`='$StudentID'";
@@ -136,9 +137,15 @@ $OverallPercentage=round($OverallPercentage,2);
                             $SubjectPresent_Count++;
                         }
                     }
+                    if ($SubjectAll_Count==0){
+                        $SubjectPercentage="-";
+                    }
+
+                    else{
                     // Calculate the subject attendance percentage
                     $SubjectPercentage=(($SubjectPresent_Count/$SubjectAll_Count)*100);
                     $SubjectPercentage=round($SubjectPercentage,2)."%";
+                    }
                 }
                 
             ?>
@@ -175,6 +182,6 @@ $OverallPercentage=round($OverallPercentage,2);
 
         xhttp.open('GET', '../../../student/studentHeader.php', true);
         xhttp.send();
-    </script>
+</script>
 </body>
 </html>

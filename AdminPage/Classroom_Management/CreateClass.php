@@ -38,7 +38,7 @@ include "Validation.php";
                         <p>Room Type:</p>
                         <select name="room-type" id="room-type">
                         <option value="Classroom">Classroom</option>
-                        <option value="Lab" >Lab</option>
+                        <option value="Lab">Lab</option>
                         <option value="Auditorium">Auditorium</option>
                         </select>
                     </div>
