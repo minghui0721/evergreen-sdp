@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../../../database/db_connection.php';
-include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+include '../../../assets/favicon/favicon.php'; 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
