@@ -128,7 +128,7 @@ function getOrdinalSuffix($number) {
                             $result_course_program = mysqli_query($conn, $query_course_program);
 
                             if (!$result_course_program) {
-                                echo "Error fetching course program data: " . mysqli_error($connection);
+                                echo "Error fetching course program data: " . mysqli_error($conn);
                                 continue; // Skip this payment and move to the next
                             }
 

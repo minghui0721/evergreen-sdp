@@ -12,14 +12,17 @@ if (isset($_POST['add'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $intake_IDs = $_POST['intake'];  // now an array
+    $image = $_POST['profile']; 
 
     // Insert the data into the lecturer table
-    $query = "INSERT INTO lecturer (lecturer_name, phone, email, password) 
-              VALUES ('$lecturer_name', '$phone', '$email', '$password')";
+    $query = "INSERT INTO lecturer (lecturer_name, phone, email, password, img) 
+          VALUES (?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($connection, $query);
+    mysqli_stmt_bind_param($stmt, "sssss", $lecturer_name, $phone, $email, $password, $image);
 
-    if(mysqli_query($connection, $query)) {
-        // get the ID of the last inserted record (the new lecturer)
+    if(mysqli_stmt_execute($stmt)) {
         $lecturer_ID = mysqli_insert_id($connection);
+
 
         // insert the lecturer_ID and each courseProgram_ID into the lecturer_handle table
         foreach ($intake_IDs as $intake_ID) {
@@ -81,6 +84,9 @@ mysqli_close($connection);
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+
+            <label for="profile">Upload Profile Picture:</label><br>
+            <input type="file" id="profile" name="profile" accept="image/*"required><br><br>
 
             <label class="course-program-label">Course Program:</label>
             <div class="checkbox-container">
