@@ -67,9 +67,43 @@ if ($intakeData) {
 $eventsQuery = "SELECT * FROM `event` WHERE `date` >= CURDATE() ORDER BY `date` ASC LIMIT 5";
 $eventsResult = mysqli_query($conn, $eventsQuery);
 
-  
+// Set the timezone to Malaysia (Asia/Kuala_Lumpur)
+date_default_timezone_set('Asia/Kuala_Lumpur');
+
+// Get the current date
+$currentDate = date('Y-m-d');
+
+
+
+// Initialize an empty array to store timetable data
+$timetableData = array();
+
+// current date time table
+$Timetable_query = "SELECT b.class_name, c.subject_name, d.lecturer_name, a.start_time, a.end_time
+FROM timetable_details a
+INNER JOIN class b
+ON a.class_ID = b.class_ID
+INNER JOIN subject c
+ON a.subject_ID = c.subject_ID
+INNER JOIN lecturer d
+ON a.lecturer_ID = d.lecturer_ID
+WHERE a.intake_ID='$intake_ID' AND a.date = '$currentDate'
+ORDER BY a.start_time ASC";
+$Timetable_result = mysqli_query($conn, $Timetable_query);
+
+while ($Timetable_row = mysqli_fetch_assoc($Timetable_result)) {
+    // Save retrieved data into the timetableData array
+    $timetableData[] = array(
+        'subject' => $Timetable_row['subject_name'],
+        'time' => date('h:i a', strtotime($Timetable_row['start_time'])) . " - " . date('h:i a', strtotime($Timetable_row['end_time'])),
+        'class' => $Timetable_row['class_name'],
+        'lecturer' => $Timetable_row['lecturer_name']
+    );
+}
 
 ?>
+
+        
 
 <!DOCTYPE html>
 <html lang="en">
@@ -141,18 +175,23 @@ function confirmLogout() {
 </script>
 
 <div class="dashboard-content">
-  <div class="schedule-section">
-          <h2>Schedule Today</h2>
-          <ul class="schedule-list">
-            <li>Event Name: Cultural Extravaganza <br>
-                Date: 2023-09-30 <br>
-                Time: 18:30:00 - 21:00:00 <br>
-                Location: Cultural Center
-            </li>
-          </ul>
-
-                  
+<div class="schedule-section">
+        <h2>Schedule Today</h2>
+        <ul class="schedule-list">
+            <?php
+            // Loop through the timetableData array and display the information
+            foreach ($timetableData as $data) {
+              echo '<li>';
+              echo '<strong>Subject:</strong> ' . $data['subject'] . '<br>';
+              echo '<strong>Time:</strong> ' . $data['time'] . '<br>';
+              echo '<strong>Class:</strong> ' . $data['class'] . '<br>';
+              echo '<strong>Lecturer:</strong> ' . $data['lecturer'] . '<br>';
+              echo '</li>';
+            }
+            ?>
+        </ul>
     </div>
+
 
   <div class="events-section">
         <h2>Upcoming Events</h2>
