@@ -48,6 +48,15 @@ if (isset($_POST['btnResetPassword'])) {
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Request';
             $mail->Body = "Click the following link to reset your password: $reset_link";
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+            
+
 
             if ($mail->send()) {
                 echo "<script>alert('An email with instructions to reset your password has been sent. Please check your inbox.');</script>";
