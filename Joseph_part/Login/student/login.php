@@ -2,12 +2,11 @@
 session_start();
 include '../../../database/db_connection.php';
 include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
-
 if (isset($_POST['btnLogin'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM student WHERE email = '$email'";
+    $query = "SELECT * FROM student WHERE email = '$email' ORDER BY student_ID DESC LIMIT 1";
     $results = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($results);
     $count = mysqli_num_rows($results);

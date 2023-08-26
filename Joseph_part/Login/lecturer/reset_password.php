@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'dbConn.php';
+include '../../../database/db_connection.php';
+include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
 
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
@@ -8,7 +9,7 @@ if (isset($_GET['token'])) {
     // Check if the token exists in the database and is not expired
     $current_time = time();
     $query = "SELECT * FROM lecturer WHERE reset_token = '$token' AND reset_expiration > '$current_time'";
-    $results = mysqli_query($connection, $query);
+    $results = mysqli_query($conn, $query);
     $count = mysqli_num_rows($results);
 
     if ($count == 1) {
