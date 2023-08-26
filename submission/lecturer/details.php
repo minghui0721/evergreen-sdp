@@ -1,4 +1,7 @@
 <?php
+session_start();
+include '../../assets/favicon/favicon.php';
+
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -53,6 +56,8 @@ if (isset($_GET['assignment_ID'])) {
             <link rel='stylesheet' href='../moodle/home.css'>
             <link rel='stylesheet' href='setup.css'>
             <link rel='stylesheet' href='details.css'>
+            <link rel='icon' href='$faviconPath' type='image/png'>
+            <link rel='stylesheet' href='animate.css'> <!-- Add the animate.css link -->
         </head>
         <script>
         function goBack() {

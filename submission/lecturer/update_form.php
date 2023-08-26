@@ -1,4 +1,6 @@
 <?php
+session_start();
+include '../../assets/favicon/favicon.php';
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -40,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Assignment Setup Form</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="setup.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
 </head>
 <script>    
 function goBack() {

@@ -14,10 +14,12 @@ function SubjectCheck($SubjectID,$IntakeID){
     $CheckSub_query="SELECT * FROM `subject` WHERE `subject_ID`='$SubjectID' AND `courseProgram_ID`='$CoProID'";
     $CheckSub_result=mysqli_query($connection,$CheckSub_query);
     $CheckSub_count=mysqli_num_rows($CheckSub_result);
-    echo $CheckSub_count;
 
     if($CheckSub_count==0){
         return "Subject Error";
+    }
+    else{
+        return "pass";
     }
 }
 
@@ -43,6 +45,11 @@ function TimeCheck($ClassID, $Date, $StartTime, $EndTime){
     // Check either there is any class in progress between the input time interval based on class
     $TimetableCheck_query="SELECT `start_time`, `end_time` FROM `timetable_details` WHERE `class_ID`='$ClassID' AND `date`='$Date'";
     $TimetableCheck_result=mysqli_query($connection,$TimetableCheck_query);
+    $TimetableCheck_count=mysqli_num_rows($TimetableCheck_result);
+
+    if($TimetableCheck_count<=0){
+        return "pass";
+    }
 
     while($TimetableCheck_row=mysqli_fetch_assoc($TimetableCheck_result)){
         $ClassStart=date('H:i', strtotime($TimetableCheck_row['start_time']));
@@ -51,6 +58,7 @@ function TimeCheck($ClassID, $Date, $StartTime, $EndTime){
 
 
         if(($StartTime<$ClassStart && $EndTime<=$ClassStart) || ($StartTime>=$ClassEnd && $EndTime>$ClassEnd)){
+            return "pass";
         }
         else{
             return "Time Error";

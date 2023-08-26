@@ -1,4 +1,6 @@
 <?php
+include "../Admin_header/AdminHeader.php";
+
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -11,17 +13,13 @@ $connection = mysqli_connect($host, $user, $password, $database);
 if ($connection === false) {
     die('Connection failed: ' . mysqli_connect_error());
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment Setup Form</title>
-    <link rel="stylesheet" href="../moodle/home.css">
-    <link rel="stylesheet" href="setup.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="view_grading.css?v=<?php echo time(); ?>">
 </head>
 <script>    
 function goBack() {
@@ -32,33 +30,36 @@ function goBack() {
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-<header>
-    <div class="header-content">
-        <a href="#" onclick="goBack()"><button class="backbtn">Back</button></a>
-        <a href="home.html"></a>
-            <img src="../moodle/img/logo.png" height="80" weight="420" alt="Error" class="logo">
-        </a>
-        <h2 class="setup_title">Exam Grading</h2>
-    </div>
+<style>
+    .AcademicManagement{
+        display: block;
+    }
 
-    <hr id="header_line">
-</header>
+    .AcademicManagement .ViewGrading{
+        color: #5c5adb;
+    }
+</style>
 
 <body>
-<div class="container_grade">
-<h2 class="history_title">Exam Grading</h2>
-        <br>
-        <table style="width:80%">
-            <tr>
+    <div class="wrapper">
+        <div class="title">
+            <h1>View Grading</h1>
+        </div>
+        
+        <div class="container_grade">
+            <br>
+            <table>
+                <tr>
                 <th>Grade ID</th>
                 <th>Exam ID</th>
                 <th>Course Program</th>
-                <th>Student Name </th>
+                <th>Student Name</th>
                 <th>Subject Name</th>
                 <th>Exam Marks</th>
-                <th style="width: 130px;">Action</th>
-            </tr>
-            <?php
+                <th>Assignment Marks</th>
+                </tr>   
+
+                <?php
             $sql = "SELECT g.grade_ID, g.exam_ID, g.courseProgram_ID, g.student_ID, e.subject_ID, g.grade
                     FROM grade g
                     JOIN exam e ON g.exam_ID = e.exam_ID";
@@ -89,13 +90,20 @@ function goBack() {
                 echo "<td>" . $subjectRow["subject_name"] . "</td>";
 
                 echo "<td>" . $row["grade"] . "</td>";
+                $assignmentQuery = "SELECT grade FROM assignment_grading WHERE student_ID = $studentID";
+                    $assignmentResult = $connection->query($assignmentQuery);
+                    $assignmentRow = $assignmentResult->fetch_assoc();
 
-                echo "<td><a href='grade_exam.php?id=" . $row["grade_ID"] . "&prevPage=" . urlencode($_SERVER['REQUEST_URI']) . "'><button style='margin-left: 15px;'>Grade</button></a></td>";
+                    // If assignment marks exist, display them; otherwise, display N/A
+                    $assignmentMarks = $assignmentRow ? $assignmentRow["grade"].' <ion-icon name="medal-outline" style="font-size: 17px;"></ion-icon>' : 'N/A <ion-icon name="close-circle-outline"style="font-size: 17px;"></ion-icon>';
+                    echo "<td>" . $assignmentMarks . "</td>";
                 echo "</tr>";
             }
             $connection->close();
             ?>
-        </table>
+        </table> 
+        </div>
     </div>
 </body>
+</html>
 

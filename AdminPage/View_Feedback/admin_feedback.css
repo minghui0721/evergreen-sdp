@@ -3,22 +3,19 @@
   margin: 0;
   padding: 0;
   float: right;
-  font-family: Arial, sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #1d1d36; /* Darker blue background */
     color: #fff;
   }
   
-  h1 {
+  .wrapper h1 {
     padding: 20px;
     color: #fff;
     text-align: center;
-    font-family: "Cooper Black";
-    font-size: 24px;
+    font-size: 30px;
     margin: 0;
   }
   
@@ -59,11 +56,6 @@ body {
     text-align: left;
   }
   
-  th {
-    background-color: #002349; 
-    color: #fff;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
   
   tr:hover {
     background-color: #5c5adb; /* Violet on hover */
@@ -72,7 +64,13 @@ body {
   /* Optional styling for the table */
   .container table {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  th {
+    background-color: #002349; 
+    font-size: 20px;
+    color: #fff;
   }
   
   .container th, .container td {

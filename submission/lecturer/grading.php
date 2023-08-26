@@ -1,3 +1,9 @@
+<?php
+session_start(); // Start the session
+include '../../assets/favicon/favicon.php';
+$lecturer_ID = $_SESSION['lecturer_ID'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +12,7 @@
     <title>Grading Page</title>
     <link rel="stylesheet" href="../moodle/home.css">
     <link rel="stylesheet" href="grading.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png"> 
 </head>
 <script>    
 function goBack() {
@@ -31,8 +38,6 @@ function goBack() {
 <div class="container_setup">
         <h1 class="title_setup">Grading Form</h1>
         <?php
-        session_start(); // Start the session
-
         $host = 'localhost';
         $user = 'root';
         $password = '';

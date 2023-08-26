@@ -1,3 +1,44 @@
+/* Header */
+.button_header{
+    padding: 30px;
+    padding-left: 50px;
+    color: white;
+    background-color: #1d1d36;
+}
+.button_header .back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #5c5adb;
+    transition: color 0.3s;
+    
+}
+
+.button_header .back-button svg {
+    fill: white;
+    width: 24px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.button_header .back-button:hover {
+    color: #3f3d56;
+    opacity: 0.5;
+}
+
+
+.button_header .button {
+    display: flex;
+    align-items: center;
+}
+
+.button_header h2 {
+    font-size: 24px;
+    height: 30px;
+    margin-left: 10px;
+    padding-top: 4px;
+}
+
 body{
     background-color: #1d1d36;
     font-family: 'Belanosima', sans-serif;
@@ -9,7 +50,7 @@ body{
 .title{
     width: 80%;
     /* background-color: aqua; */
-    margin: 100px 0 0 200px;
+    margin: 0 0 0 200px;
 }
 
 .title h1{

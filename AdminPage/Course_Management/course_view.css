@@ -264,3 +264,6 @@ input[type="file"]:hover {
     margin-bottom: 20px;
 }
 
+.modal img{
+    max-width: 650px;
+}

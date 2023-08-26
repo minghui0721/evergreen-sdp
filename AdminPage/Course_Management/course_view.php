@@ -3,7 +3,8 @@ include 'db_connection.php';
 include "../Admin_header/AdminHeader.php";
 
 // Retrieve enrollment requests from the database
-$query = "SELECT * FROM course_program ";
+$query = "SELECT * FROM course_program 
+ORDER BY `program_name` DESC";
 
 $result = mysqli_query($conn, $query);
 
@@ -74,7 +75,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                         <th>No.</th>
                         <th>Course Name</th>
                         <th>Program Name</th>
-                        <th>Intake</th>
+                        <!-- <th>Intake</th> -->
                         <th>Course Description</th>
                         <th>Program Description</th>
                         <th>Action</th>
@@ -96,17 +97,16 @@ while ($row = mysqli_fetch_assoc($result)) {
                         echo '<td>' . $programName . '</td>';
 
                         // Find the matching intake data using the courseProgram_ID
-                        $intakeQuery = "SELECT *  FROM intake WHERE courseProgram_ID = '$courseProgramID'";
-                        $intakeResult = mysqli_query($conn, $intakeQuery);
+                    //     $intakeQuery = "SELECT *  FROM intake WHERE courseProgram_ID = '$courseProgramID'";
+                    //     $intakeResult = mysqli_query($conn, $intakeQuery);
                     
-                    $intakeRow = mysqli_fetch_assoc($intakeResult);
+                    // $intakeRow = mysqli_fetch_assoc($intakeResult);
 
-                        $intakeID = $intakeRow['intake_ID'];
-                        $intake = $intakeRow['intake'];
-                        $open = $intakeRow['opening_date'];
+                    //     $intakeID = $intakeRow['intake_ID'];
+                    //     $intake = $intakeRow['intake'];
+                    //     $open = $intakeRow['opening_date'];
 
-                        echo '<td>' . $intake . '</td>';
-
+                        // echo '<td>' . $intake . '</td>';
                         echo '<td>' . $course['coursedescription'] . '</td>';
                         echo '<td>' . $course['description'] . '</td>';
 

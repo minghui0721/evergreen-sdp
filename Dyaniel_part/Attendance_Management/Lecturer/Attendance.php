@@ -1,5 +1,5 @@
 <?php
-include '../../../database/db_connection.php';
+include "dbConn.php";
 // <!-- path -->
 
 // Determine either the attendance is exist or not, if not create attendance
