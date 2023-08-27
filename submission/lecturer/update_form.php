@@ -59,7 +59,7 @@ function goBack() {
         <a href="home.html"></a>
             <img src="../moodle/img/logo.png" height="80" weight="420" alt="Error" class="logo">
         </a>
-        <h2 class="setup_title">Update Submission Date</h2>
+        <h2 class="setup_title">Update Submission Details</h2>
     </div>
 
     <hr id="header_line">
