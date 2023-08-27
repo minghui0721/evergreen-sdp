@@ -16,7 +16,6 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
     <link rel="stylesheet" href="../assets/css/index.css?v=<?php echo time(); ?>">  
     <script>
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
-
     </script>
 </head>
 <body>
