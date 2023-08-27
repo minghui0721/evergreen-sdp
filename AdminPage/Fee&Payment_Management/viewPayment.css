@@ -103,6 +103,7 @@ table tr {
 /* Style table data cells */
 table td {
   text-align: center;
+  font-size: 18px;
   padding: 1.3rem;
   margin: 1.3rem;
   vertical-align: top;
@@ -112,7 +113,6 @@ table td {
 
 /* Style table header */
 table th {
-  font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;

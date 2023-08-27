@@ -15,9 +15,8 @@
 /* Style for the form heading */
 .container h1 {
   text-align: center;
-  font-family: "Cooper Black", Arial, sans-serif;
   color: #ffffff;
-  font-size: 36px;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 
@@ -30,7 +29,7 @@
 .container label {
   display: block;
   font-weight: bold;
-  color: #1d1d36;
+  color: white;
   margin-bottom: 8px;
 }
 
@@ -67,4 +66,8 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #545972;
+}
+
+.edit-form h2{
+  color: white;
 }

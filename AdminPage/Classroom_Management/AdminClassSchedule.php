@@ -18,8 +18,9 @@ $Date=$_POST['date'];
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../../assets/images/evergreen-logo(without background).png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="AdminClassSchedule_style.css?v=<?php echo time(); ?>">
-    <title>A-02-04 Class Schedule</title>
+    <title>Evergreen Heights University</title>
     <!-- path -->
 </head>
 <body>

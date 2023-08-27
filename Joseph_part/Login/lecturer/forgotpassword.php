@@ -2,6 +2,7 @@
 session_start();
 include '../../../database/db_connection.php';
 include '../../../assets/favicon/favicon.php'; // Include the favicon.php file
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -26,7 +27,7 @@ if (isset($_POST['btnResetPassword'])) {
 
         if (mysqli_query($conn, $update_query)) {
             // Send an email to the user with the password reset link
-            $reset_link = "http://localhost/SDP/Login/lecturer/Lecturer_Login/reset_password.php?token=$token";
+            $reset_link = "http://localhost/evergreen-sdp/evergreen-sdp/Joseph_part/Login/lecturer/reset_password.php?token=$token";
 
             require '../../SendEmail/PHPMailer.php';;
             require '../../SendEmail/SMTP.php';
@@ -47,6 +48,13 @@ if (isset($_POST['btnResetPassword'])) {
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Request';
             $mail->Body = "Click the following link to reset your password: $reset_link";
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
 
             if ($mail->send()) {
                 echo "<script>alert('An email with instructions to reset your password has been sent. Please check your inbox.');</script>";

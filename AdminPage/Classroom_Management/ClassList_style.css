@@ -24,7 +24,6 @@ body{
 .TitleBar h1{
     color: white;
     font-size: 50px;
-    text-decoration: underline;
     margin: 15px 50px;
     float: left;
     display: inline;

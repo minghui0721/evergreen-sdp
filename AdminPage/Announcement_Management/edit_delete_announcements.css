@@ -14,7 +14,6 @@ body {
 }
 
 .container {
-  font-family: "Dream Outloud Pro", Arial, sans-serif;
   line-height: 1.6;
   max-width: 820px;
   max-height: 590px;
@@ -42,31 +41,18 @@ body {
 
 .container h1 {
   text-align: center;
-  font-family: "Cooper Black", Arial, sans-serif;
   color: white;
-  font-size: 36px;
+  font-size: 40px;
   margin-bottom: 20px;
 }
 
-.announcement {
+.announcements {
   position: relative; /* Add this to enable relative positioning */
-  padding: 20px;
   background-color: #5c5adb;
+  color: white;
+  font-size: 17px;
   border-radius: 8px;
   margin-bottom: 20px;
-}
-
-.announcement h3 {
-  color: #ececf5;
-}
-
-.announcement p {
-  color: #f7f7f9;
-}
-
-.announcement .publish-date {
-  color: #545972;
-  font-style: italic;
 }
 
 .edit-delete-buttons {

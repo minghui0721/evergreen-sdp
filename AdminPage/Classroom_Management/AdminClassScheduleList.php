@@ -20,7 +20,7 @@ $DateWithDay[6]= date('d M Y', strtotime($LastDate)).", Sat";
 ?>
     <link rel="stylesheet" type="text/css" href="AdminClassScheduleList_style.css?v=<?php echo time(); ?>">
     <!-- path -->
-    <title>Class Schedule</title>
+    <title>Evergreen Heights University</title>
 
 <style>
     .AcademicManagement{
