@@ -65,4 +65,3 @@ if (isset($_POST['btnSubmit'])) {
     $connection->close();
 }
 ?>
-<!-- Rest of your HTML code -->

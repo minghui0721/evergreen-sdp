@@ -218,7 +218,6 @@ if ($resultCheckSubjectID && mysqli_num_rows($resultCheckSubjectID) > 0) {
                     <h4>File Submissions: <a href="upload.php?subject_id=<?php echo $ID; ?>&assignment_id=<?php echo $assignmentID; ?>" class="submission_button">Submit</a></h4>
                 <?php } ?>
             </div>
-
     </div>
     <?php
 }
