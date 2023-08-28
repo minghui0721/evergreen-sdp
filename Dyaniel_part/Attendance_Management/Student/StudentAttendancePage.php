@@ -16,8 +16,13 @@ $OverallPresent_query="SELECT * FROM `attendance` WHERE `student_ID`='$StudentID
 $OverallPresent_result=mysqli_query($connection,$OverallPresent_query);
 $OverallPresent=mysqli_num_rows($OverallPresent_result);
 
-$OverallPercentage=($OverallPresent/$OverallAll)*100;
-$OverallPercentage=round($OverallPercentage,2);
+if($OverallPresent>0){
+    $OverallPercentage=($OverallPresent/$OverallAll)*100;
+    $OverallPercentage=round($OverallPercentage,2);
+}
+else{
+    $OverallPercentage=0;
+}
 
 
 ?>
