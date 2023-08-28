@@ -169,8 +169,6 @@ list($Week4Start,$Week4End)=Week4StartEnd();
                     <h3><?php echo $Subject;?></h3>
                     <P class="Time"><?php echo $Time;?></P>
                     <p class="Class">Class: <?php echo $Class;?></p>
-                </div>
-                <div class="Right">
                     <p class="Lecturer">Lecturer: <?php echo $Lecturer;?></p>
                 </div>
             </div>

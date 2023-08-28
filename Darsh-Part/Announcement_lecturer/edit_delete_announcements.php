@@ -3,7 +3,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$database = 'sdp';
+$database = 'evergreen_heights_university';
 $connection = mysqli_connect($host, $user, $password, $database);
 
 if (!$connection) {

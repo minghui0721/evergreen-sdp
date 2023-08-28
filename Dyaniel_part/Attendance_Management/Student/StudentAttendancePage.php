@@ -152,7 +152,7 @@ $OverallPercentage=round($OverallPercentage,2);
 
             <div class="SubjectAttendance_Box">
                 <div class="Subject">
-                    <h3>·&nbsp;<?php echo $SubjectName?></h3>
+                    <p>·&nbsp;<?php echo $SubjectName?></p>
                 </div>
 
                 <div class="TotalClasses">
