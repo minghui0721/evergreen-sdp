@@ -1,4 +1,5 @@
 <?php
+include '../../assets/favicon/favicon.php'; // Include the favicon.php file
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -122,6 +123,7 @@ if ($resultSubmission->num_rows > 0) {
     <title><?php echo $subjectName; ?></title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="course.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
 </head>
 <script>
 function goBack() {
