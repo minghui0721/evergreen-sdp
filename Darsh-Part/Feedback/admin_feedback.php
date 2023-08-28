@@ -18,21 +18,17 @@
       </tr>
       <?php
         // Establish database connection
-        $host = 'localhost';
-        $user = 'root';
-        $password = '';
-        $database = 'sdp';
-        $connection = mysqli_connect($host, $user, $password, $database);
+        include '../../database/db_connection.php';
 
         // Check connection
-        if (!$connection) {
+        if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
 
         // Handle delete operation if "delete" parameter is passed in the URL
         if (isset($_GET['delete'])) {
           $delete_id = $_GET['delete'];
-          $stmt = $connection->prepare("DELETE FROM feedback WHERE id = ?");
+          $stmt = $conn->prepare("DELETE FROM feedback WHERE id = ?");
           $stmt->bind_param("i", $delete_id);
           $stmt->execute();
           $stmt->close();
@@ -42,7 +38,7 @@
 
         // Fetch feedback responses from the database
         $sql = "SELECT * FROM feedback";
-        $result = $connection->query($sql);
+        $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -58,7 +54,7 @@
         }
 
         // Close connection
-        $connection->close();
+        $conn->close();
       ?>
     </table>
   </div>

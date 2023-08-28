@@ -95,6 +95,17 @@ if (isset($_GET['action'])) {
             echo "<script>alert('Fee ID not found for the selected course program');</script>";
             echo "<script>window.location.href = 'enrollment_request.php';</script>";
         }
+    } elseif ($action === 'reject') {
+    // Update status to "Rejected" in the enrollment_form table
+    $updateQuery = "UPDATE enrollment_form SET status = 'Rejected' WHERE enrollment_ID = $enrollmentID";
+    $updateResult = mysqli_query($conn, $updateQuery);
+
+    if ($updateResult) {
+        echo "<script>alert('Enrollment request rejected successfully');</script>";
+        echo "<script>window.location.href = 'enrollment_request.php';</script>";
+    } else {
+        echo "<script>alert('Error occurred while rejecting enrollment request');</script>";
+        echo "<script>window.location.href = 'enrollment_request.php';</script>";
     }
-}
+}}
 ?>

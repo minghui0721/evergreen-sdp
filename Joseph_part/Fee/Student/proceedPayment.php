@@ -41,7 +41,7 @@ if ($payment_data['installment_ID'] == 0 && isset($payment_data['fee_ID'])) {
         $fee_data = mysqli_fetch_assoc($fee_result);
         $payment_amount = $fee_data['total_amount'];
     } else {
-        echo "Error fetching fee details: " . mysqli_error($connection);
+        echo "Error fetching fee details: " . mysqli_error($conn);
         exit; // Exit the script
     }
 } elseif ($payment_data['installment_ID'] > 0) {
@@ -49,13 +49,13 @@ if ($payment_data['installment_ID'] == 0 && isset($payment_data['fee_ID'])) {
     // Fetch the installment count based on the installment_ID
     $installment_ID = $payment_data['installment_ID'];
     $installment_query = "SELECT installment_count FROM installment WHERE installment_ID = $installment_ID";
-    $installment_result = mysqli_query($connection, $installment_query);
+    $installment_result = mysqli_query($conn, $installment_query);
 
     if ($installment_result && mysqli_num_rows($installment_result) > 0) {
         $installment_row = mysqli_fetch_assoc($installment_result);
         $installment_count = $installment_row['installment_count'];
     } else {
-        echo "Error fetching installment count: " . mysqli_error($connection);
+        echo "Error fetching installment count: " . mysqli_error($conn);
         exit; // Exit the script
     }
 } else {
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '<script>alert("Error sending email receipt: ' . $mail->ErrorInfo . '");</script>';
         }
     } else {
-        echo '<script>alert("Error updating payment status: ' . mysqli_error($connection) . '");</script>';
+        echo '<script>alert("Error updating payment status: ' . mysqli_error($conn) . '");</script>';
     }
 }
 ?>

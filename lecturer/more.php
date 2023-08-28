@@ -36,11 +36,6 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
 <div class="background_div"></div>
 
 <div class="functions">
-    <a href="../Joseph_part/Fee/Student/studentPayment.php">
-        <div class="grid function1">
-            <h2>Fees</h2>
-        </div>
-    </a>
                 
     <a href="../Dyaniel_part/Classroom_Management/Lecturer/ClassFinder.php">
         <div class="grid function2">
@@ -48,12 +43,12 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
         </div>
     </a>
 
-    <a href="../Darsh-Part/Feedback/FeedbackStudent.php">
+    <a href="../Darsh-Part/Feedback/admin_feedback.php">
         <div class="grid function3">
                 <h2>Feedback</h2>
         </div>
     </a>    
-    <a href="../submission/moodle/home.php">
+    <a href="../submission/lecturer/lecturer_home.php">
         <div class="grid function4">
                 <h2>Course Material</h2>
         </div>
@@ -81,6 +76,11 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
     <a href="../appointment/appointment.php">
         <div class="grid function9">
                 <h2>Manage Consultation</h2>
+        </div>
+    </a>    
+    <a href="../appointment/appointment.php">
+        <div class="grid function10">
+                <h2>Holidays</h2>
         </div>
     </a>    
 </div>

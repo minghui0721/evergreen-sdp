@@ -33,6 +33,7 @@ if ($enrollmentData) {
 }
 
 
+
 // Retrieve enrollment image from the database
 $enrollmentQuery = "SELECT profile FROM enrollment_form WHERE enrollment_ID='$enrollment_ID'";
 $enrollmentResult = mysqli_query($conn, $enrollmentQuery);
@@ -72,7 +73,6 @@ date_default_timezone_set('Asia/Kuala_Lumpur');
 
 // Get the current date
 $currentDate = date('Y-m-d');
-
 
 
 // Initialize an empty array to store timetable data
