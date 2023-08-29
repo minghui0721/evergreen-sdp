@@ -76,7 +76,7 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
 </script>
 
 <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script src="https://mediafiles.botpress.cloud/823ae6e1-c24e-4c72-9235-2ec93b927a5c/webchat/config.js" defer></script>
+<script src="https://mediafiles.botpress.cloud/823ae6e1-c24e-4c72-9235-2ec93b927a5c/webchat/config.js" defer></script> 
 
 <script>
         const container = document.getElementById('header');
