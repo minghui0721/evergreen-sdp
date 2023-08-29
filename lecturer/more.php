@@ -43,12 +43,12 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
         </div>
     </a>
 
-    <a href="../Darsh-Part/Feedback/admin_feedback.php">
+    <a href="../Darsh-Part/Feedback/FeedbackStudent.php">
         <div class="grid function3">
                 <h2>Feedback</h2>
         </div>
     </a>    
-    <a href="../submission/lecturer/lecturer_home.php">
+    <a href="../submission/moodle/home.php">
         <div class="grid function4">
                 <h2>Course Material</h2>
         </div>
@@ -63,7 +63,7 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
                 <h2>Lecturer</h2>
         </div>
     </a>    
-    <a href="../Darsh-Part/Career_hub/Job_main_page.php">
+    <a href="../Darsh-Part/Career_hub/Job_main_page_lecturer.php">
         <div class="grid function7">
                 <h2>Career Hub</h2>
         </div>
