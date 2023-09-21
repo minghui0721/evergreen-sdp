@@ -22,7 +22,6 @@ if(isset($_POST['search'])) {
               ORDER BY student_ID ASC";
 }
 
-
 //Execute your query
 $results = mysqli_query($connection, $query);
 ?>

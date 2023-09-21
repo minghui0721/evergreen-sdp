@@ -14,6 +14,7 @@ if(isset($_GET['lecturer_ID'])) {
         $delete_handle_query = "DELETE FROM lecturer_handle WHERE lecturer_ID = '$lecturer_ID'";
 
         if(mysqli_query($connection, $delete_handle_query)) {
+            echo "<script>alert('Lecturer record deleted successfully!');</script>";
             // Redirect back to the lecturer list if successful
             header("Location: lecturerlist.php");
             exit;

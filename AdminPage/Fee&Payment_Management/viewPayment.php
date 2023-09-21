@@ -15,8 +15,6 @@ if (isset($_POST['search']) && !empty($_POST['search'])) {
 
 $results = mysqli_query($connection, $query_all_payments);
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,6 +146,7 @@ $results = mysqli_query($connection, $query_all_payments);
         $installment_amount_row = mysqli_fetch_assoc($installment_amount_result);
         return isset($installment_amount_row['amount']) ? $installment_amount_row['amount'] : "";
     }
+    
     function getFullPaymentAmount($connection, $fee_ID) {
         $full_payment_amount_query = "SELECT total_amount FROM fee WHERE fee_ID = $fee_ID";
         $full_payment_amount_result = mysqli_query($connection, $full_payment_amount_query);

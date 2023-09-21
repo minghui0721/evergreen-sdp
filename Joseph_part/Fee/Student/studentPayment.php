@@ -22,7 +22,7 @@ if ($result_distinct_fees) {
                 $unpaid_payments[] = $payment;
             }
         } else {
-            echo "Error fetching unpaid payment data: " . mysqli_error($connection);
+            echo "Error fetching unpaid payment data: " . mysqli_error($conn);
         }
     }
 } else {
@@ -120,7 +120,7 @@ function getOrdinalSuffix($number) {
                             if ($result_fee) {
                                 $fee = mysqli_fetch_assoc($result_fee);
                             } else {
-                                echo "Error fetching fee data: " . mysqli_error($connection);
+                                echo "Error fetching fee data: " . mysqli_error($tconn);
                             }
 
                             // Fetch program and course details

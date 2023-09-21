@@ -3,7 +3,6 @@ session_start();
 
 $adminEmail = 'admin@email.com';
 $adminPassword = 'admin';
-$errorMessage = '';
 
 if (isset($_POST['btnLogin'])) {
     $email = $_POST['email'];
@@ -13,8 +12,7 @@ if (isset($_POST['btnLogin'])) {
         header("Location: ../Enrollment_Management/enrollment_request.php"); // Replace with the actual admin page
         exit();
     } else {
-        // Incorrect credentials, set an error message
-        $errorMessage = "Incorrect email or password.";
+        echo "<script>alert('Email not found. Please try again.');</script>";
     }
 }
 ?>
