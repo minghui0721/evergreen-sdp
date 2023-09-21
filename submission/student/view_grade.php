@@ -42,6 +42,7 @@ if ($conn === false) {
         xhttp.open('GET', '../../student/studentHeader.php', true);
         xhttp.send();
     </script>
+    <br><br><br><br>
 <div class="container_grade">
             <br>
             <table style="width:90%">

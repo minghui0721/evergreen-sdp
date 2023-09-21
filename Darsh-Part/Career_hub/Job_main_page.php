@@ -14,8 +14,19 @@ include '../../assets/favicon/favicon.php'; // Include the favicon.php file
         document.getElementById("documentTitle").innerText = browserName;   //browserName declared in the config.js
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="main_page.css">
+    <link rel="stylesheet" href="main_page.css?v=<?php echo time(); ?>">
 </head>
+
+</head>
+<!-- header -->
+<header class="button_header">
+    <div class="button">
+        <a href="../../student/more.php" class="back-button">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>        </a>
+        <h2>Student Directory</h2>
+    </div>
+</header>
+
 <body>
     <main>
         <section class="welcome-section">

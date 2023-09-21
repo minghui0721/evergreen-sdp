@@ -19,6 +19,8 @@ $LecturerID=$_SESSION['lecturer_ID'];
     <title>Attendance List</title>
 </head>
 <body>
+<!-- header -->
+<div id="header"></div>
 
     <div class="wrapper">
         <div class="TitleBar">
@@ -93,6 +95,19 @@ $LecturerID=$_SESSION['lecturer_ID'];
         </div>
     </div>
 
+<script>
+    const container = document.getElementById('header');
+    // Load header content
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState === 4 && this.status === 200) {
+        container.innerHTML = this.responseText;
+    }
+    };
+
+    xhttp.open('GET', '../../../lecturer/lecturerHeader.php', true);
+    xhttp.send();
+</script>
 </body>
 </html>
 

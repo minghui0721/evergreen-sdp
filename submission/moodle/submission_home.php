@@ -1,4 +1,5 @@
 <?php
+include '../../assets/favicon/favicon.php'; // Include the favicon.php file
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -122,6 +123,7 @@ if ($resultSubmission->num_rows > 0) {
     <title><?php echo $subjectName; ?></title>
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="course.css">
+    <link rel="icon" href="<?php echo $faviconPath; ?>" type="image/png">
 </head>
 <script>
 function goBack() {
@@ -218,7 +220,6 @@ if ($resultCheckSubjectID && mysqli_num_rows($resultCheckSubjectID) > 0) {
                     <h4>File Submissions: <a href="upload.php?subject_id=<?php echo $ID; ?>&assignment_id=<?php echo $assignmentID; ?>" class="submission_button">Submit</a></h4>
                 <?php } ?>
             </div>
-
     </div>
     <?php
 }

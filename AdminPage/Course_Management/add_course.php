@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $updateSuccess = mysqli_stmt_execute($stmt);
             
             if ($updateSuccess) {
-                echo '<script>alert("Course details updated successfully2!");</script>';
+                echo '<script>alert("Course details updated successfully!");</script>';
             } else {
                 echo '<script>alert("Course details update failed!");</script>';
             }

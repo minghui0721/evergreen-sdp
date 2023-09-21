@@ -74,6 +74,21 @@ include '../assets/favicon/favicon.php'; // Include the favicon.php file
 <!-- footer -->
 <div id="footer"></div>
 
+<div id="botpress-container"></div>
+
+<script>
+    // Initialize Botpress chatbot
+    window.addEventListener('DOMContentLoaded', function () {
+        WebChat.default.init({
+            selector: '#botpress-container', // Specify the selector of your container
+            baseUrl: 'https://mediafiles.botpress.cloud/823ae6e1-c24e-4c72-9235-2ec93b927a5c/webchat/bot.html', // Replace with your Botpress instance URL
+        });
+    });
+</script>
+
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script src="https://mediafiles.botpress.cloud/823ae6e1-c24e-4c72-9235-2ec93b927a5c/webchat/config.js" defer></script>
+
 <script>
         const container = document.getElementById('header');
         const footerContainer = document.getElementById('footer');

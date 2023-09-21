@@ -15,7 +15,7 @@ body{
 .TitleBar{
     background-color: #004085;
     width: 90%;
-    margin: 50px 0 0;
+    margin: 140px 0 0;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
@@ -35,10 +35,11 @@ body{
 .TimetableList{
     color: white;
     width: 90%;
-    max-height: 505px;
+    max-height: 520px;
     margin: 20px 0;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 15px;
     padding: 0;
     overflow: auto;
 }
@@ -50,7 +51,7 @@ body{
 
 .TimetableList::-webkit-scrollbar-thumb{
     border: 2px;
-    background-color: white;
+    background-color: rgb(185, 185, 185);
     border-radius: 10px;
 }
 
@@ -84,7 +85,7 @@ body{
 
 .TimetableList .otp_button{
     color: white;
-    font-size: 15x;
+    font-size: 15px;
     font-weight: bold;
     padding: 10px 30px;
     background-color: #4090db;

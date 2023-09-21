@@ -27,6 +27,9 @@ list($Week4Start,$Week4End)=Week4StartEnd();
     <!-- path -->
 </head>
 <body>
+<!-- header -->
+<div id="header"></div>
+
     <div class="TitleBar">
         <h1>Timetable</h1>
         <form action="#" method="post">
@@ -151,8 +154,6 @@ list($Week4Start,$Week4End)=Week4StartEnd();
                     <h3><?php echo $Subject;?></h3>
                     <P class="Time"><?php echo $Time;?></P>
                     <p class="Class">Class: <?php echo $Class;?></p>
-                </div>
-                <div class="Right">
                     <p class="Intake">Intake: <?php echo $Intake;?></p>
                 </div>
             </div>
@@ -165,6 +166,20 @@ list($Week4Start,$Week4End)=Week4StartEnd();
         $z++;
         }
     ?>
+
+<script>
+        const container = document.getElementById('header');
+        // Load header content
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            container.innerHTML = this.responseText;
+        }
+        };
+
+        xhttp.open('GET', '../../../lecturer/lecturerHeader.php', true);
+        xhttp.send();
+</script>
 </body>
 </html>
 

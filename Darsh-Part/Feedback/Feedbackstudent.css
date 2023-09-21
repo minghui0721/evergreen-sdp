@@ -1,3 +1,44 @@
+/* Header */
+.button_header{
+  padding: 30px;
+  padding-left: 50px;
+  color: white;
+  background-color: #1d1d36;
+}
+.button_header .back-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #5c5adb;
+  transition: color 0.3s;
+  
+}
+
+.button_header .back-button svg {
+  fill: white;
+  width: 24px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.button_header .back-button:hover {
+  color: #3f3d56;
+  opacity: 0.5;
+}
+
+
+.button_header .button {
+  display: flex;
+  align-items: center;
+}
+
+.button_header h2 {
+  font-size: 24px;
+  height: 30px;
+  margin-left: 10px;
+  padding-top: 4px;
+}
+
 /* CSS code for student feedback page */
 body {
   font-family: Arial, sans-serif;
@@ -19,49 +60,41 @@ body {
   text-align: justify;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
-  background-color: #26378e;
-  padding: 20px;
-  color: #fff;
-}
-
-h1 {
+.container h1 {
   color: #ffffff;
   font-size: 28px;
   margin: 0;
   font-family: "Cooper Black";
 }
 
-h2 {
+.container h2 {
   color: #555;
   margin-top: 0;
 }
 
-h3 {
+.container h3 {
   color: #777;
 }
 
-form {
+.container form {
   margin-bottom: 20px;
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 4px;
 }
 
-p {
+.container p {
   font-size: 18px;
   color: #333;
   margin-bottom: 20px;
   line-height: 1.5;
 }
 
-.input-group {
+.container .input-group {
   margin-bottom: 20px;
 }
 
-label {
+.container label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;

@@ -239,12 +239,6 @@ body{
                             </li>
 
                             <li>
-                                <a href="#" class="StudentGrade">
-                                · View students' grade
-                                </a>
-                            </li>
-
-                            <li>
                                 <a href="../Attendance_Management/AdminAttendanceIntake.php" class="StudentAttendance">
                                 · View students' attendance
                                 </a>

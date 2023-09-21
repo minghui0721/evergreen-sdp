@@ -37,7 +37,7 @@ function goBack() {
 
 <body>
     <div class="container_setup">
-        <h2 class="title_setup"> Update Lesson Resource</h2>
+        <h2 class="title_setup"> Create Lesson Resource</h2>
         <form action="" method="post">
             <div class="input-group">
                 <div class="input">
